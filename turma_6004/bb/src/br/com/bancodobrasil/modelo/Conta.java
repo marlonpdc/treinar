@@ -6,4 +6,13 @@ public class Conta {
 	public double saldo;
 	public Cliente proprietario;
 	
+	public void depositar(double valor) {
+		saldo = saldo + valor;
+	}
+	
+	public double recuperarSaldo() {
+		return saldo;
+	}
+	
+	
 }
