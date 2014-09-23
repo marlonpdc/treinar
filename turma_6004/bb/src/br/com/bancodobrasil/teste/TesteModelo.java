@@ -8,11 +8,11 @@ import br.com.bancodobrasil.modelo.Conta;
 public class TesteModelo {
 
 	public static void main(String[] args) {
-		Conta conta = new Conta();
+		Conta conta = new Conta(1000);
 		conta.numeroConta = 10481L;
 		conta.saldo = 2.5;
 		conta.proprietario = new Cliente();
-		conta.proprietario.nome = "Gleidson";
+		conta.proprietario.nome = "Érica";
 		conta.proprietario.cpf = 55546265302L;
 		conta.proprietario.dataNascimento = new Date();
 		
