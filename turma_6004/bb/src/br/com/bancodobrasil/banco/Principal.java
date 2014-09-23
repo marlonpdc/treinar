@@ -1,11 +1,14 @@
 package br.com.bancodobrasil.banco;
 
-import javax.swing.JOptionPane;
+import br.com.bancodobrasil.visao.TelaPrincipal;
+
 
 public class Principal {
 
 	public static void main(String[] args) {
-		JOptionPane.showMessageDialog(null, "Bem vindos ao mundo da TI");
+		TelaPrincipal tp = new TelaPrincipal();
+		tp.init();
+		System.out.println("o programa foi finalizado");
 	}
 	
 }
