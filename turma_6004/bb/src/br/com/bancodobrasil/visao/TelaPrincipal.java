@@ -1,7 +1,6 @@
 package br.com.bancodobrasil.visao;
 
 import javax.swing.JOptionPane;
-import javax.swing.JPopupMenu;
 
 import br.com.bancodobrasil.modelo.Cliente;
 import br.com.bancodobrasil.modelo.banco.Conta;
@@ -17,6 +16,7 @@ public class TelaPrincipal {
 			String msg = "Digite:\n1-Criar Conta\n"
 					+ "2-Depositar\n"
 					+ "3-Exibir Saldo\n"
+					+ "4-Sacar\n"
 					+ "0-Sair";
 			String opcaoStr = JOptionPane.showInputDialog(msg);
 			opcao = Integer.parseInt(opcaoStr);
@@ -38,6 +38,11 @@ public class TelaPrincipal {
 			case 3:
 				Double saldo = c.recuperarSaldo();
 				JOptionPane.showMessageDialog(null,"Saldo: " + saldo);
+				break;
+			case 4:
+				String valorSacadoStr = JOptionPane.showInputDialog("Valor a ser sacado");
+				Double valorSacado = Double.parseDouble(valorSacadoStr);
+				c.sacar(valorSacado);
 				break;
 			case 0:
 				System.out.println("opcao sair 0");

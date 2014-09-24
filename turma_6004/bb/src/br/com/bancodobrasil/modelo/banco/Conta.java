@@ -26,6 +26,9 @@ public class Conta {
 	public double recuperarSaldo() {
 		return saldo;
 	}
+	public void sacar(Double valorSacado) {
+		saldo = saldo - valorSacado;
+	}
 	
 	
 }
