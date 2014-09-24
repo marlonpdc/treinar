@@ -2,7 +2,7 @@ package br.com.bancodobrasil.teste;
 
 import java.util.Scanner;
 
-import br.com.bancodobrasil.modelo.Conta;
+import br.com.bancodobrasil.modelo.banco.Conta;
 
 public class TesteFuncionalidadeAdriana {
 	public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package br.com.bancodobrasil.banco;
+package br.com.bancodobrasil.principal;
 
 import br.com.bancodobrasil.visao.TelaPrincipal;
 

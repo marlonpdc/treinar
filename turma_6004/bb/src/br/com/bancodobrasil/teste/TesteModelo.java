@@ -3,7 +3,7 @@ package br.com.bancodobrasil.teste;
 import java.util.Date;
 
 import br.com.bancodobrasil.modelo.Cliente;
-import br.com.bancodobrasil.modelo.Conta;
+import br.com.bancodobrasil.modelo.banco.Conta;
 
 public class TesteModelo {
 

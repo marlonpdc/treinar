@@ -1,6 +1,6 @@
 package br.com.bancodobrasil.teste;
 
-import br.com.bancodobrasil.modelo.Conta;
+import br.com.bancodobrasil.modelo.banco.Conta;
 
 public class Metodo {
 
@@ -16,7 +16,7 @@ public class Metodo {
 	}
 	
 	public void metodoTres(Conta conta) {
-		conta.depositar(1000);
+		conta.depositar(1000d);
 	}
 	
 	

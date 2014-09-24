@@ -1,6 +1,6 @@
 package br.com.bancodobrasil.teste;
 
-import br.com.bancodobrasil.modelo.Conta;
+import br.com.bancodobrasil.modelo.banco.Conta;
 
 
 public class TesteRetornoMetodo {

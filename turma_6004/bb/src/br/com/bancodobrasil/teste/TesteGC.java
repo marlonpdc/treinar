@@ -1,13 +1,13 @@
 package br.com.bancodobrasil.teste;
 
 import br.com.bancodobrasil.modelo.Cliente;
-import br.com.bancodobrasil.modelo.Conta;
+import br.com.bancodobrasil.modelo.banco.Conta;
 
 public class TesteGC {
 
 	public static void main(String[] args) {
 		Conta c = new Conta();
-		c.saldo = 1000;
+		c.saldo = 1000d;
 		c.proprietario = new Cliente();
 		c.proprietario.nome = "Gleidson";
 		Cliente p = c.proprietario;
