@@ -42,7 +42,12 @@ public class TelaPrincipal {
 			case 4:
 				String valorSacadoStr = JOptionPane.showInputDialog("Valor a ser sacado");
 				Double valorSacado = Double.parseDouble(valorSacadoStr);
-				c.sacar(valorSacado);
+				Boolean sacou = c.sacar(valorSacado);
+				if (sacou) {
+					JOptionPane.showMessageDialog(null, "Saque efetuado com sucesso");
+				} else {
+					JOptionPane.showMessageDialog(null, "Saque não efetuado");
+				}
 				break;
 			case 0:
 				System.out.println("opcao sair 0");
