@@ -17,6 +17,7 @@ public class TelaPrincipal {
 					+ "2-Depositar\n"
 					+ "3-Exibir Saldo\n"
 					+ "4-Sacar\n"
+					+ "5-Exibir Dados\n"
 					+ "0-Sair";
 			String opcaoStr = JOptionPane.showInputDialog(msg);
 			opcao = Integer.parseInt(opcaoStr);
@@ -48,6 +49,9 @@ public class TelaPrincipal {
 				} else {
 					JOptionPane.showMessageDialog(null, "Saque não efetuado");
 				}
+				break;
+			case 5:
+				JOptionPane.showMessageDialog(null, "Numero: " + c.numeroConta + "\ncpf: " + c.proprietario.cpf + "\nnome:" + c.proprietario.nome + "\nsaldo" + c.saldo );
 				break;
 			case 0:
 				System.out.println("opcao sair 0");
