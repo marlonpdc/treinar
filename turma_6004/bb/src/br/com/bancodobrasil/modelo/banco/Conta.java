@@ -26,8 +26,14 @@ public class Conta {
 	public double recuperarSaldo() {
 		return saldo;
 	}
-	public void sacar(Double valorSacado) {
-		saldo = saldo - valorSacado;
+	
+	public Boolean sacar(Double valorSacado) {
+		Boolean sacou = Boolean.FALSE;
+		if (saldo >= valorSacado) {
+			saldo = saldo - valorSacado;
+			sacou = Boolean.TRUE;
+		}
+		return sacou;
 	}
 	
 	
