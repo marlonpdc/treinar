@@ -1,5 +1,7 @@
 package br.com.bancodobrasil.teste;
 
+import br.com.bancodobrasil.modelo.Conta;
+
 public class Metodo {
 
 	public String variavel;
@@ -12,5 +14,10 @@ public class Metodo {
 		String retorno = "depois do processamento eu fui retornada";
 		return retorno;
 	}
+	
+	public void metodoTres(Conta conta) {
+		conta.depositar(1000);
+	}
+	
 	
 }

@@ -1,5 +1,7 @@
 package br.com.bancodobrasil.teste;
 
+import br.com.bancodobrasil.modelo.Conta;
+
 
 public class TesteRetornoMetodo {
 
@@ -9,10 +11,13 @@ public class TesteRetornoMetodo {
 		String atr = metodo.variavel;
 		System.out.println(atr);
 		metodo.metodoUm();
-		metodo.metodoDois();
+		String palavra = metodo.metodoDois();
 		
-		System.out.println("im");
-		
+		System.out.println(palavra);
+		Conta c = new Conta();
+		metodo.metodoTres(c);
+		double saldo = c.recuperarSaldo();
+		System.out.println(saldo);
 	}
 	
 }
