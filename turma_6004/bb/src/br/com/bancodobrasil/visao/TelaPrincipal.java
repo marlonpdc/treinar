@@ -40,9 +40,17 @@ public class TelaPrincipal {
 				((ContaCorrente)c).pacote = new Pacote();
 				String tarifaStr = JOptionPane.showInputDialog(" Informe o valor da tarifa");
 				((ContaCorrente)c).pacote.tarifa = Double.parseDouble(tarifaStr);
-				break;
+					break;
 			case 2:
-				//TODO - Erica 
+				c = new ContaPoupanca();
+				numeroContaStr = JOptionPane.showInputDialog("Informe o número da conta"); 
+				c.numeroConta = Long.parseLong(numeroContaStr);
+				c.proprietario = new Cliente();
+				c.proprietario.nome = JOptionPane.showInputDialog("Informe o nome do proprietario da conta");
+				cpfStr = JOptionPane.showInputDialog("Informe o cpf do proprietario da conta");
+				c.proprietario.cpf = Long.parseLong(cpfStr);
+				
+
 				break;
 			case 3:
 				String valorDepositadoStr = JOptionPane.showInputDialog("Valor a ser depositado");
@@ -64,23 +72,22 @@ public class TelaPrincipal {
 				}
 				break;
 			case 6:
-				String dados = "Numero: " + c.numeroConta + "\ncpf: " + c.proprietario.cpf + "\nnome:" + c.proprietario.nome + "\nsaldo" + c.saldo + "\nConta Corrente";
+				String dados = "Numero: " + c.numeroConta + "\ncpf: " + c.proprietario.cpf + "\nnome:" + c.proprietario.nome + "\nsaldo" + c.saldo;
 				if (c instanceof ContaCorrente) {
-					dados += "\nTarifa: " + ((ContaCorrente)c).pacote.tarifa;
+					dados += "\nTarifa: " + ((ContaCorrente)c).pacote.tarifa + "\nConta Corrente";
 				}else if (c instanceof ContaPoupanca) {
-					//TODO Erica
+					dados += "\nTaxa de Rendimento: " + ContaPoupanca.taxaRendimento + "\nConta Poupança";
 				}
-
 				JOptionPane.showMessageDialog(null, dados);
 				break;
 			case 7:
-				String taxaRendimentoStr = JOptionPane.ShowInputDialog("Informe a taxa de Rendimento: ");
+				String taxaRendimentoStr = JOptionPane.showInputDialog("Informe a taxa de Rendimento: ");
 				Double taxaRendimento = Double.parseDouble(taxaRendimentoStr);
-				cp.rendimento(taxaRendimento);
+				ContaPoupanca.taxaRendimento = taxaRendimento;
 				break;
 			case 8:
 				//TODO adriana	
-				Double taxaRendimento = ContaPoupanca.taxaRendimento;
+				taxaRendimento = ContaPoupanca.taxaRendimento;
 				JOptionPane.showMessageDialog(null,"Taxa de Rendimento: " + taxaRendimento);
 				break;
 			case 0:
