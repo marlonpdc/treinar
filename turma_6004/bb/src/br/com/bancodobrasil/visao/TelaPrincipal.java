@@ -7,6 +7,7 @@ import br.com.bancodobrasil.modelo.ContaCorrente;
 import br.com.bancodobrasil.modelo.ContaPoupanca;
 import br.com.bancodobrasil.modelo.Pacote;
 import br.com.bancodobrasil.modelo.banco.Conta;
+import br.com.bancodobrasil.util.BBUtil;
 
 public class TelaPrincipal {
 	
@@ -16,7 +17,8 @@ public class TelaPrincipal {
 		
 		do {
 			
-			String msg = "Digite:\n"
+			String msg = "Bem vindos ao " + BBUtil.nomeBanco + "\n"
+					+ "Digite:\n"
 					+ "1 - Conta Corrente\n"
 					+ "2 - Conta Poupança\n"
 					+ "3 - Depositar\n"
@@ -25,6 +27,7 @@ public class TelaPrincipal {
 					+ "6 - Exibir Dados\n"
 					+ "7 - Cadastrar Taxa Rendimento\n"
 					+ "8 - Exibir Taxa Rendimento\n"
+					+ "9 - Sacar"
 					+ "0 - Sair";
 			String opcaoStr = JOptionPane.showInputDialog(msg);
 			opcao = Integer.parseInt(opcaoStr);
@@ -49,8 +52,6 @@ public class TelaPrincipal {
 				c.proprietario.nome = JOptionPane.showInputDialog("Informe o nome do proprietario da conta");
 				cpfStr = JOptionPane.showInputDialog("Informe o cpf do proprietario da conta");
 				c.proprietario.cpf = Long.parseLong(cpfStr);
-				
-
 				break;
 			case 3:
 				String valorDepositadoStr = JOptionPane.showInputDialog("Valor a ser depositado");

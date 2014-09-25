@@ -7,12 +7,17 @@ public class ContaPoupanca extends Conta {
 	public static Double taxaRendimento;
 	
 	static {
-		System.out.println("construtor de static");
 		taxaRendimento = 0d;
 	}
-	
-	public ContaPoupanca() {
-		System.out.println("construtor de instancia");
+
+	@Override
+	public Boolean sacar(Double valorSacado) {
+		Boolean sacou = Boolean.FALSE;
+		if (saldo >= valorSacado) {
+			saldo = saldo - valorSacado;
+			sacou = Boolean.TRUE;
+		}
+		return sacou;
 	}
 	
 }

@@ -27,14 +27,7 @@ public abstract class Conta {
 		return saldo;
 	}
 	
-	public Boolean sacar(Double valorSacado) {
-		Boolean sacou = Boolean.FALSE;
-		if (saldo >= valorSacado) {
-			saldo = saldo - valorSacado;
-			sacou = Boolean.TRUE;
-		}
-		return sacou;
-	}
+	public abstract Boolean sacar(Double valorSacado); 
 	
 	
 }
