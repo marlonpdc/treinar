@@ -74,7 +74,9 @@ public class TelaPrincipal {
 				JOptionPane.showMessageDialog(null, dados);
 				break;
 			case 7:
-				//TODO alanderson
+				String taxaRendimentoStr = JOptionPane.ShowInputDialog("Informe a taxa de Rendimento: ");
+				Double taxaRendimento = Double.parseDouble(taxaRendimentoStr);
+				cp.rendimento(taxaRendimento);
 				break;
 			case 8:
 				//TODO adriana	
