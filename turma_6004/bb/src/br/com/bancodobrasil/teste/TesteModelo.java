@@ -3,12 +3,13 @@ package br.com.bancodobrasil.teste;
 import java.util.Date;
 
 import br.com.bancodobrasil.modelo.Cliente;
+import br.com.bancodobrasil.modelo.ContaCorrente;
 import br.com.bancodobrasil.modelo.banco.Conta;
 
 public class TesteModelo {
 
 	public static void main(String[] args) {
-		Conta conta = new Conta(1000);
+		Conta conta = new ContaCorrente();
 		conta.numeroConta = 10481L;
 		conta.saldo = 2.5;
 		conta.proprietario = new Cliente();

@@ -2,11 +2,12 @@ package br.com.bancodobrasil.teste;
 
 import java.util.Scanner;
 
+import br.com.bancodobrasil.modelo.ContaCorrente;
 import br.com.bancodobrasil.modelo.banco.Conta;
 
 public class TesteFuncionalidadeAlanderson {
 	public static void main(String[] args) {
-		Conta conta = new Conta();
+		Conta conta = new ContaCorrente();
 		
 		Scanner input = new Scanner(System.in);
 				

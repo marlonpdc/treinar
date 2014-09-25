@@ -3,6 +3,9 @@ package br.com.bancodobrasil.visao;
 import javax.swing.JOptionPane;
 
 import br.com.bancodobrasil.modelo.Cliente;
+import br.com.bancodobrasil.modelo.ContaCorrente;
+import br.com.bancodobrasil.modelo.ContaPoupanca;
+import br.com.bancodobrasil.modelo.Pacote;
 import br.com.bancodobrasil.modelo.banco.Conta;
 
 public class TelaPrincipal {
@@ -13,23 +16,28 @@ public class TelaPrincipal {
 		
 		do {
 			
-			String msg = "Digite:\n1-Criar Conta\n"
-					+ "2-Depositar\n"
-					+ "3-Exibir Saldo\n"
-					+ "4-Sacar\n"
-					+ "5-Exibir Dados\n"
-					+ "0-Sair";
+			String msg = "Digite:\n"
+					+ "1-Conta Corrente\n"
+					+ "2 - Conta Poupança\n"
+					+ "3 - Depositar\n"
+					+ "4 - Exibir Saldo\n"
+					+ "5 - Sacar\n"
+					+ "6 - Exibir Dados\n"
+					+ "0 - Sair";
 			String opcaoStr = JOptionPane.showInputDialog(msg);
 			opcao = Integer.parseInt(opcaoStr);
 			switch (opcao) {
 			case 1:
-				c = new Conta();
+				c = new ContaCorrente();
 				String numeroContaStr = JOptionPane.showInputDialog("Informe o número da conta"); 
 				c.numeroConta = Long.parseLong(numeroContaStr);
 				c.proprietario = new Cliente();
 				c.proprietario.nome = JOptionPane.showInputDialog("Informe o nome do proprietario da conta");
 				String cpfStr = JOptionPane.showInputDialog("Informe o cpf do proprietario da conta");
 				c.proprietario.cpf = Long.parseLong(cpfStr);
+				((ContaCorrente)c).pacote = new Pacote();
+				String tarifaStr = JOptionPane.showInputDialog(" Informe o valor da tarifa");
+				((ContaCorrente)c).pacote.tarifa = Double.parseDouble(tarifaStr);
 				break;
 			case 2:
 				String valorDepositadoStr = JOptionPane.showInputDialog("Valor a ser depositado");
@@ -50,8 +58,15 @@ public class TelaPrincipal {
 					JOptionPane.showMessageDialog(null, "Saque não efetuado");
 				}
 				break;
-			case 5:
-				JOptionPane.showMessageDialog(null, "Numero: " + c.numeroConta + "\ncpf: " + c.proprietario.cpf + "\nnome:" + c.proprietario.nome + "\nsaldo" + c.saldo );
+			case 6:
+				String dados = "Numero: " + c.numeroConta + "\ncpf: " + c.proprietario.cpf + "\nnome:" + c.proprietario.nome + "\nsaldo" + c.saldo;
+				if (c instanceof ContaCorrente) {
+					dados += "\nTarifa: " + ((ContaCorrente)c).pacote.tarifa;
+				}else if (c instanceof ContaPoupanca) {
+					//TODO 
+				}
+
+				JOptionPane.showMessageDialog(null, dados);
 				break;
 			case 0:
 				System.out.println("opcao sair 0");

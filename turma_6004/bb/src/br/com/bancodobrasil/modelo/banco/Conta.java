@@ -2,7 +2,7 @@ package br.com.bancodobrasil.modelo.banco;
 
 import br.com.bancodobrasil.modelo.Cliente;
 
-public class Conta {
+public abstract class Conta {
 
 	public Long numeroConta;
 	public Double saldo;

@@ -1,5 +1,6 @@
 package br.com.bancodobrasil.teste;
 
+import br.com.bancodobrasil.modelo.ContaCorrente;
 import br.com.bancodobrasil.modelo.banco.Conta;
 
 
@@ -14,7 +15,7 @@ public class TesteRetornoMetodo {
 		String palavra = metodo.metodoDois();
 		
 		System.out.println(palavra);
-		Conta c = new Conta();
+		Conta c = new ContaCorrente();
 		metodo.metodoTres(c);
 		double saldo = c.recuperarSaldo();
 		System.out.println(saldo);

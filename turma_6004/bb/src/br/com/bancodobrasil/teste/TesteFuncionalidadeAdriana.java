@@ -2,12 +2,13 @@ package br.com.bancodobrasil.teste;
 
 import java.util.Scanner;
 
+import br.com.bancodobrasil.modelo.ContaCorrente;
 import br.com.bancodobrasil.modelo.banco.Conta;
 
 public class TesteFuncionalidadeAdriana {
 	public static void main(String[] args) {
 			
-		Conta conta = new Conta();
+		Conta conta = new ContaCorrente();
 		
 		Scanner leitor = new Scanner(System.in);
 		System.out.print("Informe o valor do depósito: ");
