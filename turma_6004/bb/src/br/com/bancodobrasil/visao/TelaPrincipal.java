@@ -17,12 +17,14 @@ public class TelaPrincipal {
 		do {
 			
 			String msg = "Digite:\n"
-					+ "1-Conta Corrente\n"
+					+ "1 - Conta Corrente\n"
 					+ "2 - Conta Poupança\n"
 					+ "3 - Depositar\n"
 					+ "4 - Exibir Saldo\n"
 					+ "5 - Sacar\n"
 					+ "6 - Exibir Dados\n"
+					+ "7 - Cadastrar Taxa Rendimento"
+					+ "8 - Exibir Taxa Rendimento"
 					+ "0 - Sair";
 			String opcaoStr = JOptionPane.showInputDialog(msg);
 			opcao = Integer.parseInt(opcaoStr);
@@ -40,15 +42,18 @@ public class TelaPrincipal {
 				((ContaCorrente)c).pacote.tarifa = Double.parseDouble(tarifaStr);
 				break;
 			case 2:
+				//TODO - Erica 
+				break;
+			case 3:
 				String valorDepositadoStr = JOptionPane.showInputDialog("Valor a ser depositado");
 				Double valorDepositado = Double.parseDouble(valorDepositadoStr);
 				c.depositar(valorDepositado);
 				break;
-			case 3:
+			case 4:
 				Double saldo = c.recuperarSaldo();
 				JOptionPane.showMessageDialog(null,"Saldo: " + saldo);
 				break;
-			case 4:
+			case 5:
 				String valorSacadoStr = JOptionPane.showInputDialog("Valor a ser sacado");
 				Double valorSacado = Double.parseDouble(valorSacadoStr);
 				Boolean sacou = c.sacar(valorSacado);
@@ -59,14 +64,20 @@ public class TelaPrincipal {
 				}
 				break;
 			case 6:
-				String dados = "Numero: " + c.numeroConta + "\ncpf: " + c.proprietario.cpf + "\nnome:" + c.proprietario.nome + "\nsaldo" + c.saldo;
+				String dados = "Numero: " + c.numeroConta + "\ncpf: " + c.proprietario.cpf + "\nnome:" + c.proprietario.nome + "\nsaldo" + c.saldo + "\nConta Corrente";
 				if (c instanceof ContaCorrente) {
 					dados += "\nTarifa: " + ((ContaCorrente)c).pacote.tarifa;
 				}else if (c instanceof ContaPoupanca) {
-					//TODO 
+					//TODO Erica
 				}
 
 				JOptionPane.showMessageDialog(null, dados);
+				break;
+			case 7:
+				//TODO alanderson
+				break;
+			case 8:
+				//TODO adriana				
 				break;
 			case 0:
 				System.out.println("opcao sair 0");
