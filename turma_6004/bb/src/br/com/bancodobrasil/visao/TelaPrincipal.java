@@ -23,8 +23,8 @@ public class TelaPrincipal {
 					+ "4 - Exibir Saldo\n"
 					+ "5 - Sacar\n"
 					+ "6 - Exibir Dados\n"
-					+ "7 - Cadastrar Taxa Rendimento"
-					+ "8 - Exibir Taxa Rendimento"
+					+ "7 - Cadastrar Taxa Rendimento\n"
+					+ "8 - Exibir Taxa Rendimento\n"
 					+ "0 - Sair";
 			String opcaoStr = JOptionPane.showInputDialog(msg);
 			opcao = Integer.parseInt(opcaoStr);
@@ -77,7 +77,9 @@ public class TelaPrincipal {
 				//TODO alanderson
 				break;
 			case 8:
-				//TODO adriana				
+				//TODO adriana	
+				Double taxaRendimento = ContaPoupanca.taxaRendimento;
+				JOptionPane.showMessageDialog(null,"Taxa de Rendimento: " + taxaRendimento);
 				break;
 			case 0:
 				System.out.println("opcao sair 0");
