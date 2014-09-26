@@ -3,7 +3,7 @@ package br.com.bancodobrasil.modelo;
 import br.com.bancodobrasil.modelo.banco.Conta;
 
 public class ContaPoupanca extends Conta {
-
+	
 	public static Double taxaRendimento;
 	
 	static {
@@ -18,6 +18,11 @@ public class ContaPoupanca extends Conta {
 			sacou = Boolean.TRUE;
 		}
 		return sacou;
+	}
+
+	@Override
+	public Double recuperarSaldo() {
+		return saldo;
 	}
 	
 }
