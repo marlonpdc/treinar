@@ -8,7 +8,7 @@ public class TesteGC {
 
 	public static void main(String[] args) {
 		Conta c = new ContaCorrente();
-		c.saldo = 1000d;
+		c.depositar(100d);;
 		c.proprietario = new Cliente();
 		c.proprietario.nome = "Gleidson";
 		Cliente p = c.proprietario;

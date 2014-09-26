@@ -5,7 +5,7 @@ import br.com.bancodobrasil.modelo.Cliente;
 public abstract class Conta {
 
 	public Long numeroConta;
-	public Double saldo;
+	protected Double saldo;
 	public Cliente proprietario;
 	
 	public Conta(double saldo) {

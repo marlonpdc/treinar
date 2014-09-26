@@ -15,7 +15,7 @@ public class TesteFuncionalidadeAdriana {
 		Double valor = leitor.nextDouble();
 		
 	    conta.depositar(valor);
-	    System.out.println(conta.saldo);
+	    System.out.println(conta.recuperarSaldo());
 	  
 	    double saldo = conta.recuperarSaldo();
 	    System.out.println(saldo);

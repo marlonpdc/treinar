@@ -16,7 +16,6 @@ public class TelaPrincipal {
 		Integer opcao = -1;
 		
 		do {
-			
 			String msg = "Bem vindos ao " + BBUtil.nomeBanco + "\n"
 					+ "Digite:\n"
 					+ "1 - Conta Corrente\n"
@@ -73,7 +72,7 @@ public class TelaPrincipal {
 				}
 				break;
 			case 6:
-				String dados = "Numero: " + c.numeroConta + "\ncpf: " + c.proprietario.cpf + "\nnome:" + c.proprietario.nome + "\nsaldo" + c.saldo;
+				String dados = "Numero: " + c.numeroConta + "\ncpf: " + c.proprietario.cpf + "\nnome:" + c.proprietario.nome + "\nsaldo" + c.recuperarSaldo();
 				if (c instanceof ContaCorrente) {
 					dados += "\nTarifa: " + ((ContaCorrente)c).pacote.tarifa + "\nConta Corrente";
 				}else if (c instanceof ContaPoupanca) {

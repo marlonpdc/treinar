@@ -11,11 +11,11 @@ public class TesteHeranca {
 	public static void main(String[] args) {
 		ContaCorrente cc = new ContaCorrente();
 		cc.proprietario = new Cliente();
-		cc.saldo = 100d;
+		cc.depositar(100d);
 		
 		ContaPoupanca cp = new ContaPoupanca();
 		cp.proprietario = new Cliente();
-		cp.saldo = 10000d;
+		cp.depositar(10000d);
 		
 		Conta c = new ContaPoupanca();
 		
@@ -26,8 +26,8 @@ public class TesteHeranca {
 		//ContaCorrente ctaCorrente = new Conta();
 		
 		
-		System.out.println(cc.saldo);
-		System.out.println(cp.saldo);
+		System.out.println(cc.recuperarSaldo());
+		System.out.println(cp.recuperarSaldo());
 		
 		
 	}
