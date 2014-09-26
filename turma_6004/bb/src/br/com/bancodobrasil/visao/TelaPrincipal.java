@@ -42,7 +42,9 @@ public class TelaPrincipal {
 				((ContaCorrente)c).pacote = new Pacote();
 				String tarifaStr = JOptionPane.showInputDialog(" Informe o valor da tarifa");
 				((ContaCorrente)c).pacote.tarifa = Double.parseDouble(tarifaStr);
-					break;
+				String limiteStr = JOptionPane.showInputDialog(" Informe o valor da tarifa");
+				((ContaCorrente)c).limiteCredito = Double.parseDouble(limiteStr);
+				break;
 			case 2:
 				c = new ContaPoupanca();
 				numeroContaStr = JOptionPane.showInputDialog("Informe o número da conta"); 
