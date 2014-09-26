@@ -1,33 +1,34 @@
 package br.com.bancodobrasil.modelo;
 
 import br.com.bancodobrasil.modelo.banco.Conta;
+import br.com.bancodobrasil.modelo.banco.ICaptalizavel;
 import br.com.bancodobrasil.modelo.banco.IPagavel;
 
-public class ContaCorrente extends Conta implements IPagavel {
+public class ContaInvestimento extends Conta implements IPagavel, ICaptalizavel {
 
-	public Pacote pacote;
-	public Double limiteCredito;
+	@Override
+	public Double recuperarSaldo() {
+		return saldo;
+	}
 
 	@Override
 	public Boolean sacar(Double valorSacado) {
 		Boolean sacou = Boolean.FALSE;
 		if (saldo >= valorSacado) {
-			saldo = saldo - (valorSacado + 1);
+			saldo -= valorSacado;
 			sacou = Boolean.TRUE;
 		}
 		return sacou;
 	}
 
 	@Override
-	public Double recuperarSaldo() {
-			
-		return saldo + limiteCredito;
+	public void captalizar() {
+		saldo *= 0.05;
 	}
 
 	@Override
 	public void tributar() {
-		saldo -= pacote.tarifa;
+		saldo -= 10;
 	}
-	
-	
+
 }

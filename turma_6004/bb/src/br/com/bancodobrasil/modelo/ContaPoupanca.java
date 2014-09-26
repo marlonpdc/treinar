@@ -1,8 +1,9 @@
 package br.com.bancodobrasil.modelo;
 
 import br.com.bancodobrasil.modelo.banco.Conta;
+import br.com.bancodobrasil.modelo.banco.ICaptalizavel;
 
-public class ContaPoupanca extends Conta {
+public class ContaPoupanca extends Conta implements ICaptalizavel {
 	
 	public static Double taxaRendimento;
 	
@@ -23,6 +24,11 @@ public class ContaPoupanca extends Conta {
 	@Override
 	public Double recuperarSaldo() {
 		return saldo;
+	}
+
+	@Override
+	public void captalizar() {
+		saldo *= taxaRendimento;
 	}
 	
 }
