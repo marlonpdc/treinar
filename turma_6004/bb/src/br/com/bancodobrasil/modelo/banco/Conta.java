@@ -23,10 +23,12 @@ public abstract class Conta {
 		saldo = saldo + valor;
 	}
 	
-	public double recuperarSaldo() {
-		return saldo;
-	}
-	
+	/**
+	 * Método responsavel por recuperar o valor do saldo da conta
+	 * @return
+	 */
+	public abstract Double recuperarSaldo();
+			
 	public abstract Boolean sacar(Double valorSacado); 
 	
 	
