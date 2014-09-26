@@ -2,9 +2,10 @@ package br.com.bancodobrasil.modelo;
 
 import br.com.bancodobrasil.modelo.banco.Conta;
 
-public class ContaCorrente extends Conta {
+public abstract class ContaCorrente extends Conta {
 
 	public Pacote pacote;
+	public Double LimiteCredito;
 
 	@Override
 	public Boolean sacar(Double valorSacado) {
