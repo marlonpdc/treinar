@@ -16,6 +16,12 @@ public class ContaCorrente extends Conta {
 		}
 		return sacou;
 	}
+
+	@Override
+	public Double recuperarSaldo() {
+			
+		return saldo + limiteCredito;
+	}
 	
 	
 }
