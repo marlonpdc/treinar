@@ -5,7 +5,7 @@ import br.com.bancodobrasil.modelo.banco.Conta;
 public class ContaCorrente extends Conta {
 
 	public Pacote pacote;
-	public Double LimiteCredito;
+	public Double lSimiteCredito;
 
 	@Override
 	public Boolean sacar(Double valorSacado) {
