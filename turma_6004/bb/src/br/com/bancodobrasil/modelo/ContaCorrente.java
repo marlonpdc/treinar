@@ -20,7 +20,6 @@ public class ContaCorrente extends Conta implements IPagavel {
 
 	@Override
 	public Double recuperarSaldo() {
-			
 		return saldo + limiteCredito;
 	}
 

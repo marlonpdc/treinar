@@ -72,7 +72,6 @@ public class TesteArrayPolimorfismo {
 			}
 		} while (opcao != 0);
 		
-		
 		for (int i = 0; i < contas.length; i++) {
 			System.out.println("Saldo: " + contas[i].recuperarSaldo());
 		}
