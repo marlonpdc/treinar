@@ -11,11 +11,17 @@ import br.com.bancodobrasil.modelo.banco.Conta;
 import br.com.bancodobrasil.util.BBUtil;
 
 public class TelaPrincipal {
+
+	Conta[] contas;
+	
+	public TelaPrincipal() {
+		contas = new Conta[10];
+	}
 	
 	public void init() {
-		Conta c = null;
 		Integer opcao = -1;
-		
+		Integer index = 0;
+		String nomeProprietario = null;
 		do {
 			String msg = "Bem vindos ao " + BBUtil.nomeBanco + "\n"
 					+ "Digite:\n"
@@ -31,19 +37,26 @@ public class TelaPrincipal {
 			opcao = Integer.parseInt(opcaoStr);
 			switch (opcao) {
 			case 1:
-				c = criarConta();
+				contas[index++] = criarConta();
+				//index = index + 1;
+				//index += 1;
+				//
 				break;
 			case 2:
-				depositar(c);
+				nomeProprietario = recuperarNomeProprietario();
+				depositar(recuperarConta(nomeProprietario));
 				break;
 			case 3:
-				exibirSaldo(c);
+				nomeProprietario = recuperarNomeProprietario();
+				exibirSaldo(recuperarConta(nomeProprietario));
 				break;
 			case 4:
-				sacar(c);
+				nomeProprietario = recuperarNomeProprietario();
+				sacar(recuperarConta(nomeProprietario));
 				break;
 			case 5:
-				exibirDados(c);
+				nomeProprietario = recuperarNomeProprietario();
+				exibirDados(recuperarConta(nomeProprietario));
 				break;
 			case 6:
 				cadastrarTaxaRendimento();
@@ -62,6 +75,24 @@ public class TelaPrincipal {
 			
 		} while (opcao != 0);
 		
+	}
+
+	private String recuperarNomeProprietario() {
+		return JOptionPane.showInputDialog("Nome do proprietário");
+	}
+
+	private Conta recuperarConta(String nomeProprietario) {
+		Conta c = null;
+		for (int i = 0; i < contas.length; i++) {
+			if (contas[i] != null && contas[i].proprietario.nome.equals(nomeProprietario)) {
+				c = contas[i];
+				break;
+			}
+		}
+		return c;
+	}
+	private Conta recuperarConta(Integer indice) {
+		return contas[indice];
 	}
 
 	private Conta criarConta() {

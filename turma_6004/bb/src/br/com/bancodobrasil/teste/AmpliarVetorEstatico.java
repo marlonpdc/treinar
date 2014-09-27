@@ -3,10 +3,16 @@ package br.com.bancodobrasil.teste;
 public class AmpliarVetorEstatico {
 
 	public static void main(String[] args) {
-		Integer[] vet = new Integer[3];
-		for (int i = 0; i < vet.length; i++) {
+		//Integer[] vet = new Integer[3];
+		Integer[] vet = {1, 2, 3};
+		Integer[][] mat = {{1,2}, {2,3,4}, {2}};
+		
+		/*for (int i = 0; i < vet.length; i++) {
 			vet[i] = (i + 1); 
-		}
+		}*/
+		
+		
+		
 		System.out.println("Tamanho antes do Plus: " + vet.length);
 		Integer[] vetTemp = new Integer[6];
 		for (int i = 0; i < vet.length; i++) {
