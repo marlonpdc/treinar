@@ -36,6 +36,7 @@ public class TelaPrincipal {
 					+ "7 - Exibir Taxa Rendimento\n"
 					+ "8 - Tributar Contas\n"
 					+ "9 - Gerar Rendimento\n"
+					+ "10 - Exibir Todas as Contas\n"
 					+ "0 - Sair";
 			String opcaoStr = JOptionPane.showInputDialog(msg);
 			opcao = Integer.parseInt(opcaoStr);
@@ -73,6 +74,9 @@ public class TelaPrincipal {
 			case 9:
 				gerarRendimento();
 				break;
+			case 10:
+				exibirTodas();
+				break;
 			case 0:
 				System.out.println("opcao sair 0");
 				break;
@@ -84,6 +88,20 @@ public class TelaPrincipal {
 			
 		} while (opcao != 0);
 		
+	}
+
+	private void exibirTodas() {
+		Conta c = null;
+		String contas = "";
+		for (int i = 0; i < this.contas.length; i++) {
+			c = recuperarConta(i);
+			if (c != null) {
+				contas += c.getClass().getSimpleName() + " ";
+				contas += c.proprietario.nome + " ";
+				contas += c.recuperarSaldo() + "\n";
+			}
+		}
+		JOptionPane.showMessageDialog(null, contas);
 	}
 
 	private void tributarContas() {
