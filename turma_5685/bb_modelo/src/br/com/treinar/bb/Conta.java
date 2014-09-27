@@ -9,7 +9,7 @@ public class Conta {
 	public Boolean sacar(Double valor) {
 		Boolean sacou = Boolean.FALSE;
 		if (saldo >= valor) {
-			saldo -= valor;
+			saldo = saldo - valor;
 			sacou = Boolean.TRUE;
 		}
 		return sacou;
