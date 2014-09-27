@@ -40,7 +40,6 @@ public class TelaPrincipal {
 				contas[index++] = criarConta();
 				//index = index + 1;
 				//index += 1;
-				//
 				break;
 			case 2:
 				nomeProprietario = recuperarNomeProprietario();
