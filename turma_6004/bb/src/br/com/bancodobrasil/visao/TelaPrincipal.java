@@ -8,6 +8,8 @@ import br.com.bancodobrasil.modelo.ContaInvestimento;
 import br.com.bancodobrasil.modelo.ContaPoupanca;
 import br.com.bancodobrasil.modelo.Pacote;
 import br.com.bancodobrasil.modelo.banco.Conta;
+import br.com.bancodobrasil.modelo.banco.ICaptalizavel;
+import br.com.bancodobrasil.modelo.banco.IPagavel;
 import br.com.bancodobrasil.util.BBUtil;
 
 public class TelaPrincipal {
@@ -32,6 +34,8 @@ public class TelaPrincipal {
 					+ "5 - Exibir Dados\n"
 					+ "6 - Cadastrar Taxa Rendimento\n"
 					+ "7 - Exibir Taxa Rendimento\n"
+					+ "8 - Tributar Contas\n"
+					+ "9 - Gerar Rendimento\n"
 					+ "0 - Sair";
 			String opcaoStr = JOptionPane.showInputDialog(msg);
 			opcao = Integer.parseInt(opcaoStr);
@@ -63,6 +67,12 @@ public class TelaPrincipal {
 			case 7:
 				exibirTaxaRendimento();
 				break;
+			case 8:
+				tributarContas();
+				break;
+			case 9:
+				gerarRendimento();
+				break;
 			case 0:
 				System.out.println("opcao sair 0");
 				break;
@@ -74,6 +84,26 @@ public class TelaPrincipal {
 			
 		} while (opcao != 0);
 		
+	}
+
+	private void tributarContas() {
+		Conta c = null;
+		for (int i = 0; i < contas.length; i++) {
+			c = recuperarConta(i);
+			if (c != null && c instanceof IPagavel) {
+				((IPagavel)c).tributar();
+			}
+		}
+	}
+	
+	private void gerarRendimento() {
+		Conta c = null;
+		for (int i = 0; i < contas.length; i++) {
+			c = recuperarConta(i);
+			if (c != null && c instanceof ICaptalizavel) {
+				((ICaptalizavel)c).captalizar();
+			}
+		}
 	}
 
 	private String recuperarNomeProprietario() {
