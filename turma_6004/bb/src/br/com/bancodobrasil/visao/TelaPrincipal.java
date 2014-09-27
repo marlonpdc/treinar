@@ -4,6 +4,7 @@ import javax.swing.JOptionPane;
 
 import br.com.bancodobrasil.modelo.Cliente;
 import br.com.bancodobrasil.modelo.ContaCorrente;
+import br.com.bancodobrasil.modelo.ContaInvestimento;
 import br.com.bancodobrasil.modelo.ContaPoupanca;
 import br.com.bancodobrasil.modelo.Pacote;
 import br.com.bancodobrasil.modelo.banco.Conta;
@@ -129,8 +130,7 @@ public class TelaPrincipal {
 	}
 
 	private Conta criarContaPoupanca() {
-		Conta c;
-		c = new ContaPoupanca();
+		Conta c = new ContaPoupanca();
 		String numeroContaStr = JOptionPane.showInputDialog("Informe o número da conta"); 
 		c.numeroConta = Long.parseLong(numeroContaStr);
 		c.proprietario = new Cliente();
@@ -141,8 +141,7 @@ public class TelaPrincipal {
 	}
 	
 	private Conta criarContaInvestimento() {
-		Conta c;
-		c = new ContaPoupanca();
+		Conta c = new ContaInvestimento();
 		String numeroContaStr = JOptionPane.showInputDialog("Informe o número da conta"); 
 		c.numeroConta = Long.parseLong(numeroContaStr);
 		c.proprietario = new Cliente();
@@ -153,8 +152,7 @@ public class TelaPrincipal {
 	}
 
 	private Conta criarContaCorrente() {
-		Conta c;
-		c = new ContaCorrente();
+		Conta c = new ContaCorrente();
 		String numeroContaStr = JOptionPane.showInputDialog("Informe o número da conta"); 
 		c.numeroConta = Long.parseLong(numeroContaStr);
 		c.proprietario = new Cliente();
