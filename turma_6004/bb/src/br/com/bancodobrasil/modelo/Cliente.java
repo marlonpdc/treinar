@@ -8,4 +8,6 @@ public class Cliente {
 	public String nome;
 	public Long cpf;
 	
+	
+	
 }
