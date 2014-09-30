@@ -4,6 +4,7 @@ import br.com.bancodobrasil.modelo.Cliente;
 
 public abstract class Conta {
 
+	public static final String nomeConta = null;
 	public Long numeroConta;
 	protected Double saldo;
 	public Cliente proprietario;
