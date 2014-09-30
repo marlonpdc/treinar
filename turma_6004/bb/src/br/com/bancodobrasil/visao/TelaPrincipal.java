@@ -1,5 +1,8 @@
 package br.com.bancodobrasil.visao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.JOptionPane;
 
 import br.com.bancodobrasil.modelo.Cliente;
@@ -14,15 +17,14 @@ import br.com.bancodobrasil.util.BBUtil;
 
 public class TelaPrincipal {
 
-	Conta[] contas;
+	List<Conta> contas;
 	
 	public TelaPrincipal() {
-		contas = new Conta[10];
+		contas = new ArrayList<>();
 	}
 	
 	public void init() {
 		Integer opcao = -1;
-		Integer index = 0;
 		String nomeProprietario = null;
 		do {
 			String msg = "Bem vindos ao " + BBUtil.nomeBanco + "\n"
@@ -42,7 +44,7 @@ public class TelaPrincipal {
 			opcao = Integer.parseInt(opcaoStr);
 			switch (opcao) {
 			case 1:
-				contas[index++] = criarConta();
+				contas.add(criarConta());
 				//index = index + 1;
 				//index += 1;
 				break;
@@ -91,24 +93,20 @@ public class TelaPrincipal {
 	}
 
 	private void exibirTodas() {
-		Conta c = null;
-		String contas = "";
-		for (int i = 0; i < this.contas.length; i++) {
-			c = recuperarConta(i);
-			if (c != null) {
-				contas += c.getClass().getSimpleName() + " ";
-				contas += c.proprietario.nome + " ";
-				contas += c.recuperarSaldo() + "\n";
-			}
+		String contasStr = "";
+		for (Conta c : contas) {
+			contasStr += c.getClass().getSimpleName() + " ";
+			contasStr += c.proprietario.nome + " ";
+			contasStr += c.recuperarSaldo() + "\n";
 		}
-		JOptionPane.showMessageDialog(null, contas);
+		JOptionPane.showMessageDialog(null, contasStr);
 	}
 
 	private void tributarContas() {
 		Conta c = null;
-		for (int i = 0; i < contas.length; i++) {
+		for (int i = 0; i < contas.size(); i++) {
 			c = recuperarConta(i);
-			if (c != null && c instanceof IPagavel) {
+			if (c instanceof IPagavel) {
 				((IPagavel)c).tributar();
 			}
 		}
@@ -116,9 +114,9 @@ public class TelaPrincipal {
 	
 	private void gerarRendimento() {
 		Conta c = null;
-		for (int i = 0; i < contas.length; i++) {
+		for (int i = 0; i < contas.size(); i++) {
 			c = recuperarConta(i);
-			if (c != null && c instanceof ICaptalizavel) {
+			if (c instanceof ICaptalizavel) {
 				((ICaptalizavel)c).captalizar();
 			}
 		}
@@ -129,17 +127,17 @@ public class TelaPrincipal {
 	}
 
 	private Conta recuperarConta(String nomeProprietario) {
-		Conta c = null;
-		for (int i = 0; i < contas.length; i++) {
-			if (contas[i] != null && contas[i].proprietario.nome.equals(nomeProprietario)) {
-				c = contas[i];
-				break;
+		for (Conta c : contas) {
+			if (c.proprietario.nome.equals(nomeProprietario)) {
+				return c;
 			}
+			
 		}
-		return c;
+		return null;
 	}
+	
 	private Conta recuperarConta(Integer indice) {
-		return contas[indice];
+		return contas.get(indice);
 	}
 
 	private Conta criarConta() {
