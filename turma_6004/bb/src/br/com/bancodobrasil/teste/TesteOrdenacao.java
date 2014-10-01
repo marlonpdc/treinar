@@ -43,7 +43,14 @@ public class TesteOrdenacao {
 		System.out.println(nomes);
 		
 		System.out.println(contas);		
+		
+		System.out.println("por numero ");
 		Collections.sort(contas);
+		System.out.println(contas);
+		
+		System.out.println("por nome proprietario ");
+		CriterioOrdenacaoConta cot = new CriterioOrdenacaoConta();		
+		Collections.sort(contas, cot);
 		System.out.println(contas);
 		
 		

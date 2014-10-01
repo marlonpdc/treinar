@@ -59,12 +59,12 @@ public abstract class Conta implements Comparable<Conta> {
 	
 	@Override
 	public int compareTo(Conta o) {
-		return this.proprietario.nome.compareToIgnoreCase(o.proprietario.nome);
+		return this.numeroConta.compareTo(o.numeroConta);
 	}
 	
 	@Override
 	public String toString() {
-		return proprietario.nome;
+		return numeroConta + " - " + proprietario.nome;
 	}
 	
 }
