@@ -2,7 +2,7 @@ package br.com.bancodobrasil.modelo.banco;
 
 import br.com.bancodobrasil.modelo.Cliente;
 
-public abstract class Conta {
+public abstract class Conta implements Comparable<Conta> {
 
 	public static final String nomeConta = null;
 	public Long numeroConta;
@@ -55,6 +55,16 @@ public abstract class Conta {
 		} else if (!numeroConta.equals(other.numeroConta))
 			return false;
 		return true;
-	} 
-
+	}
+	
+	@Override
+	public int compareTo(Conta o) {
+		return this.proprietario.nome.compareToIgnoreCase(o.proprietario.nome);
+	}
+	
+	@Override
+	public String toString() {
+		return proprietario.nome;
+	}
+	
 }
