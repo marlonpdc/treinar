@@ -1,4 +1,4 @@
-package exercicios;
+package br.com.bancodobrasil.teste.exercicio.exercicioRafaelExcecao;
 
 import java.util.Scanner;
 
