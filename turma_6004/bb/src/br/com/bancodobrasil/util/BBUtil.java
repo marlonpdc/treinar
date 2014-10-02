@@ -10,6 +10,10 @@ public class BBUtil {
 
 	private static BBUtil instance;
 	
+	private BBUtil() {
+		super();
+	}
+	
 	static {
 		instance = new BBUtil();
 	}
