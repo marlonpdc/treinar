@@ -1,5 +1,11 @@
 package br.com.bancodobrasil.visao;
 
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -81,14 +87,41 @@ public class TelaPrincipal {
 				break;
 			case 0:
 				System.out.println("opcao sair 0");
+				
+				try {
+					persistirDados();
+				} catch (IOException e) {
+					JOptionPane.showMessageDialog(null, "Não foi possível tratar o erro!");
+				}
+				
 				break;
 			default:
 				System.out.println("opcao errada");
 				break;
 			}
 			
-			
 		} while (opcao != 0);
+		
+	}
+
+	private void persistirDados() throws IOException {
+		OutputStream os = new FileOutputStream("contasAlan.txt");
+		OutputStreamWriter osw = new OutputStreamWriter(os);
+		BufferedWriter bw = new BufferedWriter(osw);
+		
+		
+		for (Conta c : contas) {
+			bw.write(c.numeroConta.toString());
+			bw.write(";");
+			bw.write(c.proprietario.nome);
+			bw.write(";");
+			bw.write(c.recuperarSaldo().toString());
+			bw.write("\n");
+			
+		}
+		
+		
+		bw.close();
 		
 	}
 
