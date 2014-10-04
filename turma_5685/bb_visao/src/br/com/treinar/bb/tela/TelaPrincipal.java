@@ -1,23 +1,26 @@
 package br.com.treinar.bb.tela;
 
+import java.util.Date;
+
 import javax.swing.JOptionPane;
 
-import br.com.treinar.bb.Cliente;
-import br.com.treinar.bb.Conta;
+import br.com.treinar.bb.BancoControle;
 import br.com.treinar.bb.util.BBUtil;
 
 public class TelaPrincipal {
 
 	private BBUtil util;
+	private BancoControle controle;
 	
 	public TelaPrincipal() {
 		util = BBUtil.getInstance();
+		controle = new BancoControle();
 	}
 	
 	public void iniciar() {
 		Integer opcao = null;
 		String opcaoStr = null;
-		Conta c = null;
+
 		do {
 			opcaoStr = JOptionPane.showInputDialog("Digite\n\n"
 					+ "1 - Criar Conta\n"
@@ -27,11 +30,7 @@ public class TelaPrincipal {
 			opcao = Integer.parseInt(opcaoStr);
 			switch (opcao) {
 			case 1:
-				c = new Conta();
-				c.codigo = Long.valueOf(JOptionPane.showInputDialog("Codigo"));
-				c.cliente = new Cliente();
-				c.cliente.nome = JOptionPane.showInputDialog("Nome do Cliente");
-				c.cliente.dataNascimento = util.criarData(9,11,1980);
+				cadastrarConta();
 				break;
 			case 2:
 				
@@ -46,8 +45,16 @@ public class TelaPrincipal {
 			default:
 				break;
 			}
-			
-			
 		} while (opcao != 0);
+	}
+
+	private void cadastrarConta() {
+
+		Long codigo = Long.valueOf(JOptionPane.showInputDialog("Codigo"));
+		String nomeCliente = JOptionPane.showInputDialog("Nome do Cliente");
+		Date dataNascimento = util.criarData(JOptionPane.showInputDialog("Data nascimento"));
+		
+		controle.cadastrarConta(codigo, nomeCliente, dataNascimento);
+		
 	}
 }

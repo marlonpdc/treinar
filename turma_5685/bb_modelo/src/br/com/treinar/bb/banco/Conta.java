@@ -1,4 +1,6 @@
-package br.com.treinar.bb;
+package br.com.treinar.bb.banco;
+
+import br.com.treinar.bb.Cliente;
 
 public class Conta {
 
