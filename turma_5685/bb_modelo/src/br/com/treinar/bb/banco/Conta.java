@@ -2,7 +2,7 @@ package br.com.treinar.bb.banco;
 
 import br.com.treinar.bb.Cliente;
 
-public class Conta {
+public abstract class Conta {
 
 	public Long codigo;
 	public Double saldo;

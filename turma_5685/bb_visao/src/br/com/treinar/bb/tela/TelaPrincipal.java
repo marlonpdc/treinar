@@ -26,6 +26,8 @@ public class TelaPrincipal {
 					+ "1 - Criar Conta\n"
 					+ "2 - Depositar\n"
 					+ "3 - Sacar\n"
+					+ "4 - Exibir Saldo\n"
+					+ "5 - Exibir Dados da Conta\n"
 					+ "0 - Sair\n");
 			opcao = Integer.parseInt(opcaoStr);
 			switch (opcao) {
