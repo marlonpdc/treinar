@@ -1,4 +1,4 @@
-package br.com.treinar.bb;
+package br.com.treinar.bb.controle;
 
 import br.com.treinar.bb.dado.BaseDados;
 
