@@ -5,7 +5,7 @@ import br.com.treinar.bb.Cliente;
 public abstract class Conta {
 
 	public Long codigo;
-	public Double saldo;
+	public Double saldo = 0d;
 	public Cliente cliente;
 	
 	public Conta() {
