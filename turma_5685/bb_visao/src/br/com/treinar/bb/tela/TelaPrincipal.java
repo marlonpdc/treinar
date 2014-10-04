@@ -31,7 +31,6 @@ public class TelaPrincipal {
 		depositoControle = new DepositoControle();
 		saqueControle = new SaqueControle();
 		saldoControle = new SaldoControle();
-		//System.out.println(controle.teste);
 	}
 	
 	public void iniciar() {
@@ -129,7 +128,9 @@ public class TelaPrincipal {
 
 	private void cadastrarContaCorrente(ContaCorrente c) {
 		Double valorTarifa = Double.valueOf(JOptionPane.showInputDialog("Valor da Tarifa"));
-		c.tarifa = valorTarifa;
+		Double limiteCredito = Double.valueOf(JOptionPane.showInputDialog("Limite de crédito"));		
+		c.setTarifa(valorTarifa);
+		c.setLimiteCredito(limiteCredito);
 	}
 
 	private void sacarConta() {

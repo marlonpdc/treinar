@@ -1,9 +1,13 @@
 package br.com.treinar.bb.banco;
 
+import java.io.Serializable;
+
 import br.com.treinar.bb.Cliente;
 
-public abstract class Conta {
+public abstract class Conta implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+	
 	public Long codigo;
 	protected Double saldo;
 	public Cliente cliente;

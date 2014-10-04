@@ -17,7 +17,7 @@ public class TesteHeranca {
 		//estas nao seriam representadas
 		//ContaCorrente cTemp = new Conta();
 		
-		((ContaCorrente)cc).tarifa = 10d;
+		((ContaCorrente)cc).setTarifa(10d);
 		
 		Conta cp = new ContaPoupanca();
 		cp.depositar(4522d);

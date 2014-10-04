@@ -4,8 +4,9 @@ import br.com.treinar.bb.banco.Conta;
 
 public class ContaCorrente extends Conta {
 
-	public Double tarifa;
-	public Double limiteCredito;
+	private static final long serialVersionUID = 1L;
+	private Double tarifa;
+	private Double limiteCredito;
 	
 	@Override
 	public Double recuperarSaldo() {
@@ -26,6 +27,24 @@ public class ContaCorrente extends Conta {
 			}
 		}
 		return sacou;
+	}
+
+	public Double getTarifa() {
+		return tarifa;
+	}
+
+	public void setTarifa(Double tarifa) {
+		this.tarifa = tarifa;
+	}
+
+	public Double getLimiteCredito() {
+		return limiteCredito;
+	}
+
+	public void setLimiteCredito(Double limiteCredito) {
+		if (limiteCredito != null && limiteCredito < 10000) {
+			this.limiteCredito = limiteCredito;			
+		}
 	}
 
 }
