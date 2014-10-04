@@ -4,8 +4,14 @@ import br.com.treinar.bb.banco.Conta;
 
 public class ContaPoupanca extends Conta {
 
-	public Double taxaRendimento;
+	private static final long serialVersionUID = 1L;
+	
+	private static Double taxaRendimento;
 
+	static {
+		taxaRendimento = 0d;
+	}
+	
 	@Override
 	public Double recuperarSaldo() {
 		return saldo;
@@ -19,6 +25,14 @@ public class ContaPoupanca extends Conta {
 			sacou = Boolean.TRUE;
 		}
 		return sacou;
+	}
+
+	public static Double getTaxaRendimento() {
+		return taxaRendimento;
+	}
+
+	public static void setTaxaRendimento(Double taxaRendimento) {
+		ContaPoupanca.taxaRendimento = taxaRendimento;
 	}
 
 }

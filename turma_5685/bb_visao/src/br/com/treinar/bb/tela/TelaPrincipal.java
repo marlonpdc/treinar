@@ -44,6 +44,7 @@ public class TelaPrincipal {
 					+ "3 - Sacar\n"
 					+ "4 - Exibir Saldo\n"
 					+ "5 - Exibir Dados da Conta\n"
+					+ "6 - Cadastrar Taxa Rendimento\n"
 					+ "0 - Sair\n");
 			opcao = Integer.parseInt(opcaoStr);
 			switch (opcao) {
@@ -61,6 +62,8 @@ public class TelaPrincipal {
 				break;
 			case 5:
 				exibirDadosConta();
+			case 6:
+				cadastrarTaxaRendimento();
 				break;
 			case 0:
 				JOptionPane.showMessageDialog(null, "Obrigado volte sempre!");
@@ -71,6 +74,11 @@ public class TelaPrincipal {
 				break;
 			}
 		} while (opcao != 0);
+	}
+
+	private void cadastrarTaxaRendimento() {
+		Double taxaRendimento = Double.valueOf(JOptionPane.showInputDialog("Valor da Taxa de Rendimento"));
+		ContaPoupanca.setTaxaRendimento(taxaRendimento);
 	}
 
 	private void exibirSaldo() {
@@ -122,8 +130,7 @@ public class TelaPrincipal {
 	}
 	
 	private void cadastrarContaPoupanca(ContaPoupanca c) {
-		Double taxaRendimento = Double.valueOf(JOptionPane.showInputDialog("Valor da Taxa de Rendimento"));
-		c.taxaRendimento = taxaRendimento;
+		//faz alguma atualizacao exclusiva de conta poupanca
 	}
 
 	private void cadastrarContaCorrente(ContaCorrente c) {
