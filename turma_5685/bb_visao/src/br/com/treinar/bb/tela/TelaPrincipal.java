@@ -5,8 +5,9 @@ import java.util.Date;
 import javax.swing.JOptionPane;
 
 import br.com.treinar.bb.BancoControle;
-import br.com.treinar.bb.SaqueControle;
 import br.com.treinar.bb.DepositoControle;
+import br.com.treinar.bb.SaldoControle;
+import br.com.treinar.bb.SaqueControle;
 import br.com.treinar.bb.util.BBUtil;
 
 public class TelaPrincipal {
@@ -14,6 +15,7 @@ public class TelaPrincipal {
 	private BBUtil util;
 	private BancoControle controle;
 	private SaqueControle saqueControle;
+	private SaldoControle saldoControle;
 	private DepositoControle depositoControle;
 	
 	public TelaPrincipal() {
@@ -21,6 +23,7 @@ public class TelaPrincipal {
 		controle = new BancoControle();
 		depositoControle = new DepositoControle();
 		saqueControle = new SaqueControle();
+		saldoControle = new SaldoControle();
 	}
 	
 	public void iniciar() {
@@ -41,13 +44,16 @@ public class TelaPrincipal {
 				cadastrarConta();
 				break;
 			case 2:
-				
+				depositar();
 				break;
 			case 3:
 				sacarConta();				
 				break;
+			case 4:
+				exibirSaldo();
+				break;
 			case 0:
-				JOptionPane.showMessageDialog(null, "Obrigado volte sempre!");
+				
 				break;
 
 			default:
@@ -55,6 +61,12 @@ public class TelaPrincipal {
 				break;
 			}
 		} while (opcao != 0);
+	}
+
+	private void exibirSaldo() {
+		
+		JOptionPane.showMessageDialog(null, "Saldo: "+ saldoControle.recuperarSaldo());
+		
 	}
 
 	private void cadastrarConta() {
