@@ -5,16 +5,19 @@ import java.util.Date;
 import javax.swing.JOptionPane;
 
 import br.com.treinar.bb.BancoControle;
+import br.com.treinar.bb.DepositoControle;
 import br.com.treinar.bb.util.BBUtil;
 
 public class TelaPrincipal {
 
 	private BBUtil util;
 	private BancoControle controle;
+	private DepositoControle depositoControle;
 	
 	public TelaPrincipal() {
 		util = BBUtil.getInstance();
 		controle = new BancoControle();
+		depositoControle = new DepositoControle();
 	}
 	
 	public void iniciar() {
@@ -35,7 +38,7 @@ public class TelaPrincipal {
 				cadastrarConta();
 				break;
 			case 2:
-				
+				depositar();
 				break;
 			case 3:
 				
@@ -83,5 +86,10 @@ public class TelaPrincipal {
 		}
 			
 		
+	}
+	
+	private void depositar() {
+		Double valor = Double.valueOf(JOptionPane.showInputDialog("Digite o valor do deposito"));
+		depositoControle.depositar(valor);
 	}
 }
