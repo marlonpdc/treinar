@@ -89,22 +89,18 @@ public class TelaPrincipal {
 				break;
 			case 2:
 				taxaRendimento = Double.valueOf(JOptionPane.showInputDialog("Valor da Taxa de Rendimento"));
-				controle.cadastrarContaPoupanca(codigo, nomeCliente, dataNascimento, taxaRendimento);				
-				
+				controle.cadastrarContaPoupanca(codigo, nomeCliente, dataNascimento, taxaRendimento);
 				break;
 			case 0:
-				
+				JOptionPane.showMessageDialog(null, "Tipo de conta inválido, ação cancelada!");
 				break;
-	
+				
 			default:
 				break;
 		}
-			
-		
 	}
 	
-	private void sacarConta()
-	{
+	private void sacarConta() {
 		Double valorSaque = Double.valueOf(JOptionPane.showInputDialog("Digite o valor a ser sacado"));
 		saqueControle.sacarConta(valorSaque);
 		JOptionPane.showMessageDialog(null, "Saque realizado com sucesso!"); 
