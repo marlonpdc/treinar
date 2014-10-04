@@ -52,12 +52,36 @@ public class TelaPrincipal {
 	}
 
 	private void cadastrarConta() {
-
+		String opcaoStr = null;
+		Integer opcao = null;
+		Double valorTarifa = null;
+		Double taxaRendimento = null;
 		Long codigo = Long.valueOf(JOptionPane.showInputDialog("Codigo"));
 		String nomeCliente = JOptionPane.showInputDialog("Nome do Cliente");
 		Date dataNascimento = util.criarData(JOptionPane.showInputDialog("Data nascimento"));
 		
-		controle.cadastrarConta(codigo, nomeCliente, dataNascimento);
+		opcaoStr = JOptionPane.showInputDialog("Digite\n\n"
+				+ "1 - Corrente\n"
+				+ "2 - Poupança\n");
+		opcao = Integer.parseInt(opcaoStr);
+		switch (opcao) {
+			case 1:
+				valorTarifa = Double.valueOf(JOptionPane.showInputDialog("Valor da Tarifa"));
+				controle.cadastrarContaCorrente(codigo, nomeCliente, dataNascimento, valorTarifa);				
+				break;
+			case 2:
+				taxaRendimento = Double.valueOf(JOptionPane.showInputDialog("Valor da Taxa de Rendimento"));
+				controle.cadastrarContaPoupanca(codigo, nomeCliente, dataNascimento, taxaRendimento);				
+				
+				break;
+			case 0:
+				
+				break;
+	
+			default:
+				break;
+		}
+			
 		
 	}
 }
