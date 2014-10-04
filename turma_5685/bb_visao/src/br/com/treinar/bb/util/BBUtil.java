@@ -9,12 +9,14 @@ import java.util.Date;
 public class BBUtil {
 
 	private static BBUtil instance;
+	private static final Integer HORA_FECHAMENTO;
 	
 	private BBUtil() {
 		super();
 	}
 	
 	static {
+		HORA_FECHAMENTO = 100;
 		instance = new BBUtil();
 	}
 	
@@ -42,6 +44,10 @@ public class BBUtil {
 			System.out.println("deu erro o layout da data");
 		}
 		return data;
+	}
+
+	public static Integer getHoraFechamento() {
+		return HORA_FECHAMENTO;
 	}
 	
 }
