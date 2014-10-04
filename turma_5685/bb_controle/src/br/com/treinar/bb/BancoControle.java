@@ -8,10 +8,10 @@ import br.com.treinar.bb.dado.BaseDados;
 public class BancoControle {
 
 	private void cadastrarConta(Conta conta, Long codigo, String nomeCliente, Date dataNascimento) {
-		BaseDados.getInstance().conta.codigo = codigo;
-		BaseDados.getInstance().conta.cliente = new Cliente();
-		BaseDados.getInstance().conta.cliente.nome = nomeCliente;
-		BaseDados.getInstance().conta.cliente.dataNascimento = dataNascimento;
+		conta.codigo = codigo;
+		conta.cliente = new Cliente();
+		conta.cliente.nome = nomeCliente;
+		conta.cliente.dataNascimento = dataNascimento;
 	}
 
 	public void cadastrarContaCorrente(Long codigo, String nomeCliente,
