@@ -32,5 +32,4 @@ public class ContaCorrente extends Conta {
 		return sacou;
 	}
 
-	
 }
