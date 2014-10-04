@@ -13,6 +13,7 @@ import br.com.treinar.bb.controle.DadosContaControle;
 import br.com.treinar.bb.controle.DepositoControle;
 import br.com.treinar.bb.controle.SaldoControle;
 import br.com.treinar.bb.controle.SaqueControle;
+import br.com.treinar.bb.dado.BaseDados;
 import br.com.treinar.bb.util.BBUtil;
 
 public class TelaPrincipal {
@@ -62,7 +63,7 @@ public class TelaPrincipal {
 				exibirSaldo();
 				break;
 			case 5:
-				exibirDadosConta();
+				exibirDadosConta(BaseDados.getInstance().conta);
 			case 6:
 				cadastrarTaxaRendimento();
 				break;
@@ -93,8 +94,13 @@ public class TelaPrincipal {
 		JOptionPane.showMessageDialog(null, "Saldo: "+ saldoControle.recuperarSaldo());		
 	}
 
-	private void exibirDadosConta() {
-		JOptionPane.showMessageDialog(null, contaControle.recuperarDados());
+	private void exibirDadosConta(final Conta conta) {
+		//TODO - melhorar o codigo
+		
+		
+		conta.depositar(1000d);
+		
+		JOptionPane.showMessageDialog(null, conta.codigo);
 	}
 
 	private void cadastrarConta() {
