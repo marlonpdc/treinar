@@ -4,11 +4,15 @@ import java.util.Date;
 
 import javax.swing.JOptionPane;
 
-import br.com.treinar.bb.BancoControle;
-import br.com.treinar.bb.DadosContaControle;
-import br.com.treinar.bb.DepositoControle;
-import br.com.treinar.bb.SaldoControle;
-import br.com.treinar.bb.SaqueControle;
+import br.com.treinar.bb.Cliente;
+import br.com.treinar.bb.ContaCorrente;
+import br.com.treinar.bb.ContaPoupanca;
+import br.com.treinar.bb.banco.Conta;
+import br.com.treinar.bb.controle.BancoControle;
+import br.com.treinar.bb.controle.DadosContaControle;
+import br.com.treinar.bb.controle.DepositoControle;
+import br.com.treinar.bb.controle.SaldoControle;
+import br.com.treinar.bb.controle.SaqueControle;
 import br.com.treinar.bb.util.BBUtil;
 
 public class TelaPrincipal {
@@ -79,10 +83,9 @@ public class TelaPrincipal {
 	}
 
 	private void cadastrarConta() {
+		Conta conta = null;
 		String opcaoStr = null;
 		Integer opcao = null;
-		Double valorTarifa = null;
-		Double taxaRendimento = null;
 		Long codigo = Long.valueOf(JOptionPane.showInputDialog("Codigo"));
 		String nomeCliente = JOptionPane.showInputDialog("Nome do Cliente");
 		Date dataNascimento = util.criarData(JOptionPane.showInputDialog("Data nascimento"));
@@ -93,12 +96,16 @@ public class TelaPrincipal {
 		opcao = Integer.parseInt(opcaoStr);
 		switch (opcao) {
 			case 1:
-				valorTarifa = Double.valueOf(JOptionPane.showInputDialog("Valor da Tarifa"));
-				controle.cadastrarContaCorrente(codigo, nomeCliente, dataNascimento, valorTarifa);				
+				conta = new ContaCorrente();
+				popularConta(conta, codigo, nomeCliente, dataNascimento);
+				cadastrarContaCorrente((ContaCorrente)conta);
+				controle.cadastrarContaCorrente(conta);
 				break;
 			case 2:
-				taxaRendimento = Double.valueOf(JOptionPane.showInputDialog("Valor da Taxa de Rendimento"));
-				controle.cadastrarContaPoupanca(codigo, nomeCliente, dataNascimento, taxaRendimento);
+				conta = new ContaPoupanca();
+				popularConta(conta, codigo, nomeCliente, dataNascimento);
+				cadastrarContaPoupanca((ContaPoupanca) conta);
+				controle.cadastrarContaPoupanca(conta);
 				break;
 			case 0:
 				JOptionPane.showMessageDialog(null, "Tipo de conta inválido, ação cancelada!");
@@ -107,7 +114,24 @@ public class TelaPrincipal {
 				break;
 		}
 	}
+
+	private void popularConta(Conta conta, Long codigo, String nomeCliente, Date dataNascimento) {
+		conta.codigo = codigo;
+		conta.cliente = new Cliente();
+		conta.cliente.nome = nomeCliente;
+		conta.cliente.dataNascimento = dataNascimento;
+	}
 	
+	private void cadastrarContaPoupanca(ContaPoupanca c) {
+		Double taxaRendimento = Double.valueOf(JOptionPane.showInputDialog("Valor da Taxa de Rendimento"));
+		c.taxaRendimento = taxaRendimento;
+	}
+
+	private void cadastrarContaCorrente(ContaCorrente c) {
+		Double valorTarifa = Double.valueOf(JOptionPane.showInputDialog("Valor da Tarifa"));
+		c.tarifa = valorTarifa;
+	}
+
 	private void sacarConta() {
 		Double valorSaque = Double.valueOf(JOptionPane.showInputDialog("Digite o valor a ser sacado"));
 		saqueControle.sacarConta(valorSaque);

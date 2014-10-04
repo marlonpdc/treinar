@@ -7,10 +7,6 @@ public class ContaCorrente extends Conta {
 	public Double tarifa;
 	public Double limiteCredito;
 	
-	public ContaCorrente() {
-		limiteCredito = 0d;
-	}
-	
 	@Override
 	public Double recuperarSaldo() {
 		return saldo + limiteCredito;
