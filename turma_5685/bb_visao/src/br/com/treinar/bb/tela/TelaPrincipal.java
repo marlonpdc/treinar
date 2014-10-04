@@ -43,6 +43,7 @@ public class TelaPrincipal {
 				break;
 
 			default:
+				JOptionPane.showMessageDialog(null, "Opção Inválida!");
 				break;
 			}
 		} while (opcao != 0);
