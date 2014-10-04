@@ -45,6 +45,7 @@ public class TelaPrincipal {
 					+ "4 - Exibir Saldo\n"
 					+ "5 - Exibir Dados da Conta\n"
 					+ "6 - Cadastrar Taxa Rendimento\n"
+					+ "7 - Exibir Taxa Rendimento\n"
 					+ "0 - Sair\n");
 			opcao = Integer.parseInt(opcaoStr);
 			switch (opcao) {
@@ -65,6 +66,9 @@ public class TelaPrincipal {
 			case 6:
 				cadastrarTaxaRendimento();
 				break;
+			case 7:
+				exibirTaxaRendimento();
+				break;
 			case 0:
 				JOptionPane.showMessageDialog(null, "Obrigado volte sempre!");
 				break;
@@ -74,6 +78,10 @@ public class TelaPrincipal {
 				break;
 			}
 		} while (opcao != 0);
+	}
+
+	private void exibirTaxaRendimento() {
+		JOptionPane.showMessageDialog(null, ContaPoupanca.getTaxaRendimento());
 	}
 
 	private void cadastrarTaxaRendimento() {
