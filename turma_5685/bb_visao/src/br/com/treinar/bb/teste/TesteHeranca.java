@@ -10,7 +10,7 @@ public class TesteHeranca {
 		//nao pode ser instanciada pois conta eh abstrata
 		//Conta c = new Conta();
 		Conta cc = new ContaCorrente();
-		cc.saldo = 1500d;
+		cc.depositar(1500d);
 		
 		//nao eh possivel pois a classe ContaCorrente tem mais caracteristicas
 		//e funcionalidades do que a classe conta e a partir de uma instancia de Conta
@@ -20,7 +20,7 @@ public class TesteHeranca {
 		((ContaCorrente)cc).tarifa = 10d;
 		
 		Conta cp = new ContaPoupanca();
-		cp.saldo = 4522d;
+		cp.depositar(4522d);
 	}
 	
 }

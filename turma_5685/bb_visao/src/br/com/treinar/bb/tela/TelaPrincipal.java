@@ -27,6 +27,7 @@ public class TelaPrincipal {
 		depositoControle = new DepositoControle();
 		saqueControle = new SaqueControle();
 		saldoControle = new SaldoControle();
+		//System.out.println(controle.teste);
 	}
 	
 	public void iniciar() {

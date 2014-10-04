@@ -7,11 +7,14 @@ import br.com.treinar.bb.dado.BaseDados;
 
 public class BancoControle {
 
+	protected String teste;
+	
 	private void cadastrarConta(Conta conta, Long codigo, String nomeCliente, Date dataNascimento) {
 		conta.codigo = codigo;
 		conta.cliente = new Cliente();
 		conta.cliente.nome = nomeCliente;
 		conta.cliente.dataNascimento = dataNascimento;
+		System.out.println(teste);
 	}
 
 	public void cadastrarContaCorrente(Long codigo, String nomeCliente,

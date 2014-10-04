@@ -1,6 +1,5 @@
 package br.com.treinar.bb.teste;
 
-import br.com.treinar.bb.banco.Conta;
 
 public class Teste {
 
