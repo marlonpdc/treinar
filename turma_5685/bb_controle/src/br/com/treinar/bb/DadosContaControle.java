@@ -7,9 +7,9 @@ public class DadosContaControle {
 	public String recuperarDados(){
 	
 		String dados = BaseDados.getInstance().conta.cliente.nome;
-		dados +="/n"; 
+		dados += "\n"; 
 		dados += BaseDados.getInstance().conta.cliente.dataNascimento;
-		dados += "/n";
+		dados += "\n";
 		return dados;
 	}
 		

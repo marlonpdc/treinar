@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.swing.JOptionPane;
 
 import br.com.treinar.bb.BancoControle;
+import br.com.treinar.bb.DadosContaControle;
 import br.com.treinar.bb.DepositoControle;
 import br.com.treinar.bb.SaldoControle;
 import br.com.treinar.bb.SaqueControle;
@@ -14,6 +15,7 @@ public class TelaPrincipal {
 
 	private BBUtil util;
 	private BancoControle controle;
+	private DadosContaControle contaControle;
 	private SaqueControle saqueControle;
 	private SaldoControle saldoControle;
 	private DepositoControle depositoControle;
@@ -21,6 +23,7 @@ public class TelaPrincipal {
 	public TelaPrincipal() {
 		util = BBUtil.getInstance();
 		controle = new BancoControle();
+		contaControle = new DadosContaControle();
 		depositoControle = new DepositoControle();
 		saqueControle = new SaqueControle();
 		saldoControle = new SaldoControle();
@@ -52,8 +55,11 @@ public class TelaPrincipal {
 			case 4:
 				exibirSaldo();
 				break;
+			case 5:
+				exibirDadosConta();
+				break;
 			case 0:
-				
+				JOptionPane.showMessageDialog(null, "Obrigado volte sempre!");
 				break;
 
 			default:
@@ -64,9 +70,11 @@ public class TelaPrincipal {
 	}
 
 	private void exibirSaldo() {
-		
-		JOptionPane.showMessageDialog(null, "Saldo: "+ saldoControle.recuperarSaldo());
-		
+		JOptionPane.showMessageDialog(null, "Saldo: "+ saldoControle.recuperarSaldo());		
+	}
+
+	private void exibirDadosConta() {
+		JOptionPane.showConfirmDialog(null, contaControle.recuperarDados());
 	}
 
 	private void cadastrarConta() {
@@ -94,7 +102,6 @@ public class TelaPrincipal {
 			case 0:
 				JOptionPane.showMessageDialog(null, "Tipo de conta inválido, ação cancelada!");
 				break;
-				
 			default:
 				break;
 		}
