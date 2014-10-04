@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.swing.JOptionPane;
 
 import br.com.treinar.bb.BancoControle;
+import br.com.treinar.bb.SaqueControle;
 import br.com.treinar.bb.DepositoControle;
 import br.com.treinar.bb.util.BBUtil;
 
@@ -12,12 +13,14 @@ public class TelaPrincipal {
 
 	private BBUtil util;
 	private BancoControle controle;
+	private SaqueControle saqueControle;
 	private DepositoControle depositoControle;
 	
 	public TelaPrincipal() {
 		util = BBUtil.getInstance();
 		controle = new BancoControle();
 		depositoControle = new DepositoControle();
+		saqueControle = new SaqueControle();
 	}
 	
 	public void iniciar() {
@@ -38,10 +41,10 @@ public class TelaPrincipal {
 				cadastrarConta();
 				break;
 			case 2:
-				depositar();
+				
 				break;
 			case 3:
-				
+				sacarConta();				
 				break;
 			case 0:
 				JOptionPane.showMessageDialog(null, "Obrigado volte sempre!");
@@ -85,6 +88,14 @@ public class TelaPrincipal {
 				break;
 		}
 			
+		
+	}
+	
+	private void sacarConta()
+	{
+		Double valorSaque = Double.valueOf(JOptionPane.showInputDialog("Digite o valor a ser sacado"));
+		saqueControle.sacarConta(valorSaque);
+		JOptionPane.showMessageDialog(null, "Saque realizado com sucesso!"); 
 		
 	}
 	
