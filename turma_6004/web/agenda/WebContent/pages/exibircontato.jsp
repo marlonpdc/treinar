@@ -7,11 +7,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Exibir Contatos</title>
+<script type="text/javascript">
+
+	function editar(id) {
+		alert(id);
+		document.getElementById('idContato').value = id;
+	}
+
+</script>
+
 </head>
 <body>
 
 	<form action="../agenda">
 		<input type="hidden" value="br.com.treinar.agenda.comando.EditaContatoComando" name="comando">
+		<input type="hidden" value="" name="id" id="idContato">
+		
 		Lista de Contatos
 		<table border="1">
 		<% 
@@ -30,10 +41,14 @@
 				out.println("<td>");
 				out.print(c.getTelefone().getDdd() + "-" + c.getTelefone().getNumero());			
 				out.println("</td>");
+				out.println("<td>");
+				out.print("<input type=\"submit\" value=\"Editar\" onclick=\"editar("+c.getId()+")\"");		
+				out.println("</td>");
 				out.println("</tr>");
 			}
 		%>
 		</table>
+		
 	</form>
 
 </body>
