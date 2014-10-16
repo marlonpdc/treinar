@@ -7,6 +7,7 @@ public class Contato {
 	private Telefone telefone;
 	private String endereco;
 	private String email;
+	
 	public Long getId() {
 		return id;
 	}

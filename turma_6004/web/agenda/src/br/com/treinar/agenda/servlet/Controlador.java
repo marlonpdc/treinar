@@ -29,7 +29,7 @@ public class Controlador extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher(retorno);
 			rd.forward(request, response);
 		} catch (Exception e) {
-			
+			System.out.println(e);
 		}
 		
 	}
