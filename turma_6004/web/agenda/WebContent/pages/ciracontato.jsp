@@ -9,7 +9,7 @@
 <body>
 	<form action="../agenda">
 		<input type="hidden" value="br.com.treinar.agenda.comando.CriaContatoComando" name="comando">
-		Nome: <input type="text" name="nome"><br />
+		Nome: <input type="text" name="nome" value=""><br />
 		Email: <input type="text" name="email"><br />
 		Endereço: <input type="text" name="endereco"><br />
 		DDD: <input type="text" name="ddd"><br />

@@ -104,7 +104,7 @@ public class ContatoDAO {
 	public List<Contato> getLista() {
 	     try {
 	         List<Contato> contatos = new ArrayList<Contato>();
-	         PreparedStatement stmt = this.con.prepareStatement("select * from contato c");
+	         PreparedStatement stmt = this.con.prepareStatement("select * from contato c inner join telefone t on c.telefone = t.id ");
 	         
 	         ResultSet rs = stmt.executeQuery();
 	 
@@ -115,10 +115,10 @@ public class ContatoDAO {
 	             contato.setNome(rs.getString("nome"));
 	             contato.setEmail(rs.getString("email"));
 	             contato.setEndereco(rs.getString("endereco"));
-	 
-	             // montando a data através do Calendar
-	             Calendar data = Calendar.getInstance();
-	             data.setTime(rs.getDate("dataNascimento"));
+	             contato.setTelefone(new Telefone());
+	             contato.getTelefone().setDdd(rs.getInt("ddd"));
+	             contato.getTelefone().setNumero(rs.getInt("numero"));
+	             contato.getTelefone().setTipoTelefone(TipoTelefone.values()[(rs.getInt("tipoTelefone"))]);
 	 
 	             // adicionando o objeto à lista
 	             contatos.add(contato);

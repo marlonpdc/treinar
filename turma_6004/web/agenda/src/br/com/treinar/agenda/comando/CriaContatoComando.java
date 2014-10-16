@@ -27,13 +27,18 @@ public class CriaContatoComando implements Comando {
 		contato.getTelefone().setTipoTelefone(tipoTelefone);
 		
 		ContatoDAO dao = new ContatoDAO();
+		String retorno = null;
 		try {
 			dao.adicionar(contato);
+			
+			ListaContatoComando listaContato = new ListaContatoComando();
+			retorno = listaContato.executar(request, response);
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
-		return "/pages/exibircontato.jsp";
+		return retorno;
 	}
 
 }
