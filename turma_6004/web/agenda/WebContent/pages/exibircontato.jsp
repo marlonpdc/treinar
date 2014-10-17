@@ -47,6 +47,9 @@
 					out.println("<td>");
 					out.print("<a href=\"agenda?id="+c.getId()+"&comando="+"br.com.treinar.agenda.comando.SelecionaContatoComando"+"\" >Editar</a>");		
 					out.println("</td>");
+					out.println("<td>");
+					out.print("<a href=\"agenda?id="+c.getId()+"&comando="+"br.com.treinar.agenda.comando.ExcluiContatoComando"+"\" >Excluir</a>");		
+					out.println("</td>");
 					out.println("</tr>");
 				}
 			}

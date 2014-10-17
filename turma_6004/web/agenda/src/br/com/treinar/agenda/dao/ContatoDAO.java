@@ -145,6 +145,7 @@ public class ContatoDAO {
 	             contato.setEmail(rs.getString("email"));
 	             contato.setEndereco(rs.getString("endereco"));
 	             contato.setTelefone(new Telefone());
+	             contato.getTelefone().setId(rs.getLong("id"));
 	             contato.getTelefone().setDdd(rs.getInt("ddd"));
 	             contato.getTelefone().setNumero(rs.getInt("numero"));
 	             contato.getTelefone().setTipoTelefone(TipoTelefone.values()[(rs.getInt("tipoTelefone"))]);
@@ -159,6 +160,33 @@ public class ContatoDAO {
 
 	public void editar(Contato contato) {
 		System.out.println();
+	}
+	
+	public void excluirContato(Contato contato) {
+		excluirTelefone(contato.getTelefone());
+		String sql = "delete from contato where id = ?";
+		PreparedStatement stmt;
+		try {
+			stmt = this.con.prepareStatement(sql);
+			stmt.setLong(1, contato.getId());
+			stmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void excluirTelefone(Telefone telefone) {
+		String sql = "delete from telefone where id = ?";
+		PreparedStatement stmt;
+		try {
+			stmt = this.con.prepareStatement(sql);
+			stmt.setLong(1, telefone.getId());
+			stmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 }

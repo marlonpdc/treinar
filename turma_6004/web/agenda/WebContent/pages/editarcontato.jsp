@@ -21,8 +21,6 @@
 		  <option value="COMERCIAL">Comercial</option>
 		  <option value="RESIDENCIAL">Residencial</option>
 		</select>
-		<br />
-		<input type="submit" value="Gravar">
 	</form>
 </body>
 </html>
