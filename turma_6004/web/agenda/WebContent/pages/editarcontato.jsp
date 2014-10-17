@@ -10,11 +10,11 @@
 	<form action="../agenda">
 		<input type="hidden" value="br.com.treinar.agenda.comando.EditaContatoComando" name="comando">
 
-		Nome: <input type="text" name="nome" value="<%= request.getParameter("nome")%>"><br />
+		Nome: <input type="text" name="nome" value="${nome}"><br />
 		Email: <input type="text" name="email" value="${email}"><br />
 		Endereço: <input type="text" name="endereco" value="${endereco}"><br />
 		DDD: <input type="text" name="ddd" value="${ddd}"><br />
-		Numero Telefone: <input type="text" name="numero" value="${nuemro}"><br />
+		Numero Telefone: <input type="text" name="numero" value="${numero}"><br />
 		Tipo Telefone
 		<select id="tipoTelefone" name="tipoTelefone">
 		  <option value="CELULAR">Celular</option>

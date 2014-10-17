@@ -45,13 +45,14 @@
 					out.print(c.getTelefone().getDdd() + "-" + c.getTelefone().getNumero());			
 					out.println("</td>");
 					out.println("<td>");
-					out.print("<input type=\"submit\" value=\"Editar\" onclick=\"editar("+c.getId()+")\"");		
+					out.print("<a href=\"agenda?id="+c.getId()+"&comando="+"br.com.treinar.agenda.comando.SelecionaContatoComando"+"\" >Editar</a>");		
 					out.println("</td>");
 					out.println("</tr>");
 				}
 			}
 		%>
 		</table>
+		<a href="agenda?id=10" >Teste</a>
 	</form>
 
 </body>
