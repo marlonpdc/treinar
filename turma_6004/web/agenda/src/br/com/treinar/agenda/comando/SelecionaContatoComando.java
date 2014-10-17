@@ -11,7 +11,7 @@ public class SelecionaContatoComando implements Comando {
 
 	@Override
 	public String executar(HttpServletRequest request, HttpServletResponse response) {
-		Long id = Long.parseLong(request.getParameter("S"));
+		Long id = Long.parseLong(request.getParameter("id"));
 		ContatoDAO dao = new ContatoDAO();
 		Contato contato = dao.recuperarContato(id);
 		request.setAttribute("nome", contato.getNome());
