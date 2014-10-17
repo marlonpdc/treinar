@@ -13,7 +13,7 @@ public class ListaContatoComando implements Comando {
 		
 		ContatoDAO dao = new ContatoDAO();
 		request.setAttribute("contatos", dao.getLista());
-		return "/pages/exibircontato.jsp";
+		return "pages/exibircontato.jsp";
 	}
 
 }

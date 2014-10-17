@@ -131,4 +131,34 @@ public class ContatoDAO {
 	     }
 	 }
 	
+	public Contato recuperarContato(Long id) {
+	     try {
+	         Contato contato = new Contato();
+	         PreparedStatement stmt = this.con.prepareStatement("select * from contato c inner join telefone t on c.telefone = t.id where c.id = ?");
+	         stmt.setLong(1, id);
+	         ResultSet rs = stmt.executeQuery();
+	 
+	         if(rs.next()) {
+	             // criando o objeto Contato
+	             contato.setId(rs.getLong("id"));
+	             contato.setNome(rs.getString("nome"));
+	             contato.setEmail(rs.getString("email"));
+	             contato.setEndereco(rs.getString("endereco"));
+	             contato.setTelefone(new Telefone());
+	             contato.getTelefone().setDdd(rs.getInt("ddd"));
+	             contato.getTelefone().setNumero(rs.getInt("numero"));
+	             contato.getTelefone().setTipoTelefone(TipoTelefone.values()[(rs.getInt("tipoTelefone"))]);
+	         }
+	         rs.close();
+	         stmt.close();
+	         return contato;
+	     } catch (SQLException e) {
+	         throw new RuntimeException(e);
+	     }
+	 }
+
+	public void editar(Contato contato) {
+		System.out.println();
+	}
+	
 }

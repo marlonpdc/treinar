@@ -26,29 +26,32 @@
 		Lista de Contatos
 		<table border="1">
 		<% 
-			List<Contato> contatos = (List<Contato>)request.getAttribute("contatos");
-			for(Contato c : contatos) {
-				out.println("<tr>");
-				out.println("<td>");
-				out.println(c.getNome());				
-				out.println("</td>");
-				out.println("<td>");
-				out.print(c.getEmail());			
-				out.println("</td>");
-				out.println("<td>");
-				out.print(c.getEndereco());			
-				out.println("</td>");
-				out.println("<td>");
-				out.print(c.getTelefone().getDdd() + "-" + c.getTelefone().getNumero());			
-				out.println("</td>");
-				out.println("<td>");
-				out.print("<input type=\"submit\" value=\"Editar\" onclick=\"editar("+c.getId()+")\"");		
-				out.println("</td>");
-				out.println("</tr>");
+			if(request.getAttribute("contatos") != null) {
+				
+				List<Contato> contatos = (List<Contato>)request.getAttribute("contatos");
+				
+				for(Contato c : contatos) {
+					out.println("<tr>");
+					out.println("<td>");
+					out.println(c.getNome());				
+					out.println("</td>");
+					out.println("<td>");
+					out.print(c.getEmail());			
+					out.println("</td>");
+					out.println("<td>");
+					out.print(c.getEndereco());			
+					out.println("</td>");
+					out.println("<td>");
+					out.print(c.getTelefone().getDdd() + "-" + c.getTelefone().getNumero());			
+					out.println("</td>");
+					out.println("<td>");
+					out.print("<input type=\"submit\" value=\"Editar\" onclick=\"editar("+c.getId()+")\"");		
+					out.println("</td>");
+					out.println("</tr>");
+				}
 			}
 		%>
 		</table>
-		
 	</form>
 
 </body>

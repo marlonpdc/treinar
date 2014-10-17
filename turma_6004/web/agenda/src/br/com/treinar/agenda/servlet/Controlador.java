@@ -26,6 +26,7 @@ public class Controlador extends HttpServlet {
 			Class<?> c = Class.forName(strComando);
 			Comando comando = (Comando) c.newInstance();
 			String retorno = comando.executar(request, response);
+			response.sendRedirect(retorno);
 			RequestDispatcher rd = request.getRequestDispatcher(retorno);
 			rd.forward(request, response);
 		} catch (Exception e) {
