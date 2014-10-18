@@ -1,12 +1,12 @@
 package br.com.treinar.bb.controle;
 
 import br.com.treinar.bb.banco.Conta;
+import br.com.treinar.bb.banco.ICaptalizavel;
+import br.com.treinar.bb.banco.ITributavel;
 import br.com.treinar.bb.dado.BaseDados;
 
 public class BancoControle {
 
-	protected String teste;
-	
 	private void cadastrarConta(Conta conta) {
 		BaseDados.getInstance().adicionarConta(conta);
 	}
@@ -24,6 +24,27 @@ public class BancoControle {
 	public void excluirConta(Long codConta) {
 		BaseDados.getInstance().excluirConta(codConta);
 	}
-	
 
+	public void tributar() {
+		Conta[] contas = BaseDados.getInstance().recuperarContas();
+		ITributavel it = null;
+		for (int i = 0; i < contas.length; i++) {
+			if (contas[i] instanceof ITributavel) {
+				it = (ITributavel) contas[i];
+				it.tributar();
+			}
+		}
+	}
+	
+	public void captalizar() {
+		Conta[] contas = BaseDados.getInstance().recuperarContas();
+		ICaptalizavel ic = null;
+		for (int i = 0; i < contas.length; i++) {
+			if (contas[i] instanceof ICaptalizavel) {
+				ic = (ICaptalizavel) contas[i];
+				ic.captalizar();
+			}
+		}
+	}
+	
 }

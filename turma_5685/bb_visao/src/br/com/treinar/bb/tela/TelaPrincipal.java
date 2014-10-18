@@ -47,6 +47,8 @@ public class TelaPrincipal {
 					+ "6 - Cadastrar Taxa Rendimento\n"
 					+ "7 - Exibir Taxa Rendimento\n"
 					+ "8 - Excluir Conta\n"
+					+ "9 - Tributar\n"
+					+ "10 - Captalizar\n"
 					+ "0 - Sair\n");
 			opcao = Integer.parseInt(opcaoStr);
 			switch (opcao) {
@@ -74,6 +76,12 @@ public class TelaPrincipal {
 			case 8:
 				excluirConta();
 				break;
+			case 9:
+				tributar();
+				break;
+			case 10:
+				captalizar();
+				break;
 			case 0:
 				JOptionPane.showMessageDialog(null, "Obrigado volte sempre!");
 				break;
@@ -83,6 +91,14 @@ public class TelaPrincipal {
 				break;
 			}
 		} while (opcao != 0);
+	}
+
+	private void tributar() {
+		controle.tributar();
+	}
+	
+	private void captalizar() {
+		controle.captalizar();
 	}
 
 	private void exibirTaxaRendimento() {
