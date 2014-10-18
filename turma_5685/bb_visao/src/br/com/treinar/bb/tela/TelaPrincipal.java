@@ -4,7 +4,6 @@ import java.util.Date;
 
 import javax.swing.JOptionPane;
 
-import sun.security.jca.GetInstance;
 import br.com.treinar.bb.Cliente;
 import br.com.treinar.bb.ContaCorrente;
 import br.com.treinar.bb.ContaPoupanca;
@@ -14,7 +13,6 @@ import br.com.treinar.bb.controle.DadosContaControle;
 import br.com.treinar.bb.controle.DepositoControle;
 import br.com.treinar.bb.controle.SaldoControle;
 import br.com.treinar.bb.controle.SaqueControle;
-import br.com.treinar.bb.dado.BaseDados;
 import br.com.treinar.bb.util.BBUtil;
 
 public class TelaPrincipal {
@@ -66,6 +64,7 @@ public class TelaPrincipal {
 				break;
 			case 5:
 				exibirDadosConta();
+				break;
 			case 6:
 				cadastrarTaxaRendimento();
 				break;
