@@ -1,6 +1,7 @@
 package br.com.treinar.bb.dado;
 
 import br.com.treinar.bb.banco.Conta;
+import br.com.treinar.enumerators.StatusConta;
 
 public class BaseDados {
 
@@ -44,7 +45,7 @@ public class BaseDados {
 	public void excluirConta(Long codConta){
 		for (int i = 0; i < contas.length; i++) {
 			if (contas[i] != null && contas[i].codigo.equals(codConta)) {
-				contas[i] = null;
+				contas[i].setStatusConta(StatusConta.INATIVO);
 				break;
 			}
 		}

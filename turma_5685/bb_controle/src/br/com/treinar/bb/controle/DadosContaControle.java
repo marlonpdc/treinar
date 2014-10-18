@@ -14,7 +14,8 @@ public class DadosContaControle {
 				dados += contas[i].cliente.nome;
 				dados += " Data Nascimento: ";
 				dados += contas[i].cliente.dataNascimento;				
-				dados += " Saldo: " + contas[i].recuperarSaldo();				
+				dados += " Saldo: " + contas[i].recuperarSaldo();
+				dados += " Status Conta: " + contas[i].getStatusConta();
 				dados += "\n\n";				
 			}
 		}

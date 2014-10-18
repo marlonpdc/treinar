@@ -4,10 +4,12 @@ import br.com.treinar.bb.banco.Conta;
 import br.com.treinar.bb.banco.ICaptalizavel;
 import br.com.treinar.bb.banco.ITributavel;
 import br.com.treinar.bb.dado.BaseDados;
+import br.com.treinar.enumerators.StatusConta;
 
 public class BancoControle {
 
 	private void cadastrarConta(Conta conta) {
+		conta.setStatusConta(StatusConta.ATIVO);
 		BaseDados.getInstance().adicionarConta(conta);
 	}
 
