@@ -1,8 +1,9 @@
 package br.com.treinar.bb;
 
 import br.com.treinar.bb.banco.Conta;
+import br.com.treinar.bb.banco.ICaptalizavel;
 
-public class ContaPoupanca extends Conta {
+public class ContaPoupanca extends Conta implements ICaptalizavel {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -33,6 +34,11 @@ public class ContaPoupanca extends Conta {
 
 	public static void setTaxaRendimento(Double taxaRendimento) {
 		ContaPoupanca.taxaRendimento = taxaRendimento;
+	}
+
+	@Override
+	public void captalizar() {
+		saldo *= (taxaRendimento + 1);
 	}
 
 }

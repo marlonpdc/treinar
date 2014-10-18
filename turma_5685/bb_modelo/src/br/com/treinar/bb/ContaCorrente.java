@@ -1,8 +1,9 @@
 package br.com.treinar.bb;
 
 import br.com.treinar.bb.banco.Conta;
+import br.com.treinar.bb.banco.ITributavel;
 
-public class ContaCorrente extends Conta {
+public class ContaCorrente extends Conta implements ITributavel {
 
 	private static final long serialVersionUID = 1L;
 	private Double tarifa;
@@ -45,6 +46,11 @@ public class ContaCorrente extends Conta {
 		if (limiteCredito != null && limiteCredito < 10000) {
 			this.limiteCredito = limiteCredito;			
 		}
+	}
+
+	@Override
+	public void tributar() {
+		saldo -= tarifa;
 	}
 
 }
