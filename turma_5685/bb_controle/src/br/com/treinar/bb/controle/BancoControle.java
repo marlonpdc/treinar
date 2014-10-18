@@ -46,5 +46,13 @@ public class BancoControle {
 			}
 		}
 	}
+
+	public void cadastrarContaUniversitaria(Conta conta) {
+		cadastrarConta(conta);
+	}
+
+	public void cadastrarContaInvestimento(Conta conta) {
+		cadastrarConta(conta);		
+	}
 	
 }

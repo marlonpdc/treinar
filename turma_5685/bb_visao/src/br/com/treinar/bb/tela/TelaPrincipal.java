@@ -6,7 +6,9 @@ import javax.swing.JOptionPane;
 
 import br.com.treinar.bb.Cliente;
 import br.com.treinar.bb.ContaCorrente;
+import br.com.treinar.bb.ContaInvestimento;
 import br.com.treinar.bb.ContaPoupanca;
+import br.com.treinar.bb.ContaUniversitaria;
 import br.com.treinar.bb.banco.Conta;
 import br.com.treinar.bb.controle.BancoControle;
 import br.com.treinar.bb.controle.DadosContaControle;
@@ -130,7 +132,9 @@ public class TelaPrincipal {
 		
 		opcaoStr = JOptionPane.showInputDialog("Digite\n\n"
 				+ "1 - Corrente\n"
-				+ "2 - Poupança\n");
+				+ "2 - Poupança\n"
+				+ "3 - Universitária\n"
+				+ "4 - Investimento\n");
 		opcao = Integer.parseInt(opcaoStr);
 		switch (opcao) {
 			case 1:
@@ -144,6 +148,18 @@ public class TelaPrincipal {
 				popularConta(conta, codigo, nomeCliente, dataNascimento);
 				cadastrarContaPoupanca((ContaPoupanca) conta);
 				controle.cadastrarContaPoupanca(conta);
+				break;
+			case 3:
+				conta = new ContaUniversitaria();
+				popularConta(conta, codigo, nomeCliente, dataNascimento);
+				cadastrarContaUniversitaria((ContaUniversitaria) conta);
+				controle.cadastrarContaUniversitaria(conta);
+				break;
+			case 4:
+				conta = new ContaInvestimento();
+				popularConta(conta, codigo, nomeCliente, dataNascimento);
+				cadastrarContaInvestimento((ContaInvestimento) conta);
+				controle.cadastrarContaInvestimento(conta);
 				break;
 			case 0:
 				JOptionPane.showMessageDialog(null, "Tipo de conta inválido, ação cancelada!");
@@ -162,6 +178,15 @@ public class TelaPrincipal {
 	
 	private void cadastrarContaPoupanca(ContaPoupanca c) {
 		//faz alguma atualizacao exclusiva de conta poupanca
+	}
+	
+	private void cadastrarContaUniversitaria(ContaUniversitaria c) {
+		Double valorTarifa = Double.valueOf(JOptionPane.showInputDialog("Valor da Tarifa"));
+		c.setTarifa(valorTarifa);
+	}
+	
+	private void cadastrarContaInvestimento(ContaInvestimento c) {
+		//faz alguma atualizacao exclusiva de conta universitaria
 	}
 
 	private void cadastrarContaCorrente(ContaCorrente c) {

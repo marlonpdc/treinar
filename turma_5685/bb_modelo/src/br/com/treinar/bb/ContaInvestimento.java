@@ -20,7 +20,7 @@ public class ContaInvestimento extends Conta implements ICaptalizavel, ITributav
 
 	@Override
 	public Double recuperarSaldo() {
-		return recuperarSaldo();
+		return saldo;
 	}
 
 	@Override

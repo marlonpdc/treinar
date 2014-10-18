@@ -21,7 +21,7 @@ public class ContaUniversitaria extends Conta implements ITributavel {
 
 	@Override
 	public Double recuperarSaldo() {
-		return recuperarSaldo();
+		return saldo;
 	}
 
 	public Double getTarifa() {

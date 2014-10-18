@@ -10,10 +10,11 @@ public class DadosContaControle {
 		Conta[] contas = BaseDados.getInstance().recuperarContas();
 		for (int i = 0; i < contas.length; i++) {
 			if (contas[i] != null) {
-				dados = "Nome do Cliente ";
+				dados += "Nome do Cliente ";
 				dados += contas[i].cliente.nome;
-				dados += "\n Data Nascimento do Cliente";
-				dados += contas[i].cliente.dataNascimento;
+				dados += " Data Nascimento: ";
+				dados += contas[i].cliente.dataNascimento;				
+				dados += " Saldo: " + contas[i].recuperarSaldo();				
 				dados += "\n\n";				
 			}
 		}
