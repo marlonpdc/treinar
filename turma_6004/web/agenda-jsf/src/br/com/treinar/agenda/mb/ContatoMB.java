@@ -1,6 +1,7 @@
 package br.com.treinar.agenda.mb;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -42,6 +43,15 @@ public class ContatoMB {
 		} catch (SQLException e) {
 			//TODO tratar
 		}
+	}
+	
+	public List<Contato> recuperarContatos() {
+		List<Contato> contatos = contatoDAO.getLista();
+		return contatos != null ? contatos : new ArrayList<Contato>();
+	}
+	
+	public void excluir(Contato contato) {
+		contatoDAO.excluirContato(contato);
 	}
 	
 	public Contato getContato() {

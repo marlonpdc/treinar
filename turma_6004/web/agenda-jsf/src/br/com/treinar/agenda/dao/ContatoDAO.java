@@ -115,6 +115,7 @@ public class ContatoDAO {
 	             contato.setEmail(rs.getString("email"));
 	             contato.setEndereco(rs.getString("endereco"));
 	             contato.setTelefone(new Telefone());
+	             contato.getTelefone().setId(Long.parseLong(rs.getString(6)));
 	             contato.getTelefone().setDdd(rs.getInt("ddd"));
 	             contato.getTelefone().setNumero(rs.getInt("numero"));
 	             contato.getTelefone().setTipoTelefone(TipoTelefone.values()[(rs.getInt("tipoTelefone"))]);
