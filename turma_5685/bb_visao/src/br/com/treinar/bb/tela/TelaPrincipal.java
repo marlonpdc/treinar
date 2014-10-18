@@ -25,7 +25,7 @@ public class TelaPrincipal {
 	private SaqueControle saqueControle;
 	private SaldoControle saldoControle;
 	private DepositoControle depositoControle;
-	
+
 	public TelaPrincipal() {
 		util = BBUtil.getInstance();
 		controle = new BancoControle();
@@ -34,7 +34,7 @@ public class TelaPrincipal {
 		saqueControle = new SaqueControle();
 		saldoControle = new SaldoControle();
 	}
-	
+
 	public void iniciar() {
 		Integer opcao = null;
 		String opcaoStr = null;
@@ -98,7 +98,7 @@ public class TelaPrincipal {
 	private void tributar() {
 		controle.tributar();
 	}
-	
+
 	private void captalizar() {
 		controle.captalizar();
 	}
@@ -115,7 +115,7 @@ public class TelaPrincipal {
 	private void exibirSaldo() {
 		Long codigo = Long.valueOf(JOptionPane.showInputDialog("Codigo"));
 		JOptionPane.showMessageDialog(null, "Saldo: "+ saldoControle.recuperarSaldo(codigo));
-		
+
 	}
 
 	private void exibirDadosConta() {
@@ -129,7 +129,7 @@ public class TelaPrincipal {
 		Long codigo = Long.valueOf(JOptionPane.showInputDialog("Codigo"));
 		String nomeCliente = JOptionPane.showInputDialog("Nome do Cliente");
 		Date dataNascimento = util.criarData(JOptionPane.showInputDialog("Data nascimento"));
-		
+
 		opcaoStr = JOptionPane.showInputDialog("Digite\n\n"
 				+ "1 - Corrente\n"
 				+ "2 - Poupança\n"
@@ -137,54 +137,54 @@ public class TelaPrincipal {
 				+ "4 - Investimento\n");
 		opcao = Integer.parseInt(opcaoStr);
 		switch (opcao) {
-			case 1:
-				conta = new ContaCorrente();
-				popularConta(conta, codigo, nomeCliente, dataNascimento);
-				cadastrarContaCorrente((ContaCorrente)conta);
-				controle.cadastrarContaCorrente(conta);
-				break;
-			case 2:
-				conta = new ContaPoupanca();
-				popularConta(conta, codigo, nomeCliente, dataNascimento);
-				cadastrarContaPoupanca((ContaPoupanca) conta);
-				controle.cadastrarContaPoupanca(conta);
-				break;
-			case 3:
-				conta = new ContaUniversitaria();
-				popularConta(conta, codigo, nomeCliente, dataNascimento);
-				cadastrarContaUniversitaria((ContaUniversitaria) conta);
-				controle.cadastrarContaUniversitaria(conta);
-				break;
-			case 4:
-				conta = new ContaInvestimento();
-				popularConta(conta, codigo, nomeCliente, dataNascimento);
-				cadastrarContaInvestimento((ContaInvestimento) conta);
-				controle.cadastrarContaInvestimento(conta);
-				break;
-			case 0:
-				JOptionPane.showMessageDialog(null, "Tipo de conta inválido, ação cancelada!");
-				break;
-			default:
-				break;
+		case 1:
+			conta = new ContaCorrente();
+			popularConta(conta, codigo, nomeCliente, dataNascimento);
+			cadastrarContaCorrente((ContaCorrente)conta);
+			controle.cadastrarContaCorrente(conta);
+			break;
+		case 2:
+			conta = new ContaPoupanca();
+			popularConta(conta, codigo, nomeCliente, dataNascimento);
+			cadastrarContaPoupanca((ContaPoupanca) conta);
+			controle.cadastrarContaPoupanca(conta);
+			break;
+		case 3:
+			conta = new ContaUniversitaria();
+			popularConta(conta, codigo, nomeCliente, dataNascimento);
+			cadastrarContaUniversitaria((ContaUniversitaria) conta);
+			controle.cadastrarContaUniversitaria(conta);
+			break;
+		case 4:
+			conta = new ContaInvestimento();
+			popularConta(conta, codigo, nomeCliente, dataNascimento);
+			cadastrarContaInvestimento((ContaInvestimento) conta);
+			controle.cadastrarContaInvestimento(conta);
+			break;
+		case 0:
+			JOptionPane.showMessageDialog(null, "Tipo de conta inválido, ação cancelada!");
+			break;
+		default:
+			break;
 		}
 	}
 
 	private void popularConta(Conta conta, Long codigo, String nomeCliente, Date dataNascimento) {
-		conta.codigo = codigo;
-		conta.cliente = new Cliente();
-		conta.cliente.nome = nomeCliente;
-		conta.cliente.dataNascimento = dataNascimento;
+		conta.setCodigo(codigo);
+		conta.setCliente(new Cliente());
+		conta.getCliente().setNome(nomeCliente);;
+		conta.getCliente().setDataNascimento(dataNascimento);
 	}
-	
+
 	private void cadastrarContaPoupanca(ContaPoupanca c) {
 		//faz alguma atualizacao exclusiva de conta poupanca
 	}
-	
+
 	private void cadastrarContaUniversitaria(ContaUniversitaria c) {
 		Double valorTarifa = Double.valueOf(JOptionPane.showInputDialog("Valor da Tarifa"));
 		c.setTarifa(valorTarifa);
 	}
-	
+
 	private void cadastrarContaInvestimento(ContaInvestimento c) {
 		//faz alguma atualizacao exclusiva de conta universitaria
 	}
@@ -201,9 +201,9 @@ public class TelaPrincipal {
 		Double valorSaque = Double.valueOf(JOptionPane.showInputDialog("Digite o valor a ser sacado"));		
 		saqueControle.sacarConta(codigoConta, valorSaque);
 		JOptionPane.showMessageDialog(null, "Saque realizado com sucesso!"); 
-		
+
 	}
-	
+
 	private void depositar() {
 		Double valor = Double.valueOf(JOptionPane.showInputDialog("Digite o valor do deposito"));
 		Long codigo = Long.valueOf(JOptionPane.showInputDialog("Digite o código da conta"));

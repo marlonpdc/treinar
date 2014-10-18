@@ -9,9 +9,9 @@ public abstract class Conta implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	public Long codigo;
+	private Long codigo;
 	protected Double saldo;
-	public Cliente cliente;
+	private Cliente cliente;
 	private StatusConta statusConta;
 	
 	public Conta() {
@@ -33,6 +33,22 @@ public abstract class Conta implements Serializable {
 
 	public void setStatusConta(StatusConta statusConta) {
 		this.statusConta = statusConta;
+	}
+
+	public Long getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(Long codigo) {
+		this.codigo = codigo;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 	
 	

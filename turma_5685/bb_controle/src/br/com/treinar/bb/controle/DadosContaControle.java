@@ -11,9 +11,9 @@ public class DadosContaControle {
 		for (int i = 0; i < contas.length; i++) {
 			if (contas[i] != null) {
 				dados += "Nome do Cliente ";
-				dados += contas[i].cliente.nome;
+				dados += contas[i].getCliente().getNome();
 				dados += " Data Nascimento: ";
-				dados += contas[i].cliente.dataNascimento;				
+				dados += contas[i].getCliente().getDataNascimento();				
 				dados += " Saldo: " + contas[i].recuperarSaldo();
 				dados += " Status Conta: " + contas[i].getStatusConta();
 				dados += "\n\n";				

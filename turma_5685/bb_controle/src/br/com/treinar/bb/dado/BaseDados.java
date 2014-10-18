@@ -34,7 +34,7 @@ public class BaseDados {
 	public Conta recuperarContaPorCodigo(Long codigo) {
 		Conta c = null;
 		for (int i = 0; i < contas.length; i++) {
-			if (contas[i].codigo.equals(codigo)) {
+			if (contas[i].getCliente().equals(codigo)) {
 				c = contas[i];
 				break;
 			}
@@ -44,7 +44,7 @@ public class BaseDados {
 	
 	public void excluirConta(Long codConta){
 		for (int i = 0; i < contas.length; i++) {
-			if (contas[i] != null && contas[i].codigo.equals(codConta)) {
+			if (contas[i] != null && contas[i].getCliente().equals(codConta)) {
 				contas[i].setStatusConta(StatusConta.INATIVO);
 				break;
 			}
