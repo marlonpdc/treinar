@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.swing.JOptionPane;
 
+import sun.security.jca.GetInstance;
 import br.com.treinar.bb.Cliente;
 import br.com.treinar.bb.ContaCorrente;
 import br.com.treinar.bb.ContaPoupanca;
@@ -63,7 +64,7 @@ public class TelaPrincipal {
 				exibirSaldo();
 				break;
 			case 5:
-				exibirDadosConta(BaseDados.getInstance().conta);
+				exibirDadosConta();
 			case 6:
 				cadastrarTaxaRendimento();
 				break;
@@ -94,13 +95,8 @@ public class TelaPrincipal {
 		JOptionPane.showMessageDialog(null, "Saldo: "+ saldoControle.recuperarSaldo());		
 	}
 
-	private void exibirDadosConta(final Conta conta) {
-		//TODO - melhorar o codigo
-		
-		
-		conta.depositar(1000d);
-		
-		JOptionPane.showMessageDialog(null, conta.codigo);
+	private void exibirDadosConta() {
+		JOptionPane.showMessageDialog(null,"Dados da Conta: " + contaControle.recuperarDados());
 	}
 
 	private void cadastrarConta() {
