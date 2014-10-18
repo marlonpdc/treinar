@@ -92,7 +92,9 @@ public class TelaPrincipal {
 	}
 
 	private void exibirSaldo() {
-		JOptionPane.showMessageDialog(null, "Saldo: "+ saldoControle.recuperarSaldo());		
+		Long codigo = Long.valueOf(JOptionPane.showInputDialog("Codigo"));
+		JOptionPane.showMessageDialog(null, "Saldo: "+ saldoControle.recuperarSaldo(codigo));
+		
 	}
 
 	private void exibirDadosConta() {
