@@ -163,6 +163,7 @@ public class TelaPrincipal {
 	
 	private void depositar() {
 		Double valor = Double.valueOf(JOptionPane.showInputDialog("Digite o valor do deposito"));
-		depositoControle.depositar(valor);
+		Long codigo = Long.valueOf(JOptionPane.showInputDialog("Digite o código da conta"));
+		depositoControle.depositar(codigo, valor);
 	}
 }
