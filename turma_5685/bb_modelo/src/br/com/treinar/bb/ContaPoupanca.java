@@ -41,4 +41,9 @@ public class ContaPoupanca extends Conta implements ICaptalizavel {
 		saldo *= (taxaRendimento + 1);
 	}
 
+	@Override
+	public String toString() {
+		return super.toString() + " - " + "ContaPoupanca";
+	}
+
 }

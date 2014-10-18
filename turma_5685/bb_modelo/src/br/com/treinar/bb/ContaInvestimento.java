@@ -33,4 +33,9 @@ public class ContaInvestimento extends Conta implements ICaptalizavel, ITributav
 		saldo *= 1.1;
 	}
 
+	@Override
+	public String toString() {
+		return super.toString() + " - " + "ContaInvestimento";
+	}
+
 }

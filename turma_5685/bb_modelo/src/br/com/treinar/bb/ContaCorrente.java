@@ -53,4 +53,12 @@ public class ContaCorrente extends Conta implements ITributavel {
 		saldo -= tarifa;
 	}
 
+	@Override
+	public String toString() {
+		return super.toString() + " - " + "ContaCorrente [tarifa=" + tarifa + ", limiteCredito="
+				+ limiteCredito + "]";
+	}
+	
+	
+
 }

@@ -50,6 +50,12 @@ public abstract class Conta implements Serializable {
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
+
+	@Override
+	public String toString() {
+		return "Conta [codigo=" + codigo + ", saldo=" + saldo + ", cliente="
+				+ cliente.toString() + ", statusConta=" + statusConta + "]";
+	}
 	
 	
 	

@@ -21,7 +21,7 @@ public class Principal {
 	private static void moc() {
 		ContaCorrente c = new ContaCorrente();
 		c.setCliente(new Cliente());
-		c.getCliente().setNome("Gleidosn");
+		c.getCliente().setNome("Gleidson");
 		c.getCliente().setDataNascimento(new Date());
 		c.setCodigo(10481l);
 		c.setLimiteCredito(1000d);

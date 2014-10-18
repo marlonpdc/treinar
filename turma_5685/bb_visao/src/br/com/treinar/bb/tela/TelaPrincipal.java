@@ -119,7 +119,7 @@ public class TelaPrincipal {
 	}
 
 	private void exibirDadosConta() {
-		JOptionPane.showMessageDialog(null,"Dados da Conta: " + contaControle.recuperarDados());
+		JOptionPane.showMessageDialog(null, contaControle.recuperarDados());
 	}
 
 	private void cadastrarConta() {

@@ -37,4 +37,9 @@ public class ContaUniversitaria extends Conta implements ITributavel {
 		saldo -= tarifa;
 	}
 
+	@Override
+	public String toString() {
+		return super.toString() + " - " + "ContaUniversitaria [tarifa=" + tarifa + "]";
+	}
+
 }
