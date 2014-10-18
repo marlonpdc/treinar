@@ -40,14 +40,13 @@ public class BaseDados {
 		}
 		return c;
 	}
+	
 	public void excluirConta(Long codConta){
 		for (int i = 0; i < contas.length; i++) {
-			if (contas[i].codigo.equals(codConta)) {
+			if (contas[i] != null && contas[i].codigo.equals(codConta)) {
 				contas[i] = null;
 				break;
 			}
-
-			
 		}
 	}
 	

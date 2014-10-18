@@ -22,8 +22,7 @@ public class BancoControle {
 		cadastrarConta(conta);
 	}
 	public void excluirConta(Long codConta) {
-		
-		
+		BaseDados.getInstance().excluirConta(codConta);
 	}
 	
 

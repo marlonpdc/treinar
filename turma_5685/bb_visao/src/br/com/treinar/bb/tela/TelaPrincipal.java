@@ -72,7 +72,7 @@ public class TelaPrincipal {
 				exibirTaxaRendimento();
 				break;
 			case 8:
-			excluirConta();
+				excluirConta();
 				break;
 			case 0:
 				JOptionPane.showMessageDialog(null, "Obrigado volte sempre!");
