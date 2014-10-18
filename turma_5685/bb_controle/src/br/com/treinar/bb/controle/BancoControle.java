@@ -8,7 +8,7 @@ public class BancoControle {
 	protected String teste;
 	
 	private void cadastrarConta(Conta conta) {
-		BaseDados.getInstance().conta = conta;
+		BaseDados.getInstance().adicionarConta(conta);
 	}
 
 	public void cadastrarContaCorrente(Conta conta) {

@@ -5,10 +5,13 @@ import br.com.treinar.bb.banco.Conta;
 public class BaseDados {
 
 	private static BaseDados instance;
-	public Conta conta;
+	private Conta[] contas;
+	private Integer index;
 	
 	private BaseDados() {
 		super();
+		contas = new Conta[5];
+		index = 0;
 	}
 	
 	static {
@@ -19,6 +22,24 @@ public class BaseDados {
 		return instance;
 	}
 	
+	public void adicionarConta(Conta conta) {
+		contas[index++] = conta;
+	}
+	
+	public Conta[] recuperarContas() {
+		return contas;
+	}
+
+	public Conta recuperarContaPorCodigo(Long codigo) {
+		Conta c = null;
+		for (int i = 0; i < contas.length; i++) {
+			if (contas[i].codigo.equals(codigo)) {
+				c = contas[i];
+				break;
+			}
+		}
+		return c;
+	}
 	
 	
 }
