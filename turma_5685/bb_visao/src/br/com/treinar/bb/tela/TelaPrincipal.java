@@ -155,8 +155,9 @@ public class TelaPrincipal {
 	}
 
 	private void sacarConta() {
-		Double valorSaque = Double.valueOf(JOptionPane.showInputDialog("Digite o valor a ser sacado"));
-		saqueControle.sacarConta(valorSaque);
+		Long codigoConta = Long.valueOf(JOptionPane.showInputDialog("Digite o numero da conta a ser sacado"));
+		Double valorSaque = Double.valueOf(JOptionPane.showInputDialog("Digite o valor a ser sacado"));		
+		saqueControle.sacarConta(codigoConta, valorSaque);
 		JOptionPane.showMessageDialog(null, "Saque realizado com sucesso!"); 
 		
 	}
