@@ -34,5 +34,8 @@ public enum TipoTelefone {
 			throw new IllegalAnnotationException(e);
 		}
 	}
-	
+	@Override
+	public String toString() {
+		return getDescricao();
+	}
 }
