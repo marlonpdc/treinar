@@ -21,5 +21,10 @@ public class BancoControle {
 		//faz alguma coisa e passa para gravar a conta
 		cadastrarConta(conta);
 	}
+	public void excluirConta(Long codConta) {
+		
+		
+	}
+	
 
 }

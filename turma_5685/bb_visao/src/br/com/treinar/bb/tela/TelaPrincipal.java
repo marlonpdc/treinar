@@ -48,6 +48,7 @@ public class TelaPrincipal {
 					+ "5 - Exibir Dados da Conta\n"
 					+ "6 - Cadastrar Taxa Rendimento\n"
 					+ "7 - Exibir Taxa Rendimento\n"
+					+ "8 - Excluir Conta\n"
 					+ "0 - Sair\n");
 			opcao = Integer.parseInt(opcaoStr);
 			switch (opcao) {
@@ -70,6 +71,9 @@ public class TelaPrincipal {
 				break;
 			case 7:
 				exibirTaxaRendimento();
+				break;
+			case 8:
+			excluirConta();
 				break;
 			case 0:
 				JOptionPane.showMessageDialog(null, "Obrigado volte sempre!");
@@ -164,5 +168,10 @@ public class TelaPrincipal {
 		Double valor = Double.valueOf(JOptionPane.showInputDialog("Digite o valor do deposito"));
 		Long codigo = Long.valueOf(JOptionPane.showInputDialog("Digite o código da conta"));
 		depositoControle.depositar(codigo, valor);
+	}
+	private void excluirConta() {
+		Long codigo = Long.valueOf(JOptionPane.showInputDialog("Digite o código da conta"));
+		controle.excluirConta(codigo);
+		JOptionPane.showMessageDialog(null, "Conta Excluida com sucesso!"); 
 	}
 }
