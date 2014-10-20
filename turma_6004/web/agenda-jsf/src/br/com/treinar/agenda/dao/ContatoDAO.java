@@ -172,7 +172,8 @@ public class ContatoDAO {
 		try {
 			stmt = this.con.prepareStatement(sql);
 			stmt.setLong(1, contato.getId());
-			stmt.executeUpdate();
+			stmt.execute();
+			stmt.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -185,7 +186,8 @@ public class ContatoDAO {
 		try {
 			stmt = this.con.prepareStatement(sql);
 			stmt.setLong(1, telefone.getId());
-			stmt.executeUpdate();
+			stmt.execute();
+			stmt.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

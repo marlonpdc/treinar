@@ -24,6 +24,8 @@ public class ContatoMB {
 	private ContatoDAO contatoDAO;
 	private List<TipoTelefone> tipos;
 	
+	private String texto;
+	
 	@PostConstruct
 	private void init() {
 		contatoDAO = new ContatoDAO();
@@ -78,4 +80,18 @@ public class ContatoMB {
 		this.date = date;
 	}
 
+	public String navegar() {
+		System.out.println("executado antes de navegar");
+		texto = "processamento antes de navegar";
+		return "pagina2";
+	}
+
+	public String getTexto() {
+		return texto;
+	}
+
+	public void setTexto(String texto) {
+		this.texto = texto;
+	}
+	
 }
