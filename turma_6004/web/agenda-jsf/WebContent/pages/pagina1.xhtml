@@ -10,16 +10,35 @@
 </h:head>
 <h:body>
 	<h:form>
-		<p:layout style="min-width:700px;min-height:200px;">
-		<p:layoutUnit position="west" resizable="true" size="100" minSize="40"
-			maxSize="200">
-			<p:commandButton update="data" action="#{contatoMB.teste()}" value="#{msg.imposto}" />
-		</p:layoutUnit>
-
-		<p:layoutUnit position="center">
-			<p:calendar id="data" value="#{contatoMB.date}" />
-		</p:layoutUnit>
-	</p:layout>
+		<p:growl id="growl" showDetail="true" sticky="true" />  
+			
+			<h:outputText value="#{contatoMB.date}">
+				<f:convertDateTime pattern="dd/MM/yyyy"/>
+			</h:outputText>
+			
+			<h:panelGrid columns="2">
+				<h:outputLabel value="Nome" />
+				<h:inputText value="#{contatoMB.contato.nome}" label="Nome" required="true" />
+				<h:outputLabel value="Email" />
+				<h:inputText value="#{contatoMB.contato.email}" label="Email" required="true" />
+				<h:outputLabel value="Endereço" />
+				<h:inputText value="#{contatoMB.contato.endereco}" label="Endereço" required="true" />
+				<h:outputLabel value="Telefone" />
+				<h:inputText value="#{contatoMB.contato.telefone}"  label="Telefone" required="true">
+					<f:converter converterId="br.com.treinar.agenda.TelefoneConverter"/>
+				</h:inputText>
+				<h:outputText value="Data Nascimento" />
+				<h:inputText value="#{contatoMB.contato.dataNascimento}">
+				<f:convertDateTime pattern="dd/MM/YYYY"/>
+				</h:inputText>
+				<h:outputLabel value="Tipo Telefone" />
+				<h:panelGroup>
+					<h:selectOneRadio id="tipoTelefone" value="#{contatoMB.contato.telefone.tipoTelefone}" required="true" >
+						<f:selectItems value="#{contatoMB.tipos}"/>
+					</h:selectOneRadio>
+				</h:panelGroup>
+			</h:panelGrid>
+			<h:commandButton value="Salvar Contato" action="#{contatoMB.cadastrarContato()}" />
 	</h:form>
 </h:body>
 </html>
