@@ -1,6 +1,7 @@
 package br.com.treinar.agenda.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -40,8 +41,8 @@ public class ContatoDAO {
 	
 	public void adicionar(Contato contato) throws SQLException {
 	    String sqlContato = "insert into contato " +
-	            "(nome, email, endereco, telefone)" +
-	            " values (?, ?, ?, ?)";
+	            "(nome, email, endereco, telefone, dataNascimento)" +
+	            " values (?, ?, ?, ?, ?)";
 	    
 	    criarTelefone(contato.getTelefone());
 	    Telefone t = recuperarTelefone(contato.getTelefone().getNumero(), contato.getTelefone().getDdd());
@@ -55,6 +56,7 @@ public class ContatoDAO {
 	        stmt.setString(2,contato.getEmail());
 	        stmt.setString(3,contato.getEndereco());
 	        stmt.setLong(4, t.getId());
+	        stmt.setDate(5, new Date(contato.getDataNascimento().getTime()));
 
 	        // executa
 	        stmt.execute();
@@ -114,8 +116,9 @@ public class ContatoDAO {
 	             contato.setNome(rs.getString("nome"));
 	             contato.setEmail(rs.getString("email"));
 	             contato.setEndereco(rs.getString("endereco"));
+	             contato.setDataNascimento(rs.getDate("dataNascimento"));
 	             contato.setTelefone(new Telefone());
-	             contato.getTelefone().setId(Long.parseLong(rs.getString(6)));
+	             contato.getTelefone().setId(Long.parseLong(rs.getString(7)));
 	             contato.getTelefone().setDdd(rs.getInt("ddd"));
 	             contato.getTelefone().setNumero(rs.getInt("numero"));
 	             contato.getTelefone().setTipoTelefone(TipoTelefone.values()[(rs.getInt("tipoTelefone"))]);

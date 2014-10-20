@@ -1,5 +1,7 @@
 package br.com.treinar.agenda.modelo;
 
+import java.util.Date;
+
 public class Contato {
 
 	private Long id;
@@ -7,6 +9,7 @@ public class Contato {
 	private Telefone telefone;
 	private String endereco;
 	private String email;
+	private Date dataNascimento;
 	
 	public Long getId() {
 		return id;
@@ -37,6 +40,12 @@ public class Contato {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public Date getDataNascimento() {
+		return dataNascimento;
+	}
+	public void setDataNascimento(Date dataNascimento) {
+		this.dataNascimento = dataNascimento;
 	}
 
 }
