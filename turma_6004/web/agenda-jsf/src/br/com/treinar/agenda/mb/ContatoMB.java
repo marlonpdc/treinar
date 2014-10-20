@@ -3,6 +3,7 @@ package br.com.treinar.agenda.mb;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -45,6 +46,14 @@ public class ContatoMB {
 		} catch (SQLException e) {
 			//TODO tratar
 		}
+	}
+	
+	public void teste() {
+		Calendar c = Calendar.getInstance();
+		c.set(Calendar.DAY_OF_MONTH, 15);
+		c.set(Calendar.MONTH, 10);
+		c.set(Calendar.YEAR, 2012);
+		date = c.getTime();
 	}
 	
 	public List<Contato> recuperarContatos() {
