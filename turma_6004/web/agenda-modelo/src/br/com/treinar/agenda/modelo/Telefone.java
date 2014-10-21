@@ -56,4 +56,10 @@ public class Telefone {
 		this.numero = numero;
 	}
 
+	@Override
+	public String toString() {
+		return "Telefone [tipoTelefone=" + tipoTelefone + ", ddd=" + ddd
+				+ ", numero=" + numero + "]";
+	}
+
 }

@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -14,9 +15,10 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name="Contato")
+@Table(uniqueConstraints={@UniqueConstraint(name="constraint_email", columnNames={"email"})})
 public class Contato {
 
 	@Id
@@ -27,17 +29,17 @@ public class Contato {
 	@Column(name="nome_contato", nullable=false)
 	private String nome;
 	
-	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="idTelefone", nullable=false)
+	@ManyToOne(cascade=CascadeType.ALL, optional=true)
+	@JoinColumn(name="idTelefone", nullable=true)
 	private Telefone telefone;
 	
-	@OneToMany(cascade=CascadeType.ALL)
-	private List<Telefone> telefones;
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="contato", fetch=FetchType.EAGER, orphanRemoval=true)
+	private List<ContatoTelefone> telefones;
 	
 	@Column(name="endereco")
 	private String endereco;
 	
-	@Column(name="email")
+	@Column(name="email", nullable=false)
 	private String email;
 	
 	@Temporal(TemporalType.DATE)
@@ -80,11 +82,10 @@ public class Contato {
 	public void setDataNascimento(Date dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
-	public List<Telefone> getTelefones() {
+	public List<ContatoTelefone> getTelefones() {
 		return telefones;
 	}
-	public void setTelefones(List<Telefone> telefones) {
+	public void setTelefones(List<ContatoTelefone> telefones) {
 		this.telefones = telefones;
 	}
-
 }

@@ -8,6 +8,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import br.com.treinar.agenda.modelo.Contato;
+import br.com.treinar.agenda.modelo.ContatoTelefone;
 import br.com.treinar.agenda.modelo.Telefone;
 import br.com.treinar.agenda.modelo.TipoTelefone;
 
@@ -21,12 +22,28 @@ public class TesteJPA {
 		c.setEmail("erica@gmail.com");
 		c.setEndereco("rua da primavera, 240 vila da serra");
 		c.setDataNascimento(new Date());
-		c.setTelefone(new Telefone());
+		Telefone telefone = new Telefone();
+		c.setTelefone(telefone);
 		c.getTelefone().setDdd(31);
+		c.setTelefone(telefone);
 		c.getTelefone().setNumero(87749131);
 		c.getTelefone().setTipoTelefone(TipoTelefone.CELULAR);
-		c.setTelefones(new ArrayList<Telefone>());
-		c.getTelefones().add(c.getTelefone());
+		c.setTelefones(new ArrayList<ContatoTelefone>());
+		ContatoTelefone ct = new ContatoTelefone();
+		ct.setContato(c);
+		ct.setTelefone(telefone);
+		ct.setDataCadastro(new Date());
+		ct.setContato(c);
+		c.getTelefones().add(ct);
+		Telefone t2 = new Telefone();
+		t2.setTipoTelefone(TipoTelefone.COMERCIAL);
+		t2.setDdd(31);
+		t2.setNumero(21231108);
+		ContatoTelefone ct2 = new ContatoTelefone();
+		ct2.setContato(c);
+		ct2.setTelefone(t2);
+		ct2.setDataCadastro(new Date());
+		c.getTelefones().add(ct2);
 		manager.getTransaction().begin();    
 		manager.persist(c);
 		manager.getTransaction().commit();  
@@ -34,7 +51,7 @@ public class TesteJPA {
 		System.out.println("ID da tarefa: " + c.getId());
 
 		manager.close();
-		
+		System.exit(0);
 	
 	}
 	
