@@ -8,6 +8,7 @@
 		
 		<class>br.com.treinar.agenda.modelo.Contato</class>
 		<class>br.com.treinar.agenda.modelo.Telefone</class>
+		<class>br.com.treinar.agenda.modelo.ContatoTelefone</class>
 		
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
