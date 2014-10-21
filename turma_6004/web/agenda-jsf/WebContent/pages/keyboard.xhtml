@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Hello JSF!</title>
+</h:head>
+<h:body>
+	<h:form>
+				<h:panelGrid columns="2" cellpadding="5">
+        <h:outputText value="#{msg['lable.cidade']}" />
+        <p:keyboard id="default" value="#{keyboardView.value1}" />
+ 
+        <h:outputText value="#{msg['lable.estado']}" />
+        <p:keyboard id="qwerty" value="#{keyboardView.value2}" layout="qwertyBasic" />
+ 
+       </h:panelGrid>
+ 
+    <p:commandButton value="Submit" update="display" oncomplete="PF('dlg').show()" />
+ 
+    <p:dialog widgetVar="dlg" showEffect="fade" hideEffect="fade" header="Values">
+        <h:panelGrid id="display" columns="2" cellpadding="5">
+            <h:outputText value="#{msg['lable.cidade']}" />
+            <h:outputText value="#{keyboardView.value1}" />
+ 
+            <h:outputText value="#{msg['lable.estado']}" />
+            <h:outputText value="#{keyboardView.value2}" />
+ 
+        </h:panelGrid>
+    </p:dialog>
+	</h:form>
+</h:body>
+</html>
