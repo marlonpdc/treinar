@@ -24,9 +24,8 @@ public class AlunoTreinar implements Comparable<AlunoTreinar>{
 		return "Aluno [nome=" + nome + ", cpf=" + cpf + "]";
 	}
 	
-	public String compareTo(AlunoTreinar aluno)
-	{
-		return aluno.nome.compareTo(getNome());
+	public int compareTo(AlunoTreinar aluno)	{
+		return getNome().compareTo(aluno.getNome());
 	}
 
 }
