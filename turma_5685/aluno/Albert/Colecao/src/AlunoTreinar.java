@@ -21,8 +21,7 @@ public class AlunoTreinar implements Comparable<AlunoTreinar>{
 	
 	@Override
 	public String toString() {
-		return "Aluno [nome=" + nome + ", cpf=" + cpf
-				+ "]";
+		return "Aluno [nome=" + nome + ", cpf=" + cpf + "]";
 	}
 	
 	public String compareTo(AlunoTreinar aluno)
