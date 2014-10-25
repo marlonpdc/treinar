@@ -26,13 +26,13 @@ public class ExemploMap {
 		}
 		
 		List<String> nomes = new ArrayList<>();
-		nomes.add("Albert");
-		nomes.add("Alano");
-		nomes.add("Raquel");
 		nomes.add("Robson");
-		nomes.add("Fernando");
+		nomes.add("Alano");
+		nomes.add("Albert");
 		nomes.add("Gabriel");
+		nomes.add("Raquel");
 		nomes.add("Gilberto");
+		nomes.add("Fernando");
 		
 		
 		
