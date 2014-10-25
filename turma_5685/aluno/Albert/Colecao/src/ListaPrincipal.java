@@ -17,6 +17,7 @@ public class ListaPrincipal {
 		lista.add(alunoTreinar.toString());
 		
 		System.out.print(lista.get(0));
+		//
 		
 		
 		
