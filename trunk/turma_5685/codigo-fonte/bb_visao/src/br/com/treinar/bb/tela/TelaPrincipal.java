@@ -1,5 +1,6 @@
 package br.com.treinar.bb.tela;
 
+import java.io.IOException;
 import java.util.Date;
 
 import javax.swing.JOptionPane;
@@ -13,8 +14,10 @@ import br.com.treinar.bb.banco.Conta;
 import br.com.treinar.bb.controle.BancoControle;
 import br.com.treinar.bb.controle.DadosContaControle;
 import br.com.treinar.bb.controle.DepositoControle;
+import br.com.treinar.bb.controle.PersistirDados;
 import br.com.treinar.bb.controle.SaldoControle;
 import br.com.treinar.bb.controle.SaqueControle;
+import br.com.treinar.bb.dado.BaseDados;
 import br.com.treinar.bb.util.BBUtil;
 
 public class TelaPrincipal {
@@ -25,6 +28,8 @@ public class TelaPrincipal {
 	private SaqueControle saqueControle;
 	private SaldoControle saldoControle;
 	private DepositoControle depositoControle;
+	private PersistirDados persistirDados;
+	
 
 	public TelaPrincipal() {
 		util = BBUtil.getInstance();
@@ -33,9 +38,10 @@ public class TelaPrincipal {
 		depositoControle = new DepositoControle();
 		saqueControle = new SaqueControle();
 		saldoControle = new SaldoControle();
+		persistirDados = new PersistirDados();
 	}
 
-	public void iniciar() {
+	public void iniciar() throws IOException {
 		Integer opcao = null;
 		String opcaoStr = null;
 
@@ -85,6 +91,7 @@ public class TelaPrincipal {
 				captalizar();
 				break;
 			case 0:
+				persistirDados();
 				JOptionPane.showMessageDialog(null, "Obrigado volte sempre!");
 				break;
 
@@ -93,6 +100,10 @@ public class TelaPrincipal {
 				break;
 			}
 		} while (opcao != 0);
+	}
+
+	private void persistirDados() throws IOException {
+		persistirDados.persistirContas(BaseDados.getInstance().recuperarContas());
 	}
 
 	private void tributar() {
