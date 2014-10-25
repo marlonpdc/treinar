@@ -1,5 +1,6 @@
 package br.com.treinar.bb.principal;
 
+import java.io.IOException;
 import java.util.Date;
 
 import br.com.treinar.bb.Cliente;
@@ -12,7 +13,7 @@ import br.com.treinar.bb.tela.TelaPrincipal;
 
 public class Principal {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		TelaPrincipal tp = new TelaPrincipal();
 		moc();
 		tp.iniciar();
