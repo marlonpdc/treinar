@@ -40,5 +40,11 @@ public class Moto {
 	public void setFabricante(String fabricante) {
 		this.fabricante = fabricante;
 	}
+	@Override
+	public String toString() {
+		return "Moto [numeroChassi=" + numeroChassi + ", cor=" + cor
+				+ ", dataFabricacao=" + dataFabricacao + ", fabricante="
+				+ fabricante + ", modelo=" + modelo + "]";
+	}
 
 }

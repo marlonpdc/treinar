@@ -21,11 +21,7 @@ public class Teste {
 		motos.add(moto);
 		
 		for (Moto motoCurrent : motos) {
-			System.out.println(motoCurrent.getModelo());
-			System.out.println(motoCurrent.getCor());
-			System.out.println(motoCurrent.getDataFabricacao());
-			System.out.println(motoCurrent.getFabricante());
-			System.out.println(motoCurrent.getNumeroChassi());
+			System.out.println(motoCurrent);
 		}
 		
 	}
