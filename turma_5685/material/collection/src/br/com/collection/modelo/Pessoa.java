@@ -1,11 +1,10 @@
 package br.com.collection.modelo;
 
-import java.util.Date;
 
-public class Pessoa {
+public class Pessoa implements Comparable<Pessoa> {
 
 	private String nome;
-	private Date dataNascimento;
+	private Integer idade;
 	
 	public String getNome() {
 		return nome;
@@ -13,16 +12,19 @@ public class Pessoa {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public Date getDataNascimento() {
-		return dataNascimento;
+	public Integer getIdade() {
+		return idade;
 	}
-	public void setDataNascimento(Date dataNascimento) {
-		this.dataNascimento = dataNascimento;
+	public void setIdade(Integer idade) {
+		this.idade = idade;
 	}
-	
 	@Override
 	public String toString() {
 		return "Pessoa [nome=" + nome + "]";
+	}
+	@Override
+	public int compareTo(Pessoa pessoa) {
+		return getIdade().compareTo(pessoa.getIdade());
 	}
 	
 }
