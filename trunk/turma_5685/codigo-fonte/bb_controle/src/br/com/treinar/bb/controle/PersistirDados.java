@@ -8,23 +8,20 @@ import java.io.OutputStreamWriter;
 import java.util.List;
 
 import br.com.treinar.bb.banco.Conta;
+import br.com.treinar.bb.dado.BaseDados;
 
 public class PersistirDados {
-	public void persistirContas (List<Conta> contas ) throws IOException {
-		
-		
-		OutputStream os = new FileOutputStream("saidas.txt");
+	public void persistirContas () throws IOException  {
+		List<Conta> contas = BaseDados.getInstance().recuperarContas();
+		OutputStream os = new FileOutputStream("saida.txt");
 		OutputStreamWriter osw = new OutputStreamWriter(os);
 		BufferedWriter bw = new BufferedWriter(osw);
 
-		for (Conta conta : contas) {
-			bw.write("Conta:" + (conta.toString()) + "\n");
-		} 
-
+		for (Conta c : contas) {
+			bw.write(c.toString() + "\n");
+		}
+		bw.flush();
 		bw.close();
-		
-		
-		
 		
 	}
 }

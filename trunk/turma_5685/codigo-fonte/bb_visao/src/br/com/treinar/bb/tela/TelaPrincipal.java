@@ -103,7 +103,7 @@ public class TelaPrincipal {
 	}
 
 	private void persistirDados() throws IOException {
-		persistirDados.persistirContas(BaseDados.getInstance().recuperarContas());
+		persistirDados.persistirContas();
 	}
 
 	private void tributar() {
