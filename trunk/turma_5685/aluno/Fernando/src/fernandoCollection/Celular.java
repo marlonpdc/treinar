@@ -1,17 +1,9 @@
 package fernandoCollection;
 
-public class Celular {
-	private String modelo;
+public class Celular implements Comparable<Celular> {
 	private String marca;
+	private Integer tela;
 	
-	public String getModelo() {
-		return modelo;
-	}
-
-	public void setModelo(String modelo) {
-		this.modelo = modelo;
-	}
-
 	public String getMarca() {
 		return marca;
 	}
@@ -20,9 +12,22 @@ public class Celular {
 		this.marca = marca;
 	}
 
+	public Integer getTela() {
+		return tela;
+	}
+
+	public void setTela(Integer tela) {
+		this.tela = tela;
+	}
+
 	@Override
 	public String toString() {
-		return "Celular [modelo=" + modelo + ", marca=" + marca + "]";
+		return "Celular [marca=" + marca + ", tela=" + tela + "]";
+	}
+
+	@Override
+	public int compareTo(Celular celular) {
+		return tela.compareTo(celular.getTela());
 	}
 	
 }
