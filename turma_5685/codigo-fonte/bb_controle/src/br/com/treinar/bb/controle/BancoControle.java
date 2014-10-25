@@ -18,7 +18,7 @@ public class BancoControle {
 	}
 
 	private Boolean validarExistenciaConta(Conta conta) {
-		List<Conta> contas = BaseDados.getInstance().recuperarContas();
+																				List<Conta> contas = BaseDados.getInstance().recuperarContasAtivas();
 		Boolean jahExiste = Boolean.FALSE;
 		for (Conta c : contas) {
 			if (c != null && c.equals(conta)) {
@@ -44,7 +44,7 @@ public class BancoControle {
 	}
 
 	public void tributar() {
-		List<Conta> contas = BaseDados.getInstance().recuperarContas();
+		List<Conta> contas = BaseDados.getInstance().recuperarContasAtivas();
 		ITributavel it = null;
 		for (Conta c : contas) {
 			if (c instanceof ITributavel) {
@@ -55,7 +55,7 @@ public class BancoControle {
 	}
 	
 	public void captalizar() {
-		List<Conta> contas = BaseDados.getInstance().recuperarContas();
+		List<Conta> contas = BaseDados.getInstance().recuperarContasAtivas();
 		ICaptalizavel ic = null;
 		for (Conta c : contas) {
 			if (c instanceof ICaptalizavel) {
