@@ -1,6 +1,7 @@
 package colecoes;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class TestaAutomovel {
@@ -9,7 +10,7 @@ public class TestaAutomovel {
 		a.setChassi(234556);
 		a.setTipo("Palio");
 		Automovel a2 = new Automovel(); 
-		a2.setChassi(455666);
+		a2.setChassi(466);
 		a2.setTipo("Siena");
 		Automovel a3 = new Automovel();
 		a3.setTipo("ka");
@@ -18,9 +19,14 @@ public class TestaAutomovel {
 		lista.add(a);
 		lista.add(a2);
 		lista.add(a3);
+		
+		Collections.sort(lista);
+		
 		for (Automovel automovel : lista) {
+			
 			System.out.println(automovel);
 		}
+		
 		
 		
 		
