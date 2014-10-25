@@ -9,7 +9,7 @@ public class DadosContaControle {
 	
 	public String recuperarDados(){
 		String dados = "";
-		List<Conta> contas = BaseDados.getInstance().recuperarContas();
+		List<Conta> contas = BaseDados.getInstance().recuperarContasAtivas();
 		for (Conta c : contas) {
 			if (c != null) {
 				dados += c.toString();
