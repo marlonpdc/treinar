@@ -32,7 +32,7 @@ public class BaseDados {
 		//TODO aula de 1/11/2014 exception
 	}
 	
-	public List<Conta> recuperarContas() {
+	public List<Conta> recuperarContasAtivas() {
 		List<Conta> contasValidas = new ArrayList<>();
 		for (Conta conta : contas) {
 			if (conta.getStatusConta().equals(StatusConta.ATIVO)) {
@@ -42,6 +42,9 @@ public class BaseDados {
 		return contasValidas;
 	}
 
+	public List<Conta> recuperarContas() {
+		return this.contas;
+	}
 	public Conta recuperarContaPorCodigo(Long codigo) {
 		Conta conta = new ContaCorrente();
 		conta.setCodigo(codigo);
