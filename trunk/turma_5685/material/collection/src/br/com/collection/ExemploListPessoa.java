@@ -2,6 +2,7 @@ package br.com.collection;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import br.com.collection.modelo.Pessoa;
@@ -34,11 +35,30 @@ public class ExemploListPessoa {
 		
 		Collections.sort(pessoas);
 		
+		imprimirPessoa(pessoas);
+		ComparadorPessoaNome cpnp = new ComparadorPessoaNome();
+		Collections.sort(pessoas, cpnp);
+		
+		
+		Collections.sort(pessoas, new Comparator<Pessoa>() {
+
+			@Override
+			public int compare(Pessoa o1, Pessoa o2) {
+				return o1.getNome().compareTo(o2.getNome());
+			}
+		});
+		
+		
+		System.out.println("Ordenadas pelo nome da pessoa:");
+		imprimirPessoa(pessoas);
+		
+		
+	}
+
+	private static void imprimirPessoa(List<Pessoa> pessoas) {
 		for (Pessoa pessoa : pessoas) {
 			System.out.println(pessoa);
 		}
-		
-		
 	}
 	
 }
