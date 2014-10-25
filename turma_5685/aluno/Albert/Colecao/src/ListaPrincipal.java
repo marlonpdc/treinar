@@ -10,22 +10,22 @@ public class ListaPrincipal {
 		// TODO Auto-generated method stub
 
 		AlunoTreinar alunoTreinar = new AlunoTreinar();
-		
-		alunoTreinar.setNome("Teste");
+		alunoTreinar.setNome("bbbbbbb");
 		alunoTreinar.setCpf(123);
-		alunoTreinar.setNome("Albert");
-		alunoTreinar.setCpf(321)
 		
-		List<String> lista = new ArrayList<>();
-		lista.add(alunoTreinar.toString());
+		AlunoTreinar alunoTreinar2 = new AlunoTreinar();
+		alunoTreinar2.setNome("aaaaaaaaaaa");
+		alunoTreinar2.setCpf(123);
 		
-		System.out.print(lista.get(0));
+		List<AlunoTreinar> lista = new ArrayList<>();
+		lista.add(alunoTreinar);
+		lista.add(alunoTreinar2);
 		
 		Collections.sort(lista);
 		
-		for (alunoTreinar AlunoTreinar : lista) {
+		for (AlunoTreinar a : lista) {
 						
-			System.out.print(lista);
+			System.out.println(a);
 			
 		}
 				
