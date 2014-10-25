@@ -2,7 +2,7 @@ package net.gabriellima.objetos;
 
 import java.util.Date;
 
-public class Moto {
+public class Moto implements Comparable<Moto> {
 
 	private String numeroChassi;
 	private String cor;
@@ -40,11 +40,17 @@ public class Moto {
 	public void setFabricante(String fabricante) {
 		this.fabricante = fabricante;
 	}
+	
 	@Override
 	public String toString() {
 		return "Moto [numeroChassi=" + numeroChassi + ", cor=" + cor
 				+ ", dataFabricacao=" + dataFabricacao + ", fabricante="
 				+ fabricante + ", modelo=" + modelo + "]";
+	}
+	
+	@Override
+	public int compareTo(Moto moto) {
+		return this.getDataFabricacao().compareTo(moto.getDataFabricacao());
 	}
 
 }
