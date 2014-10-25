@@ -1,5 +1,7 @@
 package br.com.treinar.bb.controle;
 
+import java.util.List;
+
 import br.com.treinar.bb.banco.Conta;
 import br.com.treinar.bb.dado.BaseDados;
 
@@ -7,10 +9,10 @@ public class DadosContaControle {
 	
 	public String recuperarDados(){
 		String dados = "";
-		Conta[] contas = BaseDados.getInstance().recuperarContas();
-		for (int i = 0; i < contas.length; i++) {
-			if (contas[i] != null) {
-				dados += contas[i].toString();
+		List<Conta> contas = BaseDados.getInstance().recuperarContas();
+		for (Conta c : contas) {
+			if (c != null) {
+				dados += c.toString();
 				dados += "\n\n";				
 			}
 		}

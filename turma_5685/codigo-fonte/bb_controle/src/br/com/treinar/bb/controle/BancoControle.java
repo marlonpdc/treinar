@@ -1,5 +1,7 @@
 package br.com.treinar.bb.controle;
 
+import java.util.List;
+
 import br.com.treinar.bb.banco.Conta;
 import br.com.treinar.bb.banco.ICaptalizavel;
 import br.com.treinar.bb.banco.ITributavel;
@@ -16,7 +18,7 @@ public class BancoControle {
 	}
 
 	private Boolean validarExistenciaConta(Conta conta) {
-		Conta[] contas = BaseDados.getInstance().recuperarContas();
+		List<Conta> contas = BaseDados.getInstance().recuperarContas();
 		Boolean jahExiste = Boolean.FALSE;
 		for (Conta c : contas) {
 			if (c != null && c.equals(conta)) {
@@ -42,22 +44,22 @@ public class BancoControle {
 	}
 
 	public void tributar() {
-		Conta[] contas = BaseDados.getInstance().recuperarContas();
+		List<Conta> contas = BaseDados.getInstance().recuperarContas();
 		ITributavel it = null;
-		for (int i = 0; i < contas.length; i++) {
-			if (contas[i] instanceof ITributavel) {
-				it = (ITributavel) contas[i];
+		for (Conta c : contas) {
+			if (c instanceof ITributavel) {
+				it = (ITributavel) c;
 				it.tributar();
 			}
 		}
 	}
 	
 	public void captalizar() {
-		Conta[] contas = BaseDados.getInstance().recuperarContas();
+		List<Conta> contas = BaseDados.getInstance().recuperarContas();
 		ICaptalizavel ic = null;
-		for (int i = 0; i < contas.length; i++) {
-			if (contas[i] instanceof ICaptalizavel) {
-				ic = (ICaptalizavel) contas[i];
+		for (Conta c : contas) {
+			if (c instanceof ICaptalizavel) {
+				ic = (ICaptalizavel) c;
 				ic.captalizar();
 			}
 		}
