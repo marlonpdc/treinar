@@ -32,8 +32,14 @@ public class BaseDados {
 		//TODO aula de 1/11/2014 exception
 	}
 	
-	public Conta[] recuperarContas() {
-		return (Conta[]) contas.toArray();
+	public List<Conta> recuperarContas() {
+		List<Conta> contasValidas = new ArrayList<>();
+		for (Conta conta : contas) {
+			if (conta.getStatusConta().equals(StatusConta.ATIVO)) {
+				contasValidas.add(conta);
+			}
+		}
+		return contasValidas;
 	}
 
 	public Conta recuperarContaPorCodigo(Long codigo) {
