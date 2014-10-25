@@ -1,8 +1,9 @@
 
-public class AlunoTreinar {
+public class AlunoTreinar implements Comparable<AlunoTreinar>{
 	
 	private String nome;
 	private int cpf;
+	
 	
 	public String getNome() {
 		return nome;
@@ -24,6 +25,9 @@ public class AlunoTreinar {
 				+ "]";
 	}
 	
-	
+	public String compareTo(AlunoTreinar aluno)
+	{
+		return aluno.nome.compareTo(getNome());
+	}
 
 }
