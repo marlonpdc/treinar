@@ -1,18 +1,20 @@
 package br.com.treinar.bb.dado;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import br.com.treinar.bb.ContaCorrente;
 import br.com.treinar.bb.banco.Conta;
 import br.com.treinar.enumerators.StatusConta;
 
 public class BaseDados {
 
 	private static BaseDados instance;
-	private Conta[] contas;
-	private Integer index;
+	private List<Conta> contas;
 	
 	private BaseDados() {
 		super();
-		contas = new Conta[5];
-		index = 0;
+		contas = new ArrayList<>();
 	}
 	
 	static {
@@ -24,32 +26,31 @@ public class BaseDados {
 	}
 	
 	public void adicionarConta(Conta conta) {
-		contas[index++] = conta;
+		if (!contas.contains(conta)) {
+			contas.add(conta);
+		}
+		//TODO aula de 1/11/2014 exception
 	}
 	
 	public Conta[] recuperarContas() {
-		return contas;
+		return (Conta[]) contas.toArray();
 	}
 
 	public Conta recuperarContaPorCodigo(Long codigo) {
-		Conta c = null;
-		for (int i = 0; i < contas.length; i++) {
-			if (contas[i].getCliente().equals(codigo)) {
-				c = contas[i];
-				break;
-			}
-		}
-		return c;
+		Conta conta = new ContaCorrente();
+		conta.setCodigo(codigo);
+		Integer index = contas.indexOf(conta);
+		return index != null ? contas.get(index) : null;
 	}
 	
 	public void excluirConta(Long codConta) {
 		
-		for (int i = 0; i < contas.length; i++) {
-			if (contas[i] != null && contas[i].getCodigo().equals(codConta)) {
-				contas[i].setStatusConta(StatusConta.INATIVO);
-				break;
-			}
+		Conta c = recuperarContaPorCodigo(codConta);
+		if (c != null) {
+			c.setStatusConta(StatusConta.INATIVO);			
 		}
+		//TODO tratar excecao
+		
 	}
 
 }
