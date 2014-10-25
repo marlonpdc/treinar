@@ -1,7 +1,9 @@
 package br.com.collection;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -22,6 +24,17 @@ public class ExemploMap {
 		for (String chave : chaves) {
 			System.out.println(map.get(chave));
 		}
+		
+		List<String> nomes = new ArrayList<>();
+		nomes.add("Albert");
+		nomes.add("Alano");
+		nomes.add("Raquel");
+		nomes.add("Robson");
+		nomes.add("Fernando");
+		nomes.add("Gabriel");
+		nomes.add("Gilberto");
+		
+		
 		
 		
 		
