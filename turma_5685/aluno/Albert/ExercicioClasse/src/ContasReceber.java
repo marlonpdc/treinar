@@ -1,4 +1,6 @@
 
-public class ContasReceber extends NotaEntrada{
+public class ContasReceber {
 
+	NotaEntrada notaEntrada;
+	
 }

@@ -1,10 +1,15 @@
+import java.util.List;
 
-public class NotaFiscal extends ItemProduto{
+
+public class NotaFiscal {
 	
 	private Integer numeroNotaFiscal;
 	private String dataEmissaoNotaFiscal;
 	private Integer CNPJNotaFiscal;
 	private Double valorNotaFiscal;
+	
+	List<Produto> produtos;
+	
 	
 	public Integer getNumeroNotaFiscal() {
 		return numeroNotaFiscal;

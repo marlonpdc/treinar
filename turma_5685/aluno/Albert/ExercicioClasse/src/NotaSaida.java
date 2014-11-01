@@ -1,4 +1,4 @@
 
-public class NotaSaida extends NotaFiscal{
+public class NotaSaida extends NotaFiscal {
 
 }

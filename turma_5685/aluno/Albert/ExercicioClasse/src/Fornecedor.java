@@ -1,6 +1,9 @@
+import java.util.List;
 
-public class Fornecedor extends NotaEntrada{
+
+public class Fornecedor {
 	
+	List<NotaFiscal> notasFiscais;
 	
 
 }
