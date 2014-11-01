@@ -1,5 +1,5 @@
 
-public class ItemProduto extends Produto{
+public class ItemProduto extends Produto {
 	
 	
 	private Integer codigoItem;

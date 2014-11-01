@@ -1,21 +1,13 @@
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 
-public class Produto extends Estoque {
+public class Produto {
 	
-		
-	private Map<Integer,String> listaProduto;
+	List<NotaFiscal> notasFiscais;
+
 	
-		
-	public void CadastraProduto(Integer codigoProduto, String nomeProduto)	{		
-			
-			Set<Integer> chaves = listaProduto.keySet();					
-			listaProduto.put(codigoProduto, nomeProduto);
-				
-				
-			
-		}
-	
+
 
 }
