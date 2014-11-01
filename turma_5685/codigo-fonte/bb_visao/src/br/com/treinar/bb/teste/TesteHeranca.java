@@ -3,10 +3,11 @@ package br.com.treinar.bb.teste;
 import br.com.treinar.bb.ContaCorrente;
 import br.com.treinar.bb.ContaPoupanca;
 import br.com.treinar.bb.banco.Conta;
+import br.com.treinar.bb.exception.BBException;
 
 public class TesteHeranca {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws BBException {
 		//nao pode ser instanciada pois conta eh abstrata
 		//Conta c = new Conta();
 		Conta cc = new ContaCorrente();

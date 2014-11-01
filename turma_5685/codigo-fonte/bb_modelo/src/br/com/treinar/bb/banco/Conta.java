@@ -3,6 +3,8 @@ package br.com.treinar.bb.banco;
 import java.io.Serializable;
 
 import br.com.treinar.bb.Cliente;
+import br.com.treinar.bb.exception.BBException;
+import br.com.treinar.bb.exception.SaldoInsuficienteException;
 import br.com.treinar.enumerators.StatusConta;
 
 public abstract class Conta implements Serializable {
@@ -19,13 +21,13 @@ public abstract class Conta implements Serializable {
 		saldo = 0d;
 	}
 	
-	public abstract Boolean sacar(Double valor);
+	public abstract Boolean sacar(Double valor) throws SaldoInsuficienteException;
 	
-	public void depositar(Double valor) {
+	public void depositar(Double valor) throws BBException {
 		saldo += valor;
 	}
 	
-	public abstract Double recuperarSaldo();
+	public abstract Double recuperarSaldo() throws BBException;
 
 	public StatusConta getStatusConta() {
 		return statusConta;
