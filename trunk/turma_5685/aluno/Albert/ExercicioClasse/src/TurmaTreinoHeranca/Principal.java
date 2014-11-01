@@ -1,5 +1,7 @@
 package TurmaTreinoHeranca;
 
+import ExceptionGeneric.CpfException;
+
 public class Principal {
 
 	public static void main(String[] args) {
@@ -7,7 +9,12 @@ public class Principal {
 
 		Aluno aluno = new Aluno();
 		
-		aluno.setCPF("111111111111");
+		try {
+			aluno.setCPF("111111111111");
+		} catch (CpfException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 
