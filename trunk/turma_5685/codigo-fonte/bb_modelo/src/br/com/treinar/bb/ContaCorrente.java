@@ -2,6 +2,8 @@ package br.com.treinar.bb;
 
 import br.com.treinar.bb.banco.Conta;
 import br.com.treinar.bb.banco.ITributavel;
+import br.com.treinar.bb.exception.BBException;
+import br.com.treinar.bb.exception.SaldoInsuficienteException;
 
 public class ContaCorrente extends Conta implements ITributavel {
 
@@ -10,13 +12,13 @@ public class ContaCorrente extends Conta implements ITributavel {
 	private Double limiteCredito;
 	
 	@Override
-	public Double recuperarSaldo() {
+	public Double recuperarSaldo() throws BBException {
 		return saldo + limiteCredito;
 	}
 
 	//esta implementacao exige um if para avaliar a execucao da operacao
 	@Override
-	public Boolean sacar(Double valor) {
+	public Boolean sacar(Double valor) throws SaldoInsuficienteException {
 		Boolean sacou = Boolean.FALSE;
 		if (saldo >= (valor + limiteCredito)) {
 			sacou = Boolean.TRUE;

@@ -17,7 +17,8 @@ import br.com.treinar.bb.controle.DepositoControle;
 import br.com.treinar.bb.controle.PersistirDados;
 import br.com.treinar.bb.controle.SaldoControle;
 import br.com.treinar.bb.controle.SaqueControle;
-import br.com.treinar.bb.dado.BaseDados;
+import br.com.treinar.bb.exception.BBException;
+import br.com.treinar.bb.exception.SaldoInsuficienteException;
 import br.com.treinar.bb.util.BBUtil;
 
 public class TelaPrincipal {
@@ -67,7 +68,7 @@ public class TelaPrincipal {
 				depositar();
 				break;
 			case 3:
-				sacarConta();				
+				sacarConta();
 				break;
 			case 4:
 				exibirSaldo();
@@ -125,7 +126,11 @@ public class TelaPrincipal {
 
 	private void exibirSaldo() {
 		Long codigo = Long.valueOf(JOptionPane.showInputDialog("Codigo"));
-		JOptionPane.showMessageDialog(null, "Saldo: "+ saldoControle.recuperarSaldo(codigo));
+		try {
+			JOptionPane.showMessageDialog(null, "Saldo: "+ saldoControle.recuperarSaldo(codigo));
+		} catch (BBException e) {
+			JOptionPane.showMessageDialog(null, e.getMsgErro());;
+		}
 
 	}
 
@@ -210,16 +215,24 @@ public class TelaPrincipal {
 	private void sacarConta() {
 		Long codigoConta = Long.valueOf(JOptionPane.showInputDialog("Digite o numero da conta a ser sacado"));
 		Double valorSaque = Double.valueOf(JOptionPane.showInputDialog("Digite o valor a ser sacado"));		
-		saqueControle.sacarConta(codigoConta, valorSaque);
-		JOptionPane.showMessageDialog(null, "Saque realizado com sucesso!"); 
-
+		try {
+			saqueControle.sacarConta(codigoConta, valorSaque);
+			JOptionPane.showMessageDialog(null, "Saque realizado com sucesso!"); 
+		} catch (SaldoInsuficienteException e) {
+			JOptionPane.showMessageDialog(null, "Saldo Insuficiente");
+		}
 	}
 
 	private void depositar() {
 		Double valor = Double.valueOf(JOptionPane.showInputDialog("Digite o valor do deposito"));
 		Long codigo = Long.valueOf(JOptionPane.showInputDialog("Digite o código da conta"));
-		depositoControle.depositar(codigo, valor);
+		try {
+			depositoControle.depositar(codigo, valor);
+		} catch (BBException e) {
+			JOptionPane.showMessageDialog(null, e.getMsgErro());
+		}
 	}
+	
 	private void excluirConta() {
 		Long codigo = Long.valueOf(JOptionPane.showInputDialog("Digite o código da conta"));
 		controle.excluirConta(codigo);
