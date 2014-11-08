@@ -37,7 +37,6 @@ public class ContatoDAO {
 	        throw new RuntimeException(e);
 	    }
 	}
-	
 	public void atualizar(Contato contato) {
 	     String sql = "update contatos set nome=?, email=?, endereco=?," +
 	             "dataNascimento=? where id=?";
@@ -56,4 +55,16 @@ public class ContatoDAO {
 	         throw new RuntimeException(e);
 	     }
 	}
+	public void remover(Contato contato) {
+		try {
+			PreparedStatement stmt = connection.prepareStatement("delete " +
+					"from contatos where id=?");
+			stmt.setLong(1, contato.getId());
+			stmt.execute();
+			stmt.close();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
 }
