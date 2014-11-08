@@ -19,7 +19,7 @@ public class DateUtil {
 		return instance;
 	}
 
-	public Date criarData(int dia, int mes, int ano){
+	public Date criarData(int dia, int mes, int ano) {
 		Calendar calendario = Calendar.getInstance();
 		calendario.set(Calendar.DAY_OF_MONTH, dia);
 		calendario.set(Calendar.MONTH, mes);
@@ -27,7 +27,6 @@ public class DateUtil {
 
 		Date date = calendario.getTime();
 		return date;
-
 	}
 
 }
