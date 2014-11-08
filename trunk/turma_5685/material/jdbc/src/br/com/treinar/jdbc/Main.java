@@ -26,6 +26,11 @@ public class Main {
 		stmt.executeUpdate(sql);
 		stmt.close();
 		conexao.close();
+		
+		
+	
+		
+		
 	}
 	
 }
