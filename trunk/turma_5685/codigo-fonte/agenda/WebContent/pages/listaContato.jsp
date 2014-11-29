@@ -16,37 +16,21 @@
 		<input type="hidden" name="comando" value="ListaContato">
 		<br />
 		<br />
-			
-			<%
-				String uriExclusao = "/agenda/pages/excluiContato.controle?comando=ExcluiContato&email=";
-				List<Contato> contatos = (List<Contato>) request.getAttribute("contatos");
-				if (contatos != null) {
-					out.write("<table border=\"1\">");
-					for(Contato c : contatos) {
-						out.write("<tr>");
-						
-						out.write("<td>");
-						out.write(c.getNome());
-						out.write("</td>");
-						out.write("<td>");
-						out.write(c.getTelefone().getDdd() + "" + c.getTelefone().getNumero());
-						out.write("</td>");
-						out.write("<td>");
-						out.write(c.getEmail());
-						out.write("</td>");
-						out.write("<td>");
-						out.print("<a href=\""+ uriExclusao + c.getEmail() + "\">Excluir</a>");
-						out.write("</td>");
-						out.write("<td>");
-						out.write("<a href='../pages/editaContato.controle?comando=EditaContato&contato=" + c.getEmail() + "'>Editar Contato</a>");
-						out.write("</td>");
-						
-						out.write("</tr>");
-						
-					}
-					out.write("</table>");
-				}
-			%>
+		<!-- Utilizando JSTL -->
+		<table border="1">
+			<c:if test="${empty contatos}">
+				Nenhum contato
+			</c:if>
+			<c:forEach var="c" items="${contatos}" varStatus="id">
+				<tr bgcolor="#${id.count % 2 == 0 ? 'aaee88' : 'ffffff'}" >
+					<td>${c.nome}</td>
+					<td>${c.email}</td>
+					<td>${c.telefone.ddd}${c.telefone.numero}</td>
+					<td><a href="../pages/editaContato.controle?comando=SelecionaContato&email=${c.email}">Editar</a></td>
+					<td><a href="/agenda/pages/excluiContato.controle?comando=ExcluiContato&email=${c.email}">Excluir</a></td>
+				</tr>
+			</c:forEach>
+		</table>
 	</form>
 
 </body>
