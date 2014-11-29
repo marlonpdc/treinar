@@ -4,6 +4,7 @@ public class Telefone {
 
 	private Integer numero;
 	private Integer ddd;
+	private TipoTelefone tipo;
 	
 	public Integer getNumero() {
 		return numero;
@@ -17,7 +18,11 @@ public class Telefone {
 	public void setDdd(Integer ddd) {
 		this.ddd = ddd;
 	}
-	
-	
+	public TipoTelefone getTipo() {
+		return tipo;
+	}
+	public void setTipo(TipoTelefone tipo) {
+		this.tipo = tipo;
+	}
 	
 }
