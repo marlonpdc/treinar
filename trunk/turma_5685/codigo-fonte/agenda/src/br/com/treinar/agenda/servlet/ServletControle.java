@@ -21,16 +21,17 @@ import br.com.treinar.agenda.util.AppException;
 @WebServlet({ "*.controle" })
 public class ServletControle extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    
+
 	private final String PATH;
 
 	public ServletControle() {
 		PATH = "br.com.treinar.agenda.comando.";
 	}
-	
+
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
+		
 		String comando = req.getParameter("comando");
 		Comando c;
 		RequestDispatcher dispatcher = null;
