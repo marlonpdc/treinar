@@ -18,6 +18,7 @@
 		<br />
 			
 			<%
+				String uriExclusao = "/agenda/pages/excluiContato.controle?comando=ExcluiContato&email=";
 				List<Contato> contatos = (List<Contato>) request.getAttribute("contatos");
 				if (contatos != null) {
 					out.write("<table border=\"1\">");
@@ -33,14 +34,15 @@
 						out.write("<td>");
 						out.write(c.getEmail());
 						out.write("</td>");
-						
+						out.write("<td>");
+						out.print("<a href=\""+ uriExclusao + c.getEmail() + "\">Excluir</a>");
+						out.write("</td>");
 						out.write("</tr>");
 						
 					}
-					out.write("</table>");
+					out.write("</table>");			
 				}
 			%>
-		
 	</form>
 
 </body>
