@@ -31,4 +31,11 @@ public class DataBase {
 		this.contatos = contatos;
 	}
 	
+	public Contato getContatoById(String email) {
+		Contato c = new Contato();
+		c.setEmail(email);
+		Integer index = contatos.indexOf(c);
+		return contatos.get(index);
+	}
+	
 }
