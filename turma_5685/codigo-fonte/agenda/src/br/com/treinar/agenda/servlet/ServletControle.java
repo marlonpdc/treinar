@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.treinar.agenda.comando.Comando;
+import br.com.treinar.agenda.util.AppException;
 
 
 /**
@@ -37,9 +38,14 @@ public class ServletControle extends HttpServlet {
 			c = (Comando) Class.forName(PATH + comando).newInstance();
 			String retorno = c.executar(req, resp);
 			dispatcher = req.getRequestDispatcher(retorno);
+		} catch (AppException e) {
+			//TODO voltar pro mesmo lugar 
+			dispatcher = req.getRequestDispatcher("/index.jsp");
+			Logger.getLogger(ServletControle.class.getSimpleName()).log(Level.SEVERE, "deu zica de negocio");
+			req.setAttribute("mensagem", e.getCausa());
 		} catch (Exception e) {
-			dispatcher = req.getRequestDispatcher("/index.html");
-			Logger.getLogger(ServletControle.class.getSimpleName()).log(Level.SEVERE, "deu zica");
+			dispatcher = req.getRequestDispatcher("/index.jsp");
+			Logger.getLogger(ServletControle.class.getSimpleName()).log(Level.SEVERE, "deu zica geral sei lá vou ter que atuar");			
 		}
 		dispatcher.forward(req, resp);
 	}
