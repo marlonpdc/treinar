@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -76,7 +78,9 @@ div#hmenu ul a:hover{
 </head>
 <body>
 	<h1>Curso Java WEB Treinar</h1>
-
+	<h1>${mensagem}</h1>
+	<h1></h1>
+	
 	<div id="hmenu">
 		<ul>
 			<li><a href="/agenda/pages/listaContato.controle?comando=ListaContato">Listar Contato</a></li>

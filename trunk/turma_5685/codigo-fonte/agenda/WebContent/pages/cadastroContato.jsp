@@ -8,13 +8,15 @@
 </head>
 <body>
 
-	<%@include file="/index.html" %>
+	<%@ include file="/index.jsp" %>
+	
 	<br />
 	<form action="servletControle.controle" method="post">
 		<input type="hidden" name="comando" value="CadastroContato">
 		<label for="nome">Nome</label>		
 		<input type="text" name="nome"><br /><br />
-		<label for="telefone">Telefone</label>		
+		<label for="telefone">Telefone</label>	
+		<input type="text" name="ddd">
 		<input type="text" name="telefone"><br /><br />
 		<label for="email">Email</label>		
 		<input type="text" name="email"><br /><br />	
