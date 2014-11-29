@@ -37,10 +37,14 @@
 						out.write("<td>");
 						out.print("<a href=\""+ uriExclusao + c.getEmail() + "\">Excluir</a>");
 						out.write("</td>");
+						out.write("<td>");
+						out.write("<a href='../pages/editaContato.controle?comando=EditaContato&contato=" + c.getEmail() + "'>Editar Contato</a>");
+						out.write("</td>");
+						
 						out.write("</tr>");
 						
 					}
-					out.write("</table>");			
+					out.write("</table>");
 				}
 			%>
 	</form>
