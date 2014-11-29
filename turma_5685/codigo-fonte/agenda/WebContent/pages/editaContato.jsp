@@ -11,15 +11,16 @@
 	
 	<br />
 	<form action="servletControle.controle" method="post">
-		<input type="hidden" name="comando" value="CadastroContato">
+		<input type="hidden" name="comando" value="EditaContato">
+		<input type="hidden" name="contato" value="${contato.email}">
 		<label for="nome">Nome</label>		
 		<input type="text" value="${contato.nome}" name="nome"><br /><br />
 		<label for="telefone">Telefone</label>	
-		<input type="text" name="ddd">
-		<input type="text" name="telefone"><br /><br />
+		<input type="text" value="${contato.telefone.ddd}" name="ddd">
+		<input type="text" value="${contato.telefone.numero}" name="telefone"><br /><br />
 		<label for="email">Email</label>		
-		<input type="text" name="email"><br /><br />	
-		<input type="submit" value="Cadastrar"> 
+		<input type="text" value="${contato.email}" name="email"><br /><br />	
+		<input type="submit" value="Editar"> 
 	</form>
 </body>
 </html>

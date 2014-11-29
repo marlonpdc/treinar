@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.treinar.agenda.modelo.Contato;
+import br.com.treinar.agenda.util.AppException;
 import br.com.treinar.agenda.util.DataBase;
 
 public class EditaContato implements Comando {
@@ -15,14 +16,23 @@ public class EditaContato implements Comando {
 	}
 
 	@Override
-	public String executar(HttpServletRequest req, HttpServletResponse resp) {
-		String email = req.getParameter("contato");
+	public String executar(HttpServletRequest req, HttpServletResponse resp) throws AppException {
+		String email = req.getParameter("email");
+		String nome = req.getParameter("nome");
+		String telefone = req.getParameter("telefone");
+		String ddd = req.getParameter("ddd");
+		String contato = req.getParameter("contato");
 		
-		Contato contato = database.getContatoById(email);
+		Contato c = database.getContatoById(contato);		
+		c.setNome(nome);
+		c.setEmail(email);
+		c.getTelefone().setDdd(Integer.parseInt(ddd));
+		c.getTelefone().setNumero(Integer.parseInt(telefone));
 		
-		req.setAttribute("contato", contato);
+		req.setAttribute("mensagem", "Contato " + c.getNome() + " editado com sucesso!");
 		
-		return "/pages/editaContato.jsp";
+		Comando cmd = new ListaContato();
+		return cmd.executar(req, resp);
 	}
 	
 }
