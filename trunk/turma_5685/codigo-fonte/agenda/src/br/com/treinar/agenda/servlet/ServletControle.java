@@ -44,9 +44,8 @@ public class ServletControle extends HttpServlet {
 			dispatcher = req.getRequestDispatcher("/index.jsp");
 			Logger.getLogger(ServletControle.class.getSimpleName()).log(Level.SEVERE, "deu zica de negocio");
 			req.setAttribute("mensagem", e.getCausa());
-		} catch (Exception e) {
-			dispatcher = req.getRequestDispatcher("/index.jsp");
-			Logger.getLogger(ServletControle.class.getSimpleName()).log(Level.SEVERE, "deu zica geral sei lá vou ter que atuar");			
+		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
+			e.printStackTrace();
 		}
 		dispatcher.forward(req, resp);
 	}

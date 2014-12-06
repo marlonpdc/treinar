@@ -7,6 +7,6 @@
 <title>Treinar WEB</title>
 </head>
 <body onload="alert('Tentou acessar recurso nulo!')">
-	<%@ include file="/index.jsp" %>	
+	<%@ include file="/index.jsp" %>
 </body>
 </html>
