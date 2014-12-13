@@ -1,11 +1,56 @@
 package br.com.treinar.agenda.modelo;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Contato {
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 
+import br.com.treinar.agenda.util.Constant;
+
+@NamedQueries({ 
+	@NamedQuery(name = Constant.NamadQueris.FIND_CONTATO_BY_NOME, 
+			query = "select c from Contato c where c.pessoa.nome like :nome" )
+	}
+)
+@Entity
+public class Contato implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
+	public Contato() {
+		super();
+	}
+	
+	public Contato(String nome, String email) {
+		super();
+		pessoa = new Pessoa();
+		this.pessoa.setNome(nome);
+		this.email = email;
+	}
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Long id;
+	
+	@JoinColumn(name="pessoa")
+	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	private Pessoa pessoa;
+	
+	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	private List<Telefone> telefones;
+	
+	@Column(name="email", unique=true)
 	private String email;
 	
 	public Pessoa getPessoa() {
@@ -27,29 +72,13 @@ public class Contato {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((email == null) ? 0 : email.hashCode());
-		return result;
-	}
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Contato other = (Contato) obj;
-		if (email == null) {
-			if (other.email != null)
-				return false;
-		} else if (!email.equals(other.email))
-			return false;
-		return true;
-	}
 	
-	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 }
