@@ -10,7 +10,7 @@ import javax.persistence.*;
  *
  */
 @Entity(name="Funcionario")
-@Table(name="tb_pessoa", uniqueConstraints={@UniqueConstraint(columnNames={"nome"})})
+@Table(name="tb_pessoa")
 public class Pessoa implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
@@ -27,5 +27,37 @@ public class Pessoa implements Serializable {
 	
 	@Transient
 	private Integer idade;
-   
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public Date getDataNascimento() {
+		return dataNascimento;
+	}
+
+	public void setDataNascimento(Date dataNascimento) {
+		this.dataNascimento = dataNascimento;
+	}
+
+	public Integer getIdade() {
+		return idade;
+	}
+
+	public void setIdade(Integer idade) {
+		this.idade = idade;
+	}
+	
 }
