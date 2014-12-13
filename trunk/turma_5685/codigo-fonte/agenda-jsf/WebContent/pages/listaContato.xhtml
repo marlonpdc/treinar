@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<style>
+		.employeeTable {
+			border-collapse: collapse;
+			border: 1px solid #000000;
+		}
+		
+		.employeeTableHeader {
+			text-align: center;
+			background: none repeat scroll 0 0 #B5B5B5;
+			border-bottom: 1px solid #000000;
+			padding: 2px;
+		}
+		
+		.employeeTableOddRow {
+			text-align: center;
+			background: none repeat scroll 0 0 #FFFFFFF;
+		}
+		
+		.employeeTableEvenRow {
+			text-align: center;
+			background: none repeat scroll 0 0 #D3D3D3;
+		}
+	</style>
+</h:head>
+<h:body>
+	<h:form>
+		<h:dataTable value="#{contatoController.contatos}" var="contato"
+			styleClass="employeeTable" headerClass="employeeTableHeader"
+			rowClasses="employeeTableOddRow,employeeTableEvenRow"
+			rendered="#{not empty contatoController.contatos}">
+			<h:column>
+				<f:facet name="header">Nome</f:facet>    				
+           		<h:outputText value="#{contato.nome}" />
+         	</h:column>
+			<h:column>
+				<f:facet name="header">Email</f:facet>    				
+           		<h:outputText value="#{contato.email}" />
+         	</h:column>
+			<h:column>
+				<f:facet name="header">Telefone</f:facet>    				
+           		<h:outputText value="#{contato.telefone}">
+           			<f:converter converterId="br.com.treinar.ConverterTelefone"/>
+           		</h:outputText>
+         	</h:column>
+			<h:column>
+				<f:facet name="header">Editar</f:facet>    				
+           		<h:commandLink action="#{contatoController.selecionar(contato)}" value="Editar" />
+         	</h:column>
+			<h:column>
+				<f:facet name="header">Excluir</f:facet>    				
+           		<h:commandLink action="#{contatoController.excluir(contato)}" value="Excluir" />
+         	</h:column>
+		</h:dataTable>
+	</h:form>
+</h:body>
+
+</html>

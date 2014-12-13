@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<h:panelGroup id="raquelDiv" layout="block">
+	<p:outputLabel id="nomeRaquel" value="Raquel" />
+	<p:messages />
+</h:panelGroup>
+
+<h:form>
+	<h:panelGrid columns="2">
+
+		<p:outputLabel value="#{msg['app.nome']}" />
+		<p:inputText id="nome" label="#{msg['app.nome']}" title="#{msg['app.nome']}"
+			value="#{contatoController.contato.nome}" required="true" />
+		<p:outputLabel value="Email" />
+		<p:inputText value="#{contatoController.contato.email}" label="Email" />
+		<p:outputLabel value="Telefone" />
+		<h:panelGroup layout="block">
+			<p:inputText value="#{contatoController.contato.telefone}"
+				label="Telefone" size="8">
+				<f:converter converterId="br.com.treinar.ConverterTelefone" />
+				<f:validator validatorId="br.com.treinar.ValidadorDDD" />
+			</p:inputText>
+			<p:outputLabel value="&#160;&#160;" />
+			<p:selectOneMenu value="#{contatoController.contato.telefone.tipo}" 
+							 required="true" label="Tipo Telefone">
+				<f:selectItem itemLabel="Selecione" itemValue="#{null}" 
+							  noSelectionOption="true" />
+				<f:selectItems value="#{contatoController.tiposTelefone}" 
+							   var="tipo" itemLabel="#{tipo.descricao}" />
+			</p:selectOneMenu>
+		</h:panelGroup>
+		<p:commandButton value="Salvar" rendered="#{contatoController.acao == 'CRIAR'}"
+						 action="#{contatoController.salvar()}" />
+		<p:commandButton value="Editar" rendered="#{contatoController.acao == 'EDITAR'}"
+						 action="#{contatoController.editar()}" />
+	</h:panelGrid>
+	<br />
+	<br />
+	<br />
+	<p:commandLink action="#{appController.editLocale('pt', 'BR')}" 
+				   value="pt" immediate="true" />
+	<p:outputLabel value="&#160;&#160;&#160;" />
+	<p:commandLink action="#{appController.editLocale('en', 'US')}" value="en" 
+				   immediate="true" />
+
+</h:form>
+
+
+
+</html>
