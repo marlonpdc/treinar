@@ -15,6 +15,15 @@ public class Aluno {
 		return prova;
 	}
 	
+	public void fazerProva(Prova prova) {
+		prova.resposta = "2";
+	}
+	
+	public void fazerProva(Prova prova, Integer tempoEmMinutos) {
+		//utiliza tempo
+		prova.resposta = "Cruzeiro Esporte Clube";
+	}
+	
 	public Pao comprarPao(Double dinheiro) {
 		Pao pao = null;
 		if (dinheiro > 1) {
