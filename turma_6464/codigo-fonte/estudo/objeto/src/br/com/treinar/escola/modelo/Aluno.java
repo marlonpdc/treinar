@@ -15,6 +15,15 @@ public class Aluno {
 		return prova;
 	}
 	
+	public Pao comprarPao(Double dinheiro) {
+		Pao pao = null;
+		if (dinheiro > 1) {
+			pao = new Pao();
+			pao.pesoEmGramas = 50;
+		}
+		return pao;
+	}
+	
 	
 	
 }
