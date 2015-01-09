@@ -5,6 +5,7 @@ public class Aluno {
 	public String nome;
 	public Integer matricula;
 	public String endereco;
+	public Boolean matriculado;
 	
 	public Prova fazerProva() {
 		System.out.println("... colando ...");
