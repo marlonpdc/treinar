@@ -20,11 +20,9 @@ public class Aluno {
 		if (dinheiro > 1) {
 			pao = new Pao();
 			pao.pesoEmGramas = 50;
+			pao.pesoEmGramas =  pao.pesoEmGramas *(dinheiro);
 		}
 		return pao;
-	}
-	
-	
-	
+	}	
 	
 }
