@@ -14,7 +14,7 @@ public class TesteConstrutor {
 		String nome = "Buda";
 		Pessoa pessoa = new Pessoa(nome, dataNascimento);
 		
-		System.out.println(pessoa.nome);
+		System.out.println(pessoa.nome + " - " + pessoa.dataNascimento);
 		
 		
 	}
