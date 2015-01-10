@@ -7,7 +7,7 @@ public class TesteParametro {
 	
 	public static void main(String[] args) {
 		Aluno aluno = new Aluno();
-		double dinheiro = 1;
+		double dinheiro = 1.5;
 		try {
 			Pao pao = aluno.comprarPao(dinheiro);
 			System.out.println(pao.pesoEmGramas);
