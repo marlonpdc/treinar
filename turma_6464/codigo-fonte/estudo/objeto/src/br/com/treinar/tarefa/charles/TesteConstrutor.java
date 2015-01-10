@@ -8,11 +8,8 @@ public class TesteConstrutor {
 	
 	public static void main(String[] args) {
 		
-		Pessoa pessoa = new Pessoa(null);
-		
-		pessoa.nome = "Charles";
-		pessoa.dataNascimento = new Date();
-		
+		Pessoa pessoa = new Pessoa("Charles", new Date());
+				
 		System.out.println("Nome: " + pessoa.nome);
 		System.out.println("Data: " + pessoa.dataNascimento);
 
