@@ -1,4 +1,4 @@
-package br.com.treinar.itanilson;
+package br.com.treinar.tarefa.itanilson;
 
 import br.com.treinar.escola.modelo.Aluno;
 import br.com.treinar.escola.modelo.Pao;
