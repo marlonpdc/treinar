@@ -2,6 +2,8 @@ package br.com.treinar.bradesco;
 
 import javax.swing.JOptionPane;
 
+import br.com.treinar.bradesco.banco.Conta;
+
 public class Banco {
 
 	public Conta conta;
@@ -26,8 +28,9 @@ public class Banco {
 					conta = new ContaCorrente();
 					criarConta();
 					String tarifa = JOptionPane.showInputDialog("Valor da tarifa");
-					((ContaCorrente)conta).setTarifa(Double.parseDouble(tarifa));
-	
+					ContaCorrente contaCorrente = (ContaCorrente)conta;
+					contaCorrente.setTarifa(Double.parseDouble(tarifa));
+
 					break;
 				case "2":
 					conta = new ContaPoupanca();
@@ -53,7 +56,7 @@ public class Banco {
 				}
 				break;
 			case "4" :
-				JOptionPane.showMessageDialog(null, conta.saldo);
+				JOptionPane.showMessageDialog(null, conta.recuperarSaldo());
 				break;
 
 			default:
@@ -71,12 +74,12 @@ public class Banco {
 		String nomeTitular = JOptionPane.showInputDialog("Nome do Titular");
 		String enderecoTitular = JOptionPane.showInputDialog("Endereço do Titular");
 		Long cpf = Long.parseLong(JOptionPane.showInputDialog("CPF do Titular"));
-		Double saldo = Double.parseDouble(JOptionPane.showInputDialog("Saldo da conta"));
-		conta.titular = new Titular();
-		conta.titular.nome = nomeTitular;
-		conta.titular.endereco = enderecoTitular;
-		conta.titular.cpf = cpf;
-		conta.saldo = saldo;
+		Double valor = Double.parseDouble(JOptionPane.showInputDialog("Saldo"));
+		conta.setTitular(new Titular());
+		conta.getTitular().setNome(nomeTitular);
+		conta.getTitular().setEndereco(enderecoTitular);
+		conta.getTitular().setCpf(cpf);
+		conta.depositar(valor);
 	}
 	
 	public void teste() {
