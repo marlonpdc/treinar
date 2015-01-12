@@ -2,16 +2,27 @@ package br.com.treinar.bradesco;
 
 public class Conta {
 
-	public Long numeroConta;
+	private Long numeroConta;
 	
 	public Double saldo;
 	
 	public Titular titular;
-	
-	
-	public void sacar(Double valor) {
-		saldo -= valor;
-		//saldo = saldo - valor;
+
+	public Long getNumeroConta() {
+		return numeroConta;
+	}
+
+	public void setNumeroConta(Long numeroConta) {
+		this.numeroConta = numeroConta;
+	}
+
+	public Boolean sacar(Double valor) {
+		if (saldo >= valor) {
+			saldo -= valor;
+			//saldo = saldo - valor;
+			return true;
+		}
+		return false;
 	}
 	
 	public void depositar(Double valor) {
