@@ -1,3 +1,5 @@
+package br.com.treinar.tarefa.gabriel;
+
 
 public class Aluno {
 	public String nome;
