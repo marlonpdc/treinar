@@ -1,7 +1,7 @@
 package br.com.treinar.bradesco;
 
-public class Conta {
-
+public abstract class Conta {
+	
 	private Long numeroConta;
 	
 	public Double saldo;
