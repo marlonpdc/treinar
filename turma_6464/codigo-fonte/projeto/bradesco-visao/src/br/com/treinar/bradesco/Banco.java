@@ -54,7 +54,7 @@ public class Banco {
 			}
 			
 			System.out.println("Opção: " + opcao);
-		} while (opcao.equals("0"));
+		} while (!opcao.equals("0"));
 	}
 	
 	public void teste() {
