@@ -9,13 +9,12 @@ public class ContaInvestimento extends Conta implements ICaptalizavel, ITributav
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	public Boolean sacar(Double valor) {
+	public void sacar(Double valor) {
 		Boolean sacou = Boolean.FALSE;
 		if (saldo >= valor) {
 			saldo = saldo - valor;
 			sacou = Boolean.TRUE;
 		}
-		return sacou;
 	}
 
 	@Override

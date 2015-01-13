@@ -21,7 +21,7 @@ public abstract class Conta implements Serializable {
 		saldo = 0d;
 	}
 	
-	public abstract Boolean sacar(Double valor) throws SaldoInsuficienteException;
+	public abstract void sacar(Double valor) throws SaldoInsuficienteException;
 	
 	public void depositar(Double valor) throws BBException {
 		saldo += valor;
