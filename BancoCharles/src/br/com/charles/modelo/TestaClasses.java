@@ -9,7 +9,7 @@ public class TestaClasses {
 		Agencia agencia = new Agencia();
 		agencia.numero = 1;
 		
-		CartaoDeCredito cdc = new CartaoDeCredito();
+		CartaoDeCredito cdc = new CartaoNacional();
 		cdc.numero = 123654;
 		cdc.dataDeValidade = new Date(0);
 		
@@ -22,8 +22,12 @@ public class TestaClasses {
 		co.limite = 1000.;
 		co.saldo = 2.500;
 		
-		Cliente c = null;
-		cdc.cliente = c;
+		co.agencia = new Agencia();
+		co.agencia.numero = 353535;
+		co.numero = 161512;
+
+		cdc.cliente = new Cliente();
+		cdc.cliente.nome = "Charles Hector";
 						
 		cdc.numero = 123654;
 		cdc.dataDeValidade = new Date(1);
@@ -31,6 +35,8 @@ public class TestaClasses {
 		System.out.println("Nome do cliente: " + cdc.cliente.nome);		
 		System.out.println("Número do cartão: " + cdc.numero);
 		System.out.println("Data de vencimento do cartão: " + cdc.dataDeValidade);
+		System.out.println("Número da Agencia: " + co.agencia.numero);
+		System.out.println("Número da Conta: " + co.numero);
 		
 		
 
