@@ -22,14 +22,7 @@ public abstract class Conta {
 		this.numeroConta = numeroConta;
 	}
 
-	public Boolean sacar(Double valor) {
-		if (saldo >= valor) {
-			saldo -= valor;
-			//saldo = saldo - valor;
-			return true;
-		}
-		return false;
-	}
+	public abstract Boolean sacar(Double valor);
 	
 	public void depositar(Double valor) {
 		saldo += valor;
