@@ -7,6 +7,7 @@ public class ContaCorrente extends Conta {
 	private Double tarifa;
 	
 	private Double limiteCredito;
+	//private Integer qtdSaque;
 
 	public Double getTarifa() {
 		return tarifa;
@@ -27,6 +28,22 @@ public class ContaCorrente extends Conta {
 	@Override
 	public Double recuperarSaldo() {
 		return saldo + limiteCredito;
+	}
+
+	@Override
+	public Boolean sacar(Double valor) {
+		//TODO implementar regra de qtd de saques
+		Boolean sacou = Boolean.FALSE;
+		if (saldo >= (valor + limiteCredito)) {
+			if (saldo >= valor) {
+				saldo -= valor;
+			} else {
+				limiteCredito -= valor - saldo;
+				saldo = 0d;
+			}
+			sacou = Boolean.TRUE;
+		}
+		return sacou;
 	}
 	
 }

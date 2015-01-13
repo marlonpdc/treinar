@@ -27,4 +27,15 @@ public class ContaPoupanca extends Conta {
 		super.depositar(valor);
 	}
 
+	@Override
+	public Boolean sacar(Double valor) {
+		Boolean sacou = Boolean.FALSE;
+		if (valor >= saldo) {
+			saldo -= valor;
+		}
+		return sacou;
+	}
+	
+	
+
 }
