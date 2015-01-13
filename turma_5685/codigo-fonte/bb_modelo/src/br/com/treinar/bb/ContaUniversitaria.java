@@ -2,6 +2,7 @@ package br.com.treinar.bb;
 
 import br.com.treinar.bb.banco.Conta;
 import br.com.treinar.bb.banco.ITributavel;
+import br.com.treinar.bb.exception.SaldoInsuficienteException;
 
 public class ContaUniversitaria extends Conta implements ITributavel {
 
@@ -10,11 +11,11 @@ public class ContaUniversitaria extends Conta implements ITributavel {
 	private Double tarifa;
 	
 	@Override
-	public void sacar(Double valor) {
-		Boolean sacou = Boolean.FALSE;
+	public void sacar(Double valor) throws SaldoInsuficienteException {
 		if (saldo >= valor) {
 			saldo -= valor;
-			sacou = Boolean.TRUE;
+		} else {
+			throw new SaldoInsuficienteException();
 		}
 	}
 
