@@ -19,15 +19,15 @@ public class ContaCorrente extends Conta implements ITributavel {
 	//esta implementacao exige um if para avaliar a execucao da operacao
 	@Override
 	public void sacar(Double valor) throws SaldoInsuficienteException {
-		Boolean sacou = Boolean.FALSE;
 		if (saldo >= (valor + limiteCredito)) {
-			sacou = Boolean.TRUE;
 			if (saldo >= valor) {
 				saldo -= valor;
 			} else {
 				limiteCredito -= valor;
 				saldo = 0d;
 			}
+		} else {
+			throw new SaldoInsuficienteException();
 		}
 	}
 
