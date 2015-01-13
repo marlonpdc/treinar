@@ -8,6 +8,10 @@ public abstract class Conta {
 	
 	protected Double saldo;
 	
+	public Conta() {
+		this.saldo = 0d;
+	}
+	
 	private Titular titular;
 
 	public Long getNumeroConta() {
