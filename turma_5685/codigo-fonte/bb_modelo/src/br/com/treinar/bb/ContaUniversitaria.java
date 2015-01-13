@@ -10,13 +10,12 @@ public class ContaUniversitaria extends Conta implements ITributavel {
 	private Double tarifa;
 	
 	@Override
-	public Boolean sacar(Double valor) {
+	public void sacar(Double valor) {
 		Boolean sacou = Boolean.FALSE;
 		if (saldo >= valor) {
 			saldo -= valor;
 			sacou = Boolean.TRUE;
 		}
-		return sacou;
 	}
 
 	@Override

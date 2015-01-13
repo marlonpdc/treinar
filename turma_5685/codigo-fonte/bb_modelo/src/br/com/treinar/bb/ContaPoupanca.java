@@ -19,13 +19,12 @@ public class ContaPoupanca extends Conta implements ICaptalizavel {
 	}
 
 	@Override
-	public Boolean sacar(Double valor) {
+	public void sacar(Double valor) {
 		Boolean sacou = Boolean.FALSE;
 		if (saldo >= valor) {
 			saldo = saldo - valor;
 			sacou = Boolean.TRUE;
 		}
-		return sacou;
 	}
 
 	public static Double getTaxaRendimento() {
