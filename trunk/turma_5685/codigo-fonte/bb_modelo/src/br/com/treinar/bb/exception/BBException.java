@@ -7,7 +7,7 @@ public class BBException extends Exception {
 	public BBException(String msg) {
 		this.msgErro = msg;
 	}
-	
+
 	private static final long serialVersionUID = 1L;
 
 	public String getMsgErro() {
@@ -17,5 +17,4 @@ public class BBException extends Exception {
 	public void setMsgErro(String msgErro) {
 		this.msgErro = msgErro;
 	}
-
 }
