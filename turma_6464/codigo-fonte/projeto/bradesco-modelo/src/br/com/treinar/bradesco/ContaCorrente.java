@@ -8,6 +8,11 @@ public class ContaCorrente extends Conta {
 	
 	private Double limiteCredito;
 	//private Integer qtdSaque;
+	
+	public ContaCorrente() {
+		super();
+		limiteCredito = 100d;
+	}
 
 	public Double getTarifa() {
 		return tarifa;

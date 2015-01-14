@@ -16,6 +16,7 @@ public class Banco {
 											  + "2 - Deposita\n"
 											  + "3 - Sacar\n"
 											  + "4 - Exibir Saldo\n"
+											  + "5 - Editar taxa de rendimento\n"
 											  + "0 - Sair\n");
 
 			switch (opcao) {
@@ -57,6 +58,11 @@ public class Banco {
 				break;
 			case "4" :
 				JOptionPane.showMessageDialog(null, conta.recuperarSaldo());
+				break;
+			case "5" :
+				Double taxaAtual = ContaPoupanca.getTaxaRendimento();
+				String taxa = JOptionPane.showInputDialog("Taxa de Rendimento atual =" + taxaAtual + " Nova taxa de rendimento");
+				ContaPoupanca.setTaxaRendimento(Double.valueOf(taxa));
 				break;
 
 			default:
