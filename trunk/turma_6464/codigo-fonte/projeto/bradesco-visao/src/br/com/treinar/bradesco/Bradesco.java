@@ -3,7 +3,7 @@ package br.com.treinar.bradesco;
 public class Bradesco {
 
 	public static void main(String[] args) {
-		Banco b = new Banco();
+		BancoVisao b = new BancoVisao();
 		b.iniciar();
 		System.out.println("Fim...");
 	}

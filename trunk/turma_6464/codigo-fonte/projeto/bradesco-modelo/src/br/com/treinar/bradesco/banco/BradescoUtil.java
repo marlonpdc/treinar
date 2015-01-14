@@ -1,5 +1,6 @@
 package br.com.treinar.bradesco.banco;
 
+
 public class BradescoUtil {
 	
 	private static BradescoUtil instance;

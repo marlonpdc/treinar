@@ -3,10 +3,16 @@ package br.com.treinar.bradesco;
 import javax.swing.JOptionPane;
 
 import br.com.treinar.bradesco.banco.Conta;
+import br.com.treinar.bradesco.controle.ContaControle;
 
-public class Banco {
+public class BancoVisao {
 
 	public Conta conta;
+	ContaControle contaControle;
+	
+	public BancoVisao() {
+		contaControle = new ContaControle();
+	}
 	
 	public void iniciar() {
 		String opcao = null;
@@ -42,6 +48,7 @@ public class Banco {
 				default:
 					break;
 				}
+				contaControle.cadastrarConta(conta);
 				break;
 			case "2" :
 				String valorDeposito = JOptionPane.showInputDialog("Valor:");
