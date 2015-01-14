@@ -8,6 +8,8 @@ public class ContaPoupanca extends Conta {
 
 	private Integer diaRendimento;
 	
+	private static Double taxaRendimento;
+	
 	@Override
 	public Double recuperarSaldo() {
 		return saldo;
@@ -35,7 +37,13 @@ public class ContaPoupanca extends Conta {
 		}
 		return sacou;
 	}
-	
-	
+
+	public static Double getTaxaRendimento() {
+		return taxaRendimento;
+	}
+
+	public static void setTaxaRendimento(Double taxaRendimento) {
+		ContaPoupanca.taxaRendimento = taxaRendimento;
+	}
 
 }
