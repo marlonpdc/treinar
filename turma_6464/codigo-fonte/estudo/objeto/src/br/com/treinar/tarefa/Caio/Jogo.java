@@ -4,7 +4,7 @@ import javax.swing.JOptionPane;
 
 public abstract class Jogo {
 	
-	private Integer id;
+	//private Integer id;
 	protected String nome;
 	protected String desenvolvedora;
 	protected Double preco;
