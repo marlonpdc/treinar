@@ -4,7 +4,7 @@ import javax.swing.JOptionPane;
 
 public class JogoConsole extends Jogo{
 
-	private String nomeSave;
+	//private String nomeSave;
 	
 	public JogoConsole() {
 		
