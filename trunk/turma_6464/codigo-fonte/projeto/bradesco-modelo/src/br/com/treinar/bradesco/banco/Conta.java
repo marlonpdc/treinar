@@ -1,5 +1,7 @@
 package br.com.treinar.bradesco.banco;
 
+import java.util.Date;
+
 import br.com.treinar.bradesco.Titular;
 
 public abstract class Conta {
@@ -7,6 +9,8 @@ public abstract class Conta {
 	private Long numeroConta;
 	
 	protected Double saldo;
+	
+	private Date dataCriacao;
 	
 	public Conta() {
 		this.saldo = 0d;
@@ -45,5 +49,13 @@ public abstract class Conta {
 	}
 
 	public abstract Double recuperarSaldo();
+
+	public Date getDataCriacao() {
+		return dataCriacao;
+	}
+
+	public void setDataCriacao(Date dataCriacao) {
+		this.dataCriacao = dataCriacao;
+	}
 	
 }
