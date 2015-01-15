@@ -3,8 +3,9 @@ package br.com.treinar.bradesco;
 import java.util.Calendar;
 
 import br.com.treinar.bradesco.banco.Conta;
+import br.com.treinar.bradesco.banco.ICaptalizavel;
 
-public class ContaPoupanca extends Conta {
+public class ContaPoupanca extends Conta implements ICaptalizavel {
 
 	private Integer diaRendimento;
 	
@@ -44,6 +45,11 @@ public class ContaPoupanca extends Conta {
 
 	public static void setTaxaRendimento(Double taxaRendimento) {
 		ContaPoupanca.taxaRendimento = taxaRendimento;
+	}
+
+	@Override
+	public void captalizar() {
+		depositar(getSaldo() * taxaRendimento); 
 	}
 
 }

@@ -1,13 +1,16 @@
 package br.com.treinar.bradesco.banco;
 
 import br.com.treinar.bradesco.CartaoCredito;
+import br.com.treinar.bradesco.PrevidenciaPrivada;
 
 public class Banco {
 
-	private Conta[] contas;
+	private Conta[] contas; 
 	private CartaoCredito[] cartoesCredito;
+	private PrevidenciaPrivada[] planosPrevidencia;
 	private Integer quantidadeContas;
 	private Integer quantidadeCartoes;
+	private Integer quantidadePrevidencias;
 	
 	
 	public Banco() {
@@ -30,6 +33,15 @@ public class Banco {
 		Boolean adicionou = Boolean.FALSE;
 		if (quantidadeCartoes < Constante.QUANTIDADE_CARTAO) {
 			cartoesCredito[quantidadeCartoes++] = c;
+			adicionou = Boolean.TRUE;
+		}
+		return adicionou;
+	}
+	
+	public Boolean adicionarPrevidencia(PrevidenciaPrivada titulo) {
+		Boolean adicionou = Boolean.FALSE;
+		if (quantidadePrevidencias < Constante.QUANTIDADE_CARTAO) {
+			planosPrevidencia[quantidadePrevidencias++] = titulo;
 			adicionou = Boolean.TRUE;
 		}
 		return adicionou;
@@ -58,5 +70,14 @@ public class Banco {
 	public CartaoCredito[] getCartoesCredito() {
 		return cartoesCredito;
 	}
+
+	public PrevidenciaPrivada[] getPlanosPrevidencia() {
+		return planosPrevidencia;
+	}
+
+	public void setPlanosPrevidencia(PrevidenciaPrivada[] planosPrevidencia) {
+		this.planosPrevidencia = planosPrevidencia;
+	}
+	
 	
 }
