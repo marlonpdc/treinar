@@ -1,6 +1,7 @@
 package br.com.treinar.bradesco.banco;
 
 import br.com.treinar.bradesco.CartaoCredito;
+import br.com.treinar.bradesco.PrevidenciaPrivada;
 
 
 public class BradescoUtil {
@@ -70,6 +71,10 @@ public class BradescoUtil {
 
 	private void tarifar(ITarifavel c) {
 		c.tarifar();
+	}
+
+	public void adicionarPrevidencia(PrevidenciaPrivada titulo) {
+		banco.adicionarPrevidencia(titulo);
 	}
 
 }

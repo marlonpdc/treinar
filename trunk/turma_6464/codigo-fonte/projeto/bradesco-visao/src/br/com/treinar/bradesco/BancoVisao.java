@@ -7,6 +7,7 @@ import br.com.treinar.bradesco.controle.BradescoControle;
 import br.com.treinar.bradesco.controle.CartaoControle;
 import br.com.treinar.bradesco.controle.ContaControle;
 import br.com.treinar.bradesco.controle.ContaPoupancaControle;
+import br.com.treinar.bradesco.controle.PrevidenciaControle;
 
 public class BancoVisao {
 
@@ -15,11 +16,13 @@ public class BancoVisao {
 	CartaoControle cartaoControle;
 	ContaPoupancaControle poupancaControle;
 	BradescoControle bradescoControle;
+	PrevidenciaControle previdenciaControle;
 	
 	public BancoVisao() {
 		contaControle = new ContaControle();
 		poupancaControle = new ContaPoupancaControle();
 		cartaoControle = new CartaoControle();
+		previdenciaControle = new PrevidenciaControle();
 	}
 	
 	public void iniciar() {
@@ -33,7 +36,8 @@ public class BancoVisao {
 											  + "4 - Exibir Saldo\n"
 											  + "5 - Editar taxa de rendimento\n"
 											  + "6 - Cadastrar Cartão de Crédito\n"
-											  + "7 - Tarifar Produtos"
+											  + "7 - Tarifar Produtos\n"
+											  + "8 - Cadastrar Previdencia Privada\n"
 											  + "0 - Sair\n");
 
 			switch (opcao) {
@@ -95,6 +99,12 @@ public class BancoVisao {
 				break;
 			case "7" :
 				bradescoControle.tarifar();
+				break;
+			case "8" :
+				Double premio = Double.parseDouble(JOptionPane.showInputDialog("Valor premio"));
+				PrevidenciaPrivada titulo = new PrevidenciaPrivada();;
+				titulo.setPremio(premio);
+				previdenciaControle.cadastrarPlanoPrevidencia(titulo );
 				break;
 
 			default:
