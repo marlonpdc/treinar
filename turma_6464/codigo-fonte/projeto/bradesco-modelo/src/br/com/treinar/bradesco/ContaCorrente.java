@@ -1,8 +1,9 @@
 package br.com.treinar.bradesco;
 
 import br.com.treinar.bradesco.banco.Conta;
+import br.com.treinar.bradesco.banco.ITarifavel;
 
-public class ContaCorrente extends Conta {
+public class ContaCorrente extends Conta implements ITarifavel {
 
 	private Double tarifa;
 	
@@ -49,6 +50,11 @@ public class ContaCorrente extends Conta {
 			sacou = Boolean.TRUE;
 		}
 		return sacou;
+	}
+
+	@Override
+	public void tarifar() {
+		sacar(12D);
 	}
 	
 }

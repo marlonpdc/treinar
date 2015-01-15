@@ -1,6 +1,6 @@
 package br.com.treinar.bradesco.banco;
 
-import br.com.treinar.bradesco.ContaPoupanca;
+import br.com.treinar.bradesco.CartaoCredito;
 
 
 public class BradescoUtil {
@@ -30,6 +30,10 @@ public class BradescoUtil {
 		return banco.adicionarConta(c);
 	}
 	
+	public Boolean adicionarCartao(CartaoCredito c) {
+		return banco.adicionarCartao(c);
+	}
+	
 	public Banco getBanco() {
 		return banco;
 	}
@@ -48,8 +52,24 @@ public class BradescoUtil {
 				break;
 			}
 		}			
-		
 		return conta;
+	}
+
+	public void tarifar() {
+		for (Conta c : banco.getContas()) {
+			if (c != null) {
+				if (c instanceof ITarifavel) {
+					tarifar((ITarifavel) c);
+				}
+			}
+		}
+		for (CartaoCredito cc : banco.getCartoesCredito()) {
+			tarifar(cc);
+		}
+	}
+
+	private void tarifar(ITarifavel c) {
+		c.tarifar();
 	}
 
 }

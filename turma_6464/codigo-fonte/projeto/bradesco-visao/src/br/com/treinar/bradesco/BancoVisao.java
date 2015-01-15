@@ -3,6 +3,8 @@ package br.com.treinar.bradesco;
 import javax.swing.JOptionPane;
 
 import br.com.treinar.bradesco.banco.Conta;
+import br.com.treinar.bradesco.controle.BradescoControle;
+import br.com.treinar.bradesco.controle.CartaoControle;
 import br.com.treinar.bradesco.controle.ContaControle;
 import br.com.treinar.bradesco.controle.ContaPoupancaControle;
 
@@ -10,11 +12,14 @@ public class BancoVisao {
 
 	public Conta conta;
 	ContaControle contaControle;
-	ContaPoupancaControle poupancaControle; 
+	CartaoControle cartaoControle;
+	ContaPoupancaControle poupancaControle;
+	BradescoControle bradescoControle;
 	
 	public BancoVisao() {
 		contaControle = new ContaControle();
 		poupancaControle = new ContaPoupancaControle();
+		cartaoControle = new CartaoControle();
 	}
 	
 	public void iniciar() {
@@ -27,6 +32,8 @@ public class BancoVisao {
 											  + "3 - Sacar\n"
 											  + "4 - Exibir Saldo\n"
 											  + "5 - Editar taxa de rendimento\n"
+											  + "6 - Cadastrar Cartão de Crédito\n"
+											  + "7 - Tarifar Produtos"
 											  + "0 - Sair\n");
 
 			switch (opcao) {
@@ -77,6 +84,17 @@ public class BancoVisao {
 				Double taxaAtual = ContaPoupanca.getTaxaRendimento();
 				String taxa = JOptionPane.showInputDialog("Taxa de Rendimento atual =" + taxaAtual + " Nova taxa de rendimento");
 				poupancaControle.editarTaxaRendimento(Double.valueOf(taxa));
+				break;
+			case "6" :
+				Double limite = Double.parseDouble(JOptionPane.showInputDialog("Taxa do Limite"));
+				Integer diaVencimento = Integer.parseInt(JOptionPane.showInputDialog("Dia Vencimento"));
+				CartaoCredito cartao = new CartaoCredito();
+				cartao.setDiaVencimento(diaVencimento);
+				cartao.setLimite(limite);
+				cartaoControle.cadastrarCartao(cartao );
+				break;
+			case "7" :
+				bradescoControle.tarifar();
 				break;
 
 			default:
