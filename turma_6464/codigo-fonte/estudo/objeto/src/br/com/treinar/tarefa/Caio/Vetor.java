@@ -1,4 +1,5 @@
 package br.com.treinar.tarefa.Caio;
+import javax.swing.JOptionPane;
 
 public class Vetor {
 	
@@ -15,18 +16,20 @@ public class Vetor {
 
 		System.out.println("Fibonacci");
 		
-		int[] fib = new int[20];
+		int[] fib;
+		String casas;
+		casas = JOptionPane.showInputDialog("Digite a quantidade de números");
+		fib = new int[Integer.parseInt(casas)];
+		System.out.println(fib.length);
 		fib[0]=0;
 		fib[1]=1;
 		fib[2]=1;
 		for (int i = 3; i < fib.length; i++) {
 			fib[i]= fib[i-1] + fib[i-2];
-			System.out.println();
 		}
 		for (int i = 0; i < fib.length; i++) {
 			System.out.println(fib[i]);
 		}
-		
 	}
 
 }
