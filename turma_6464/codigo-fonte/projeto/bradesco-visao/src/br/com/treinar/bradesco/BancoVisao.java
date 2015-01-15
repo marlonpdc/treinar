@@ -102,8 +102,4 @@ public class BancoVisao {
 		conta.depositar(valor);
 	}
 	
-	public void teste() {
-		
-	}
-	
 }
