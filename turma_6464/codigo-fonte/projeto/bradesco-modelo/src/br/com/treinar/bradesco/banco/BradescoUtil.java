@@ -1,14 +1,17 @@
 package br.com.treinar.bradesco.banco;
 
+import br.com.treinar.bradesco.ContaPoupanca;
+
 
 public class BradescoUtil {
 	
 	private static BradescoUtil instance;
 	
-	private Conta conta;
+	private Banco banco;
 	
 	private BradescoUtil() {
 		super();
+		banco = new Banco();
 	}
 	
 	static {
@@ -23,12 +26,30 @@ public class BradescoUtil {
 		return a + b;
 	}
 
-	public Conta getConta() {
-		return conta;
+	public Boolean adicionarConta(Conta c) {
+		return banco.adicionarConta(c);
+	}
+	
+	public Banco getBanco() {
+		return banco;
 	}
 
-	public void setConta(Conta conta) {
-		this.conta = conta;
+	public void setBanco(Banco banco) {
+		this.banco = banco;
+	}
+
+	public Conta recuperarConta(Long numeroConta) {
+		Conta conta = null;
+		Conta[] contas = banco.getContas();
+
+		for (int i = 0; i < contas.length; i++) {
+			if (contas[i].getNumeroConta().equals(numeroConta)) {
+				conta = contas[i];
+				break;
+			}
+		}			
+		
+		return conta;
 	}
 
 }

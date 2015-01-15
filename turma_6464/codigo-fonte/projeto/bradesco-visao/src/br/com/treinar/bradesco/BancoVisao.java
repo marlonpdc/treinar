@@ -4,18 +4,22 @@ import javax.swing.JOptionPane;
 
 import br.com.treinar.bradesco.banco.Conta;
 import br.com.treinar.bradesco.controle.ContaControle;
+import br.com.treinar.bradesco.controle.ContaPoupancaControle;
 
 public class BancoVisao {
 
 	public Conta conta;
 	ContaControle contaControle;
+	ContaPoupancaControle poupancaControle; 
 	
 	public BancoVisao() {
 		contaControle = new ContaControle();
+		poupancaControle = new ContaPoupancaControle();
 	}
 	
 	public void iniciar() {
 		String opcao = null;
+		String numerConta = null;
 		do {
 			opcao = JOptionPane.showInputDialog("Digite\n"
 											  + "1 - Criar Conta\n"
@@ -51,12 +55,14 @@ public class BancoVisao {
 				contaControle.cadastrarConta(conta);
 				break;
 			case "2" :
-				String valorDeposito = JOptionPane.showInputDialog("Valor:");
-				conta.depositar(Double.parseDouble(valorDeposito));
+				numerConta = JOptionPane.showInputDialog("Numero Da Conta");
+				String valorDeposito = JOptionPane.showInputDialog("Valor");
+				contaControle.depositar(Double.parseDouble(valorDeposito), Long.valueOf(numerConta));
 				break;
 			case "3" :
+				numerConta = JOptionPane.showInputDialog("Numero Da Conta");
 				String valorSaque = JOptionPane.showInputDialog("Valor:");
-				Boolean sacou = conta.sacar(Double.parseDouble(valorSaque));
+				Boolean sacou = contaControle.sacar(Double.parseDouble(valorSaque), Long.parseLong(numerConta));
 				if (sacou) {
 					JOptionPane.showMessageDialog(null, "saque efetuado com sucesso");
 				} else {
@@ -64,12 +70,13 @@ public class BancoVisao {
 				}
 				break;
 			case "4" :
-				JOptionPane.showMessageDialog(null, conta.recuperarSaldo());
+				numerConta = JOptionPane.showInputDialog("Numero Da Conta");
+				JOptionPane.showMessageDialog(null, contaControle.recuperarSaldo(Long.parseLong(numerConta)));
 				break;
 			case "5" :
 				Double taxaAtual = ContaPoupanca.getTaxaRendimento();
 				String taxa = JOptionPane.showInputDialog("Taxa de Rendimento atual =" + taxaAtual + " Nova taxa de rendimento");
-				ContaPoupanca.setTaxaRendimento(Double.valueOf(taxa));
+				poupancaControle.editarTaxaRendimento(Double.valueOf(taxa));
 				break;
 
 			default:
