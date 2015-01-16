@@ -27,11 +27,7 @@ public class Pessoa {
 		return ehIgual;*/
 		return cpf.equals(outro.getCpf());
 	}
-
 	
-	
-	/*	
-  
   	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -39,8 +35,6 @@ public class Pessoa {
 		result = prime * result + ((cpf == null) ? 0 : cpf.hashCode());
 		return result;
 	}
-	
-	*/
 	
 	
 	@Override
@@ -62,10 +56,10 @@ public class Pessoa {
 	public String apresentarComoTexto() {
 		return nome;
 	}
-
+	
 	@Override
 	public String toString() {
-		return nome;
+		return "Pessoa [nome=" + nome + ", cpf=" + cpf + "]";
 	}
 
 	
