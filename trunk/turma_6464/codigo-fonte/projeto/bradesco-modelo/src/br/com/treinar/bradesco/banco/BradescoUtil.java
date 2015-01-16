@@ -60,7 +60,8 @@ public class BradescoUtil {
 		for (Conta c : banco.getContas()) {
 			if (c != null) {
 				if (c instanceof ITarifavel) {
-					tarifar((ITarifavel) c);
+					ITarifavel produtoTarifavel = (ITarifavel) c;
+					tarifar(produtoTarifavel);
 				}
 			}
 		}

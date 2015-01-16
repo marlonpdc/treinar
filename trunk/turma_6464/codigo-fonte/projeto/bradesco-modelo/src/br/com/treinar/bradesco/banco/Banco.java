@@ -8,6 +8,7 @@ public class Banco {
 	private Conta[] contas; 
 	private CartaoCredito[] cartoesCredito;
 	private PrevidenciaPrivada[] planosPrevidencia;
+	
 	private Integer quantidadeContas;
 	private Integer quantidadeCartoes;
 	private Integer quantidadePrevidencias;
