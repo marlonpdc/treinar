@@ -15,8 +15,17 @@ public class Equals {
 		Pessoa pessoa2 = pessoa;
 		
 		//equals
-		System.out.println(pessoa.ehIgual(pessoa1));
 		System.out.println(pessoa.equals(pessoa1));
+
+		
+		
+		
+		
+		
+		
+		
+		
+		System.out.println(pessoa.ehIgual(pessoa1));
 		System.out.println(pessoa == pessoa1);
 		System.out.println(pessoa == pessoa2);
 		

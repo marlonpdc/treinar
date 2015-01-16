@@ -33,9 +33,14 @@ public class TipoDado {
 		Integer num2 = 100;
 		
 		
-		System.out.println(num1.equals(num2));
+		//System.out.println(num1.equals(num2));
 		
 		
+		Integer i = new Integer(100);
+		
+		Integer j = 100;
+		
+		System.out.println(i == j);
 		
 		
 	}
