@@ -26,6 +26,10 @@ public enum DiaSemana {
 		return comercial;
 	}
 	
+	public static DiaSemana getByOrdinal(Integer ordinal) {
+		return values()[ordinal];
+	}
+	
 	//metodo para ordenar
 
 }
