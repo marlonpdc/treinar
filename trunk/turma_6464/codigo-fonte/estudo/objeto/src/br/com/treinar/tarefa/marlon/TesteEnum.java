@@ -9,9 +9,7 @@ public class TesteEnum {
 		System.out.println(dia);
 		System.out.println(dia.ordinal());
 		System.out.println(dia.getComercial());
-		System.out.println(dia.getDescricao());
-		
+		System.out.println(dia.getDescricao());	
 		
 	}
-
 }
