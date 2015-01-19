@@ -1,5 +1,6 @@
 package br.com.treinar.aula.dois;
 
+
 public class TesteEnum {
 
 	
@@ -20,8 +21,39 @@ public class TesteEnum {
 		
 		System.out.println(diaTres.getComercial());
 		
+		dia = DiaSemana.getByOrdinal(0);
 		
+		System.out.println(dia);
+		System.out.println(dia.ordinal());
+		System.out.println(dia.getComercial());
+		System.out.println(dia.getDescricao());
 		
+		switch (dia) {
+		case DOMINGO:
+			System.out.println("dormir");
+			break;
+		case SEGUNDA_FEIRA:
+			
+			break;
+		case TERCA_FEIRA:
+			
+			break;
+		case QUARTA_FEIRA:
+			
+			break;
+		case QUINTA_FEIRA:
+			
+			break;
+		case SEXTA_FEIRA:
+			
+			break;
+		case SABADO:
+			
+			break;
+
+		default:
+			break;
+		}
 		
 		
 	}
