@@ -1,10 +1,13 @@
 package br.com.treinar.tarefa.marlon;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
 public class TesteData {
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) throws InterruptedException, ParseException {
 		/*Date d = new Date();
 		
 		Thread.sleep(1000L);
@@ -30,6 +33,12 @@ public class TesteData {
 		futuro = c.getTime();
 		
 		System.out.println(futuro);
+		DateFormat df = new SimpleDateFormat("dd/MM/YYYY");
+		System.out.println(df.format(futuro));
+		
+		Date novaData = df.parse("09/12/1980");
+		System.out.println(novaData);
+		
 	}
 
 }
