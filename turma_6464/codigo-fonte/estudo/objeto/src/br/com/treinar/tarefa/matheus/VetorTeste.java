@@ -16,6 +16,8 @@ public class VetorTeste {
 		for (int i = 0; i < vetor.length; i++) {
 			System.out.println(vetor[i]);
 		}
+		
+		sc.close();
 	}
 
 }

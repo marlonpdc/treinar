@@ -1,7 +1,7 @@
 package br.com.treinar.escola.visao;
 
 import br.com.treinar.escola.modelo.Aluno;
-import br.com.treinar.escola.modelo.Pao;
+//import br.com.treinar.escola.modelo.Pao;
 import br.com.treinar.escola.modelo.Prova;
 
 public class Escola {
@@ -33,7 +33,6 @@ public class Escola {
 
 		System.out.println("fim...");
 		
-		Pao pao = new Pao();
 		System.out.println();
 	}
 

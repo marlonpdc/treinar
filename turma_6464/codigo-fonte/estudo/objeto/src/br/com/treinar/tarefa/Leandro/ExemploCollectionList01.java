@@ -11,7 +11,7 @@ import java.util.Set;
 
 public class ExemploCollectionList01 {
 	
-	public static <E> void main(String[] args) {
+	public static void main(String[] args) {
 		
 		Collection<String> lista = new ArrayList<String>();
 		@SuppressWarnings("unused")
