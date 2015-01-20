@@ -2,12 +2,12 @@ package br.com.treinar.tarefa.marlon.collections;
 
 public class Produto {
 	private String nome;
-	private String descricao;
+	private Double preco;
 
-	public Produto(String nome, String descricao) {
+	public Produto(String nome, Double descricao) {
 		super();
 		this.nome = nome;
-		this.descricao = descricao;
+		this.preco = descricao;
 	}
 
 	public String getNome() {
@@ -18,11 +18,11 @@ public class Produto {
 		this.nome = nome;
 	}
 
-	public String getDescricao() {
-		return descricao;
+	public Double getDescricao() {
+		return preco;
 	}
 
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
+	public void setDescricao(Double descricao) {
+		this.preco = descricao;
 	}
 }
