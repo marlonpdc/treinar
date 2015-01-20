@@ -1,4 +1,4 @@
-package br.com.treinar.tarefa.guillaume;
+package br.com.treinar.tarefa.guillaume.Aula02;
 
 public enum DiaSemana {
 
