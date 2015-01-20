@@ -47,8 +47,7 @@ public class TesteDate {
 		Date novaData = df.parse("09/12/1980");
 		df.setTimeZone(TimeZone.getTimeZone("America/Sao_Paulo"));
 		System.out.println(novaData);
-		
-		
+	
 		
 	}
 	
