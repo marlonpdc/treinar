@@ -1,4 +1,4 @@
-package Enum;
+package br.com.treinar.tarefa.gabriel;
 
 public class TesteEnum {
 	public static void main(String[] args) {
