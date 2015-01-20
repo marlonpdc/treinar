@@ -1,4 +1,4 @@
-package Enum;
+package br.com.treinar.tarefa.gabriel;
 
 public enum Comercial {
 
