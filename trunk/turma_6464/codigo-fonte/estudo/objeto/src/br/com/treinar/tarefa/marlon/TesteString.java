@@ -2,11 +2,11 @@ package br.com.treinar.tarefa.marlon;
 
 public class TesteString {
 	public static void main(String[] args) {
-		String nome = "Marlon Pinheiro Dias Cabral";
-		String nome1 = "Marlon";
+		//String nome = "Marlon Pinheiro Dias Cabral";
+		//String nome1 = "Marlon";
 		
-		StringBuilder sb = new StringBuilder();
-		StringBuffer sf = new StringBuffer();
+		//StringBuilder sb = new StringBuilder();
+		//StringBuffer sf = new StringBuffer();
 		
 //		for (int i = 0; i < 1000; i++) {
 //			//sb.append(nome);
