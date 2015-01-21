@@ -1,11 +1,8 @@
 package br.com.treinar.aula.collection;
 
-import java.util.Collection;
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Set;
 
 public class ExemploCollectionList {
 
@@ -13,7 +10,7 @@ public class ExemploCollectionList {
 	public static void main(String[] args) {
 		
 		
-		Set<String> lista = new HashSet<String>();
+		List<String> lista = new ArrayList<String>();
 //		Collection<String> lista = new ArrayList<String>();
 		
 		lista.add("Gleidson");
@@ -31,30 +28,47 @@ public class ExemploCollectionList {
 		
 		System.out.println(removido ? "Removido" : "Não Removido");
 		
+		//melhor utilizar o iterator
+		List<String> removidos = new ArrayList<String>();
 		for (String nome : lista) {
+			if (nome.contains("a")) {
+				removidos.add(nome);
+			}
 			//lista.remove("Nathalia");
 			System.out.println(nome + " " + nome.length() + " Letras");
 		}
+		lista.removeAll(removidos);
 		
-		
-		List<String> listaList = (List<String>) lista; 
-		System.out.println(listaList.get(2));
-		
-		Collection<String> linkedList = new LinkedList<String>();
-		
-		linkedList.addAll(listaList);
+		//add novamento os removidos
+		lista.add("Sophia");
+		lista.add("Nathalia");
+		lista.add("Nathalia");
+		lista.add("Amanda");
 		
 		Iterator<String> it = lista.iterator();
+		
 		System.out.println("Iterator");
 		
 		while (it.hasNext()) {
 			String string = it.next();
-			if (string.equals("Nathalia")) {
+			if (string.contains("a")) {
 				it.remove();
 			}
 			System.out.println(string);
-			
 		}
+		
+		for (int i = 0; i < lista.size(); i++) {
+			lista.get(i);
+		}
+		
+		List<String> listaList = (List<String>) lista; 
+		System.out.println(listaList.get(2));
+		
+		//Collection<String> linkedList = new LinkedList<String>();
+		
+		//linkedList.addAll(listaList);
+		
+		
 		System.out.println(lista);
 		
 	}
