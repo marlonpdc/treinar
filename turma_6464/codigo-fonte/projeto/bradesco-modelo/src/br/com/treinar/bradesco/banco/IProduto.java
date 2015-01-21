@@ -8,9 +8,8 @@ public interface IProduto {
 
 	Titular getTitular();
 	
-	void setTitular(Titular titular);
+	Date getDataAquisicao();
 	
-	Date dataAquisicao();
-	
+	Long getCodigo();
 	
 }
