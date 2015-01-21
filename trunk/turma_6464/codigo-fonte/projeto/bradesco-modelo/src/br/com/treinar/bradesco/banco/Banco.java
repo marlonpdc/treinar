@@ -3,6 +3,8 @@ package br.com.treinar.bradesco.banco;
 import java.util.HashSet;
 import java.util.Set;
 
+import br.com.treinar.bradesco.CartaoCredito;
+
 public class Banco {
 
 	private Set<IProduto> produtos;
@@ -20,23 +22,28 @@ public class Banco {
 		adicionou = produtos.add(c);
 		return adicionou;
 	}
+
+	public Set<Conta> getContas() {
+		Set<Conta> contas = new HashSet<Conta>();
+		for (IProduto produto : produtos) {
+			if (produto instanceof Conta) {
+				contas.add((Conta) produto);
+			}
+		}
+		
+		return contas;
+	}
 	
-//	public Integer getQuantidadeContas() {
-//		return quantidadeContas;
-//	}
-//
-//	public Conta[] recuperarContas() {
-//		return produtos;
-//	}
-//
-//
-//	public CartaoCredito[] recuperarCartoesCredito() {
-//		return cartoesCredito;
-//	}
-//
-//	public PrevidenciaPrivada[] recuperarPlanosPrevidencia() {
-//		return planosPrevidencia;
-//	}
+	public Set<CartaoCredito> getCartoesCredito() {
+		Set<CartaoCredito> cartoes = new HashSet<CartaoCredito>();
+		for (IProduto produto : produtos) {
+			if (produto instanceof Conta) {
+				cartoes.add((CartaoCredito) produto);
+			}
+		}
+		
+		return cartoes;
+	}
 	
 	
 }

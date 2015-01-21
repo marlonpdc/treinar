@@ -9,7 +9,7 @@ public class ContaControle {
 
 	public void cadastrarConta(Conta conta) {
 		BradescoUtil util = BradescoUtil.getInstance();
-		conta.setDataCriacao(new Date());
+		conta.setDataAquisicao(new Date());
 		util.adicionarConta(conta);
 	}
 	
