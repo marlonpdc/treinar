@@ -38,6 +38,9 @@ public class BancoVisao {
 											  + "6 - Cadastrar Cartão de Crédito\n"
 											  + "7 - Tarifar Produtos\n"
 											  + "8 - Cadastrar Previdencia Privada\n"
+											  + "9 - Excluir Conta"
+											  + "10 - Excluir Conta"
+											  + "11 - Excluir Conta"
 											  + "0 - Sair\n");
 
 			switch (opcao) {
@@ -57,7 +60,6 @@ public class BancoVisao {
 				case "2":
 					conta = new ContaPoupanca();
 					criarConta();
-					
 					break;
 
 				default:
