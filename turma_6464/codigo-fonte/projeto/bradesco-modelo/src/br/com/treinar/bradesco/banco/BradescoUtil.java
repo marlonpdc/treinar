@@ -44,16 +44,14 @@ public class BradescoUtil {
 	}
 
 	public Conta recuperarConta(Long numeroConta) {
-		Conta conta = null;
-		Conta[] contas = banco.getContas();
-
-		for (int i = 0; i < contas.length; i++) {
-			if (contas[i].getNumeroConta().equals(numeroConta)) {
-				conta = contas[i];
+		Conta contaEncontrada = null;
+		for (Conta conta : banco.getContas()) {
+			if (conta.getNumeroConta().equals(numeroConta)) {
+				contaEncontrada = conta;
 				break;
 			}
 		}			
-		return conta;
+		return contaEncontrada;
 	}
 
 	public void tarifar() {
@@ -75,7 +73,7 @@ public class BradescoUtil {
 	}
 
 	public void adicionarPrevidencia(PrevidenciaPrivada titulo) {
-		banco.adicionarPrevidencia(titulo);
+		banco.adicionarProduto(titulo);
 	}
 
 }
