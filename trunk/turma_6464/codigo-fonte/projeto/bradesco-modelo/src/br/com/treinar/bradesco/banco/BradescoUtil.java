@@ -28,11 +28,11 @@ public class BradescoUtil {
 	}
 
 	public Boolean adicionarConta(Conta c) {
-		return banco.adicionarConta(c);
+		return banco.adicionarProduto(c);
 	}
 	
 	public Boolean adicionarCartao(CartaoCredito c) {
-		return banco.adicionarCartao(c);
+		return banco.adicionarProduto(c);
 	}
 	
 	public Banco getBanco() {

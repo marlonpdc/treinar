@@ -4,13 +4,15 @@ import java.util.Date;
 
 import br.com.treinar.bradesco.Titular;
 
-public abstract class Conta {
+public abstract class Conta implements IProduto {
 	
 	private Long numeroConta;
 	
+	private Long codigo;
+	
 	protected Double saldo;
 	
-	private Date dataCriacao;
+	private Date dataAquisicao;
 	
 	public Conta() {
 		this.saldo = 0d;
@@ -50,12 +52,24 @@ public abstract class Conta {
 
 	public abstract Double recuperarSaldo();
 
-	public Date getDataCriacao() {
-		return dataCriacao;
+
+	@Override
+	public Date getDataAquisicao() {
+		return dataAquisicao;
+	}
+	
+	public void setDataAquisicao(Date dataAquisicao) {
+		this.dataAquisicao = dataAquisicao;
+	}
+	
+	@Override
+	public Long getCodigo() {
+		return codigo;
 	}
 
-	public void setDataCriacao(Date dataCriacao) {
-		this.dataCriacao = dataCriacao;
+	public void setCodigo(Long codigo) {
+		this.codigo = codigo;
 	}
+	
 	
 }
