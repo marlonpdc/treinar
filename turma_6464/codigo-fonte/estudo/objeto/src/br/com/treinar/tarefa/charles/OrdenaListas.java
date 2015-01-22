@@ -16,6 +16,7 @@ public class OrdenaListas {
 	public static void main(String[] args) {
 		
 		
+		@SuppressWarnings("unused")
 		Map<String, List<String>> Turma = new HashMap<>();
 		
 		List<String> nome = new ArrayList<>();
@@ -32,6 +33,7 @@ public class OrdenaListas {
 		  
 		  Collections.sort(nome);
 		  
-		  Set<Pessoa> alunos = new HashSet<Pessoa>();
+		  @SuppressWarnings("unused")
+		Set<Pessoa> alunos = new HashSet<Pessoa>();
 	}
 }
