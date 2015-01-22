@@ -1,6 +1,6 @@
 package br.com.treinar.aula.dois;
 
-public class Pessoa {
+public class Pessoa implements Comparable<Pessoa> {
 
 	private String nome;
 	private Long cpf;
@@ -60,6 +60,11 @@ public class Pessoa {
 	@Override
 	public String toString() {
 		return "Pessoa [nome=" + nome + ", cpf=" + cpf + "]";
+	}
+	
+	@Override
+	public int compareTo(Pessoa o) {
+		return this.nome.compareTo(o.nome);
 	}
 
 	

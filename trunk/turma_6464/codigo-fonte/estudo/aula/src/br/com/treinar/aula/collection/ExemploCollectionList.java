@@ -20,7 +20,7 @@ public class ExemploCollectionList {
 		lista.add("Amanda");
 		//lista.add(10l);
 		
-		System.out.println(lista);
+		System.out.println(lista.get(0));
 		
 		System.out.println(lista.size());
 		
