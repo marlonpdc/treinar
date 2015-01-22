@@ -7,6 +7,7 @@ import java.util.Set;
 
 public class ExemploMap {
 	
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		
 		
@@ -36,6 +37,7 @@ public class ExemploMap {
 			
 		}
 		
+		sc.close();
 		System.out.println("Informe o código da mensagem: ");
 		
 		
