@@ -1,34 +1,45 @@
 package br.com.treinar.aula.excecao;
 
+import java.util.Scanner;
+
 public class IndiceInvalido {
 
 	public static void main(String[] args)  {
 		try {
 			metodoUm();			
-		} catch (NumberFormatException e) {
-			System.out.println("Erro de parser int");
-		} catch (ArrayIndexOutOfBoundsException e) {
-			System.out.println("erro de indice de array");
+		} catch (NumberFormatException | 
+				ArrayIndexOutOfBoundsException | 
+				NullPointerException e) {
+			e.getMessage();
+			tratar();
 		} catch (Exception e) {
-			System.out.println("erro fatal");
+			tratar();
+		} finally {
+			System.out.println("sempre executado");
 		}
 		
 		System.out.println("Fim do programa");
 	}
 
-	private static void metodoUm() {
-		Integer[] numeros = new Integer[2];
-		Long.parseLong("a");
-		gravar();
-		//Integer.parseInt("A");
-
-		System.out.println(numeros[2]);			
+	private static void tratar() {
+		System.out.println("tratei");
+	}
+	
+	private static Integer metodoUm() {
+		Scanner scanner = new Scanner(System.in);
+		try {
+			Integer ret = Integer.parseInt(scanner.nextLine());
+			System.out.println("teste");
+			return ret;
+		} finally {
+			scanner.close();
+		}
 		
 	}
 	
 	
 	
-	public static void gravar()  {
+	public static void gravar() throws Exception  {
 		try {
 			
 			System.out.println("tenta Gravar");
