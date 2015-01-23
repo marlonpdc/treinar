@@ -28,7 +28,7 @@ public abstract class Conta implements IProduto {
 		this.numeroConta = numeroConta;
 	}
 
-	public abstract Boolean sacar(Double valor);
+	public abstract void sacar(Double valor) throws SaldoInsuficienteException;
 	
 	public void depositar(Double valor) {
 		saldo += valor;

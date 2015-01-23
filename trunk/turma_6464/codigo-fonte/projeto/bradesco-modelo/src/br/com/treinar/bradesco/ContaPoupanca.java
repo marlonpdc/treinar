@@ -4,6 +4,7 @@ import java.util.Calendar;
 
 import br.com.treinar.bradesco.banco.Conta;
 import br.com.treinar.bradesco.banco.ICaptalizavel;
+import br.com.treinar.bradesco.banco.SaldoInsuficienteException;
 
 public class ContaPoupanca extends Conta implements ICaptalizavel {
 
@@ -31,12 +32,12 @@ public class ContaPoupanca extends Conta implements ICaptalizavel {
 	}
 
 	@Override
-	public Boolean sacar(Double valor) {
-		Boolean sacou = Boolean.FALSE;
+	public void sacar(Double valor) throws SaldoInsuficienteException {
 		if (valor >= saldo) {
 			saldo -= valor;
+		} else {
+			throw new SaldoInsuficienteException();
 		}
-		return sacou;
 	}
 
 	public static Double getTaxaRendimento() {

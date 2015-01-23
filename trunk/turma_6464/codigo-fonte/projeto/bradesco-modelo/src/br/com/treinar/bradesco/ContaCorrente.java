@@ -2,6 +2,7 @@ package br.com.treinar.bradesco;
 
 import br.com.treinar.bradesco.banco.Conta;
 import br.com.treinar.bradesco.banco.ITarifavel;
+import br.com.treinar.bradesco.banco.SaldoInsuficienteException;
 
 public class ContaCorrente extends Conta implements ITarifavel {
 
@@ -37,9 +38,7 @@ public class ContaCorrente extends Conta implements ITarifavel {
 	}
 
 	@Override
-	public Boolean sacar(Double valor) {
-		//TODO implementar regra de qtd de saques
-		Boolean sacou = Boolean.FALSE;
+	public void sacar(Double valor) throws SaldoInsuficienteException {
 		if (saldo >= (valor + limiteCredito)) {
 			if (saldo >= valor) {
 				saldo -= valor;
@@ -47,13 +46,16 @@ public class ContaCorrente extends Conta implements ITarifavel {
 				limiteCredito -= valor - saldo;
 				saldo = 0d;
 			}
-			sacou = Boolean.TRUE;
+		} else {
+			SaldoInsuficienteException sie = new SaldoInsuficienteException();
+			sie.setCausa("O Cliente não possui saldo suficiente para executar a flkjaçlsdf");
+			
+			throw sie; 
 		}
-		return sacou;
 	}
 
 	@Override
-	public void tarifar() {
+	public void tarifar() throws SaldoInsuficienteException {
 		sacar(12D);
 	}
 	
