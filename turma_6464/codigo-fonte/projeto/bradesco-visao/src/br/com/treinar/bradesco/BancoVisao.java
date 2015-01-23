@@ -74,17 +74,13 @@ public class BancoVisao {
 				contaControle.depositar(Double.parseDouble(valorDeposito), Long.valueOf(numerConta));
 				break;
 			case "3" :
-				numerConta = JOptionPane.showInputDialog("Numero Da Conta");
-				String valorSaque = JOptionPane.showInputDialog("Valor:");
 				try {
-					contaControle.sacar(Double.parseDouble(valorSaque), Long.parseLong(numerConta));
-					JOptionPane.showMessageDialog(null, "saque efetuado com sucesso");
+					sacar();
 				} catch (SaldoInsuficienteException e) {
 					JOptionPane.showMessageDialog(null, e.getCausa());					
 				} catch (NumberFormatException e) {
 					JOptionPane.showMessageDialog(null, "valor invalido");
 				}
-				
 				break;
 			case "4" :
 				numerConta = JOptionPane.showInputDialog("Numero Da Conta");
@@ -123,6 +119,14 @@ public class BancoVisao {
 			
 			System.out.println("Opção: " + opcao);
 		} while (!opcao.equals("0"));
+	}
+
+	private void sacar() throws SaldoInsuficienteException {
+		String numerConta;
+		numerConta = JOptionPane.showInputDialog("Numero Da Conta");
+		String valorSaque = JOptionPane.showInputDialog("Valor:");
+		contaControle.sacar(Double.parseDouble(valorSaque), Long.parseLong(numerConta));
+		JOptionPane.showMessageDialog(null, "saque efetuado com sucesso");
 	}
 
 	private void criarConta() {
