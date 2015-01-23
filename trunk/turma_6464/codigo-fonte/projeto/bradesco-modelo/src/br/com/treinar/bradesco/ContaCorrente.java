@@ -58,5 +58,18 @@ public class ContaCorrente extends Conta implements ITarifavel {
 	public void tarifar() throws SaldoInsuficienteException {
 		sacar(12D);
 	}
+
+	@Override
+	public String toString() {
+		return "ContaCorrente [tarifa=" + tarifa + ", limiteCredito="
+				+ limiteCredito + ", saldo=" + saldo + ", getNumeroConta()="
+				+ getNumeroConta() + ", getSaldo()=" + getSaldo()
+				+ ", getTitular()=" + getTitular() + ", getDataAquisicao()="
+				+ getDataAquisicao() + ", getCodigo()=" + getCodigo()
+				+ ", hashCode()=" + hashCode() + ", toString()="
+				+ super.toString() + "]";
+	}
+	
+	
 	
 }
