@@ -3,6 +3,7 @@ package br.com.treinar.bradesco;
 import javax.swing.JOptionPane;
 
 import br.com.treinar.bradesco.banco.Conta;
+import br.com.treinar.bradesco.banco.SaldoInsuficienteException;
 import br.com.treinar.bradesco.controle.BradescoControle;
 import br.com.treinar.bradesco.controle.CartaoControle;
 import br.com.treinar.bradesco.controle.ContaControle;
@@ -38,9 +39,9 @@ public class BancoVisao {
 											  + "6 - Cadastrar Cartão de Crédito\n"
 											  + "7 - Tarifar Produtos\n"
 											  + "8 - Cadastrar Previdencia Privada\n"
-											  + "9 - Excluir Conta"
-											  + "10 - Excluir Conta"
-											  + "11 - Excluir Conta"
+											  + "9 - Excluir Conta\n"
+											  + "10 - Excluir Conta\n"
+											  + "11 - Excluir Conta\n"
 											  + "0 - Sair\n");
 
 			switch (opcao) {
@@ -75,12 +76,15 @@ public class BancoVisao {
 			case "3" :
 				numerConta = JOptionPane.showInputDialog("Numero Da Conta");
 				String valorSaque = JOptionPane.showInputDialog("Valor:");
-				Boolean sacou = contaControle.sacar(Double.parseDouble(valorSaque), Long.parseLong(numerConta));
-				if (sacou) {
+				try {
+					contaControle.sacar(Double.parseDouble(valorSaque), Long.parseLong(numerConta));
 					JOptionPane.showMessageDialog(null, "saque efetuado com sucesso");
-				} else {
-					JOptionPane.showMessageDialog(null, "saldo insuficiente");					
+				} catch (SaldoInsuficienteException e) {
+					JOptionPane.showMessageDialog(null, e.getCausa());					
+				} catch (NumberFormatException e) {
+					JOptionPane.showMessageDialog(null, "valor invalido");
 				}
+				
 				break;
 			case "4" :
 				numerConta = JOptionPane.showInputDialog("Numero Da Conta");
@@ -100,7 +104,11 @@ public class BancoVisao {
 				cartaoControle.cadastrarCartao(cartao );
 				break;
 			case "7" :
-				bradescoControle.tarifar();
+				try {
+					bradescoControle.tarifar();					
+				} catch (Exception e) {
+					JOptionPane.showMessageDialog(null, "Erro ao tarifar...");
+				}
 				break;
 			case "8" :
 				Double premio = Double.parseDouble(JOptionPane.showInputDialog("Valor premio"));

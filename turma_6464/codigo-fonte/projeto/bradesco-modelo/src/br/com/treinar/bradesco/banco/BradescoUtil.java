@@ -54,7 +54,7 @@ public class BradescoUtil {
 		return contaEncontrada;
 	}
 
-	public void tarifar() {
+	public void tarifar() throws SaldoInsuficienteException {
 		for (Conta c : banco.getContas()) {
 			if (c != null) {
 				if (c instanceof ITarifavel) {
@@ -68,7 +68,7 @@ public class BradescoUtil {
 		}
 	}
 
-	private void tarifar(ITarifavel c) {
+	private void tarifar(ITarifavel c) throws SaldoInsuficienteException {
 		c.tarifar();
 	}
 

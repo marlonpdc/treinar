@@ -3,6 +3,7 @@ package br.com.treinar.bradesco.teste;
 import br.com.treinar.bradesco.ContaCorrente;
 import br.com.treinar.bradesco.ContaPoupanca;
 import br.com.treinar.bradesco.banco.Conta;
+import br.com.treinar.bradesco.banco.SaldoInsuficienteException;
 
 public class TestePolimorfismo {
 
@@ -14,11 +15,20 @@ public class TestePolimorfismo {
 		conta.depositar(100d);
 		
 
-		Boolean sacou = conta.sacar(50d);
+		try {
+			conta.sacar(50d);
+			System.out.println("Sacou!!!");
+		} catch (SaldoInsuficienteException e) {
+			System.out.println("Nao sacou!!!");
+			e.printStackTrace();
+		} catch (ArrayIndexOutOfBoundsException b) {
+			System.out.println("ArrayIndexOf...");
+		}finally {
+			System.out.println("Obrigado!!!");
+		}
 
-		String msg = sacou ? "Sacou!" : "Não Sacou!";
+		//String msg = sacou ? "Sacou!" : "Não Sacou!";
 
-		System.out.println(msg);
 
 		conta = new ContaCorrente();
 		conta.setNumeroConta(1049L);
@@ -28,11 +38,11 @@ public class TestePolimorfismo {
 		
 		contaCorrente.setLimiteCredito(100D);
 
-		sacou = conta.sacar(50d);
+		//sacou = conta.sacar(50d);
 		
-		msg = sacou ? "Sacou!" : "Não Sacou!";
+		//msg = sacou ? "Sacou!" : "Não Sacou!";
 
-		System.out.println(msg);
+		//System.out.println(msg);
 	}
 
 }

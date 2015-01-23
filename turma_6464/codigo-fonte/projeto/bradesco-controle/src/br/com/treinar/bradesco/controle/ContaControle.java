@@ -4,6 +4,7 @@ import java.util.Date;
 
 import br.com.treinar.bradesco.banco.BradescoUtil;
 import br.com.treinar.bradesco.banco.Conta;
+import br.com.treinar.bradesco.banco.SaldoInsuficienteException;
 
 public class ContaControle {
 
@@ -19,11 +20,10 @@ public class ContaControle {
 		c.depositar(valor);
 	}
 
-	public Boolean sacar(Double valor, Long numeroConta) {
+	public void sacar(Double valor, Long numeroConta) throws SaldoInsuficienteException {
 		BradescoUtil util = BradescoUtil.getInstance();
 		Conta c = util.recuperarConta(numeroConta);
-		Boolean sucesso = c.sacar(valor);
-		return sucesso;
+		c.sacar(valor);
 	}
 
 	public Double recuperarSaldo(Long numeroConta) {
