@@ -1,5 +1,10 @@
 package br.com.treinar.bradesco.banco;
 
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -17,10 +22,24 @@ public class Banco {
 		return Constante.NUMERO_BANCO;
 	}
 	
-	public Boolean adicionarProduto(IProduto c) {
+	public Boolean adicionarProduto(IProduto p) {
 		Boolean adicionou = Boolean.FALSE;
-		adicionou = produtos.add(c);
+		adicionou = produtos.add(p);
+		try {
+			gravarProduto(p);
+		} catch (Exception e) {
+			System.out.println("nao gravou!");
+		}
 		return adicionou;
+	}
+
+	private void gravarProduto(IProduto p) throws Exception {
+		OutputStream os = new FileOutputStream("produtos.txt");
+	     OutputStreamWriter osw = new OutputStreamWriter(os);
+	     
+	     try (BufferedWriter bw = new BufferedWriter(osw)) {
+	    	 bw.write(p.toString());
+	     }
 	}
 
 	public Set<Conta> getContas() {
