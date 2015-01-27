@@ -21,7 +21,7 @@ public class TestaJDBC {
 		c.setEndereco("rua da paz 202");
 		c.setNome("Amanda Cravo Moura");
 		
-		IBaseDAO dao = new ContatoDAO();
+		IBaseDAO<Contato> dao = new ContatoDAO();
 		dao.inserir(c);
 
 	}
