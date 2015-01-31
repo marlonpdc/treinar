@@ -13,10 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class TerceiroServlet
  */
-@WebServlet("*.bat")
+@WebServlet(value="*.bat", loadOnStartup=1)
 public class TerceiroServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
 	
 	private Integer contador;
 	
@@ -50,9 +49,9 @@ public class TerceiroServlet extends HttpServlet {
 		out.println("<body>");
 
 		Enumeration<String> parameterNames = request.getParameterNames();
-		out.println("<spam>Contador: ");
+		out.println("<span>Contador: ");
 		out.println(++contador);
-		out.println("</spam>");
+		out.println("</span>");
 		
 		while (parameterNames.hasMoreElements()) {
 			String param = parameterNames.nextElement();
