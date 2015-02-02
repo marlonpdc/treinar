@@ -30,7 +30,7 @@ public class ServletRedirect extends HttpServlet {
 		for (int i = 0; i < 10; i++) {
 			nomes.add("Nome " + ((i + 1) * i));
 		}
-		request.setAttribute("listaNomes", nomes);
+		//request.setAttribute("listaNomes", nomes);
 		RequestDispatcher rd = request.getRequestDispatcher("/pages/primeiraJSP.jsp");  
 		rd.forward(request, response);
 		//response.sendRedirect("/agenda/pages/primeiraJSP.jsp");
