@@ -13,7 +13,7 @@
 	
 		<input type="hidden" value="br.com.treinar.service.GravarContato" name="comando" />
 		
-		
+		<input type="submit" value="Gravar Contato">
 	
 	</form>
 
