@@ -10,7 +10,7 @@ public class GravarContato implements Comando {
 			HttpServletResponse response) {
 		// TODO implementar regras para gravar contato
 
-		System.out.println("TODO - ");
+		System.out.println("TODO");
 		//"GravarContato"
 		
 	}
