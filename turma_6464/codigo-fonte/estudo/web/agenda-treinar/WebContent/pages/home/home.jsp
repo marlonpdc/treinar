@@ -4,22 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Login</title>
+<title>Pagina Inicial</title>
 </head>
 <body>
 
-	<form action="login.cmd">
-		<input type="hidden" value="br.com.treinar.service.LoginService" name="comando" />
-		Login
-		<input type="text" name="login">
-		<br />
-		<br />
-		Senha
-		<input type="password" name="senha">
-		<br />
-		<br />
-		<input type="submit" value="Logar">		
-	</form>
+
+	<a href="/pages/cadastro/cadastroContato.jsp">Cadastrar Contato</a>
+
 
 </body>
 </html>
