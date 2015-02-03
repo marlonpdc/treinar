@@ -9,7 +9,7 @@
 <body>
 
 
-	<a href="/pages/cadastro/cadastroContato.jsp">Cadastrar Contato</a>
+	<a href="pages/cadastro/cadastroContato.jsp">Cadastrar Contato</a>
 
 
 </body>
