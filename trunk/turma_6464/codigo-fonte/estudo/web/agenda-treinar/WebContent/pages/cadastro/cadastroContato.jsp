@@ -1,6 +1,6 @@
 <%@page import="br.com.treinar.modelo.TipoTelefone"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="trn" uri="/WEB-INF/treinar.tld"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,26 +26,7 @@
 		</div>
 		<div class="ui-field-contain">
 			<label for="tipoTelefone">Tipo Telefone:</label>
-			<select name="tipoTelefone" id="tipoTelefone">
-				<option value="">Selecione</option>
-				<%
-				
-					ServletContext context = request.getSession().getServletContext();
-					
-					TipoTelefone[] tipos = (TipoTelefone[]) context.getAttribute("tiposTelefone");
-					
-					
-					for(int i = 0; i < tipos.length; i++) {
-						out.println("<option value=\"");
-						out.println(tipos[i]);
-						out.println("\">");
-						out.println(tipos[i].getDescricao());
-						out.println("</option>");
-					}
-				
-				
-				%>
-			</select>
+			<trn:tipoTelefone id="tpPhone" name="tpPhone" />
 		</div>
 		<div class="ui-field-contain">
 			Endereço: <input type="text" name="endereco"><br />
