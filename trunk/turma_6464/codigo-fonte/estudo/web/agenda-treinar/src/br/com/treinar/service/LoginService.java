@@ -1,14 +1,15 @@
 package br.com.treinar.service;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import br.com.treinar.util.AgendaException;
 
 public class LoginService implements Comando {
 
 	@Override
-	public void executar(HttpServletRequest request,
-			HttpServletResponse response) {
+	public String executar(HttpServletRequest request,
+			HttpServletResponse response) throws AgendaException {
 
 		String login = request.getParameter("login");
 		String senha = request.getParameter("senha");
@@ -16,13 +17,14 @@ public class LoginService implements Comando {
 		
 		request.getSession().setAttribute("login", login);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/pages/home/home.jsp");  
-		try {
-			rd.forward(request, response);
-		} catch (Exception e) {
-			e.printStackTrace();
-		} 
+		validarAcesso();
 		
+		return "/pages/home/home.jsp";
+		
+	}
+
+	private void validarAcesso() throws AgendaException {
+		// TODO Auto-generated method stub
 	}
 
 }

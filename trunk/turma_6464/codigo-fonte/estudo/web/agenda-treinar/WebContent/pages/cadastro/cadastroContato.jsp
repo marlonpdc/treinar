@@ -26,7 +26,7 @@
 		</div>
 		<div class="ui-field-contain">
 			<label for="tipoTelefone">Tipo Telefone:</label>
-			<trn:tipoTelefone id="tpPhone" name="tpPhone" />
+			<trn:tipoTelefone id="tipoTelefone" name="tipoTelefone" />
 		</div>
 		<div class="ui-field-contain">
 			Endereço: <input type="text" name="endereco"><br />

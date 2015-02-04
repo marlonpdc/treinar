@@ -4,14 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Pagina Inicial</title>
+<title>Erro Interno</title>
 </head>
 <body>
-	
-	<h1>${erro}</h1>
 
-	<a href="pages/cadastro/cadastroContato.jsp">Cadastrar Contato</a>
-
+<h1>Erro inesperado, comunique ao analista do sistema</h1>
 
 </body>
 </html>
