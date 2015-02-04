@@ -1,19 +1,19 @@
 package br.com.treinar.service;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.treinar.modelo.Contato;
 import br.com.treinar.modelo.Telefone;
 import br.com.treinar.modelo.TipoTelefone;
+import br.com.treinar.util.AgendaException;
 import br.com.treinar.util.TreinarUtil;
 
 public class GravarContato implements Comando {
 
 	@Override
-	public void executar(HttpServletRequest request,
-			HttpServletResponse response) {
+	public String executar(HttpServletRequest request,
+			HttpServletResponse response) throws AgendaException {
 		// TODO implementar regras para gravar contato
 		String nome = request.getParameter("nome");
 		String email = request.getParameter("email");
@@ -31,15 +31,20 @@ public class GravarContato implements Comando {
 		contato.getTelefone().setCodCidade(Integer.parseInt(telefone.substring(2, 4)));
 		contato.getTelefone().setCodPais(Integer.parseInt(telefone.substring(4, 12)));
 		
+		validarContatoRepetido(contato);
+		
 		TreinarUtil.getInstance().getContatos().add(contato);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/pages/lista/listaContatos.jsp");  
-		try {
-			rd.forward(request, response);
-		} catch (Exception e) {
-			e.printStackTrace();
-		} 
+		return "/pages/lista/listaContatos.jsp";
 		
+		
+		
+	}
+
+	private void validarContatoRepetido(Contato contato) throws AgendaException {
+		if (TreinarUtil.getInstance().getContatos().contains(contato)) {
+			throw new AgendaException("Contato já cadastrado");
+		}
 	}
 
 }

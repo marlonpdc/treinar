@@ -4,14 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Pagina Inicial</title>
+<title>Pagina Não Encontrada</title>
 </head>
 <body>
-	
-	<h1>${erro}</h1>
-
-	<a href="pages/cadastro/cadastroContato.jsp">Cadastrar Contato</a>
-
-
+<h1>Pagina Não Encontrada</h1>
 </body>
 </html>
