@@ -12,6 +12,6 @@
 
 	<a href="pages/cadastro/cadastroContato.jsp">Cadastrar Contato</a>
 
-
+	<jsp:include page="/pages/home/rodape.jsp" />
 </body>
 </html>

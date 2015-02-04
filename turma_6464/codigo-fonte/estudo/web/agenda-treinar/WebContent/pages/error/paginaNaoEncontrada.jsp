@@ -7,6 +7,8 @@
 <title>Pagina Não Encontrada</title>
 </head>
 <body>
-<h1>Pagina Não Encontrada</h1>
+<h1>Pagina Não Encontrada...</h1>
+
+<jsp:include page="/pages/home/rodape.jsp" />
 </body>
 </html>
