@@ -9,6 +9,6 @@
 <body>
 
 <h1>Erro inesperado, comunique ao analista do sistema</h1>
-
+<jsp:include page="/pages/home/rodape.jsp" />
 </body>
 </html>
