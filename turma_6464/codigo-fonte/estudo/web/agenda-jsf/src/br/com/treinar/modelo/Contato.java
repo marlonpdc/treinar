@@ -1,7 +1,11 @@
 package br.com.treinar.modelo;
 
-public class Contato {
+import java.io.Serializable;
 
+public class Contato implements Serializable {
+
+	private static final long serialVersionUID = -1529985868199481254L;
+	
 	private String nome;
 	private String email;
 	private Telefone telefone;

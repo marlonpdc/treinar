@@ -37,11 +37,8 @@
 
 		<h:dataTable value="#{contatoMB.contatos}" var="contato"
 			styleClass="employeeTable" headerClass="employeeTableHeader"
-			rowClasses="employeeTableOddRow, employeeTableEvenRow" rows="index">
-			<h:column>
-				<f:facet name="header">Linha</f:facet>    				
-     			<h:outputText value="#{index}" />
-   			</h:column>
+			rowClasses="employeeTableOddRow, employeeTableEvenRow" >
+
 			<h:column>
 				<f:facet name="header">Name</f:facet>    				
      			<h:outputText value="#{contato.nome}" />
@@ -56,7 +53,7 @@
    			</h:column>
 			<h:column>
 				<f:facet name="header">Editar</f:facet>    				
-     			<h:commandLink value="Editar" action="#{contatoMB.editar(contato)}" />
+     			<h:commandButton value="Editar" action="#{contatoMB.editar(contato)}" />
    			</h:column>
 			
 		</h:dataTable>
