@@ -7,7 +7,7 @@ public class TipoDado {
 	public static void main(String[] args) {
 		
 		// -128 ~ 127
-		byte b = 100;
+		byte b = 10;
 		System.out.println(b);
 		
 		//32.768 ~ 32.767 
