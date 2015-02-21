@@ -1,6 +1,6 @@
 package daniel;
 
-public class Cruzeiro {
+public class TelaPrincipal {
 
 	public static void main(String[] args) {
 		
@@ -29,6 +29,8 @@ public class Cruzeiro {
 		System.out.println("Treinado " + time.treinador.nome);
 		System.out.println("Goleiro " + time.goleiro.nome);
 		System.out.println("Atacante " + time.atacante.nome);
+		
+		time = null;
 		
 		
 	}
