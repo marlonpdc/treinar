@@ -4,7 +4,7 @@ public class OperadorRelacional {
 
 	public static void main(String[] args) {
 		
-		int a = 10;
+		int a = 100;
 		int b = 20;
 		boolean igual = a == b;
 		System.out.println(igual);
