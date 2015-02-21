@@ -29,6 +29,9 @@ public class TelaPrincipal {
 		time.goleiro.idade = 29;
 		time.goleiro.posicao = "Goleiro";
 		
+		time.atacante.chutar();
+		System.out.println("depois de executar o metodo chutar...");
+		
 		System.out.println("Time " + time.nome);
 		System.out.println("Treinado " + time.treinador.nome);
 		System.out.println("Goleiro " + time.goleiro.nome);

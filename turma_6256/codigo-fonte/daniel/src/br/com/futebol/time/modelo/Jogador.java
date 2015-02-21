@@ -6,4 +6,8 @@ public class Jogador {
 	public int idade;
 	public String posicao;
 	
+	public void chutar() {
+		System.out.println(".....");
+	}
+	
 }
