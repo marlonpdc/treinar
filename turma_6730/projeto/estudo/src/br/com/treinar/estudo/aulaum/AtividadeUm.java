@@ -1,4 +1,4 @@
-package br.com.treinar.estudo;
+package br.com.treinar.estudo.aulaum;
 
 public class AtividadeUm {
 
