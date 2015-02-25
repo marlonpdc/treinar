@@ -6,7 +6,7 @@ public class TesteInstrutor {
 
 	public static void main(String[] args) {
 		Instrtutor instrtutor0;
-		System.out.println("codigo...");
+		System.out.println("codigo executando...");
 		instrtutor0 = new Instrtutor();
 		instrtutor0.nome = "Gleidson";
 		instrtutor0.peso = 77;
