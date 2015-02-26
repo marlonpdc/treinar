@@ -6,9 +6,9 @@ public class Prova {
 
 	public static void main(String[] args) {
 		Atleta a = new Atleta();
-		System.out.println("O Atleta está " + a.velocidade);
+		System.out.println("O Atleta está " + a.recuperarStatus());
 		a.correr();
-		System.out.println("O Atleta está " + a.velocidade);
+		System.out.println("O Atleta está " + a.recuperarStatus());
 	}
 	
 }
