@@ -7,4 +7,5 @@ public class Instrtutor {
 	public String categora;
 	public int idade;
 	
+	
 }
