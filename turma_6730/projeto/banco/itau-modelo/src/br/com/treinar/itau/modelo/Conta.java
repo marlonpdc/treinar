@@ -8,6 +8,15 @@ public class Conta {
 	public Pessoa pessoa;
 	public Double saldo;
 	
+	public Conta(Pessoa pessoa) {
+		this();
+		this.pessoa = pessoa;
+	}
+	
+	public Conta() {
+		
+	}
+	
 	public Boolean depositar(Double valor) {
 		Boolean deuCerto = Boolean.TRUE;
 		//regra para deopositar
@@ -25,10 +34,8 @@ public class Conta {
 	 * @return verdadeir caso o deposito tenha sido efetivado e falso caso contrario
 	 */
 	public Boolean depositar(Double valor, Date dataCredito) {
-		Boolean deuCerto = Boolean.TRUE;
-		//regra para deopositar
-		saldo += valor;		
-		return deuCerto;
+		//qualquer regra com a data
+		return this.depositar(valor);
 	}
 	
 	
