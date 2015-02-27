@@ -7,7 +7,12 @@ public class Jogador {
 	public String posicao;
 	
 	public void chutar() {
-		System.out.println(".....");
+		
+		if (posicao == "Atacante") {
+			System.out.println("Chutou no gol");
+		} else
+			System.out.println("Chuto pra fora!");
+		
 	}
 	
 }
