@@ -12,11 +12,14 @@ public class Itau {
 	public void iniciar() {
 		Integer opcao = 0;
 		String opcaoStr = null;
+		String numeroContaStr = null;
+		Double depositoN = null;
+		Boolean depositoEfetuado = null;
 		do {
 			opcaoStr = JOptionPane.showInputDialog("Informe uma opção:\n"
 					+ "1 - Cadastrar Conta\n"
-					+ "0 - Sair"
-					+ "2 - Depositar");
+					+ "0 - Sair\n"
+					+ "2 - Depositar\n");
 			opcao = Integer.parseInt(opcaoStr);
 			switch (opcao) {
 			case 0:
@@ -24,24 +27,21 @@ public class Itau {
 				break;
 			case 1:
 				conta = new Conta();
-				String numeroContaStr = JOptionPane.showInputDialog("Digite o numero da conta");
+				numeroContaStr = JOptionPane.showInputDialog("Digite o numero da conta");
 				conta.numeroConta = Integer.parseInt(numeroContaStr);
 				conta.saldo = 0d;
 				conta.pessoa = new Pessoa();
 				conta.pessoa.nome = JOptionPane.showInputDialog("Digite o nome do proprietario");
 				conta.pessoa.cpf = Long.parseLong(JOptionPane.showInputDialog("Digite o CPF do proprietario"));
 				
-				JOptionPane.showInputDialog("Conta cadastrada com sucesso!");
+				JOptionPane.showMessageDialog(null, "Conta cadastrada com sucesso!");
 				
 				break;
 				
 			case 2:
-				
-				
-				Double depositoN = Double.parseDouble(JOptionPane.showInputDialog("Digite o valor do deposito"));			
-				conta.depositar(depositoN);
-				
-				JOptionPane.showInputDialog("Deposito efetuado com sucesso!");
+				depositoN = Double.parseDouble(JOptionPane.showInputDialog("Digite o valor do deposito"));			
+				depositoEfetuado = conta.depositar(depositoN);
+				JOptionPane.showMessageDialog(null, depositoEfetuado ? "Deposito efetuado!" : "Deposito nao efetuado");					
 				
 				break;
 				
