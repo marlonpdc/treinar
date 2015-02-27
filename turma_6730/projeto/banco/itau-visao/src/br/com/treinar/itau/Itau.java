@@ -15,7 +15,8 @@ public class Itau {
 		do {
 			opcaoStr = JOptionPane.showInputDialog("Informe uma opção:\n"
 					+ "1 - Cadastrar Conta\n"
-					+ "0 - Sair");
+					+ "0 - Sair"
+					+ "2 - Depositar");
 			opcao = Integer.parseInt(opcaoStr);
 			switch (opcao) {
 			case 0:
@@ -33,7 +34,17 @@ public class Itau {
 				JOptionPane.showInputDialog("Conta cadastrada com sucesso!");
 				
 				break;
-
+				
+			case 2:
+				
+				
+				Double depositoN = Double.parseDouble(JOptionPane.showInputDialog("Digite o valor do deposito"));			
+				conta.depositar(depositoN);
+				
+				JOptionPane.showInputDialog("Deposito efetuado com sucesso!");
+				
+				break;
+				
 			default:
 				break;
 			}
