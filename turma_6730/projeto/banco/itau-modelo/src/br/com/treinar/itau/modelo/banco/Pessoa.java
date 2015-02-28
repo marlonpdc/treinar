@@ -1,4 +1,4 @@
-package br.com.treinar.itau.modelo;
+package br.com.treinar.itau.modelo.banco;
 
 public class Pessoa {
 

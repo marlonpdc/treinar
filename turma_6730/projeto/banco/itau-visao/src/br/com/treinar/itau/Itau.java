@@ -2,8 +2,9 @@ package br.com.treinar.itau;
 
 import javax.swing.JOptionPane;
 
-import br.com.treinar.itau.modelo.Conta;
-import br.com.treinar.itau.modelo.Pessoa;
+import br.com.treinar.itau.modelo.ContaCorrente;
+import br.com.treinar.itau.modelo.ContaPoupanca;
+import br.com.treinar.itau.modelo.banco.Conta;
 
 public class Itau {
 
@@ -32,6 +33,11 @@ public class Itau {
 				
 				break;
 				
+			case 4:
+				exibirSaldo();					
+				
+				break;
+				
 			default:
 				break;
 			}
@@ -39,11 +45,16 @@ public class Itau {
 		} while (opcao != 0);
 	}
 
+	private void exibirSaldo() {
+		JOptionPane.showMessageDialog(null, "Saldo: " + String.valueOf(conta.recuperarSaldo()));
+	}
+
 	private String menu() {
 		String opcaoStr = JOptionPane.showInputDialog("Informe uma opção:\n"
 				+ "1 - Cadastrar Conta\n"
 				+ "2 - Depositar\n"
 				+ "3 - Sacar\n"
+				+ "4 - Exibir Saldo\n"
 				+ "0 - Sair\n");
 		return opcaoStr;
 	}
@@ -61,21 +72,47 @@ public class Itau {
 	}
 
 	private void criarConta() {
-		String numeroContaStr;
-		conta = new Conta();
-		numeroContaStr = JOptionPane.showInputDialog("Digite o numero da conta");
-		conta.numeroConta = Integer.parseInt(numeroContaStr);
-		conta.saldo = 0d;
-		//conta.pessoa = new Pessoa();
-		conta.pessoa.nome = JOptionPane.showInputDialog("Digite o nome do proprietario");
-		conta.pessoa.cpf = Long.parseLong(JOptionPane.showInputDialog("Digite o CPF do proprietario"));
-		
+		String menu = "1 - Corrente\n2 - Poupança";
+		String opcao = JOptionPane.showInputDialog(menu);
+		switch (opcao) {
+		case "1":
+			conta = new ContaCorrente();
+			ContaCorrente contaCorrente = (ContaCorrente) conta;
+			criarConta(contaCorrente);			
+			break;
+		case "2":
+			conta = new ContaPoupanca();	
+			criarConta((ContaPoupanca) conta);
+			break;
+
+		default:
+			break;
+		}
 		JOptionPane.showMessageDialog(null, "Conta cadastrada com sucesso!");
 	}
 
-
-	void teste() {
-		conta = new Conta();
+	private void cadastrar() {
+		String numeroContaStr;
+		numeroContaStr = JOptionPane.showInputDialog("Digite o numero da conta");
+		conta.numeroConta = Integer.parseInt(numeroContaStr);
+		//jah acontece no construtor de conta
+		//conta.pessoa = new Pessoa();
+		conta.pessoa.nome = JOptionPane.showInputDialog("Digite o nome do proprietario");
+		conta.pessoa.cpf = Long.parseLong(JOptionPane.showInputDialog("Digite o CPF do proprietario"));
 	}
+	
+	private void criarConta(ContaCorrente cc) {
+		cadastrar();
+		Double tarifa = Double.parseDouble(JOptionPane.showInputDialog("Valor da Tarifa"));
+		cc.tarifa = tarifa;
+	}
+	
+	private void criarConta(ContaPoupanca cp) {
+		cadastrar();
+		Double taxaRendimento = Double.parseDouble(JOptionPane.showInputDialog("Valor da Taxa de Rendimento"));
+		cp.taxaRendimento = taxaRendimento;
+	}
+	
+	
 	
 }

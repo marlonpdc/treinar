@@ -1,12 +1,12 @@
-package br.com.treinar.itau.modelo;
+package br.com.treinar.itau.modelo.banco;
 
 import java.util.Date;
 
-public class Conta {
+public abstract class Conta {
 
 	public Integer numeroConta;
 	public Pessoa pessoa;
-	public Double saldo;
+	private Double saldo;
 	
 	public Conta(Pessoa pessoa) {
 		this();
@@ -14,7 +14,8 @@ public class Conta {
 	}
 	
 	public Conta() {
-		
+		pessoa = new Pessoa();
+		this.saldo = 0d;
 	}
 	
 	public Boolean depositar(Double valor) {
@@ -47,6 +48,10 @@ public class Conta {
 		}
 		return sacou;
 		
+	}
+
+	public Double recuperarSaldo() {
+		return this.saldo;
 	}
 	
 }
