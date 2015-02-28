@@ -9,5 +9,10 @@ public class ContaPoupanca extends Conta {
 	public ContaPoupanca(Integer numeroConta) {
 		super(numeroConta);
 	}
+
+	@Override
+	public Double recuperarSaldo() {
+		return saldo;
+	}
 		
 }
