@@ -2,7 +2,7 @@ package br.com.treinar.itau.modelo.principal;
 
 import java.util.Date;
 
-public class Conta {
+public abstract class Conta {
 
 	public Integer numeroConta;
 	public Double saldo;
