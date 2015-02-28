@@ -1,14 +1,16 @@
 package estudo;
 
+import estudo.construtor.Pessoa;
+
 public class StringReferencia {
 
 	public static void main(String[] args) {
 		String nome = "Gleidson";
 		String nome2 = "Gleidson";
 		
-		Pessoa p = new Pessoa();
+		Pessoa p = new Pessoa("");
 		p.nome = nome;
-		Pessoa p2 = new Pessoa();
+		Pessoa p2 = new Pessoa("");
 		p2.nome = nome2;
 		
 		System.out.println(nome == nome2);

@@ -1,12 +1,14 @@
 package estudo;
 
+import estudo.construtor.Pessoa;
+
 public class Referencia {
 
 	public static void main(String[] args) {
-		Pessoa p = new Pessoa();
+		Pessoa p = new Pessoa("");
 		p.nome = "Gabriel";
 		
-		Pessoa p2 = new Pessoa();
+		Pessoa p2 = new Pessoa("");
 		p2.nome = "Bruno";
 		System.out.println(p2.nome);
 		
