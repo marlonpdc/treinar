@@ -6,11 +6,11 @@ public class Conta {
 	public Double saldo;
 	public Pessoa pessoa;
 	
-	public boolean sacar(Double valor) {
-		boolean sacou = false;
+	public Boolean sacar(Double valor) {
+		Boolean sacou = Boolean.FALSE;
 		if (saldo >= valor) {
 			saldo -= valor;
-			sacou = true;
+			sacou = Boolean.TRUE;
 		}
 		return sacou;
 	}

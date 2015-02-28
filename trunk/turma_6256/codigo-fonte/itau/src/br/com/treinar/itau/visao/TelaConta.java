@@ -34,7 +34,8 @@ public class TelaConta {
 				conta.depositar(Double.parseDouble(JOptionPane.showInputDialog("Valor")));
 				break;
 			case "3":
-				conta.sacar(Double.parseDouble(JOptionPane.showInputDialog("Valor")));
+				Boolean sacou = conta.sacar(Double.parseDouble(JOptionPane.showInputDialog("Valor")));
+				JOptionPane.showMessageDialog(null, sacou ? "Saque efetuado com sucesso!" : "Saque nao efetuado!");				
 				break;
 			case "4":
 				JOptionPane.showMessageDialog(null, "Saldo: " + conta.saldo);
