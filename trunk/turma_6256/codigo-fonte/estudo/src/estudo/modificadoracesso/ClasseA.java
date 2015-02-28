@@ -8,7 +8,6 @@ public class ClasseA {
 	public Integer atributoPublic;
 	private ClasseA a;
 	
-	
 	private void metodoPrivado() {
 		System.out.println(atributoPrivado);
 		System.out.println(a.atributoPrivado);
