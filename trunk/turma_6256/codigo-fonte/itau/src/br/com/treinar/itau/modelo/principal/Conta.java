@@ -5,7 +5,7 @@ import java.util.Date;
 public abstract class Conta {
 
 	public Integer numeroConta;
-	public Double saldo;
+	protected Double saldo;
 	public Pessoa pessoa;
 	
 	public Conta(Integer numeroConta) {
