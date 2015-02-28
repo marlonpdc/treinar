@@ -26,6 +26,7 @@ public class TelaConta {
 				cadastrarConta();
 				break;
 			case "2":
+				//conta.saldo = conta.saldo + 1000d;
 				depositar();
 				break;
 			case "3":
