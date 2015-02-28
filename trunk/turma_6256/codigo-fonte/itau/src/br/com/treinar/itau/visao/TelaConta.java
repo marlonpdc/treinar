@@ -2,8 +2,8 @@ package br.com.treinar.itau.visao;
 
 import javax.swing.JOptionPane;
 
-import br.com.treinar.itau.modelo.Conta;
-import br.com.treinar.itau.modelo.Pessoa;
+import br.com.treinar.itau.modelo.principal.Conta;
+import br.com.treinar.itau.modelo.principal.Pessoa;
 
 public class TelaConta {
 
@@ -22,10 +22,8 @@ public class TelaConta {
 			opcaoStr = JOptionPane.showInputDialog(menu);
 			switch (opcaoStr) {
 			case "1":
-				conta = new Conta();
 				numeroContaStr = JOptionPane.showInputDialog("Informe o numero da conta.");
-				conta.numeroConta = Integer.parseInt(numeroContaStr);
-				conta.saldo = 0d;
+				conta = new Conta(Integer.parseInt(numeroContaStr));
 				conta.pessoa = new Pessoa();
 				conta.pessoa.nome = JOptionPane.showInputDialog("Nome do cliente");
 				conta.pessoa.cpf = Long.parseLong(JOptionPane.showInputDialog("CPF do cliente"));
