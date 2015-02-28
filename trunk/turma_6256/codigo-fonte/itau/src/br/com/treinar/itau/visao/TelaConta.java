@@ -69,12 +69,12 @@ public class TelaConta {
 		case "1":
 			conta = new ContaCorrente(numeroConta);
 			cadastrarContaPadrao();
-			concluircadastroContaCorrente((ContaCorrente) conta);
+			concluirCadastroContaCorrente((ContaCorrente) conta);
 			break;
 		case "2":
 			conta = new ContaPoupanca(numeroConta);
 			cadastrarContaPadrao();
-			concluircadastroContaPoupanca((ContaPoupanca) conta);
+			concluirCadastroContaPoupanca((ContaPoupanca) conta);
 			break;
 
 		default:
@@ -89,14 +89,14 @@ public class TelaConta {
 		conta.pessoa.cpf = Long.parseLong(JOptionPane.showInputDialog("CPF do cliente"));
 	}
 	
-	private void concluircadastroContaCorrente(ContaCorrente cc) {
+	private void concluirCadastroContaCorrente(ContaCorrente cc) {
 		String tarifaStr = JOptionPane.showInputDialog("Valor da tarifa");
 		cc.tarifa = Double.parseDouble(tarifaStr);
 		String limiteCreditoStr = JOptionPane.showInputDialog("Valor do limite de credito");
 		cc.limiteCredito = Double.parseDouble(limiteCreditoStr);
 	}
 	
-	private void concluircadastroContaPoupanca(ContaPoupanca cp) {
+	private void concluirCadastroContaPoupanca(ContaPoupanca cp) {
 		String taxaRendimentoStr = JOptionPane.showInputDialog("Valor da taxa de rendimento");
 		cp.taxaRendimento = Float.parseFloat(taxaRendimentoStr);
 	}
