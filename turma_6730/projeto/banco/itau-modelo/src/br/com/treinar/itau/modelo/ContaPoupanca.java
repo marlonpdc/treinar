@@ -5,6 +5,11 @@ import br.com.treinar.itau.modelo.banco.Conta;
 public class ContaPoupanca extends Conta {
 
 	public Double taxaRendimento;
+
+	@Override
+	public Double recuperarSaldo() {
+		return saldo;
+	}
 	
 	
 }

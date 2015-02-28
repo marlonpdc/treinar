@@ -81,7 +81,7 @@ public class Itau {
 			criarConta(contaCorrente);			
 			break;
 		case "2":
-			conta = new ContaPoupanca();	
+			conta = new ContaPoupanca();
 			criarConta((ContaPoupanca) conta);
 			break;
 
