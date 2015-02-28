@@ -16,27 +16,21 @@ public class TelaConta {
 					+ "3 - Sacar\n"
 					+ "4 - Exibir Saldo\n"
 					+ "0 - Sair";
-		String numeroContaStr = null;
 		String opcaoStr = null;
 		do {
 			opcaoStr = JOptionPane.showInputDialog(menu);
 			switch (opcaoStr) {
 			case "1":
-				numeroContaStr = JOptionPane.showInputDialog("Informe o numero da conta.");
-				conta = new Conta(Integer.parseInt(numeroContaStr));
-				conta.pessoa = new Pessoa();
-				conta.pessoa.nome = JOptionPane.showInputDialog("Nome do cliente");
-				conta.pessoa.cpf = Long.parseLong(JOptionPane.showInputDialog("CPF do cliente"));
+				cadastrarConta();
 				break;
 			case "2":
-				conta.depositar(Double.parseDouble(JOptionPane.showInputDialog("Valor")));
+				depositar();
 				break;
 			case "3":
-				Boolean sacou = conta.sacar(Double.parseDouble(JOptionPane.showInputDialog("Valor")));
-				JOptionPane.showMessageDialog(null, sacou ? "Saque efetuado com sucesso!" : "Saque nao efetuado!");				
+				sacar();
 				break;
 			case "4":
-				JOptionPane.showMessageDialog(null, "Saldo: " + conta.saldo);
+				exibirSaldo();
 				break;
 
 			default:
@@ -46,6 +40,29 @@ public class TelaConta {
 		} while (!opcaoStr.equals("0"));
 		
 		
+	}
+
+	private void exibirSaldo() {
+		JOptionPane.showMessageDialog(null, "Saldo: " + conta.saldo);
+	}
+
+	private void sacar() {
+		Boolean sacou = conta.sacar(Double.parseDouble(JOptionPane.showInputDialog("Valor")));
+		JOptionPane.showMessageDialog(null, sacou ? "Saque efetuado com sucesso!" : "Saque nao efetuado!");
+	}
+
+	private void depositar() {
+		conta.depositar(Double.parseDouble(JOptionPane.showInputDialog("Valor")));
+		JOptionPane.showMessageDialog(null, "Deposito efetuado com sucesso");
+	}
+
+	private void cadastrarConta() {
+		String numeroContaStr;
+		numeroContaStr = JOptionPane.showInputDialog("Informe o numero da conta.");
+		//conta = new Conta(Integer.parseInt(numeroContaStr));
+		conta.pessoa = new Pessoa();
+		conta.pessoa.nome = JOptionPane.showInputDialog("Nome do cliente");
+		conta.pessoa.cpf = Long.parseLong(JOptionPane.showInputDialog("CPF do cliente"));
 	}
 	
 }
