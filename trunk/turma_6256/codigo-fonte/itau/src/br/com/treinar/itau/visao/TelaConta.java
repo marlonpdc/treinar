@@ -80,7 +80,7 @@ public class TelaConta {
 		default:
 			break;
 		}
-		
+		JOptionPane.showMessageDialog(null, conta.getClass().getSimpleName() + " cadastrada com sucesso!");
 	}
 	
 	private void cadastrarContaPadrao() {
