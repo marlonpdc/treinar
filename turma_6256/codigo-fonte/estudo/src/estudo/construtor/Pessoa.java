@@ -10,6 +10,10 @@ public class Pessoa {
 		super();
 		this.nome = nome;
 	}
+	
+	public Pessoa() {
+		super();
+	}
 
 	public void correr() {
 		velocidadeAtual = 2;
