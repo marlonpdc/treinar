@@ -105,6 +105,8 @@ public class Itau {
 		cadastrar();
 		Double tarifa = Double.parseDouble(JOptionPane.showInputDialog("Valor da Tarifa"));
 		cc.tarifa = tarifa;
+		Double limiteCredito = Double.parseDouble(JOptionPane.showInputDialog("Valor limite credito"));
+		cc.limiteCredito = limiteCredito;
 	}
 	
 	private void criarConta(ContaPoupanca cp) {
