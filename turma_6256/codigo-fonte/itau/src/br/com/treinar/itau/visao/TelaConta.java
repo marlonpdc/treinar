@@ -46,7 +46,7 @@ public class TelaConta {
 	}
 
 	private void exibirSaldo() {
-		JOptionPane.showMessageDialog(null, "Saldo: " + conta.saldo);
+		JOptionPane.showMessageDialog(null, "Saldo: " + conta.recuperarSaldo());
 	}
 
 	private void sacar() {
