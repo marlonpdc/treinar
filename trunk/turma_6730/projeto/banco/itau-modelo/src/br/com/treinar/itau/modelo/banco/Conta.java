@@ -6,7 +6,7 @@ public abstract class Conta {
 
 	public Integer numeroConta;
 	public Pessoa pessoa;
-	private Double saldo;
+	protected Double saldo;
 	
 	public Conta(Pessoa pessoa) {
 		this();
@@ -50,8 +50,6 @@ public abstract class Conta {
 		
 	}
 
-	public Double recuperarSaldo() {
-		return this.saldo;
-	}
+	public abstract Double recuperarSaldo();
 	
 }
