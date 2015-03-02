@@ -16,7 +16,7 @@ public class ContaInvestimento extends Conta implements ICaptalizavel, ITarifave
 
 	@Override
 	public void captalizar() {
-		depositar(recuperarSaldo() * 0.1);
+		depositar(recuperarSaldo() * taxaRendimento);
 	}
 
 	@Override
