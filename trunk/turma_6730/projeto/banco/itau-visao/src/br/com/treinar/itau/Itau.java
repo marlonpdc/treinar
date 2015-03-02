@@ -3,8 +3,10 @@ package br.com.treinar.itau;
 import javax.swing.JOptionPane;
 
 import br.com.treinar.itau.modelo.ContaCorrente;
+import br.com.treinar.itau.modelo.ContaInvestimento;
 import br.com.treinar.itau.modelo.ContaPoupanca;
 import br.com.treinar.itau.modelo.banco.Conta;
+import br.com.treinar.itau.modelo.banco.ICaptalizavel;
 
 public class Itau {
 
@@ -23,26 +25,34 @@ public class Itau {
 			case 1:
 				criarConta();
 				break;
-				
 			case 2:
 				depositar();					
-				
 				break;
 			case 3:
-				sacar();					
-				
+				sacar();
 				break;
-				
 			case 4:
 				exibirSaldo();					
-				
 				break;
-				
+			case 5:
+				captalizarContas();					
+				break;
 			default:
 				break;
 			}
 			
 		} while (opcao != 0);
+	}
+
+	private void captalizarContas() {
+		if (conta instanceof ICaptalizavel) {
+			ICaptalizavel contaCaptalizavel = (ICaptalizavel) conta;
+			captalizar(contaCaptalizavel);			
+		}
+	}
+	
+	private void captalizar(ICaptalizavel contaCaptalizavel) {
+		contaCaptalizavel.captalizar();
 	}
 
 	private void exibirSaldo() {
@@ -55,6 +65,8 @@ public class Itau {
 				+ "2 - Depositar\n"
 				+ "3 - Sacar\n"
 				+ "4 - Exibir Saldo\n"
+				+ "5 - Captalizar Contas\n"
+				+ "6 - Cobrar Tarifa\n"
 				+ "0 - Sair\n");
 		return opcaoStr;
 	}
@@ -72,7 +84,7 @@ public class Itau {
 	}
 
 	private void criarConta() {
-		String menu = "1 - Corrente\n2 - Poupança";
+		String menu = "1 - Corrente\n2 - Poupança\n3 - Investimento";
 		String opcao = JOptionPane.showInputDialog(menu);
 		switch (opcao) {
 		case "1":
@@ -83,6 +95,10 @@ public class Itau {
 		case "2":
 			conta = new ContaPoupanca();
 			criarConta((ContaPoupanca) conta);
+			break;
+		case "3":
+			conta = new ContaInvestimento();
+			criarConta((ContaInvestimento) conta);
 			break;
 
 		default:
@@ -105,14 +121,20 @@ public class Itau {
 		cadastrar();
 		Double tarifa = Double.parseDouble(JOptionPane.showInputDialog("Valor da Tarifa"));
 		cc.tarifa = tarifa;
-		Double limiteCredito = Double.parseDouble(JOptionPane.showInputDialog("Valor limite credito"));
-		cc.limiteCredito = limiteCredito;
 	}
 	
 	private void criarConta(ContaPoupanca cp) {
 		cadastrar();
-		Double taxaRendimento = Double.parseDouble(JOptionPane.showInputDialog("Valor da Taxa de Rendimento"));
+		Double taxaRendimento = Double.parseDouble(JOptionPane.showInputDialog("Valor da Taxa de Rendimento Conta Poupança"));
 		cp.taxaRendimento = taxaRendimento;
+	}
+	
+	private void criarConta(ContaInvestimento ci) {
+		cadastrar();
+		Double taxaRendimento = Double.parseDouble(JOptionPane.showInputDialog("Valor da Taxa de Rendimento da Conta Investimento"));
+		ci.taxaRendimento = taxaRendimento;
+		Double tarifa = Double.parseDouble(JOptionPane.showInputDialog("Valor da Tarifa Conta Investimento"));
+		ci.tarifa = tarifa;
 	}
 	
 	
