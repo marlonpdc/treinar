@@ -1,7 +1,14 @@
 package br.com.treinar.itau.modelo.util;
 
-public class ItauConstante {
+public interface ItauConstante {
 	
-	public String mensagemFimPrograma = "Fim do Programa"; 
+	public interface ItauConstanteVisao {
+		String mensagemFimPrograma = "Fim do Programa";		
+	}
+	
+	public interface ItauConstanteModelo {
+		
+	}
+	
 
 }
