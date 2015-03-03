@@ -4,8 +4,8 @@ import java.util.Date;
 
 public abstract class Conta {
 
-	public Integer numeroConta;
-	public Pessoa pessoa;
+	private Integer numeroConta;
+	private Pessoa pessoa;
 	protected Double saldo;
 	
 	public Conta(Pessoa pessoa) {
@@ -39,7 +39,6 @@ public abstract class Conta {
 		return this.depositar(valor);
 	}
 	
-	
 	public Boolean sacar(Double valor) {
 		Boolean sacou = Boolean.FALSE;
 		if (saldo >= valor) {
@@ -51,5 +50,23 @@ public abstract class Conta {
 	}
 
 	public abstract Double recuperarSaldo();
+
+	public Integer getNumeroConta() {
+		return numeroConta;
+	}
+
+	public void setNumeroConta(Integer numeroConta) {
+		this.numeroConta = numeroConta;
+	}
+
+	public Pessoa getPessoa() {
+		return pessoa;
+	}
+
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
+	}
+	
+	
 	
 }
