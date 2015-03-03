@@ -21,7 +21,7 @@ public class ContaInvestimento extends Conta implements ICaptalizavel, ITarifave
 
 	@Override
 	public void calcularTarifa() {
-		sacar(tarifa);
+		sacar(recuperarSaldo() * (tarifa / 100));
 	}
 	
 	
