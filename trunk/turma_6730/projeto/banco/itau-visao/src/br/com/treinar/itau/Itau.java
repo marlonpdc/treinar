@@ -142,11 +142,11 @@ public class Itau {
 	private void cadastrar() {
 		String numeroContaStr;
 		numeroContaStr = JOptionPane.showInputDialog("Digite o numero da conta");
-		conta.numeroConta = Integer.parseInt(numeroContaStr);
+		conta.setNumeroConta(Integer.parseInt(numeroContaStr));
 		//jah acontece no construtor de conta
 		//conta.pessoa = new Pessoa();
-		conta.pessoa.nome = JOptionPane.showInputDialog("Digite o nome do proprietario");
-		conta.pessoa.cpf = Long.parseLong(JOptionPane.showInputDialog("Digite o CPF do proprietario"));
+		conta.getPessoa().nome = JOptionPane.showInputDialog("Digite o nome do proprietario");
+		conta.getPessoa().cpf = Long.parseLong(JOptionPane.showInputDialog("Digite o CPF do proprietario"));
 	}
 	
 	private void criarConta(ContaCorrente cc) {
