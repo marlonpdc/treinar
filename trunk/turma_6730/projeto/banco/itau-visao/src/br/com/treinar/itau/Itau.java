@@ -7,6 +7,7 @@ import br.com.treinar.itau.modelo.ContaInvestimento;
 import br.com.treinar.itau.modelo.ContaPoupanca;
 import br.com.treinar.itau.modelo.banco.Conta;
 import br.com.treinar.itau.modelo.banco.ICaptalizavel;
+import br.com.treinar.itau.modelo.banco.ITarifavel;
 
 public class Itau {
 
@@ -37,6 +38,9 @@ public class Itau {
 			case 5:
 				captalizarContas();					
 				break;
+			case 6:
+				tarifarContas();					
+				break;
 			default:
 				break;
 			}
@@ -44,10 +48,21 @@ public class Itau {
 		} while (opcao != 0);
 	}
 
+	private void tarifarContas() {
+		if (conta instanceof ITarifavel) {
+			ITarifavel contaTarifavel = (ITarifavel) conta;
+			tarifar(contaTarifavel);
+		}
+	}
+
+	private void tarifar(ITarifavel contaTarifavel) {
+		contaTarifavel.calcularTarifa();
+	}
+
 	private void captalizarContas() {
 		if (conta instanceof ICaptalizavel) {
 			ICaptalizavel contaCaptalizavel = (ICaptalizavel) conta;
-			captalizar(contaCaptalizavel);			
+			captalizar(contaCaptalizavel);	
 		}
 	}
 	
