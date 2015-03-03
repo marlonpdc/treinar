@@ -15,9 +15,8 @@ public class Itau {
 	public final Integer horaAbertura;
 	
 	public Itau() {
-		this.horaAbertura = 10;
+		this.horaAbertura = 12;
 	}
-	
 	
 	public void iniciar() {
 		
@@ -161,6 +160,9 @@ public class Itau {
 		ci.tarifa = tarifa;
 	}
 	
-	
+	public Itau(String teste) {
+		this();
+		System.out.println(teste);
+	}
 	
 }
