@@ -1,5 +1,7 @@
 package br.com.treinar.itau;
 
+import java.util.Date;
+
 import javax.swing.JOptionPane;
 
 import br.com.treinar.itau.modelo.ContaCorrente;
@@ -8,6 +10,7 @@ import br.com.treinar.itau.modelo.ContaPoupanca;
 import br.com.treinar.itau.modelo.banco.Conta;
 import br.com.treinar.itau.modelo.banco.ICaptalizavel;
 import br.com.treinar.itau.modelo.banco.ITarifavel;
+import br.com.treinar.itau.modelo.util.ItauUtil;
 
 public class Itau {
 
@@ -29,7 +32,9 @@ public class Itau {
 			opcao = Integer.parseInt(opcaoStr);
 			switch (opcao) {
 			case 0:
-				JOptionPane.showMessageDialog(null, "Fim do programa");
+				ItauUtil itauUtil = ItauUtil.getInstance();
+				String data = itauUtil.formatarData(new Date());
+				JOptionPane.showMessageDialog(null, "Fim do programa " + data);
 				break;
 			case 1:
 				criarConta();
