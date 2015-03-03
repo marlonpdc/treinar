@@ -152,8 +152,6 @@ public class Itau {
 	
 	private void criarConta(ContaPoupanca cp) {
 		cadastrar();
-		//Double taxaRendimento = Double.parseDouble(JOptionPane.showInputDialog("Valor da Taxa de Rendimento Conta Poupança"));
-		//ContaPoupanca.taxaRendimento = taxaRendimento;
 	}
 	
 	private void criarConta(ContaInvestimento ci) {
