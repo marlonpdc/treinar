@@ -49,6 +49,9 @@ public class Itau {
 			case 6:
 				tarifarContas();					
 				break;
+			case 7:
+				cadastrarTaxaRendimento();					
+				break;
 			default:
 				break;
 			}
@@ -90,6 +93,7 @@ public class Itau {
 				+ "4 - Exibir Saldo\n"
 				+ "5 - Captalizar Contas\n"
 				+ "6 - Cobrar Tarifa\n"
+				+ "7 - Cadastrar Taxa Rendimento\n"
 				+ "0 - Sair\n");
 		return opcaoStr;
 	}
@@ -148,8 +152,8 @@ public class Itau {
 	
 	private void criarConta(ContaPoupanca cp) {
 		cadastrar();
-		Double taxaRendimento = Double.parseDouble(JOptionPane.showInputDialog("Valor da Taxa de Rendimento Conta Poupança"));
-		cp.taxaRendimento = taxaRendimento;
+		//Double taxaRendimento = Double.parseDouble(JOptionPane.showInputDialog("Valor da Taxa de Rendimento Conta Poupança"));
+		//ContaPoupanca.taxaRendimento = taxaRendimento;
 	}
 	
 	private void criarConta(ContaInvestimento ci) {
@@ -160,9 +164,9 @@ public class Itau {
 		ci.tarifa = tarifa;
 	}
 	
-	public Itau(String teste) {
-		this();
-		System.out.println(teste);
+	private void cadastrarTaxaRendimento() {
+		Double taxaRendimento = Double.parseDouble(JOptionPane.showInputDialog("Valor da Taxa de Rendimento Conta Poupança"));
+		ContaPoupanca.taxaRendimento = taxaRendimento;
 	}
 	
 }
