@@ -12,8 +12,17 @@ import br.com.treinar.itau.modelo.banco.ITarifavel;
 public class Itau {
 
 	public Conta conta;
+	public final Integer horaAbertura;
+	
+	public Itau() {
+		this.horaAbertura = 10;
+	}
+	
 	
 	public void iniciar() {
+		
+		//atributo final nao pode ser modificado
+		//horaAbertura = 12;
 		Integer opcao = 0;
 		String opcaoStr = null;
 		do {
