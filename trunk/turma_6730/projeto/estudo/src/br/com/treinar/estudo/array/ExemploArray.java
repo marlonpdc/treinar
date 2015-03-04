@@ -8,7 +8,7 @@ public class ExemploArray {
 		
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Informe a quantidade de itens do array: ");
-		int qtdNomes = sc.nextInt();
+		Integer qtdNomes = sc.nextInt();
 		sc.nextLine();
 		String[] nomes = new String[qtdNomes];
 

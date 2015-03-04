@@ -3,8 +3,8 @@ package br.com.treinar.estudo.modelo;
 public class Atleta {
 	
 	public String nome;
-	public int idade;
-	public int velocidade;
+	public Integer idade;
+	public Integer velocidade;
 	
 	public void correr() {
 		velocidade = 6;
