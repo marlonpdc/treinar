@@ -1,7 +1,5 @@
 package br.com.treinar.itau;
 
-import java.util.Date;
-
 import javax.swing.JOptionPane;
 
 import br.com.treinar.itau.controle.ContaControle;
@@ -9,7 +7,6 @@ import br.com.treinar.itau.modelo.ContaCorrente;
 import br.com.treinar.itau.modelo.ContaInvestimento;
 import br.com.treinar.itau.modelo.ContaPoupanca;
 import br.com.treinar.itau.modelo.banco.Conta;
-import br.com.treinar.itau.modelo.util.ItauUtil;
 
 public class Itau {
 
