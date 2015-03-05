@@ -54,7 +54,7 @@ public class ItauUtil {
 	public Conta recuperarConta(Integer numeroConta) {
 		Conta contaEncontrada = null;
 		for (Conta conta : contas) {
-			if (conta.getNumeroConta().equals(numeroConta)) {
+			if (conta != null && conta.getNumeroConta().equals(numeroConta)) {
 				contaEncontrada = conta;
 				break;
 			}

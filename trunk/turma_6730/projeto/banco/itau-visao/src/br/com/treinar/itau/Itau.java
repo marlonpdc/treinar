@@ -3,15 +3,12 @@ package br.com.treinar.itau;
 import java.util.Date;
 
 import javax.swing.JOptionPane;
-import javax.swing.JPopupMenu;
 
 import br.com.treinar.itau.controle.ContaControle;
 import br.com.treinar.itau.modelo.ContaCorrente;
 import br.com.treinar.itau.modelo.ContaInvestimento;
 import br.com.treinar.itau.modelo.ContaPoupanca;
 import br.com.treinar.itau.modelo.banco.Conta;
-import br.com.treinar.itau.modelo.banco.ICaptalizavel;
-import br.com.treinar.itau.modelo.banco.ITarifavel;
 import br.com.treinar.itau.modelo.util.ItauUtil;
 
 public class Itau {
@@ -36,9 +33,7 @@ public class Itau {
 			opcao = Integer.parseInt(opcaoStr);
 			switch (opcao) {
 			case 0:
-				ItauUtil itauUtil = ItauUtil.getInstance();
-				String data = itauUtil.formatarData(new Date());
-				JOptionPane.showMessageDialog(null, "Fim do programa " + data);
+				JOptionPane.showMessageDialog(null, "Fim do programa ");
 				break;
 			case 1:
 				criarConta();
@@ -167,6 +162,8 @@ public class Itau {
 		cadastrar(cc);
 		Double tarifa = Double.parseDouble(JOptionPane.showInputDialog("Valor da Tarifa"));
 		cc.tarifa = tarifa;
+		Double limiteCredito = Double.parseDouble(JOptionPane.showInputDialog("Valor do limite de crédito"));
+		cc.limiteCredito = limiteCredito;
 	}
 	
 	private void criarConta(ContaPoupanca cp) {
