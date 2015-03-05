@@ -3,7 +3,9 @@ package br.com.treinar.itau;
 import java.util.Date;
 
 import javax.swing.JOptionPane;
+import javax.swing.JPopupMenu;
 
+import br.com.treinar.itau.controle.ContaControle;
 import br.com.treinar.itau.modelo.ContaCorrente;
 import br.com.treinar.itau.modelo.ContaInvestimento;
 import br.com.treinar.itau.modelo.ContaPoupanca;
@@ -14,11 +16,13 @@ import br.com.treinar.itau.modelo.util.ItauUtil;
 
 public class Itau {
 
-	public Conta conta;
+
 	public final Integer horaAbertura;
+	private ContaControle contaControle;
 	
 	public Itau() {
 		this.horaAbertura = 12;
+		contaControle = new ContaControle();
 	}
 	
 	public void iniciar() {
@@ -65,29 +69,20 @@ public class Itau {
 	}
 
 	private void tarifarContas() {
-		if (conta instanceof ITarifavel) {
-			ITarifavel contaTarifavel = (ITarifavel) conta;
-			tarifar(contaTarifavel);
-		}
-	}
-
-	private void tarifar(ITarifavel contaTarifavel) {
-		contaTarifavel.calcularTarifa();
+		contaControle.tarifarContas();
 	}
 
 	private void captalizarContas() {
-		if (conta instanceof ICaptalizavel) {
-			ICaptalizavel contaCaptalizavel = (ICaptalizavel) conta;
-			captalizar(contaCaptalizavel);	
-		}
-	}
-	
-	private void captalizar(ICaptalizavel contaCaptalizavel) {
-		contaCaptalizavel.captalizar();
+		contaControle.captalizarContas();
 	}
 
 	private void exibirSaldo() {
-		JOptionPane.showMessageDialog(null, "Saldo: " + String.valueOf(conta.recuperarSaldo()));
+		Conta conta = recuperarConta();
+		if (conta != null) {
+			JOptionPane.showMessageDialog(null, "Saldo: " + String.valueOf(conta.recuperarSaldo()));			
+		} else {
+			JOptionPane.showMessageDialog(null, "Conta nao cadastrada!");
+		}
 	}
 
 	private String menu() {
@@ -104,18 +99,36 @@ public class Itau {
 	}
 
 	private void sacar() {
-		Double valorSaque = Double.parseDouble(JOptionPane.showInputDialog("Digite o valor do saque"));			
-		Boolean saqueEfetuado = conta.sacar(valorSaque);
-		JOptionPane.showMessageDialog(null, saqueEfetuado ? "Saque efetuado!" : "Saque nao efetuado");		
+		Conta conta = recuperarConta();
+		if (conta != null) {
+			Double valorSaque = Double.parseDouble(JOptionPane.showInputDialog("Digite o valor do saque"));			
+			Boolean saqueEfetuado = conta.sacar(valorSaque);
+			JOptionPane.showMessageDialog(null, saqueEfetuado ? "Saque efetuado!" : "Saque nao efetuado");					
+		} else {
+			JOptionPane.showMessageDialog(null, "Conta não encontrada!");			
+		}
 	}
 
 	private void depositar() {
-		Double depositoN = Double.parseDouble(JOptionPane.showInputDialog("Digite o valor do deposito"));			
-		Boolean depositoEfetuado = conta.depositar(depositoN);
-		JOptionPane.showMessageDialog(null, depositoEfetuado ? "Deposito efetuado!" : "Deposito nao efetuado");
+		Conta conta = recuperarConta();
+		if (conta != null) {
+			Double depositoN = Double.parseDouble(JOptionPane.showInputDialog("Digite o valor do deposito"));			
+			Boolean depositoEfetuado = conta.depositar(depositoN);
+			JOptionPane.showMessageDialog(null, depositoEfetuado ? "Deposito efetuado!" : "Deposito nao efetuado");			
+		} else {
+			JOptionPane.showMessageDialog(null, "Conta não encontrada!");			
+		}
+		
+	}
+
+	private Conta recuperarConta() {
+		Integer numeroConta = Integer.parseInt(JOptionPane.showInputDialog("Informe o numero da conta"));
+		Conta conta = contaControle.recuperarConta(numeroConta);
+		return conta;
 	}
 
 	private void criarConta() {
+		Conta conta = null;
 		String menu = "1 - Corrente\n2 - Poupança\n3 - Investimento";
 		String opcao = JOptionPane.showInputDialog(menu);
 		switch (opcao) {
@@ -136,10 +149,11 @@ public class Itau {
 		default:
 			break;
 		}
-		JOptionPane.showMessageDialog(null, "Conta cadastrada com sucesso!");
+		Boolean gravou = contaControle.gravarConta(conta);
+		JOptionPane.showMessageDialog(null, gravou ? "Conta cadastrada com sucesso!" : "Conta não pode ser cadastrada!");			
 	}
 
-	private void cadastrar() {
+	private void cadastrar(Conta conta) {
 		String numeroContaStr;
 		numeroContaStr = JOptionPane.showInputDialog("Digite o numero da conta");
 		conta.setNumeroConta(Integer.parseInt(numeroContaStr));
@@ -150,17 +164,17 @@ public class Itau {
 	}
 	
 	private void criarConta(ContaCorrente cc) {
-		cadastrar();
+		cadastrar(cc);
 		Double tarifa = Double.parseDouble(JOptionPane.showInputDialog("Valor da Tarifa"));
 		cc.tarifa = tarifa;
 	}
 	
 	private void criarConta(ContaPoupanca cp) {
-		cadastrar();
+		cadastrar(cp);
 	}
 	
 	private void criarConta(ContaInvestimento ci) {
-		cadastrar();
+		cadastrar(ci);
 		Double taxaRendimento = Double.parseDouble(JOptionPane.showInputDialog("Valor da Taxa de Rendimento da Conta Investimento"));
 		ci.taxaRendimento = taxaRendimento;
 		Double tarifa = Double.parseDouble(JOptionPane.showInputDialog("Valor da Tarifa Conta Investimento"));
