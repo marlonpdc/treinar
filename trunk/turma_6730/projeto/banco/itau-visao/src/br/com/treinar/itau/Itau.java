@@ -53,11 +53,24 @@ public class Itau {
 			case 7:
 				cadastrarTaxaRendimento();					
 				break;
+			case 8:
+				listarContas();					
+				break;
 			default:
 				break;
 			}
 			
 		} while (opcao != 0);
+	}
+
+	private void listarContas() {
+		Conta[] contas = contaControle.recuperarContas();
+		String contasStr = "";
+		for (Conta conta : contas) {
+			contasStr += conta.toString() + "\n";				
+		}
+		JOptionPane.showMessageDialog(null, contasStr);
+		
 	}
 
 	private void tarifarContas() {
@@ -86,6 +99,7 @@ public class Itau {
 				+ "5 - Captalizar Contas\n"
 				+ "6 - Cobrar Tarifa\n"
 				+ "7 - Cadastrar Taxa Rendimento\n"
+				+ "8 - Exibir dados das contas\n"
 				+ "0 - Sair\n");
 		return opcaoStr;
 	}

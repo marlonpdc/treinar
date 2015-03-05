@@ -26,5 +26,9 @@ public class ContaControle {
 	public void captalizarContas() {
 		utilitario.captalizarContas();
 	}
+
+	public Conta[] recuperarContas() {
+		return utilitario.recuperarContas();
+	}
 	
 }

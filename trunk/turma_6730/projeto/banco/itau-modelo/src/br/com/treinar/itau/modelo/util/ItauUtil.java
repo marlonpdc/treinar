@@ -88,4 +88,21 @@ public class ItauUtil {
 	private void captalizar(ICaptalizavel contaCaptalizavel) {
 		contaCaptalizavel.captalizar();
 	}
+
+	public Conta[] recuperarContas() {
+		Integer quantidadeContas = 0;
+		Conta[] contasTemp = null;
+		for (Conta conta : this.contas) {
+			if (conta != null) {
+				quantidadeContas++;
+			}
+		}
+		contasTemp = new Conta[quantidadeContas];
+		for (int i = 0; i < this.contas.length; i++) {
+			if (this.contas[i] != null) {
+				contasTemp[i] = contas[i];
+			}
+		}
+		return contasTemp;
+	}
 }
