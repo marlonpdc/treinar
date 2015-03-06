@@ -12,8 +12,10 @@ public class TesteEnum {
 		System.out.println(dez.ordinal());
 		
 		
-		String descricaoMes = "AbRiL";
+		String descricaoMes = "Abril";
 		Mes abr = Mes.valueOf(descricaoMes.toUpperCase());
+		Mes porOrdinal = Mes.recuperarPorOrdinal(2);
+		System.out.println(porOrdinal);
 		System.out.println(abr.ordinal());
 		
 		
