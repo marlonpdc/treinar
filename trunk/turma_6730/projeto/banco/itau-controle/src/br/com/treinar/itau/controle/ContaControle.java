@@ -30,5 +30,9 @@ public class ContaControle {
 	public Conta[] recuperarContas() {
 		return utilitario.recuperarContas();
 	}
+
+	public void deletarConta(Conta conta) {
+		utilitario.deletarConta(conta);			
+	}
 	
 }
