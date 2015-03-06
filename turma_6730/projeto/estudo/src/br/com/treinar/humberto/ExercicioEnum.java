@@ -2,8 +2,6 @@ package br.com.treinar.humberto;
 
 import java.util.Scanner;
 
-import br.com.treinar.tipodado.Mes;
-
 public class ExercicioEnum {
 	
 	public static void main(String[] args) {
