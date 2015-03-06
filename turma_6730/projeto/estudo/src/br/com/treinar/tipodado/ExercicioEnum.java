@@ -7,11 +7,12 @@ public class ExercicioEnum {
 	public static void main(String[] args) {
 		Integer mes = Integer.valueOf(JOptionPane.showInputDialog(null, 
 									  "Informe o mês"));
-		Mes[] meses = Mes.values();
-		Integer limite = meses.length;
+
+		Integer limite = Mes.values().length;
 		
 		if (mes > 0 && mes <= limite) {
-			JOptionPane.showMessageDialog(null, meses[mes - 1]);
+			Mes enumMes = Mes.recuperarPorOrdinal(mes - 1);
+			JOptionPane.showMessageDialog(null, enumMes + " Quantidade de dias: " + enumMes.getQtdDias());
 		} else {
 			JOptionPane.showMessageDialog(null, "Indice inválido");
 		}
