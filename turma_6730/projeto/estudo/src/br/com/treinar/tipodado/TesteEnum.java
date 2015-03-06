@@ -19,6 +19,9 @@ public class TesteEnum {
 		
 		Mes[] meses = Mes.values();
 		
+		System.out.println(meses[1]);
+		
+		
 		for (Mes mes : meses) {
 			System.out.println(mes);
 		}
