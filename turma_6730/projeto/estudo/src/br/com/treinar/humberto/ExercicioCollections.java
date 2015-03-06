@@ -21,6 +21,12 @@ public class ExercicioCollections {
 			System.out.println(atletas.get(i));
 		}
 		
+		System.out.println("--------\nFOR EACH\n--------");
+		
+		for (Atleta atl : atletas) {
+			System.out.println(atl);
+		}
+		
 		
 	}
 
