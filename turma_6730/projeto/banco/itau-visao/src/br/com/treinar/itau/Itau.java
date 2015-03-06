@@ -56,11 +56,19 @@ public class Itau {
 			case 8:
 				listarContas();					
 				break;
+			case 9:
+				deletarConta();					
+				break;
 			default:
 				break;
 			}
 			
 		} while (opcao != 0);
+	}
+
+	private void deletarConta() {
+		Conta conta = recuperarConta();
+		contaControle.deletarConta(conta);
 	}
 
 	private void listarContas() {
@@ -100,6 +108,7 @@ public class Itau {
 				+ "6 - Cobrar Tarifa\n"
 				+ "7 - Cadastrar Taxa Rendimento\n"
 				+ "8 - Exibir dados das contas\n"
+				+ "9 - Excluir Conta\n"
 				+ "0 - Sair\n");
 		return opcaoStr;
 	}

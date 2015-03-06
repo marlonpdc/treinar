@@ -105,4 +105,13 @@ public class ItauUtil {
 		}
 		return contasTemp;
 	}
+
+	public void deletarConta(Conta conta) {
+		for (int i = 0; i < contas.length; i++) {
+			if (contas[i].equals(conta)) {
+				contas[i] = null;
+				break;
+			}
+		}
+	}
 }
