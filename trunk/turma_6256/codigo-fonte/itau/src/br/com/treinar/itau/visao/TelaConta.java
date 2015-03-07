@@ -20,6 +20,7 @@ public class TelaConta {
 					+ "2 - Depositar\n"
 					+ "3 - Sacar\n"
 					+ "4 - Exibir Saldo\n"
+					+ "5 - Cadastrar taxa de rendimento\n"
 					+ "0 - Sair";
 		String opcaoStr = null;
 		do {
@@ -38,6 +39,9 @@ public class TelaConta {
 			case "4":
 				exibirSaldo();
 				break;
+			case "5":
+				cadastrarTaxaRendimento();
+				break;
 
 			default:
 				JOptionPane.showMessageDialog(null, "Opção Inválida!");
@@ -46,6 +50,13 @@ public class TelaConta {
 		} while (!opcaoStr.equals("0"));
 		
 		
+	}
+
+	private void cadastrarTaxaRendimento() {
+		String taxaRendimentoStr = JOptionPane.showInputDialog("Valor antigo taxa de rendimento: " + ContaPoupanca.getTaxaRendimento()
+																+ "\nDigite nova taxa:");
+		ContaPoupanca.setTaxaRendimento(Float.parseFloat(taxaRendimentoStr));
+		JOptionPane.showMessageDialog(null, "Nova taxa de Rendimento\n" + ContaPoupanca.getTaxaRendimento());
 	}
 
 	private void exibirSaldo() {
@@ -111,8 +122,8 @@ public class TelaConta {
 	}
 	
 	private void concluirCadastroContaPoupanca(ContaPoupanca cp) {
-		String taxaRendimentoStr = JOptionPane.showInputDialog("Valor da taxa de rendimento");
-		cp.taxaRendimento = Float.parseFloat(taxaRendimentoStr);
+		
+		
 	}
 	
 }
