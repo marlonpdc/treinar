@@ -1,8 +1,11 @@
 package br.com.treinar.itau.modelo;
 
-import br.com.treinar.itau.modelo.principal.Conta;
+import javax.swing.text.StyledEditorKit.BoldAction;
 
-public class ContaCorrente extends Conta {
+import br.com.treinar.itau.modelo.principal.Conta;
+import br.com.treinar.itau.modelo.principal.ITributavel;
+
+public class ContaCorrente extends Conta implements ITributavel {
 	
 	public ContaCorrente(Integer numeroConta) {
 		super(numeroConta);
@@ -14,6 +17,11 @@ public class ContaCorrente extends Conta {
 	@Override
 	public Double recuperarSaldo() {
 		return saldo + limiteCredito;
+	}
+
+	@Override
+	public void tributar() {
+		sacar(tarifa, Boolean.TRUE);
 	}
 	
 }

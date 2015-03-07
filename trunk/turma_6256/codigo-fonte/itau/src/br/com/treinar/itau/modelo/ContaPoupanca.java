@@ -1,8 +1,9 @@
 package br.com.treinar.itau.modelo;
 
 import br.com.treinar.itau.modelo.principal.Conta;
+import br.com.treinar.itau.modelo.principal.ICaptalizavel;
 
-public class ContaPoupanca extends Conta {
+public class ContaPoupanca extends Conta implements ICaptalizavel {
 
 	public static Float taxaRendimento;
 	public Integer diaBaseDeposito;
@@ -21,6 +22,16 @@ public class ContaPoupanca extends Conta {
 
 	public ContaPoupanca(Integer numeroConta) {
 		super(numeroConta);
+	}
+	
+	@Override
+	public Double recuperarSaldo() {
+		return saldo;
+	}
+
+	@Override
+	public void captalizar() {
+		depositar(saldo * (taxaRendimento / 100));
 	}
 
 }

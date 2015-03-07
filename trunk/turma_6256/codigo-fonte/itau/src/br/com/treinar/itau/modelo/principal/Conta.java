@@ -25,11 +25,40 @@ public abstract class Conta {
 		saldo = 0d;
 	}
 	
+	/**
+	 * Efetua o saque, removendo o valor informado no parametro do saldo
+	 * da conta
+	 * @param valor valor a resr removido da conta
+	 * @return verdadeiro se o saque for efetuado e 
+	 * falso se não for possível sacar
+	 */
 	public Boolean sacar(Double valor) {
 		Boolean sacou = Boolean.FALSE;
 		if (this.saldo >= valor) {
 			this.saldo -= valor;
 			sacou = Boolean.TRUE;
+		}
+		return sacou;
+	}
+	
+	/**
+	 * Efetua o saque mesmo que o cliente não possua mais recursos 
+	 * disponiveis, este método pode deixar a conta com um valor negativo
+	 * maior do que o limite disponível
+	 * 
+	 * @param valor valor a resr removido da conta
+	 * @param permitirSaldoNegativo, define se o saldo da conta pode ficar 
+	 * menor do que o limite de credito
+	  * @return verdadeiro se o saque for efetuado e 
+	 * falso se não for possível sacar
+	 */
+	public Boolean sacar(Double valor, Boolean permitirSaldoNegativo) {
+		Boolean sacou = Boolean.FALSE;
+		if (permitirSaldoNegativo) {
+			this.saldo -= valor;
+			sacou = Boolean.TRUE;
+		} else {
+			sacou = sacar(valor);
 		}
 		return sacou;
 	}
@@ -43,9 +72,7 @@ public abstract class Conta {
 		depositar(valor);
 	}
 	
-	public Double recuperarSaldo() {
-		return saldo;
-	}
+	public abstract Double recuperarSaldo();
 
 	
 }
