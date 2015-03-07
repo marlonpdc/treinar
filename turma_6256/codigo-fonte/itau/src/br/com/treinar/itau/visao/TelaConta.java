@@ -48,8 +48,6 @@ public class TelaConta {
 				break;
 			}
 		} while (!opcaoStr.equals("0"));
-		
-		
 	}
 
 	private void cadastrarTaxaRendimento() {
