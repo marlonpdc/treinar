@@ -9,11 +9,10 @@ import br.com.treinar.itau.modelo.ContaPoupanca;
 import br.com.treinar.itau.modelo.ContaSalario;
 import br.com.treinar.itau.modelo.principal.Conta;
 import br.com.treinar.itau.modelo.principal.Pessoa;
+import br.com.treinar.itau.util.ItauUtil;
 
 public class TelaConta {
 
-	public Conta conta;
-	
 	public void menuBanco() {
 		String menu = "Digite:\n"
 					+ "1 - Criar Conta\n"
@@ -58,20 +57,25 @@ public class TelaConta {
 	}
 
 	private void exibirSaldo() {
+		ItauUtil util = ItauUtil.getInstance();
+		Conta conta = util.conta;
 		JOptionPane.showMessageDialog(null, "Saldo: " + conta.recuperarSaldo());
 	}
 
 	private void sacar() {
+		Conta conta = ItauUtil.getInstance().conta;
 		Boolean sacou = conta.sacar(Double.parseDouble(JOptionPane.showInputDialog("Valor")));
 		JOptionPane.showMessageDialog(null, sacou ? "Saque efetuado com sucesso!" : "Saque nao efetuado!");
 	}
 
 	private void depositar() {
+		Conta conta = ItauUtil.getInstance().conta;
 		conta.depositar(Double.parseDouble(JOptionPane.showInputDialog("Valor")));
 		JOptionPane.showMessageDialog(null, "Deposito efetuado com sucesso");
 	}
 
 	private void cadastrarConta() {
+		Conta conta = null;
 		String menu = "Digite:\n"
 					+ "1 - Conta Corrente\n"
 					+ "2 - Conta Poupança\n"
@@ -82,27 +86,28 @@ public class TelaConta {
 		switch (opcaoStr) {
 		case "1":
 			conta = new ContaCorrente(numeroConta);
-			cadastrarContaPadrao();
+			cadastrarContaPadrao(conta);
 			concluirCadastroContaCorrente((ContaCorrente) conta);
 			break;
 		case "2":
 			conta = new ContaPoupanca(numeroConta);
-			cadastrarContaPadrao();
+			cadastrarContaPadrao(conta);
 			concluirCadastroContaPoupanca((ContaPoupanca) conta);
 			break;
 		case "3":
 			conta = new ContaSalario(numeroConta);
-			cadastrarContaPadrao();
+			cadastrarContaPadrao(conta);
 			concluirCadastroContaSalario((ContaSalario) conta);
 			break;
 
 		default:
 			break;
 		}
+		ItauUtil.getInstance().conta = conta;
 		JOptionPane.showMessageDialog(null, conta.getClass().getSimpleName() + " cadastrada com sucesso!");
 	}
 
-	private void cadastrarContaPadrao() {
+	private void cadastrarContaPadrao(Conta conta) {
 		conta.pessoa = new Pessoa();
 		conta.pessoa.nome = JOptionPane.showInputDialog("Nome do cliente");
 		conta.pessoa.cpf = Long.parseLong(JOptionPane.showInputDialog("CPF do cliente"));
