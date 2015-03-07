@@ -6,7 +6,7 @@ public class Banco {
 
 	public static void main(String[] args) {
 		TelaConta tc = new TelaConta();
-		tc.iniciarBanco();
+		tc.menuBanco();
 		System.out.println("fim do programa");
 	}
 	

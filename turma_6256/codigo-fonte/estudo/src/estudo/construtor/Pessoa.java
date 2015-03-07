@@ -19,6 +19,21 @@ public class Pessoa {
 		velocidadeAtual = 2;
 	}
 	
+	public void correr(Integer distancia, Integer velocidade) {
+		velocidadeAtual = 2;
+	}
+	
+	public void correr(Integer distancia) {
+		velocidadeAtual = 2;
+	}
+	/*
+	 * Não é possível dois metodos com as 
+	 * mesmas sequencias de parametro
+	 * 
+	public void correr(Integer distancia) {
+		velocidadeAtual = 2;
+	}*/
+	
 	public void andar() {
 		velocidadeAtual = 1;
 	}

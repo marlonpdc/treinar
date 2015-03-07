@@ -1,9 +1,12 @@
 package br.com.treinar.itau.visao;
 
+import java.util.Date;
+
 import javax.swing.JOptionPane;
 
 import br.com.treinar.itau.modelo.ContaCorrente;
 import br.com.treinar.itau.modelo.ContaPoupanca;
+import br.com.treinar.itau.modelo.ContaSalario;
 import br.com.treinar.itau.modelo.principal.Conta;
 import br.com.treinar.itau.modelo.principal.Pessoa;
 
@@ -11,7 +14,7 @@ public class TelaConta {
 
 	public Conta conta;
 	
-	public void iniciarBanco() {
+	public void menuBanco() {
 		String menu = "Digite:\n"
 					+ "1 - Criar Conta\n"
 					+ "2 - Depositar\n"
@@ -62,7 +65,8 @@ public class TelaConta {
 	private void cadastrarConta() {
 		String menu = "Digite:\n"
 					+ "1 - Conta Corrente\n"
-					+ "2 - Conta Poupança\n";
+					+ "2 - Conta Poupança\n"
+					+ "3 - Conta Salario\n";
 		String opcaoStr = JOptionPane.showInputDialog(menu);
 		String numeroContaStr = JOptionPane.showInputDialog("Informe o numero da conta.");
 		Integer numeroConta = Integer.parseInt(numeroContaStr);
@@ -77,17 +81,26 @@ public class TelaConta {
 			cadastrarContaPadrao();
 			concluirCadastroContaPoupanca((ContaPoupanca) conta);
 			break;
+		case "3":
+			conta = new ContaSalario(numeroConta);
+			cadastrarContaPadrao();
+			concluirCadastroContaSalario((ContaSalario) conta);
+			break;
 
 		default:
 			break;
 		}
 		JOptionPane.showMessageDialog(null, conta.getClass().getSimpleName() + " cadastrada com sucesso!");
 	}
-	
+
 	private void cadastrarContaPadrao() {
 		conta.pessoa = new Pessoa();
 		conta.pessoa.nome = JOptionPane.showInputDialog("Nome do cliente");
 		conta.pessoa.cpf = Long.parseLong(JOptionPane.showInputDialog("CPF do cliente"));
+	}
+	
+	private void concluirCadastroContaSalario(ContaSalario cs) {
+		cs.dataCreditoSalario = new Date();
 	}
 	
 	private void concluirCadastroContaCorrente(ContaCorrente cc) {

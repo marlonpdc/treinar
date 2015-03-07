@@ -35,6 +35,9 @@ public abstract class Conta {
 		depositar(valor);
 	}
 	
-	public abstract Double recuperarSaldo();
+	public Double recuperarSaldo() {
+		return saldo;
+	}
+
 	
 }
