@@ -16,7 +16,8 @@ public class ExercicioMap {
 
 		Set<Entry<String, String>> entrySet = mapNomes.entrySet();
 		for (Entry<String, String> entry : entrySet) {
-			System.out.println(entry.getValue());
+			String value = entry.getValue();
+			System.out.println(value);
 		}
 
 	}
