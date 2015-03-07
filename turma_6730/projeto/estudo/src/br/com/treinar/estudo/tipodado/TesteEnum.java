@@ -7,6 +7,8 @@ public class TesteEnum {
 		Mes jan = Mes.JANEIRO;
 		Mes dez = Mes.DEZEMBRO;
 		
+		
+		
 		System.out.println(jan);
 		System.out.println(dez);
 		System.out.println(dez.ordinal());
