@@ -4,7 +4,8 @@ import javax.swing.JOptionPane;
 
 import br.com.reclama.modelo.Cliente;
 import br.com.reclama.modelo.Funcionario;
-import br.com.reclama.modelo.Reclamacao;
+import br.com.reclama.modelo.ReclamacaoAtendimento;
+import br.com.reclama.modelo.principal.Reclamacao;
 
 
 public class TelaReclama {
@@ -26,7 +27,6 @@ public class TelaReclama {
 		
 		switch (opcaoStr) {
 		case "1":
-			reclamacao = new Reclamacao();
 			cadastrarReclamacao();
 			break;
 		case "2":
@@ -44,9 +44,27 @@ public class TelaReclama {
 
 
 	private void cadastrarReclamacao() {
-		cadastrarCliente();
+		String menu = "Tipo de Reclamação: /n"
+				+ "1 - Reclamação de Atendimento/n"
+				+ "2 - Reclamação de Carga/n";
+		String optReclama = JOptionPane.showInputDialog(menu);
+		switch (optReclama) {
+		case "1":
+			reclamacao = new ReclamacaoAtendimento();
+			cadastrarFuncionario();
+			cadastrarCliente();
+			
+			break;
+
+		default:
+			break;
+		}
+
 		
+		
+		cadastrarCliente();
 		cadastrarFuncionario();
+		
 		
 		reclamacao.data = JOptionPane.showInputDialog("Data da reclamacao");
 		reclamacao.descricao = JOptionPane.showInputDialog("Descricao");
@@ -55,11 +73,11 @@ public class TelaReclama {
 
 
 	private void cadastrarFuncionario() {
-	
 		reclamacao.funcionario = new Funcionario();
 				
-		reclamacao.funcionario.cpfcnpj = Long.parseLong(JOptionPane.showInputDialog("CPF do Fucionario"));
-		reclamacao.funcionario.matricula = Long.parseLong(JOptionPane.showInputDialog("Número da matricula"));
+		reclamacao.funcionario.nome = JOptionPane.showInputDialog("Nome funcionario que cadastra");
+		reclamacao.funcionario.matricula = Long.parseLong(JOptionPane.showInputDialog("Matricula do funcionario que cadastra"));
+		reclamacao.funcionario.sac();
 		
 	}
 
@@ -68,10 +86,9 @@ public class TelaReclama {
 	
 		reclamacao.cliente = new Cliente();	
 						
-		reclamacao.cliente.cpfcnpj = Long.parseLong(JOptionPane.showInputDialog("CNPJ do Cliente"));
+		reclamacao.cliente.cnpj = Long.parseLong(JOptionPane.showInputDialog("CNPJ do Cliente"));
 		reclamacao.cliente.nome = JOptionPane.showInputDialog("Nome do Cliente");
-		reclamacao.cliente.responsavel = JOptionPane.showInputDialog("Nome do responsável");
-		reclamacao.cliente.telefone = Long.parseLong(JOptionPane.showInputDialog("Telefone para contato"));
+		reclamacao.cliente.responsavel = JOptionPane.showInputDialog("Nome do responsável pela reclamação");
 				
 	}
 	
