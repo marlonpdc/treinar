@@ -5,6 +5,7 @@ import java.util.List;
 
 public class TesteList {
 
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		List<String> colecao = new ArrayList<String>();
 		
