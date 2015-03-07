@@ -11,5 +11,9 @@ public class ContaSalario extends Conta {
 	public ContaSalario(Integer numeroConta) {
 		super(numeroConta);
 	}
-		
+	
+	@Override
+	public Double recuperarSaldo() {
+		return saldo;
+	}
 }
