@@ -7,10 +7,18 @@ public abstract class Conta {
 	public Integer numeroConta;
 	protected Double saldo;
 	public Pessoa pessoa;
+	public static final Integer horaAbertura;
+	public static final Integer horaFechamento;
+
 	
 	public Conta(Integer numeroConta) {
 		this();
 		this.numeroConta = numeroConta;
+	}
+	
+	static {
+		horaAbertura = 10;
+		horaFechamento = 16;		
 	}
 	
 	public Conta() {
