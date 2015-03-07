@@ -4,14 +4,20 @@ import java.util.Date;
 
 import javax.swing.JOptionPane;
 
+import br.com.treinar.itau.controle.ItauControle;
 import br.com.treinar.itau.modelo.ContaCorrente;
 import br.com.treinar.itau.modelo.ContaPoupanca;
 import br.com.treinar.itau.modelo.ContaSalario;
 import br.com.treinar.itau.modelo.principal.Conta;
 import br.com.treinar.itau.modelo.principal.Pessoa;
-import br.com.treinar.itau.util.ItauUtil;
 
 public class TelaConta {
+	
+	private ItauControle controle;
+	
+	public TelaConta() {
+		controle = new ItauControle();
+	}
 
 	public void menuBanco() {
 		String menu = "Digite:\n"
@@ -57,19 +63,18 @@ public class TelaConta {
 	}
 
 	private void exibirSaldo() {
-		ItauUtil util = ItauUtil.getInstance();
-		Conta conta = util.conta;
+		Conta conta = controle.recuperarConta();
 		JOptionPane.showMessageDialog(null, "Saldo: " + conta.recuperarSaldo());
 	}
 
 	private void sacar() {
-		Conta conta = ItauUtil.getInstance().conta;
+		Conta conta = controle.recuperarConta();
 		Boolean sacou = conta.sacar(Double.parseDouble(JOptionPane.showInputDialog("Valor")));
 		JOptionPane.showMessageDialog(null, sacou ? "Saque efetuado com sucesso!" : "Saque nao efetuado!");
 	}
 
 	private void depositar() {
-		Conta conta = ItauUtil.getInstance().conta;
+		Conta conta = controle.recuperarConta();
 		conta.depositar(Double.parseDouble(JOptionPane.showInputDialog("Valor")));
 		JOptionPane.showMessageDialog(null, "Deposito efetuado com sucesso");
 	}
@@ -103,7 +108,7 @@ public class TelaConta {
 		default:
 			break;
 		}
-		ItauUtil.getInstance().conta = conta;
+		controle.salvarConta(conta);
 		JOptionPane.showMessageDialog(null, conta.getClass().getSimpleName() + " cadastrada com sucesso!");
 	}
 
