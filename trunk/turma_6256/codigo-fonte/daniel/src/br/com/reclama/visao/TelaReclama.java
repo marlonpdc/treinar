@@ -4,13 +4,12 @@ import javax.swing.JOptionPane;
 
 import br.com.reclama.modelo.Cliente;
 import br.com.reclama.modelo.Funcionario;
-import br.com.reclama.modelo.Pessoa;
 import br.com.reclama.modelo.Reclamacao;
 
 
 public class TelaReclama {
 
-	public Reclamacao reclamacao = new Reclamacao();
+	public Reclamacao reclamacao;
 	
 	
 	public void iniciaReclamacao(){
@@ -27,6 +26,7 @@ public class TelaReclama {
 		
 		switch (opcaoStr) {
 		case "1":
+			reclamacao = new Reclamacao();
 			cadastrarReclamacao();
 			break;
 		case "2":
@@ -56,6 +56,8 @@ public class TelaReclama {
 
 	private void cadastrarFuncionario() {
 	
+		reclamacao.funcionario = new Funcionario();
+				
 		reclamacao.funcionario.cpfcnpj = Long.parseLong(JOptionPane.showInputDialog("CPF do Fucionario"));
 		reclamacao.funcionario.matricula = Long.parseLong(JOptionPane.showInputDialog("Número da matricula"));
 		
@@ -64,6 +66,8 @@ public class TelaReclama {
 
 	private void cadastrarCliente() {
 	
+		reclamacao.cliente = new Cliente();	
+						
 		reclamacao.cliente.cpfcnpj = Long.parseLong(JOptionPane.showInputDialog("CNPJ do Cliente"));
 		reclamacao.cliente.nome = JOptionPane.showInputDialog("Nome do Cliente");
 		reclamacao.cliente.responsavel = JOptionPane.showInputDialog("Nome do responsável");
