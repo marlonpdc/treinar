@@ -14,7 +14,7 @@ public class ExercicioCollections {
 			atleta = new Atleta();
 			atleta.nome = "atleta " + i;
 			atleta.idade = (i + 1) * 10;
-			atletas.add(i,atleta);
+			atletas.add(atleta);
 		}
 		
 		for (int i = 0; i < atletas.size(); i++) {
