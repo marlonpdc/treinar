@@ -123,6 +123,8 @@ public class TelaConta {
 	
 	private void concluirCadastroContaPoupanca(ContaPoupanca cp) {
 		
+		String tarifaStr = JOptionPane.showInputDialog("Dia base para depósito");
+		cp.diaBaseDeposito = Integer.parseInt(tarifaStr);
 		
 	}
 	
