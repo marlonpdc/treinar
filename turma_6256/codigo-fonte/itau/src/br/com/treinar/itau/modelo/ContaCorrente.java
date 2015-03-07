@@ -1,7 +1,5 @@
 package br.com.treinar.itau.modelo;
 
-import javax.swing.text.StyledEditorKit.BoldAction;
-
 import br.com.treinar.itau.modelo.principal.Conta;
 import br.com.treinar.itau.modelo.principal.ITributavel;
 
