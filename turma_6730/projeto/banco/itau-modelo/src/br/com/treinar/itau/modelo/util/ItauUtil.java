@@ -114,4 +114,9 @@ public class ItauUtil {
 			}
 		}
 	}
+	
+	public String recuperarPrimeiraLetra(String texto) {
+		return texto.substring(0, 1);
+	}
+	
 }
