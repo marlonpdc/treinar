@@ -32,9 +32,6 @@ public class ExemploMap {
 		System.out.println(atleta);
 
 		Set<Integer> chaves = mapAtletas.keySet();
-
-		System.out.println(chaves);
-		
 		for (Integer chave : chaves) {
 			System.out.println(mapAtletas.get(chave));
 		}
