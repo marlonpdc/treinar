@@ -1,11 +1,23 @@
 package br.com.treinar.estudo.modelo;
 
-public class Atleta {
+public class Atleta implements Comparable<Atleta> {
 	
 	public String nome;
 	public Integer idade;
 	public Integer velocidade;
 	
+	public Atleta() {
+		super();
+	}
+
+	public Atleta(String nome, Integer idade, 
+				  Integer velocidade) {
+		super();
+		this.nome = nome;
+		this.idade = idade;
+		this.velocidade = velocidade;
+	}
+
 	public void correr() {
 		velocidade = 6;
 	}
@@ -59,7 +71,9 @@ public class Atleta {
 			return false;
 		return true;
 	}
-	
-	
+
+	public int compareTo(Atleta o) {
+		return nome.compareTo(o.nome);
+	}
 	
 }
