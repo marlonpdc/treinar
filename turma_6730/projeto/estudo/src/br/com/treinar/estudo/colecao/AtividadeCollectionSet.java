@@ -1,7 +1,6 @@
 package br.com.treinar.estudo.colecao;
 
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Set;
 
 import br.com.treinar.estudo.modelo.Atleta;
