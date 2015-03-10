@@ -24,6 +24,7 @@ public class OrdenacaoColecoes {
 		
 		Collections.sort(atletas);
 		
+		
 		for (int i = 0; i < atletas.size(); i++) {
 			System.out.println(atletas.get(i));
 		}
@@ -33,7 +34,17 @@ public class OrdenacaoColecoes {
 		for (Atleta atleta : atletas) {
 			System.out.println(atleta);
 		}
-				
+		
+		CriterioOrdenacaoVelocidade criterio = new CriterioOrdenacaoVelocidade();
+		
+		Collections.sort(atletas, criterio);
+		
+		for (Atleta atleta : atletas) {
+			System.out.println(atleta);
+		}
+		
+		
 	}
+	
 
 }
