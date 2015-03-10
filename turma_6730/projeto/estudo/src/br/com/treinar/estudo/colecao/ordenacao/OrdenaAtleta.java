@@ -1,7 +1,9 @@
 package br.com.treinar.estudo.colecao.ordenacao;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import br.com.treinar.estudo.modelo.Atleta;
@@ -23,12 +25,29 @@ public class OrdenaAtleta {
 		atletas.add(a4);
 		atletas.add(a5);
 		
-		
+		//Ordenação padrão: nome interface comparable
 		Collections.sort(atletas);
 		
 		for (Atleta atleta : atletas) {
 			System.out.println(atleta.nome + " - " + atleta.idade + " - " + atleta.velocidade);
 		}
+		
+		CriterioOrdenacaoVelocidadeAtleta criterio = new CriterioOrdenacaoVelocidadeAtleta();
+		
+		//Ordenação por velocidade: interface comparator
+		Collections.sort(atletas, criterio);
+		for (Atleta atleta : atletas) {
+			System.out.println(atleta.nome + " - " + atleta.idade + " - " + atleta.velocidade);
+		}
+		
+		Collections.sort(atletas, new Comparator<Atleta>() {
+			
+			public int compare(Atleta o1, Atleta o2) {
+				return 0;
+			}
+		
+		});
+		
 		
 		
 	}
