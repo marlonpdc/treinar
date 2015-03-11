@@ -1,6 +1,7 @@
 package br.com.treinar.itau.controle;
 
 import br.com.treinar.itau.modelo.banco.Conta;
+import br.com.treinar.itau.modelo.banco.ItauException;
 import br.com.treinar.itau.modelo.util.ItauUtil;
 
 public class ContaControle {
@@ -15,7 +16,7 @@ public class ContaControle {
 		return utilitario.adicionarConta(conta);
 	}
 	
-	public Conta recuperarConta(Integer numeroConta) {
+	public Conta recuperarConta(Integer numeroConta) throws ItauException {
 		return utilitario.recuperarConta(numeroConta);
 	}
 
@@ -33,6 +34,12 @@ public class ContaControle {
 
 	public void deletarConta(Conta conta) {
 		utilitario.deletarConta(conta);			
+	}
+
+	public void efetuarSaque(Conta conta, Double valorSaque) throws ItauException {
+
+		conta.sacar(valorSaque);
+		
 	}
 	
 }

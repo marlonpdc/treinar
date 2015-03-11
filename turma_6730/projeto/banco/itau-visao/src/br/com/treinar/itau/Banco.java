@@ -7,7 +7,7 @@ public class Banco {
 	public static void main(String[] args) {
 		Itau i = new Itau();
 		i.iniciar();
-		System.out.println(ItauConstante.ItauConstanteVisao.mensagemFimPrograma);
+		System.out.println(ItauConstante.ItauConstanteVisao.MENSAGEM_FIM_PROGRAMA);
 	}
 	
 }
