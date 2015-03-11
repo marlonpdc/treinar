@@ -7,6 +7,7 @@ import br.com.treinar.itau.modelo.ContaCorrente;
 import br.com.treinar.itau.modelo.ContaInvestimento;
 import br.com.treinar.itau.modelo.ContaPoupanca;
 import br.com.treinar.itau.modelo.banco.Conta;
+import br.com.treinar.itau.modelo.banco.ItauException;
 
 public class Itau {
 
@@ -67,8 +68,12 @@ public class Itau {
 	}
 
 	private void deletarConta() {
-		Conta conta = recuperarConta();
-		contaControle.deletarConta(conta);
+		try {
+			Conta conta = recuperarConta();
+			contaControle.deletarConta(conta);
+		} catch (ItauException e) {
+			JOptionPane.showMessageDialog(null, e.getMensagem());
+		}
 	}
 
 	private void listarContas() {
@@ -90,12 +95,13 @@ public class Itau {
 	}
 
 	private void exibirSaldo() {
-		Conta conta = recuperarConta();
-		if (conta != null) {
+		try {
+			Conta conta = recuperarConta();
 			JOptionPane.showMessageDialog(null, "Saldo: " + String.valueOf(conta.recuperarSaldo()));			
-		} else {
-			JOptionPane.showMessageDialog(null, "Conta nao cadastrada!");
+		} catch (ItauException e) {
+			JOptionPane.showMessageDialog(null, e.getMensagem());
 		}
+		
 	}
 
 	private String menu() {
@@ -114,29 +120,28 @@ public class Itau {
 	}
 
 	private void sacar() {
-		Conta conta = recuperarConta();
-		if (conta != null) {
+		try {
+			Conta conta = recuperarConta();
 			Double valorSaque = Double.parseDouble(JOptionPane.showInputDialog("Digite o valor do saque"));			
-			Boolean saqueEfetuado = conta.sacar(valorSaque);
-			JOptionPane.showMessageDialog(null, saqueEfetuado ? "Saque efetuado!" : "Saque nao efetuado");					
-		} else {
-			JOptionPane.showMessageDialog(null, "Conta não encontrada!");			
+			contaControle.efetuarSaque(conta, valorSaque);
+			JOptionPane.showMessageDialog(null, "Saque efetuado!");					
+		} catch (ItauException e) {
+			JOptionPane.showMessageDialog(null, e.getMensagem());
 		}
 	}
 
 	private void depositar() {
-		Conta conta = recuperarConta();
-		if (conta != null) {
+		try {
+			Conta conta = recuperarConta();
 			Double depositoN = Double.parseDouble(JOptionPane.showInputDialog("Digite o valor do deposito"));			
 			Boolean depositoEfetuado = conta.depositar(depositoN);
 			JOptionPane.showMessageDialog(null, depositoEfetuado ? "Deposito efetuado!" : "Deposito nao efetuado");			
-		} else {
-			JOptionPane.showMessageDialog(null, "Conta não encontrada!");			
+		} catch (ItauException e) {
+			JOptionPane.showMessageDialog(null, e.getMensagem());
 		}
-		
 	}
 
-	private Conta recuperarConta() {
+	private Conta recuperarConta() throws ItauException {
 		Integer numeroConta = Integer.parseInt(JOptionPane.showInputDialog("Informe o numero da conta"));
 		Conta conta = contaControle.recuperarConta(numeroConta);
 		return conta;

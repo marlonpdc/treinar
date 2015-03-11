@@ -39,14 +39,12 @@ public abstract class Conta {
 		return this.depositar(valor);
 	}
 	
-	public Boolean sacar(Double valor) {
-		Boolean sacou = Boolean.FALSE;
+	public void sacar(Double valor) throws ItauException {
 		if (saldo >= valor) {
 			saldo -= valor;
-			sacou = Boolean.TRUE;
+		} else {
+			throw new ItauException("Saldo Insuficiente");
 		}
-		return sacou;
-		
 	}
 
 	public abstract Double recuperarSaldo();

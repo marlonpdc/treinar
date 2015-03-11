@@ -6,7 +6,9 @@ import java.util.Date;
 
 import br.com.treinar.itau.modelo.banco.Conta;
 import br.com.treinar.itau.modelo.banco.ICaptalizavel;
+import br.com.treinar.itau.modelo.banco.INotificavel;
 import br.com.treinar.itau.modelo.banco.ITarifavel;
+import br.com.treinar.itau.modelo.banco.ItauException;
 
 
 public class ItauUtil {
@@ -51,13 +53,16 @@ public class ItauUtil {
 		return rolou;
 	}
 	
-	public Conta recuperarConta(Integer numeroConta) {
+	public Conta recuperarConta(Integer numeroConta) throws ItauException {
 		Conta contaEncontrada = null;
 		for (Conta conta : contas) {
 			if (conta != null && conta.getNumeroConta().equals(numeroConta)) {
 				contaEncontrada = conta;
 				break;
 			}
+		}
+		if (contaEncontrada == null) {
+			throw new ItauException("Conta não encontrada");
 		}
 		return contaEncontrada;
 		
@@ -73,7 +78,7 @@ public class ItauUtil {
 	}
 	
 	private void tarifar(ITarifavel contaTarifavel) {
-		contaTarifavel.calcularTarifa();
+		contaTarifavel.cobrarTarifa();
 	}
 
 	public void captalizarContas() {
@@ -118,5 +123,10 @@ public class ItauUtil {
 	public String recuperarPrimeiraLetra(String texto) {
 		return texto.substring(0, 1);
 	}
+	
+	public void notificarGerencia(INotificavel notificavel) {
+		System.out.println(notificavel.getEmail() + " " + notificavel.getMensagem());
+	}
+	
 	
 }

@@ -3,6 +3,7 @@ package br.com.treinar.itau.modelo;
 import br.com.treinar.itau.modelo.banco.Conta;
 import br.com.treinar.itau.modelo.banco.ICaptalizavel;
 import br.com.treinar.itau.modelo.banco.ITarifavel;
+import br.com.treinar.itau.modelo.banco.ItauException;
 
 public class ContaInvestimento extends Conta implements ICaptalizavel, ITarifavel {
 
@@ -20,9 +21,12 @@ public class ContaInvestimento extends Conta implements ICaptalizavel, ITarifave
 	}
 
 	@Override
-	public void calcularTarifa() {
-		sacar(recuperarSaldo() * (tarifa / 100));
+	public void cobrarTarifa() {
+		try {
+			sacar(recuperarSaldo() * (tarifa / 100));
+		} catch (ItauException e) {
+			
+		}
 	}
-	
 	
 }
