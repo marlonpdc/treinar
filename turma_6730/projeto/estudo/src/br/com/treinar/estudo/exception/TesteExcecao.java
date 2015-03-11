@@ -60,7 +60,7 @@ public class TesteExcecao {
 		} else if(numero <= 17) {
 			throw new SemDinheirException("SemDinheirException");
 		} else {
-			p.toString();
+			//p.toString();
 		}
 		return p;
 	}
