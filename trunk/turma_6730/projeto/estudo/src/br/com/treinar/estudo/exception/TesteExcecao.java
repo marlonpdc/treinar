@@ -12,7 +12,7 @@ public class TesteExcecao {
 			try {
 				p = irmaoMaisVelho();
 				System.out.println("dentada no pao " + p);
-			} catch (NaoTemPaoException | SemDinheirException e) {
+			} catch (/*NaoTemPaoException | */SemDinheirException e) {
 				System.out.println(e.getMessage());
 			} catch (RuntimeException e) {
 				System.out.println(e.getClass().getSimpleName());
@@ -31,7 +31,6 @@ public class TesteExcecao {
 		}
 		
 	}
-
 
 	private static Pao irmaoMaisVelho() throws NaoTemPaoException, SemDinheirException {
 
