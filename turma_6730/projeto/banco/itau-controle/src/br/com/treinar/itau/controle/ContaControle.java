@@ -1,5 +1,7 @@
 package br.com.treinar.itau.controle;
 
+import java.io.IOException;
+
 import br.com.treinar.itau.modelo.banco.Conta;
 import br.com.treinar.itau.modelo.banco.ItauException;
 import br.com.treinar.itau.modelo.util.ItauUtil;
@@ -40,6 +42,14 @@ public class ContaControle {
 
 		conta.sacar(valorSaque);
 		
+	}
+
+	public void persistir() throws IOException {
+		utilitario.gravarContas();
+	}
+
+	public void carregarContas() throws IOException {
+		utilitario.carregarContas();
 	}
 	
 }

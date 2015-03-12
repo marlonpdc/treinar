@@ -6,7 +6,7 @@ public abstract class Conta {
 
 	private Integer numeroConta;
 	private Pessoa pessoa;
-	protected Double saldo;
+	public Double saldo;
 	
 	public Conta(Pessoa pessoa) {
 		this();
@@ -95,6 +95,14 @@ public abstract class Conta {
 	public String toString() {
 		return "Conta [numeroConta=" + numeroConta + pessoa
 				+ ", saldo=" + saldo + "]";
+	}
+
+	public Double getSaldo() {
+		return saldo;
+	}
+
+	public void setSaldo(Double saldo) {
+		this.saldo = saldo;
 	}
 	
 	

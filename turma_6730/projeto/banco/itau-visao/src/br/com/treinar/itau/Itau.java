@@ -1,5 +1,7 @@
 package br.com.treinar.itau;
 
+import java.io.IOException;
+
 import javax.swing.JOptionPane;
 
 import br.com.treinar.itau.controle.ContaControle;
@@ -15,9 +17,10 @@ public class Itau {
 	public final Integer horaAbertura;
 	private ContaControle contaControle;
 	
-	public Itau() {
+	public Itau() throws IOException {
 		this.horaAbertura = 12;
 		contaControle = new ContaControle();
+		contaControle.carregarContas();
 	}
 	
 	public void iniciar() {
@@ -31,6 +34,11 @@ public class Itau {
 			opcao = Integer.parseInt(opcaoStr);
 			switch (opcao) {
 			case 0:
+				try {
+					contaControle.persistir();
+				} catch (IOException e) {
+					JOptionPane.showMessageDialog(null, "As contas nao foram salvas");					
+				}
 				JOptionPane.showMessageDialog(null, "Fim do programa ");
 				break;
 			case 1:
@@ -193,6 +201,7 @@ public class Itau {
 	
 	private void criarConta(ContaPoupanca cp) {
 		cadastrar(cp);
+		//continuar o cadastro de conta poupanca
 	}
 	
 	private void criarConta(ContaInvestimento ci) {
