@@ -7,6 +7,10 @@ public class ContaPoupanca extends Conta implements ICaptalizavel {
 
 	public static Double taxaRendimento;
 
+	static {
+		taxaRendimento = 0d;
+	}
+	
 	@Override
 	public Double recuperarSaldo() {
 		return saldo;
