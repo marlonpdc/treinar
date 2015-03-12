@@ -1,5 +1,10 @@
 package br.com.treinar.estudo.tipodado;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
 
 public enum Mes {
 
@@ -32,6 +37,17 @@ public enum Mes {
 		return values()[ordinal];
 	}
 	
+	public static Mes[] valuesOrderByDescription() {
+		List<Mes> meses = Arrays.asList(values());
+		Collections.sort(meses, new Comparator<Mes>() {
+			public int compare(Mes o1, Mes o2) {
+				return o1.getDescricao().compareTo(o2.getDescricao());
+			}
+		});
+		return (Mes[]) meses.toArray();
+	}
+			
+			
 	public Integer getQtdDias() {
 		return qtdDias;
 	}
