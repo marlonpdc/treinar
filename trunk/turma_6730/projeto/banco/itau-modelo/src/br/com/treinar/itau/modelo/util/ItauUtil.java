@@ -32,7 +32,7 @@ public class ItauUtil {
 	
 	private ItauUtil() {
 		super();
-		contas = new Conta[5];
+		contas = new Conta[10];
 		indice = 0;
 	}
 	
@@ -231,6 +231,7 @@ public class ItauUtil {
 			contas[i++] = c;
 			s = br.readLine();
 		}
+		indice = i;
 		br.close();
 	}
 
