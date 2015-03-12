@@ -11,6 +11,7 @@ public class TesteDate {
 	/**
 	 * @param args
 	 */
+	@SuppressWarnings("deprecation")
 	public static void main(String[] args) {
 		DateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
 		
