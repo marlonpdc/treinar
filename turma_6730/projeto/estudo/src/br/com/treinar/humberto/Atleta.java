@@ -31,6 +31,6 @@ public class Atleta implements Comparable<Atleta>{
 	public int compareTo(Atleta o) {
 		return nome.compareTo(o.nome);
 	}
-	
+
 
 }
