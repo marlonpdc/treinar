@@ -6,10 +6,13 @@ public class ItauUtil {
 
 	private static ItauUtil instance;
 	
-	public Conta conta;
+	public Conta[] contas;
+	private Integer index;
 	
 	private ItauUtil() {
 		super();
+		index = 0;
+		contas = new Conta[5];
 	}
 	
 	static {
@@ -18,6 +21,14 @@ public class ItauUtil {
 	
 	public static ItauUtil getInstance() {
 		return instance;
+	}
+	
+	public void adicionarConta(Conta c) {
+		contas[index++] = c;
+	}
+
+	public Conta recuperar(Integer numeroConta) {
+		return null;
 	}
 	
 }
