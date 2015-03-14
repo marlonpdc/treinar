@@ -53,7 +53,7 @@ public class TelaReclama {
 			reclamacao = new ReclamacaoAtendimento();
 			cadastrarFuncionario();
 			cadastrarCliente();
-			
+			cadastrarDescricao();
 			break;
 
 		default:
@@ -61,14 +61,16 @@ public class TelaReclama {
 		}
 
 		
+				
 		
-		cadastrarCliente();
-		cadastrarFuncionario();
-		
-		
+				
+	}
+
+
+	private void cadastrarDescricao() {
 		reclamacao.data = JOptionPane.showInputDialog("Data da reclamacao");
 		reclamacao.descricao = JOptionPane.showInputDialog("Descricao");
-				
+		
 	}
 
 
@@ -76,7 +78,7 @@ public class TelaReclama {
 		reclamacao.funcionario = new Funcionario();
 				
 		reclamacao.funcionario.nome = JOptionPane.showInputDialog("Nome funcionario que cadastra");
-		reclamacao.funcionario.matricula = Long.parseLong(JOptionPane.showInputDialog("Matricula do funcionario que cadastra"));
+		reclamacao.funcionario.setMatricula(Long.parseLong(JOptionPane.showInputDialog("Matricula do funcionario que cadastra")));
 		reclamacao.funcionario.sac();
 		
 	}
@@ -86,9 +88,9 @@ public class TelaReclama {
 	
 		reclamacao.cliente = new Cliente();	
 						
-		reclamacao.cliente.cnpj = Long.parseLong(JOptionPane.showInputDialog("CNPJ do Cliente"));
+		reclamacao.cliente.setCnpj(Long.parseLong(JOptionPane.showInputDialog("CNPJ do Cliente")));
 		reclamacao.cliente.nome = JOptionPane.showInputDialog("Nome do Cliente");
-		reclamacao.cliente.responsavel = JOptionPane.showInputDialog("Nome do responsável pela reclamação");
+		reclamacao.cliente.setResponsavel(JOptionPane.showInputDialog("Nome do responsável pela reclamação"));
 				
 	}
 	
