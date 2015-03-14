@@ -37,7 +37,11 @@ public class ItauUtil {
 		}
 		return conta;
 	}
-
+	
+	public Conta[] recuperar() {
+		return contas;
+	}
+	
 	public void remover(Conta conta) {
 		for (int i = 0; i < contas.length; i++) {
 			if (contas[i] != null && contas[i].numeroConta.equals(conta.numeroConta)) {

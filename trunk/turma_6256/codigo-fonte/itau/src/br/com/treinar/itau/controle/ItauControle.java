@@ -19,5 +19,9 @@ public class ItauControle {
 		dataBase.remover(conta);
 	}
 
+	public Conta[] recuperarContas() {
+		return dataBase.recuperar();
+	}
+
 
 }
