@@ -2,7 +2,7 @@ package br.com.treinar.itau.util;
 
 import br.com.treinar.itau.modelo.principal.Conta;
 
-public class ItauUtil {
+public class ItauUtil extends Object {
 
 	private static ItauUtil instance;
 	

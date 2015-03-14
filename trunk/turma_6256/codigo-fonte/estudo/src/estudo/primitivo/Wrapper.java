@@ -16,10 +16,20 @@ public class Wrapper {
 //		
 //		System.out.println(igual);
 		
-		Integer k = new Integer(100);
-		Integer l = 100;
+		Integer k = 1000;
+		Integer l = 1000;
 		
-		System.out.println(k == l);
+		System.out.println("k = 0\nl = 0\n " + (k == l));
+		
+		int t = 0;
+		int h = 0;
+		
+		System.out.println("t = 0\nh = 0\n " + (t == h));
+		
+		
+		
+		
+		
 		
 		
 		
