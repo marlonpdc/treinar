@@ -28,12 +28,18 @@ public class ItauUtil {
 	}
 
 	public Conta recuperar(Integer numeroConta) {
+		Conta conta = null;
 		for (int i = 0; i < contas.length; i++) {
-			if (contas[i].numeroConta == numeroConta) {
-				return contas[i];
+			if (contas[i] != null && contas[i].numeroConta.equals(numeroConta)) {
+				conta = contas[i];
+				break;
 			}
-		}	
-		return null;
+		}
+		return conta;
+	}
+
+	public void remover(Conta conta) {
+		
 	}
 	
 }
