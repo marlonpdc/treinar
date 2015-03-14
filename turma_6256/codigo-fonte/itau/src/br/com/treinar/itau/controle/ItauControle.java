@@ -8,11 +8,11 @@ public class ItauControle {
 	private ItauUtil dataBase = ItauUtil.getInstance();
 
 	public void salvarConta(Conta conta) {
-		dataBase.conta = conta;
+		dataBase.adicionarConta(conta);
 	}
 
-	public Conta recuperarConta() {
-		return ItauUtil.getInstance().conta;
+	public Conta recuperarConta(Integer numeroConta) {
+		return dataBase.recuperar(numeroConta);
 	}
 
 
