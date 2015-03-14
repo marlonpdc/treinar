@@ -5,6 +5,7 @@ import javax.swing.JOptionPane;
 import br.com.reclama.modelo.Cliente;
 import br.com.reclama.modelo.Funcionario;
 import br.com.reclama.modelo.ReclamacaoAtendimento;
+import br.com.reclama.modelo.ReclamacaoCarga;
 import br.com.reclama.modelo.principal.Reclamacao;
 
 
@@ -30,7 +31,7 @@ public class TelaReclama {
 			cadastrarReclamacao();
 			break;
 		case "2":
-			
+			mostrarreclamacao();
 			break;
 			
 		default:
@@ -38,38 +39,55 @@ public class TelaReclama {
 		}
 		
 		
-	} while (!opcaoStr.equals("0"));
+	 } while (!opcaoStr.equals("0"));
 		
 	}
 
 
 	private void cadastrarReclamacao() {
-		String menu = "Tipo de Reclamação: /n"
-				+ "1 - Reclamação de Atendimento/n"
-				+ "2 - Reclamação de Carga/n";
+		String menu = "Tipo de Reclamação: \n"
+				+ "1 - Reclamação de Atendimento\n"
+				+ "2 - Reclamação de Carga\n";
 		String optReclama = JOptionPane.showInputDialog(menu);
 		switch (optReclama) {
 		case "1":
 			reclamacao = new ReclamacaoAtendimento();
 			cadastrarFuncionario();
 			cadastrarCliente();
-			cadastrarDescricao();
+			cadastrarReclamacaoAtendimento((ReclamacaoAtendimento) reclamacao);
+			break;
+		case "2":
+			reclamacao = new ReclamacaoCarga();
+			cadastrarFuncionario();
+			cadastrarCliente();
+			cadastraReclamacaoCarga((ReclamacaoCarga) reclamacao);
 			break;
 
 		default:
 			break;
 		}
-
-		
-				
 		
 				
 	}
 
 
-	private void cadastrarDescricao() {
-		reclamacao.data = JOptionPane.showInputDialog("Data da reclamacao");
-		reclamacao.descricao = JOptionPane.showInputDialog("Descricao");
+	private void cadastraReclamacaoCarga(ReclamacaoCarga rec) {
+		rec.data = JOptionPane.showInputDialog("Data da reclamacao");
+		rec.setNumeroNota(Integer.parseInt(JOptionPane.showInputDialog("Número da Nota")));
+		rec.descricao = JOptionPane.showInputDialog("Descricao");
+		
+	}
+
+
+	private void mostrarreclamacao() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private void cadastrarReclamacaoAtendimento(ReclamacaoAtendimento rec) {
+		rec.data = JOptionPane.showInputDialog("Data da reclamacao");
+		rec.descricao = JOptionPane.showInputDialog("Descricao");
 		
 	}
 
