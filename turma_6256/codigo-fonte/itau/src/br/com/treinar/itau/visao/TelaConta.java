@@ -63,7 +63,9 @@ public class TelaConta {
 	}
 
 	private void exibirSaldo() {
-		Conta conta = controle.recuperarConta();
+		Conta conta;
+		conta.numeroConta = Integer.parseInt(JOptionPane.showInputDialog("Numero da conta"));
+		conta = controle.recuperarConta(conta.numeroConta);
 		JOptionPane.showMessageDialog(null, "Saldo: " + conta.recuperarSaldo());
 	}
 
