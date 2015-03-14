@@ -27,6 +27,7 @@ public class TelaConta {
 				+ "4 - Exibir Saldo\n"
 				+ "5 - Cadastrar taxa de rendimento\n"
 				+ "6 - Excluir Conta\n"
+				+ "7 - Listar Contas\n"
 				+ "0 - Sair";
 		String opcaoStr = null;
 		do {
@@ -51,12 +52,30 @@ public class TelaConta {
 			case "6":
 				excluirConta();
 				break;
+			case "7":
+				listarContas();
+				break;
+			case "0":
+				JOptionPane.showMessageDialog(null, "Fim do programa");
+				break;
 
 			default:
 				JOptionPane.showMessageDialog(null, "Opção Inválida!");
 				break;
 			}
 		} while (!opcaoStr.equals("0"));
+	}
+
+	private void listarContas() {
+		Conta[] contas = controle.recuperarContas();
+		String contasStr = "";
+		for (Conta conta : contas) {
+			if (conta != null) {
+				contasStr += conta.numeroConta + " " + conta.pessoa.nome + " " + conta.recuperarSaldo() + "\n";
+			}
+		}
+		JOptionPane.showMessageDialog(null, contasStr);
+	
 	}
 
 	private void excluirConta() {
