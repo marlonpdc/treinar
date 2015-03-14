@@ -4,8 +4,9 @@ import br.com.reclama.modelo.principal.Reclamacao;
 
 public class ReclamacaoCarga extends Reclamacao {
 	
-	public Integer numeroNota;
-	public Boolean entrege;
+	private Integer numeroNota;
+	private Boolean entrege;
+	
 	public Integer getNumeroNota() {
 		return numeroNota;
 	}
