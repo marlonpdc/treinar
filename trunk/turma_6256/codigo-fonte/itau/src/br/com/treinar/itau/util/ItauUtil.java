@@ -40,7 +40,6 @@ public class ItauUtil {
 
 	public void remover(Conta conta) {
 		for (int i = 0; i < contas.length; i++) {
-			
 			if (contas[i] != null && contas[i].numeroConta.equals(conta.numeroConta)) {
 				contas[i] = null;
 				break;
