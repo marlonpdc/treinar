@@ -44,7 +44,7 @@ public class ItauUtil extends Object {
 	
 	public void remover(Conta conta) {
 		for (int i = 0; i < contas.length; i++) {
-			if (contas[i] != null && contas[i].numeroConta.equals(conta.numeroConta)) {
+			if (contas[i] != null && contas[i].equals(conta)) {
 				contas[i] = null;
 				break;
 			}
