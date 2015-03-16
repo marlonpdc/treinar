@@ -13,5 +13,4 @@ public class ConnectionFactory {
             throw new AgendaException(e);
         }
     }
-	
 }

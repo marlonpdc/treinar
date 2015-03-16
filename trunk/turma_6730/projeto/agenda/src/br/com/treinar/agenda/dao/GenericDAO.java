@@ -1,10 +1,11 @@
 package br.com.treinar.agenda.dao;
 
+import java.io.Serializable;
 import java.util.List;
 
 import br.com.treinar.agenda.util.AgendaException;
 
-public interface GenericDAO<T, ID> {
+public interface GenericDAO<T, ID> extends Serializable {
 
 	void inserir(T o) throws AgendaException;
 	
