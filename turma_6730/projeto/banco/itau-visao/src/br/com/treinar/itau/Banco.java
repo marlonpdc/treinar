@@ -15,6 +15,7 @@ public class Banco {
 			i.iniciar();
 			System.out.println(ItauConstante.ItauConstanteVisao.MENSAGEM_FIM_PROGRAMA);
 		} catch (IOException e) {
+			e.printStackTrace();
 			JOptionPane.showMessageDialog(null, "dados nao recuperados");
 		}
 	}
