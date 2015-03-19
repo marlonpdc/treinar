@@ -51,7 +51,7 @@ public class SwingControlDemo {
       mainFrame.setVisible(true);  
    }
 
-   private void showFileChooserDemo(){
+   private void showFileChooserDemo() {
       headerLabel.setText("Control in action: JFileChooser"); 
 
       final JFileChooser  fileDialog = new JFileChooser();
