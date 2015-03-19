@@ -1,10 +1,9 @@
 package br.com.treinar.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Calendar;
-import java.util.Enumeration;
+import java.util.Date;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,26 +35,11 @@ public class PrimeiroServlet extends HttpServlet {
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		RequestDispatcher dispatcher = request.getRequestDispatcher("primeira_jsp.jsp");
+		request.setAttribute("nome", request.getParameter("nome") + new Date());
+		request.setAttribute("funcao", request.getParameter("funcao") + new Date());
 		
-		Enumeration<String> parameterNames = request.getParameterNames();
-		
-		while (parameterNames.hasMoreElements()) {
-			String param = parameterNames.nextElement();
-			System.out.println(param + " - " + request.getParameter(param));
-		}
-		
-		String nome = request.getParameter("nome");
-		String status = request.getParameter("funcao");
-		
-		// Set response content type
-		response.setContentType("text/html");
-
-		// Actual logic goes here.
-		PrintWriter out = response.getWriter();
-		out.println("<h1>Olá " + nome + " Bom ter você como " + status +"(a) </h1>");
-
-
-		System.out.println("Access: " + Calendar.getInstance().get(Calendar.SECOND));
+		dispatcher.forward(request, response);
 	}
 
 	@Override
