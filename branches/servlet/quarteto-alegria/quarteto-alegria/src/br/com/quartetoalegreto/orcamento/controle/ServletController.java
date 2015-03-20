@@ -1,6 +1,8 @@
 package br.com.quartetoalegreto.orcamento.controle;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,6 +28,15 @@ public class ServletController extends HttpServlet {
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String comando = request.getParameter("comando");
+		try {
+			Command c = (Command) Class.forName(comando).newInstance();
+			String pagina = c.executar(request, response);
+			RequestDispatcher d = request.getRequestDispatcher(pagina);
+			d.forward(request, response);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		
 	}
 
