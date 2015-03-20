@@ -1,3 +1,4 @@
+<%@ page import="br.com.treinar.servlet.Pessoa"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
@@ -19,12 +20,15 @@
 		<input type="checkbox" name="campo" value="Campo Cinco">
 		<input type="checkbox" name="campo" value="Campo Seis">
 		<input type="checkbox" name="campo" value="Campo Sete">
+
+		<br />
+		<br />Matricula:&#160;
+		<input type="text" name="matricula">
 	
 		<br />
 		<br />
 		
 		<label for="name">Nome:&nbsp;</label>
-		<input type="text" id="nome" name="nome">
 		<br />
 		<br />
 		<label for="funcao">Função:&nbsp;</label>
@@ -32,7 +36,18 @@
 		
 		<br />
 		<br />
-		Olá <% out.print(request.getAttribute("nome")); %> &nbsp; <% out.print(request.getAttribute("funcao")); %>
+		
+		<% 
+			if(request.getAttribute("pessoa") != null) {
+				out.print("Olá: ");
+				out.print(((Pessoa)request.getAttribute("pessoa")).getNome()); 
+			}
+			out.print("<br />");
+			if(request.getSession().getAttribute("cont") != null) {
+				out.print("Cont: ");
+				out.print(request.getSession().getAttribute("cont")); 
+			}
+		%>
 		<br />
 		<br />
 		
