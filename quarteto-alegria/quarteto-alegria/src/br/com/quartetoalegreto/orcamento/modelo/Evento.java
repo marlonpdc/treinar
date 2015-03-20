@@ -1,4 +1,4 @@
-package br.com.quartetoalegreto.orcamento;
+package br.com.quartetoalegreto.orcamento.modelo;
 
 import java.util.Date;
 import java.util.List;

@@ -1,15 +1,14 @@
-package br.com.quartetoalegreto.orcamento;
+package br.com.quartetoalegreto.orcamento.modelo;
 
-public enum TipoInstrumento {
-	
-	CORDA("Corda"),
-	SOPRO("Sopro"),
-	PERCURSAO("Percursão"),
-	VOZ("Voz");
+public enum TipoTelefone {
+
+	CELULAR("Celular"),
+	COMERCIAL("Comercial"),
+	RESIDENCIAL("Residencial");
 	
 	private String descricao;
 	
-	private TipoInstrumento(String descricao) {
+	private TipoTelefone(String descricao) {
 		this.descricao = descricao;
 	}
 	
