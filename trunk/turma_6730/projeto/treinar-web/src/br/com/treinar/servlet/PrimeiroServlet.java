@@ -2,6 +2,7 @@ package br.com.treinar.servlet;
 
 import java.io.IOException;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -36,8 +37,21 @@ public class PrimeiroServlet extends HttpServlet {
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("primeira_jsp.jsp");
-		request.setAttribute("nome", request.getParameter("nome") + new Date());
-		request.setAttribute("funcao", request.getParameter("funcao") + new Date());
+		
+		Integer cont = request.getSession().getAttribute("cont") != null ? ((Integer)request.getSession().getAttribute("cont")) : 1;
+		request.getSession().setAttribute("cont", ++cont);
+		
+		String matricula = request.getParameter("matricula");
+		List<Pessoa> pessoas = Util.pessoas;
+		Pessoa p = null;
+		for (Pessoa pessoa : pessoas) {
+			if (pessoa.getMatricula().equals(Integer.parseInt(matricula))) {
+				p = pessoa;
+				break;
+			}
+		}
+		
+		request.setAttribute("pessoa", p);
 		
 		dispatcher.forward(request, response);
 	}
