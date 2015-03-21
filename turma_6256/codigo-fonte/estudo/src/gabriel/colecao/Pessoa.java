@@ -7,7 +7,7 @@ public class Pessoa {
 	public Double peso;
 	@Override
 	public String toString() {
-		return "Pessoa [nome=" + nome + ", idade=" + idade + ", peso=" + peso + "]";
+		return "Pessoa nome=" + nome + ", idade=" + idade + ", peso=" + peso + "";
 	}
 	
 	
