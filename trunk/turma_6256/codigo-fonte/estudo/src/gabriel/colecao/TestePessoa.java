@@ -3,6 +3,8 @@ package gabriel.colecao;
 import java.util.ArrayList;
 import java.util.List;
 
+import sun.security.jca.GetInstance;
+
 public class TestePessoa {
 
 	public static void main(String[] args) {
@@ -11,17 +13,17 @@ public class TestePessoa {
 		Pessoa p2 = new Pessoa();
 		Pessoa p3 = new Pessoa();
 		
-		p1.nome = "Gabriel";
-		p2.nome = "Gilberto";
-		p3.nome = "Bruno";
+		p1.setNome("Gabriel");
+		p2.setNome("Gilberto");
+		p3.setNome("Bruno");
 		
-		p1.idade =  13;
-		p2.idade =  19;
-		p3.idade =  26;
+		p1.setIdade(13);
+		p2.setIdade(26);
+		p3.setIdade(19);
 		
-		p1.peso =   50D;
-		p2.peso =   65D;
-		p3.peso =   70D;
+		p1.setPeso(50D);
+		p1.setPeso(65D);
+		p1.setPeso(70D);
 		
 		
 		
