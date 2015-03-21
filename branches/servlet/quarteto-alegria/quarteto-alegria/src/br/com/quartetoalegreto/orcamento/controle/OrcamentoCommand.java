@@ -10,6 +10,7 @@ import br.com.quartetoalegreto.orcamento.Util;
 import br.com.quartetoalegreto.orcamento.modelo.Cliente;
 import br.com.quartetoalegreto.orcamento.modelo.Evento;
 import br.com.quartetoalegreto.orcamento.modelo.Orcamento;
+import br.com.quartetoalegreto.orcamento.modelo.StatusOrcamento;
 
 public class OrcamentoCommand implements Command {
 
@@ -33,6 +34,7 @@ public class OrcamentoCommand implements Command {
 			e.setDataTermino(df.parse(terminoEvento));
 			e.setEndereco(enderecoEvento);
 			Orcamento o = new Orcamento();
+			o.setStatus(StatusOrcamento.REGISTRADO);
 			o.setEvento(e);
 			o.setCliente(c);
 			o.setValor(100d);

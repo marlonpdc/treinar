@@ -11,6 +11,8 @@
 	<form action="listar.qal">
 		<input name="comando" type="hidden" value="br.com.quartetoalegreto.orcamento.controle.GerenciaOrcamentoCommand">
 		<input type="submit" value="Listar">
+		<a href="/pages/cadastro-orcamento.jsp">Cadastrar Orçamento</a>
+		<a href="/pages/acompanhamento-orcamento.jsp">Acompanhar Orçamento</a>
 	</form>
 
 </body>

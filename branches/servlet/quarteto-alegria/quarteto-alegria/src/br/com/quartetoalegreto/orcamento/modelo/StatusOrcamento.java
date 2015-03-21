@@ -5,6 +5,7 @@ public enum StatusOrcamento {
 	REGISTRADO("Registrado"),
 	APROVADO("Aprovado"),
 	REALIZADO("Realizado"),
+	RECUSADO("Recusado"),
 	CANCELADO("Cancelado");
 	
 	private String descricao;

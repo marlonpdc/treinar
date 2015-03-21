@@ -35,7 +35,7 @@ public class ServletController extends HttpServlet {
 			RequestDispatcher d = request.getRequestDispatcher(pagina);
 			d.forward(request, response);
 		} catch (Exception e) {
-			// TODO: handle exception
+			
 		}
 		
 	}
