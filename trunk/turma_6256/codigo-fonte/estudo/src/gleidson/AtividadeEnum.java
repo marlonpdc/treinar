@@ -13,8 +13,8 @@ public class AtividadeEnum {
 		Integer indice = sc.nextInt();
 		Turno[] turnos = Turno.values();
 		if (indice >= 0 && indice < turnos.length) {
-			turno = turnos[indice];
-			System.out.println(turno.getDescricao());			
+			turno = turnos[indice]; 
+			System.out.println(turno.getDescricao() + "," + turno.getHoraInicio() + "h," + turno.getHoraTermino() + "h");			
 		} else {
 			System.out.println("Indice inválido!");
 		}

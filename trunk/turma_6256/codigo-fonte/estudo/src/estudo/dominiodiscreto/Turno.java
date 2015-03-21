@@ -8,6 +8,8 @@ public enum Turno {
 	
 	private Turno(String descricao, Integer horaInicio, Integer horaTermino) {
 		this.descricao = descricao;
+		this.horaInicio=horaInicio;
+		this.horaTermino=horaTermino;
 	}
 	
 	private Integer horaInicio;
