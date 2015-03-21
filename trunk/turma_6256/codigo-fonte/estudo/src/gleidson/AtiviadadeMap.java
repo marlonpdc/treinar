@@ -31,7 +31,6 @@ public class AtiviadadeMap {
 		for (Entry<Character, List<String>> entry : itensMapa) {
 			System.out.println(entry.getKey() + " " + entry.getValue());
 		}
-		
 	}
 
 }
