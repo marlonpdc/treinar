@@ -3,7 +3,6 @@ package gabriel.colecao;
 import java.util.ArrayList;
 import java.util.List;
 
-import sun.security.jca.GetInstance;
 
 public class TestePessoa {
 
