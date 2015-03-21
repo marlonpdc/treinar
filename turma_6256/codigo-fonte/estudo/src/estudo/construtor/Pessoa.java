@@ -1,6 +1,10 @@
 package estudo.construtor;
 
-public class Pessoa {
+import java.io.Serializable;
+
+public class Pessoa implements Serializable {
+
+	private static final long serialVersionUID = 2637290119272572497L;
 
 	public String nome;
 	public Integer peso;
