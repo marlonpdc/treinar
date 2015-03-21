@@ -11,6 +11,8 @@ public class TesteEnumTurno {
 		//todos os itens do enum
 		System.out.println("---------------");
 		Turno[] turnos = Turno.values();
+	
+		
 		for (Turno turno : turnos) {
 			System.out.println(turno.ordinal() + " - " + turno);
 		}
