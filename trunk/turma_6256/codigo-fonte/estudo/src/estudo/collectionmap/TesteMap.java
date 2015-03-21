@@ -37,7 +37,7 @@ public class TesteMap {
 		}
 		
 		String nome = "Gleidson";
-		String primeiraLetra = nome.substring(0, 1);
+		//String primeiraLetra = nome.substring(0, 1);
 		
 		
 		
