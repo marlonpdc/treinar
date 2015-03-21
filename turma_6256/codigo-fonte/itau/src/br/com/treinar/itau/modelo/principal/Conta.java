@@ -13,6 +13,7 @@ public abstract class Conta {
 	
 	public Conta(Integer numeroConta) {
 		this();
+		this.pessoa = new Pessoa();
 		this.numeroConta = numeroConta;
 	}
 	
@@ -100,7 +101,10 @@ public abstract class Conta {
 		return true;
 	}
 	
-	
-
+		
+	@Override
+	public String toString() {
+		return numeroConta.toString();
+	}
 	
 }
