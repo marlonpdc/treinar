@@ -41,7 +41,7 @@ public class OrcamentoCommand implements Command {
 			
 			Util.orcamentos.add(o);
 			
-			return "pages/acompanhamento-orcamento.jsp";
+			return "/index.jsp";
 		} catch (Exception e) {
 			return "pages/acompanhamento-orcamento.jsp";			
 		}
