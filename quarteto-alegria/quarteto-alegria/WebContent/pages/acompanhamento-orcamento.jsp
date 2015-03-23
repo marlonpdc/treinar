@@ -18,10 +18,11 @@
 				<td>Endereco</td>
 				<td>Inicio</td>
 				<td>Termino</td>
-				<td>Ação</td>
+				<td>Situação</td>
 			</tr>
 			<%
-				StatusOrcamento[] status = (StatusOrcamento[]) request.getAttribute("statusOrcamento");
+				//StatusOrcamento[] status = (StatusOrcamento[]) request.getAttribute("statusOrcamento");
+				StatusOrcamento[] status = (StatusOrcamento[]) getServletContext().getAttribute("statusOrcamento");
 				List<Orcamento> orcamentos = (List<Orcamento>) request.getAttribute("orcamentos");
 				for(int i = 0; i < orcamentos.size(); i++) {
 					out.println("<tr>");
@@ -36,7 +37,11 @@
 					for(StatusOrcamento st : status) {
 						out.println("<option value=\"");
 						out.print(st.ordinal());
-						out.print("\">");
+						out.print("\"");
+						if (st.equals(orcamentos.get(i).getStatus())) {
+							out.print("selected ");
+						}
+						out.print(">");
 						out.print(st);
 						out.print("</option>");
 					}
