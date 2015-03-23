@@ -30,7 +30,7 @@ public class ServletController extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String comando = request.getParameter("comando");
 		try {
-			Command c = (Command) Class.forName(comando).newInstance();
+			ICommand c = (ICommand) Class.forName(comando).newInstance();
 			String pagina = c.executar(request, response);
 			RequestDispatcher d = request.getRequestDispatcher(pagina);
 			d.forward(request, response);

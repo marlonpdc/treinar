@@ -12,7 +12,7 @@ import br.com.quartetoalegreto.orcamento.modelo.Evento;
 import br.com.quartetoalegreto.orcamento.modelo.Orcamento;
 import br.com.quartetoalegreto.orcamento.modelo.StatusOrcamento;
 
-public class OrcamentoCommand implements Command {
+public class OrcamentoCommand implements ICommand {
 
 	@Override
 	public String executar(HttpServletRequest request, HttpServletResponse response) throws QuartetoAlegriaException {
