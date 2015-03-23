@@ -16,26 +16,19 @@ import javax.servlet.http.HttpServletResponse;
 public class ServletController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ServletController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
 	/**
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		RequestDispatcher d = null;
 		String comando = request.getParameter("comando");
 		try {
 			ICommand c = (ICommand) Class.forName(comando).newInstance();
 			String pagina = c.executar(request, response);
-			RequestDispatcher d = request.getRequestDispatcher(pagina);
+			d = request.getRequestDispatcher(pagina);
 			d.forward(request, response);
 		} catch (Exception e) {
-			
+			d = request.getRequestDispatcher("");
 		}
 		
 	}

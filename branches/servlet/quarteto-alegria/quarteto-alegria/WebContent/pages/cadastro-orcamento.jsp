@@ -12,22 +12,22 @@
 		<input name="comando" type="hidden" value="br.com.quartetoalegreto.orcamento.controle.OrcamentoCommand">
 		
 		<label for="nomeCliente">Nome:&#160;</label>
-		<input name="nomeCliente">
+		<input type="text" name="nomeCliente">
 		<br />
 		<label for="telefone">Telefone:&#160;</label>
-		<input name="telefone">
+		<input type="text" name="telefone">
 		<br />		
 		<label for="email">Email:&#160;</label>
-		<input name="email">
+		<input type="text" name="email">
 		<br />	
 		<label for="enderecoEvento">Endereço do Evento:&#160;</label>
-		<input name="enderecoEvento">
+		<input type="text" name="enderecoEvento">
 		<br />		
 		<label for="inicioEvento">Data e Hora do Evento:&#160;</label>
-		<input name="inicioEvento">
+		<input type="text" name="inicioEvento">
 		<br />		
 		<label for="terminoEvento">Date e HOra de término do Evento:&#160;</label>
-		<input name="terminoEvento">
+		<input type="text" name="terminoEvento">
 		<br />		
 		<input type="submit" value="Enviar Orçamento">
 	</form>
