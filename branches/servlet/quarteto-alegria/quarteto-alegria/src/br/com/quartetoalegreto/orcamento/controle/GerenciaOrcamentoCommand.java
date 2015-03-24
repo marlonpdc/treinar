@@ -10,8 +10,6 @@ public class GerenciaOrcamentoCommand implements ICommand {
 	@Override
 	public String executar(HttpServletRequest request, HttpServletResponse response) throws QuartetoAlegriaException {
 		request.setAttribute("orcamentos", Util.orcamentos);
-		//request.setAttribute("statusOrcamento", StatusOrcamento.values());
-		
 		return "pages/acompanhamento-orcamento.jsp";
 	}
 
