@@ -1,5 +1,8 @@
 package br.com.quartetoalegreto.orcamento;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -17,19 +20,14 @@ import br.com.quartetoalegreto.orcamento.modelo.TipoTelefone;
 @WebListener
 public class InicializadorListener implements ServletContextListener {
 
-    /**
-     * Default constructor. 
-     */
-    public InicializadorListener() {
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
      * @see ServletContextListener#contextInitialized(ServletContextEvent)
      */
     public void contextInitialized(ServletContextEvent sce)  { 
+    	Logger.getLogger(this.getClass().getSimpleName()).log(Level.INFO, "Inicializando parâmetros");
     	ServletContext ctx = sce.getServletContext();
-		ctx.setAttribute("statusOrcamanento", StatusOrcamento.values());
+		ctx.setAttribute("statusOrcamento", StatusOrcamento.values());
 		ctx.setAttribute("tipoEvento", TipoEvento.values());
 		ctx.setAttribute("tipoTelefone", TipoTelefone.values());
 		ctx.setAttribute("tipoInstrumento", TipoInstrumento.values());
