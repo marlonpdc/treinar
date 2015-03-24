@@ -29,7 +29,7 @@ public class InicializadorListener implements ServletContextListener {
      */
     public void contextInitialized(ServletContextEvent sce)  { 
     	ServletContext ctx = sce.getServletContext();
-		ctx.setAttribute("statusOrcamanento", StatusOrcamento.values());
+		ctx.setAttribute("statusOrcamento", StatusOrcamento.values());
 		ctx.setAttribute("tipoEvento", TipoEvento.values());
 		ctx.setAttribute("tipoTelefone", TipoTelefone.values());
 		ctx.setAttribute("tipoInstrumento", TipoInstrumento.values());
