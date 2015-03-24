@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="qal" uri="../WEB-INF/quarteto-alegria.tld"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,8 +29,11 @@
 		<br />		
 		<label for="terminoEvento">Date e HOra de término do Evento:&#160;</label>
 		<input type="text" name="terminoEvento">
-		<br />		
+		<br />
+		<qal:tipoEvento id="tipoEvento" name="tipoEvento" />
+		<br />	
 		<input type="submit" value="Enviar Orçamento">
+		
 	</form>
 
 </body>
