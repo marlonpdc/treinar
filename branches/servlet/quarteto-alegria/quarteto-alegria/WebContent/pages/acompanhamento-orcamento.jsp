@@ -12,6 +12,7 @@
 <body>
 
 	<form action="cadastroOrcamento.qal" method="post">
+		
 		<table border="1">
 			<tr>
 				<td>Cliente</td>
