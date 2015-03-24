@@ -29,7 +29,7 @@
 					<td>${orcamento.evento.dataInicio}</td>
 					<td>${orcamento.evento.dataTermino}</td>
 					<td>
-						<select>
+						<select id="status" name="status">
 							<option value="-1">Selecione</option>
 							<c:forEach items="${statusOrcamento}" var="status">
 								<option value="status" ${status == orcamento.status ? 'selected' : ''}>${status.descricao}</option>

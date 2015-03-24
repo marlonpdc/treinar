@@ -3,13 +3,16 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd">
 	<tlib-version>1.0</tlib-version>
-	<short-name>Treinar_TLD</short-name>
+	<short-name>Quartedo_TLD</short-name>
 	<tag>
-		<name>msgRodapeh</name>
-		<tag-class>br.com.treinar.agenda.taglib.TreinarTag</tag-class>
+		<name>tipoEvento</name>
+		<tag-class>br.com.quartetoalegreto.orcamento.taglib.QuartetoTagLib</tag-class>
 		<body-content>scriptless</body-content>
 		<attribute>
-			<name>message</name>
+			<name>id</name>
+		</attribute>
+		<attribute>
+			<name>name</name>
 		</attribute>
 	</tag>
 </taglib>
