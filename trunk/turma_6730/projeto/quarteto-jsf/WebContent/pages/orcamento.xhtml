@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	
+	<h:body>
+		<h:messages id="msg"/>
+		<h:form id="formOrcamento">
+			<h:panelGrid columns="2">
+			
+				<h:outputLabel id="labelNomeCliente" for="nomeCliente" value="Nome" />
+				<h:panelGroup>
+					<h:inputText id="nomeCliente" value="#{cadastrar.orcamento.cliente.nome}" required="true" label="Nome Cliente" />
+				</h:panelGroup>
+	
+				<h:outputLabel id="labelEmailCliente" for="emailCliente" value="Email" />
+				<h:panelGroup>
+					<h:inputText id="emailCliente" value="#{cadastrar.orcamento.cliente.email}" required="true" label="Email"/>
+					<h:outputText value="&#160;&#160;" />
+					<h:commandButton action="#{cadastrar.validarEmail()}" value="Validar" immediate="true" />
+				</h:panelGroup>
+				
+				<h:outputLabel id="labelTelefoneCliente" for="telefoneCliente" value="Telefone" />
+				<h:panelGroup>
+					<h:inputText id="telefoneCliente" value="#{cadastrar.orcamento.cliente.telefone}">
+						<f:converter converterId="br.com.quarteto.telefoneConverter"/>
+					</h:inputText>
+					<h:outputText value="&#160;&#160;" />
+					<h:selectOneMenu id="tipoTelefoneCliente" value="#{cadastrar.orcamento.cliente.telefone.tipoTelefone}">
+						<f:selectItems value="#{quartetoApplication.tipoTelefone}" var="tipoTelefone" itemLabel="#{tipoTelefone.descricao}" itemValue="#{tipoTelefone}"/>
+				</h:selectOneMenu>
+				</h:panelGroup>
+	
+				<h:outputLabel id="labelEnderecoCliente" for="enderecoCliente" value="Endereco" />
+				<h:inputText id="enderecoCliente" value="#{cadastrar.orcamento.cliente.endereco}" />
+	
+				<h:outputLabel id="labelinicioEvento" for="inicioEvento" value="Data Inico Evento" />
+				<h:inputText id="inicioEvento" value="#{cadastrar.orcamento.evento.dataInicio}">
+					<f:convertDateTime pattern="HH:mm" timeZone="America/Sao_Paulo"/>
+				</h:inputText>
+	
+				<h:outputLabel id="labelTerminoEvento" for="terminoEvento" value="Data Término Evento" />
+				<h:inputText id="terminoEvento" value="#{cadastrar.orcamento.evento.dataTermino}">
+					<f:convertDateTime pattern="HH:mm" timeZone="America/Sao_Paulo"/>
+				</h:inputText>
+			
+				<h:outputLabel id="labelStatusEvento" for="statusEvento" value="Data Término Evento" />
+				<h:selectOneMenu id="statusEvento" value="#{cadastrar.orcamento.status}">
+					<f:selectItems value="#{quartetoApplication.statusOrcamento}" var="status" itemLabel="#{status.descricao}" itemValue="#{status}"/>
+				</h:selectOneMenu>
+				
+				<h:commandButton action="#{cadastrar.gravar()}" value="Gravar Orçamento" />
+						
+			</h:panelGrid>
+		</h:form>
+	
+	
+	</h:body>
+	
+</html>
