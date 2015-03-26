@@ -54,5 +54,29 @@ public class Orcamento {
 	public void setStatus(StatusOrcamento status) {
 		this.status = status;
 	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((codigoOrcamento == null) ? 0 : codigoOrcamento.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Orcamento other = (Orcamento) obj;
+		if (codigoOrcamento == null) {
+			if (other.codigoOrcamento != null)
+				return false;
+		} else if (!codigoOrcamento.equals(other.codigoOrcamento))
+			return false;
+		return true;
+	}
 	
 }
