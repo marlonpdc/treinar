@@ -3,7 +3,6 @@ package gabriel.data;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 
 
 public class MeuAniversario {
@@ -14,14 +13,11 @@ public class MeuAniversario {
     	c.set(Calendar.MONTH, 11);
     	c.set(Calendar.YEAR, 2001);
     	
-    	System.out.println(c.getTime());
-    	formatarData(c.getTime());
-	}
-    public static void formatarData(Date data) {
     	DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
-    	System.out.println(df.format(data));
+    	System.out.println(df.format(c.getTime()));
 	}
-	
+   
+
 		
 	
 }
