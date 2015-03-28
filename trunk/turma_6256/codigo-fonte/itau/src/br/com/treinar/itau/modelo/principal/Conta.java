@@ -2,6 +2,8 @@ package br.com.treinar.itau.modelo.principal;
 
 import java.util.Date;
 
+import br.com.treinar.itau.exception.SaldoInsuficienteException;
+
 public abstract class Conta {
 
 	public Integer numeroConta;
@@ -33,13 +35,13 @@ public abstract class Conta {
 	 * @return verdadeiro se o saque for efetuado e 
 	 * falso se não for possível sacar
 	 */
-	public Boolean sacar(Double valor) {
-		Boolean sacou = Boolean.FALSE;
+	public void sacar(Double valor) throws SaldoInsuficienteException {
 		if (this.saldo >= valor) {
 			this.saldo -= valor;
-			sacou = Boolean.TRUE;
+		} else {
+			SaldoInsuficienteException sie = new SaldoInsuficienteException();
+			throw sie;
 		}
-		return sacou;
 	}
 	
 	/**
@@ -52,16 +54,14 @@ public abstract class Conta {
 	 * menor do que o limite de credito
 	  * @return verdadeiro se o saque for efetuado e 
 	 * falso se não for possível sacar
+	 * @throws SaldoInsuficienteException 
 	 */
-	public Boolean sacar(Double valor, Boolean permitirSaldoNegativo) {
-		Boolean sacou = Boolean.FALSE;
+	public void sacar(Double valor, Boolean permitirSaldoNegativo) throws SaldoInsuficienteException {
 		if (permitirSaldoNegativo) {
 			this.saldo -= valor;
-			sacou = Boolean.TRUE;
 		} else {
-			sacou = sacar(valor);
+			sacar(valor);
 		}
-		return sacou;
 	}
 	
 	public void depositar(Double valor) {

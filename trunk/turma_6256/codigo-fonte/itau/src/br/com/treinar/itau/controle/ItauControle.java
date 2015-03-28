@@ -1,5 +1,6 @@
 package br.com.treinar.itau.controle;
 
+import br.com.treinar.itau.exception.ContaNaoCadastradaException;
 import br.com.treinar.itau.modelo.principal.Conta;
 import br.com.treinar.itau.util.ItauUtil;
 
@@ -11,7 +12,7 @@ public class ItauControle {
 		dataBase.adicionarConta(conta);
 	}
 
-	public Conta recuperarConta(Integer numeroConta) {
+	public Conta recuperarConta(Integer numeroConta) throws ContaNaoCadastradaException {
 		return dataBase.recuperar(numeroConta);
 	}
 

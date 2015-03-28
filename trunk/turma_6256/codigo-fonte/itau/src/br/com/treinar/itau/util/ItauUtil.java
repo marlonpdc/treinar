@@ -1,5 +1,6 @@
 package br.com.treinar.itau.util;
 
+import br.com.treinar.itau.exception.ContaNaoCadastradaException;
 import br.com.treinar.itau.modelo.principal.Conta;
 
 public class ItauUtil extends Object {
@@ -30,14 +31,16 @@ public class ItauUtil extends Object {
 		contas[index++] = c;
 	}
 
-
-	public Conta recuperar(Integer numeroConta) {
+	public Conta recuperar(Integer numeroConta) throws ContaNaoCadastradaException {
 		Conta conta = null;
 		for (int i = 0; i < contas.length; i++) {
 			if (contas[i] != null && contas[i].numeroConta.equals(numeroConta)) {
 				conta = contas[i];
 				break;
 			}
+		}
+		if (conta == null) {
+			throw new ContaNaoCadastradaException();
 		}
 		return conta;
 	}
