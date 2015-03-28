@@ -36,7 +36,7 @@ public class TesteMap {
 			JOptionPane.showMessageDialog(null, "Pessoa Inválida");
 		}
 		
-		String nome = "Gleidson";
+		//String nome = "Gleidson";
 		//String primeiraLetra = nome.substring(0, 1);
 		
 		
