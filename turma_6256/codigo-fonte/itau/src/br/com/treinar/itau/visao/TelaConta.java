@@ -1,10 +1,14 @@
 package br.com.treinar.itau.visao;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.swing.JOptionPane;
 
 import br.com.treinar.itau.controle.ItauControle;
+import br.com.treinar.itau.exception.ContaNaoCadastradaException;
+import br.com.treinar.itau.exception.SaldoInsuficienteException;
 import br.com.treinar.itau.modelo.ContaCorrente;
 import br.com.treinar.itau.modelo.ContaPoupanca;
 import br.com.treinar.itau.modelo.ContaSalario;
@@ -75,14 +79,14 @@ public class TelaConta {
 			}
 		}
 		JOptionPane.showMessageDialog(null, contasStr);
-	
+
 	}
 
 	private void excluirConta() {
-		Conta conta = recuperarConta();
-		if (conta != null) {
-			controle.removerConta(conta);			
-		} else {
+		try {
+			Conta conta = recuperarConta();
+			controle.removerConta(conta);
+		} catch (ContaNaoCadastradaException e) {
 			JOptionPane.showMessageDialog(null, "Conta nao cadastrada");			
 		}
 	}
@@ -94,35 +98,38 @@ public class TelaConta {
 	}
 
 	private void exibirSaldo() {
-		Conta conta = recuperarConta();
-		if (conta != null) {
+		Conta conta;
+		try {
+			conta = recuperarConta();
 			JOptionPane.showMessageDialog(null, "Saldo: " + conta.recuperarSaldo());			
-		} else {
-			JOptionPane.showMessageDialog(null, "Conta nao cadastrada");						
+		} catch (ContaNaoCadastradaException e) {
+			JOptionPane.showMessageDialog(null, "Conta nao cadastrada");
 		}
 	}
 
 	private void sacar() {
-		Conta conta = recuperarConta();
-		if (conta != null) {
-			Boolean sacou = conta.sacar(Double.parseDouble(JOptionPane.showInputDialog("Valor")));
-			JOptionPane.showMessageDialog(null, sacou ? "Saque efetuado com sucesso!" : "Saque nao efetuado!");			
-		} else {
-			JOptionPane.showMessageDialog(null, "Conta nao cadastrada");			
+		try {
+			Conta conta = recuperarConta();
+			conta.sacar(Double.parseDouble(JOptionPane.showInputDialog("Valor")));
+			JOptionPane.showMessageDialog(null, "Saque efetuado com sucesso!");			
+		} catch (RuntimeException | SaldoInsuficienteException e) {
+			JOptionPane.showMessageDialog(null, "Saldo Insuficiente!");
+		} catch (ContaNaoCadastradaException e) {
+			JOptionPane.showMessageDialog(null, "Conta Não Cadastrada!");
 		}
 	}
 
 	private void depositar() {
-		Conta conta = recuperarConta();
-		if (conta != null) {
+		try {
+			Conta conta = recuperarConta();
 			conta.depositar(Double.parseDouble(JOptionPane.showInputDialog("Valor")));
-			JOptionPane.showMessageDialog(null, "Deposito efetuado com sucesso");				
-		} else {
+			JOptionPane.showMessageDialog(null, "Deposito efetuado com sucesso");			
+		} catch (ContaNaoCadastradaException e) {
 			JOptionPane.showMessageDialog(null, "Conta nao cadastrada");			
 		}
 	}
 
-	private Conta recuperarConta() {
+	private Conta recuperarConta() throws ContaNaoCadastradaException {
 		return controle.recuperarConta(Integer.parseInt(JOptionPane.showInputDialog("Numero da conta")));
 	}
 

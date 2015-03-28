@@ -2,6 +2,7 @@ package br.com.treinar.itau.modelo;
 
 import java.util.Date;
 
+import br.com.treinar.itau.exception.SaldoInsuficienteException;
 import br.com.treinar.itau.modelo.principal.Conta;
 import br.com.treinar.itau.modelo.principal.IInvestimento;
 
@@ -22,7 +23,11 @@ public class ContaInvestimento extends Conta implements IInvestimento {
 
 	@Override
 	public void tributar() {
-		sacar(tarifa, Boolean.TRUE);
+		try {
+			sacar(tarifa, Boolean.TRUE);
+		} catch (SaldoInsuficienteException e) {
+			System.out.println("Enviar boleto para: " + this.pessoa.nome);
+		}
 	}
 
 	@Override
