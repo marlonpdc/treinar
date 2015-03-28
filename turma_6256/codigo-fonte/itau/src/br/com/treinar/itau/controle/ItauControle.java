@@ -8,6 +8,10 @@ public class ItauControle {
 
 	private ItauUtil dataBase = ItauUtil.getInstance();
 
+	public ItauControle() {
+		dataBase.carregarContas();
+	}
+	
 	public void salvarConta(Conta conta) {
 		dataBase.adicionarConta(conta);
 	}
@@ -22,6 +26,10 @@ public class ItauControle {
 
 	public Conta[] recuperarContas() {
 		return dataBase.recuperar();
+	}
+
+	public void persistir() {
+		dataBase.persistirContas();
 	}
 
 
