@@ -60,6 +60,7 @@ public class TelaConta {
 				listarContas();
 				break;
 			case "0":
+				controle.persistir();
 				JOptionPane.showMessageDialog(null, "Fim do programa");
 				break;
 
