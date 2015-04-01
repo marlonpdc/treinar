@@ -5,7 +5,7 @@ import java.util.Date;
 public class Professor extends Pessoa {
 	
 	String disciplina;
-	Integer qtd_aulas;
+	Integer qtdAulas;
 	Date dataAdmissao;
 	BigDecimal salario;
 	
@@ -15,11 +15,11 @@ public class Professor extends Pessoa {
 	public void setDisciplina(String disciplina) {
 		this.disciplina = disciplina;
 	}
-	public Integer getQtd_aulas() {
-		return qtd_aulas;
+	public Integer getQtdAulas() {
+		return qtdAulas;
 	}
-	public void setQtd_aulas(Integer qtd_aulas) {
-		this.qtd_aulas = qtd_aulas;
+	public void setQtdAulas(Integer qtdAulas) {
+		this.qtdAulas = qtdAulas;
 	}
 	public Date getDataAdmissao() {
 		return dataAdmissao;
@@ -35,9 +35,9 @@ public class Professor extends Pessoa {
 	}
 
 	
-	private double Salario(Integer hora_aula){
+	public double salario(Integer horaAula, Integer qtdAulas){
 		
-		double salario = hora_aula*qtd_aulas;
+		double salario = horaAula*qtdAulas;
 		return salario;
 		
 	}
