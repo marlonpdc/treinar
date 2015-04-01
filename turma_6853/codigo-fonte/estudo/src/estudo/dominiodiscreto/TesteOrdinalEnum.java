@@ -5,7 +5,8 @@ import javax.swing.JOptionPane;
 public class TesteOrdinalEnum {
 
 	public static void main(String[] args) {
-		DiaSemana dia = DiaSemana.valueOf(JOptionPane.showInputDialog("Descricao Dia"));
+		String descricaoEnum = JOptionPane.showInputDialog("Descricao Dia");
+		DiaSemana dia = DiaSemana.valueOf(descricaoEnum.toUpperCase());
 		JOptionPane.showMessageDialog(null, dia.ordinal());
 		
 	}
