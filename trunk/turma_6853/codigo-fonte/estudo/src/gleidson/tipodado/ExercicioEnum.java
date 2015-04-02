@@ -1,4 +1,4 @@
-package gleidson;
+package gleidson.tipodado;
 
 import java.util.Scanner;
 
