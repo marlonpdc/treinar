@@ -3,6 +3,7 @@ package br.com.treinar.bb.modelo.banco;
 import java.util.Date;
 
 import br.com.treinar.bb.modelo.Cliente;
+import br.com.treinar.bb.modelo.StatusConta;
 
 /**
  * Classe para 
@@ -15,6 +16,7 @@ public abstract class Conta {
 	private Cliente cliente;
 	private Double saldo;
 	private Date dataAbertura;
+	private StatusConta statusConta;
 	
 	private static Long indexador;
 	
@@ -65,6 +67,14 @@ public abstract class Conta {
 
 	public void setDataAbertura(Date dataAbertura) {
 		this.dataAbertura = dataAbertura;
+	}
+
+	public StatusConta getStatusConta() {
+		return statusConta;
+	}
+
+	public void setStatusConta(StatusConta statusConta) {
+		this.statusConta = statusConta;
 	}
 
 	@Override

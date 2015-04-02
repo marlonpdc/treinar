@@ -36,6 +36,7 @@ public class BBUtil {
 	
 	public void adicionarConta(Conta c) {
 		if (index < contas.length) {
+			c.setStatusConta(StatusConta.ATIVA);
 			this.contas[index++] = c;			
 		}
 	}
