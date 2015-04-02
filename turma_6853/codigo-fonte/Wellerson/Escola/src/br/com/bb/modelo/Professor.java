@@ -1,13 +1,16 @@
+package br.com.bb.modelo;
 import java.math.BigDecimal;
 import java.util.Date;
 
 
-public class Professor extends Pessoa {
+public class Professor extends BaseEntity<Integer> implements IComportamento {
 	
-	String disciplina;
-	Integer qtdAulas;
-	Date dataAdmissao;
-	BigDecimal salario;
+	private String disciplina;
+	private Integer qtdAulas;
+	private Date dataAdmissao;
+	private BigDecimal salario;
+	private PessoaComportamento pessoa;
+	private static BigDecimal horaAula = BigDecimal.valueOf(70.00);
 	
 	public String getDisciplina() {
 		return disciplina;
@@ -40,6 +43,19 @@ public class Professor extends Pessoa {
 		double salario = horaAula*qtdAulas;
 		return salario;
 		
+	}
+	
+	public PessoaComportamento getPessoa() {
+		return pessoa;
+	}
+	public void setPessoa(PessoaComportamento pessoa) {
+		this.pessoa = pessoa;
+	}
+	public static BigDecimal getHoraAula() {
+		return horaAula;
+	}
+	public static void setHoraAula(BigDecimal horaAula) {
+		Professor.horaAula = horaAula;
 	}
 
 }

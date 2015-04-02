@@ -1,15 +1,16 @@
-import java.math.BigDecimal;
+package br.com.bb.modelo;
+
+import java.util.List;
 
 
-public class Pessoa {
+public class Pessoa extends BaseEntity<Long> {
 
-	String nome;
-	String endereco;
-	String numtelefone;
-	Char tipo;
-	Integer idade;
+	private String nome;
+	private String endereco;
+	private String numtelefone;
+	private Integer idade;
+	private List<PessoaComportamento> comportamento;
 	
-	public static BigDecimal horaAula = BigDecimal.valueOf(70.00);
 	
 	public String getNome() {
 		return nome;
@@ -29,20 +30,19 @@ public class Pessoa {
 	public void setNumtelefone(String numtelefone) {
 		this.numtelefone = numtelefone;
 	}
-	public Char getTipo() {
-		return tipo;
-	}
-	public void setTipo(Char tipo) {
-		this.tipo = tipo;
-	}
+
 	public Integer getIdade() {
 		return idade;
 	}
 	public void setIdade(Integer idade) {
 		this.idade = idade;
 	}
-	
-	
+	public List<PessoaComportamento> getComportamento() {
+		return comportamento;
+	}
+	public void setComportamento(List<PessoaComportamento> comportamento) {
+		this.comportamento = comportamento;
+	}
 	
 	
 }
