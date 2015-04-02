@@ -14,12 +14,18 @@ public class ExercicioEnum {
 		
 		Integer posicao = sc.nextInt();
 		
-		DiaSemana[] dias = DiaSemana.values();
+		DiaSemana[] dias = recuperarArrayDiasSemana();
 		
 		System.out.println(dias[posicao]);
 		
 		sc.close();
 		
+	}
+
+	private static DiaSemana[] recuperarArrayDiasSemana() {
+		String temp = "nasceu e morreu";
+		System.out.println(temp);
+		return DiaSemana.values();
 	}
 	
 }
