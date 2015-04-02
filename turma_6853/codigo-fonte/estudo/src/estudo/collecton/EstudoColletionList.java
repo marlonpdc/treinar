@@ -6,7 +6,7 @@ import java.util.Collection;
 import estudo.objeto.Pessoa;
 
 @SuppressWarnings({ "rawtypes", "unchecked" })
-public class EstudoColletion {
+public class EstudoColletionList {
 
 	public static void main(String[] args) {
 		Collection c = new ArrayList<>();
