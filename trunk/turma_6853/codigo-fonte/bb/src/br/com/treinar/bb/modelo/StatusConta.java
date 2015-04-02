@@ -1,6 +1,5 @@
 package br.com.treinar.bb.modelo;
 
-import java.util.List;
 
 public enum StatusConta {
 
