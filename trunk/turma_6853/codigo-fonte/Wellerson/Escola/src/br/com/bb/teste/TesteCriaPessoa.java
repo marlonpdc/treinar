@@ -8,6 +8,7 @@ import java.io.InputStreamReader;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.List;
 
 import br.com.bb.modelo.Aluno;
 import br.com.bb.modelo.Comportamento;
@@ -25,6 +26,7 @@ public class TesteCriaPessoa {
 		String s = br.readLine();
 		String[] campos = null;
 		Pessoa p = null;
+		List<Pessoa> pessoas = new ArrayList<>();
 		Integer qtdComportamentos = null;
 		PessoaComportamento pc = null;
 		Integer contCampos = 0;
@@ -55,13 +57,14 @@ public class TesteCriaPessoa {
 				}
 				p.getComportamento().add(pc);
 			}
-			System.out.println(s);
+			pessoas.add(p);
+			contCampos = 0;
 			s = br.readLine();
 		}
 
 		br.close();
 		
-		System.out.println(p);
+		System.out.println(pessoas);
 	}
 	
 	private static Integer criarAluno(String[] campos, Integer contCampos, PessoaComportamento pessoaComportamento) {
