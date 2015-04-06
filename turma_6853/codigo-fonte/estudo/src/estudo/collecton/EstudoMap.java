@@ -34,7 +34,7 @@ public class EstudoMap {
 		
 		System.out.println(nome.charAt(0));
 		
-		
+		mapPessoas.containsKey("Gleidosn");
 		
 		Set<String> keys = mapPessoas.keySet();
 		
