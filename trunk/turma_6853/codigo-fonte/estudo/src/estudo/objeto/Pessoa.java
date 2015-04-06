@@ -1,7 +1,13 @@
 package estudo.objeto;
 
-public class Pessoa {
+import java.io.Serializable;
 
+public class Pessoa implements Serializable {
+
+
+	private static final long serialVersionUID = -7962001998627189479L;
+	
+	
 	private String nome;
 	private Integer altura;
 	public String getNome() {
