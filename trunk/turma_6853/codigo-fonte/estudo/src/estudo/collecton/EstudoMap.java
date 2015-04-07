@@ -1,9 +1,12 @@
 package estudo.collecton;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.SortedMap;
 
 import estudo.objeto.Pessoa;
 
@@ -53,7 +56,28 @@ public class EstudoMap {
 		
 		System.out.println(keys);
 		
+		SortedMap<String, Pessoa> myMap = new SortedMap<String, Pessoa>();
 		
+		List<Pessoa> lista = new ArrayList<>();
+		
+		Pessoa gle  = new Pessoa("Gleidson");
+		Pessoa a  = new Pessoa("Amanda");
+		Pessoa b  = new Pessoa("Sohpie");
+		Pessoa c  = new Pessoa("Adriano");
+		Pessoa d  = new Pessoa("Geraldo");
+		
+		myMap.put(gle.getNome(), gle);
+		myMap.put(a.getNome(), a);
+		myMap.put(b.getNome(), b);
+		myMap.put(c.getNome(), c);
+		myMap.put(d.getNome(), d);
+		
+		Set<Entry<String, Pessoa>> entrySet2 = myMap.entrySet();
+		
+		for (Entry<String, Pessoa> entry : entrySet2) {
+			System.out.println(entry.getKey());
+			System.out.println(entry.getValue());
+		}
 	}
 	
 }
