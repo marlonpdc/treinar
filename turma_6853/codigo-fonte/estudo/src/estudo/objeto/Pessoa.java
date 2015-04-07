@@ -2,8 +2,7 @@ package estudo.objeto;
 
 import java.io.Serializable;
 
-public class Pessoa implements Serializable {
-
+public class Pessoa implements Serializable, Comparable<Pessoa> {
 
 	private static final long serialVersionUID = -7962001998627189479L;
 	
@@ -54,6 +53,14 @@ public class Pessoa implements Serializable {
 		return true;
 	}
 	
+	@Override
+	public int compareTo(Pessoa o) {
+		return this.nome.compareTo(o.nome);
+	}
 	
+	@Override
+	public String toString() {
+		return this.nome;
+	}
 	
 }
