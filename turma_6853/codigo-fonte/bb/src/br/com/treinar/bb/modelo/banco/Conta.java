@@ -30,13 +30,13 @@ public abstract class Conta {
 		this.saldo = 0d;
 	}
 	
-	public void depositar(Double valor) {
+	public void depositar(Double valor) throws ValorInvalidoException {
 		saldo += valor;
 	}
 	
 	public abstract void sacar(Double valor) throws SaldoInsuficienteException;
 	
-	public abstract Double recuperarSaldo();
+	public abstract Double recuperarSaldo() throws SaldoNaoDisponivelException;
 
 	public Cliente getCliente() {
 		return cliente;

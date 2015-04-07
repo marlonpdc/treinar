@@ -34,14 +34,14 @@ public class BBUtil {
 	}
 	
 	
-	public void adicionarConta(Conta c) {
+	public void adicionarConta(Conta c) throws SemDisponibilidadeException {
 		if (index < contas.length) {
 			c.setStatusConta(StatusConta.ATIVA);
 			this.contas[index++] = c;			
 		}
 	}
 
-	public Conta recuperarConta(Long id) {
+	public Conta recuperarConta(Long id) throws ContaNaoCadastradaException {
 		Conta c = null;
 		for (Conta conta : contas) {
 			if (conta.getId().equals(id)) {
@@ -76,7 +76,7 @@ public class BBUtil {
 		pagavel.pagar();
 	}
 	
-	public Conta[] recuperarContas() {
+	public Conta[] recuperarContas() throws NenhumaContaCadastradaException {
 		return contas;
 	}
 
