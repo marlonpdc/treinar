@@ -2,6 +2,7 @@ package br.com.treinar.bb.modelo;
 
 import br.com.treinar.bb.modelo.banco.Conta;
 import br.com.treinar.bb.modelo.banco.ICaptalizavel;
+import br.com.treinar.bb.modelo.exception.SaldoNaoDisponivelException;
 
 public class ContaPoupanca extends Conta implements ICaptalizavel {
 
@@ -25,7 +26,7 @@ public class ContaPoupanca extends Conta implements ICaptalizavel {
 	}
 
 	@Override
-	public void sacar(Double valor) {
+	public void sacar(Double valor) throws SaldoNaoDisponivelException{
 		if (getSaldo() >= valor) {
 			setSaldo(getSaldo() - valor);
 		}
