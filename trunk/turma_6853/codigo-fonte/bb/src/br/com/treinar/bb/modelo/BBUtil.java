@@ -3,6 +3,7 @@ package br.com.treinar.bb.modelo;
 import br.com.treinar.bb.modelo.banco.Conta;
 import br.com.treinar.bb.modelo.banco.ICaptalizavel;
 import br.com.treinar.bb.modelo.banco.IPagavel;
+import br.com.treinar.bb.modelo.exception.ContaNaoCadastradaException;
 
 public class BBUtil {
 	
@@ -48,6 +49,9 @@ public class BBUtil {
 				c = conta;
 				break;
 			}
+		}
+		if (c == null) {
+			throw new ContaNaoCadastradaException();
 		}
 		return c;
 	}
