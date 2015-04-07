@@ -5,6 +5,7 @@ import java.util.Date;
 import br.com.treinar.bb.modelo.Cliente;
 import br.com.treinar.bb.modelo.StatusConta;
 import br.com.treinar.bb.modelo.exception.SaldoInsuficienteException;
+import br.com.treinar.bb.modelo.exception.SaldoNaoDisponivelException;
 
 /**
  * Classe para 
