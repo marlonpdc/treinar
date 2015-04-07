@@ -1,5 +1,6 @@
 package br.com.treinar.bb.visao;
 
+import java.awt.HeadlessException;
 import java.util.Date;
 
 import javax.swing.JOptionPane;
@@ -11,6 +12,7 @@ import br.com.treinar.bb.modelo.ContaInvestimento;
 import br.com.treinar.bb.modelo.ContaPoupanca;
 import br.com.treinar.bb.modelo.banco.Conta;
 import br.com.treinar.bb.modelo.exception.SaldoInsuficienteException;
+import br.com.treinar.bb.modelo.exception.SaldoNaoDisponivelException;
 
 public class TelaBB {
 
@@ -60,7 +62,12 @@ public class TelaBB {
 	private void exibirSaldo() {
 		Conta c = recuperarConta();
 		if (c != null) {
-			JOptionPane.showMessageDialog(null, c.recuperarSaldo());			
+			try {
+				JOptionPane.showMessageDialog(null, c.recuperarSaldo());
+			} catch (SaldoNaoDisponivelException e) {
+				JOptionPane.showMessageDialog(null, "deu problema no saldo");
+				//e.printStackTrace();
+			}			
 		}
 	}
 
