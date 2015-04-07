@@ -4,6 +4,7 @@ package br.com.treinar.bb.controle;
 import br.com.treinar.bb.modelo.BBUtil;
 import br.com.treinar.bb.modelo.ContaPoupanca;
 import br.com.treinar.bb.modelo.banco.Conta;
+import br.com.treinar.bb.modelo.exception.SaldoInsuficienteException;
 
 public class ContaControle {
 
@@ -41,9 +42,8 @@ public class ContaControle {
 		conta.depositar(valor);
 	}
 
-	public void sacar(Conta conta, Double valor) {
+	public void sacar(Conta conta, Double valor) throws SaldoInsuficienteException {
 		conta.sacar(valor);
-		
 	}
 
 }

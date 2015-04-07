@@ -4,6 +4,7 @@ import java.util.Date;
 
 import br.com.treinar.bb.modelo.Cliente;
 import br.com.treinar.bb.modelo.StatusConta;
+import br.com.treinar.bb.modelo.exception.SaldoInsuficienteException;
 
 /**
  * Classe para 
@@ -33,7 +34,7 @@ public abstract class Conta {
 		saldo += valor;
 	}
 	
-	public abstract void sacar(Double valor);
+	public abstract void sacar(Double valor) throws SaldoInsuficienteException;
 	
 	public abstract Double recuperarSaldo();
 
