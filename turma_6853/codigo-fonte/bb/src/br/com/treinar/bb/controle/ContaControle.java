@@ -5,6 +5,7 @@ import br.com.treinar.bb.modelo.BBUtil;
 import br.com.treinar.bb.modelo.ContaPoupanca;
 import br.com.treinar.bb.modelo.banco.Conta;
 import br.com.treinar.bb.modelo.exception.SaldoInsuficienteException;
+import br.com.treinar.bb.modelo.exception.SaldoNaoDisponivelException;
 
 public class ContaControle {
 
@@ -23,7 +24,7 @@ public class ContaControle {
 	}
 	
 	public Conta recuperarConta(Long id) {
-		return BBUtil.getInstance().recuperarConta(id);
+		return BBUtil.getInstance().recuperarConta(id) ;
 	}
 
 	public void captalizarContas() {
