@@ -3,6 +3,7 @@ package br.com.treinar.bb.modelo;
 import br.com.treinar.bb.modelo.banco.Conta;
 import br.com.treinar.bb.modelo.banco.ICaptalizavel;
 import br.com.treinar.bb.modelo.banco.IPagavel;
+import br.com.treinar.bb.modelo.exception.SaldoNaoDisponivelException;
 
 public class ContaInvestimento extends Conta implements IPagavel, ICaptalizavel {
 
@@ -25,7 +26,7 @@ public class ContaInvestimento extends Conta implements IPagavel, ICaptalizavel 
 	}
 	
 	@Override
-	public Double recuperarSaldo() {
+	public Double recuperarSaldo() throws SaldoNaoDisponivelException{
 		return getSaldo();
 	}
 
