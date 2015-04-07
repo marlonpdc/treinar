@@ -3,6 +3,7 @@ package br.com.treinar.bb.modelo;
 import br.com.treinar.bb.modelo.banco.Conta;
 import br.com.treinar.bb.modelo.banco.IPagavel;
 import br.com.treinar.bb.modelo.exception.SaldoInsuficienteException;
+import br.com.treinar.bb.modelo.exception.SaldoNaoDisponivelException;
 
 public class ContaCorrente extends Conta implements IPagavel {
 
@@ -37,7 +38,7 @@ public class ContaCorrente extends Conta implements IPagavel {
 	}
 
 	@Override
-	public Double recuperarSaldo() {
+	public Double recuperarSaldo() throws SaldoNaoDisponivelException{
 		return getSaldo() + limiteCredito;
 	}
 
