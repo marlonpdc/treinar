@@ -42,7 +42,7 @@ public class BBUtil {
 		if (index < contas.length) {
 			c.setStatusConta(StatusConta.ATIVA);
 			this.contas[index++] = c;			
-		} else{
+		} else {
 			throw new SemDisponibilidadeException();
 		}
 	}
