@@ -1,6 +1,5 @@
 package br.com.treinar.bb.visao;
 
-import java.awt.HeadlessException;
 import java.util.Date;
 
 import javax.swing.JOptionPane;
@@ -11,9 +10,8 @@ import br.com.treinar.bb.modelo.ContaCorrente;
 import br.com.treinar.bb.modelo.ContaInvestimento;
 import br.com.treinar.bb.modelo.ContaPoupanca;
 import br.com.treinar.bb.modelo.banco.Conta;
+import br.com.treinar.bb.modelo.exception.ContaNaoCadastradaException;
 import br.com.treinar.bb.modelo.exception.SaldoInsuficienteException;
-import br.com.treinar.bb.modelo.exception.SaldoNaoDisponivelException;
-import br.com.treinar.bb.modelo.exception.ValorInvalidoException;
 
 public class TelaBB {
 
@@ -63,12 +61,7 @@ public class TelaBB {
 	private void exibirSaldo() {
 		Conta c = recuperarConta();
 		if (c != null) {
-			try {
-				JOptionPane.showMessageDialog(null, c.recuperarSaldo());
-			} catch (SaldoNaoDisponivelException e) {
-				JOptionPane.showMessageDialog(null, "deu problema no saldo");
-				//e.printStackTrace();
-			}			
+			JOptionPane.showMessageDialog(null, c.recuperarSaldo());			
 		}
 	}
 
@@ -83,7 +76,7 @@ public class TelaBB {
 		return contasStr;
 	}
 	
-	private Conta recuperarConta() {
+	private Conta recuperarConta() throws ContaNaoCadastradaException {
 		return controle.recuperarConta(Long.parseLong(JOptionPane.showInputDialog("ID da conta\n\n" + exibirContas())));
 	}
 
@@ -160,14 +153,24 @@ public class TelaBB {
 	}
 
 	private void depositar() {
-		Conta conta = recuperarConta();
-		Double valor = Double.parseDouble(JOptionPane.showInputDialog("Valor"));
-		controle.depositar(conta, valor );
+		Conta conta;
+		try {
+			conta = recuperarConta();
+			Double valor = Double.parseDouble(JOptionPane.showInputDialog("Valor"));
+			controle.depositar(conta, valor );
+		} catch (ContaNaoCadastradaException e) {
+			JOptionPane.showMessageDialog(null, "Conta nao cadastrada");
+		}
 	}
 			
 	private void sacar() {
-		Conta conta = recuperarConta();
-		sacar(conta);
+		Conta conta;
+		try {
+			conta = recuperarConta();
+			sacar(conta);
+		} catch (ContaNaoCadastradaException e) {
+			JOptionPane.showMessageDialog(null, "Conta nao cadastrada");
+		}
 	}
 	
 	private void sacar(Conta conta) {
@@ -184,4 +187,7 @@ public class TelaBB {
 		}
 	}
 	
+	
 }
+
+
