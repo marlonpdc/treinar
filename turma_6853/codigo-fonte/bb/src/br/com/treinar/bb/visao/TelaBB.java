@@ -1,5 +1,6 @@
 package br.com.treinar.bb.visao;
 
+import java.awt.HeadlessException;
 import java.util.Date;
 
 import javax.swing.JOptionPane;
@@ -12,6 +13,8 @@ import br.com.treinar.bb.modelo.ContaPoupanca;
 import br.com.treinar.bb.modelo.banco.Conta;
 import br.com.treinar.bb.modelo.exception.ContaNaoCadastradaException;
 import br.com.treinar.bb.modelo.exception.SaldoInsuficienteException;
+import br.com.treinar.bb.modelo.exception.SaldoNaoDisponivelException;
+import br.com.treinar.bb.modelo.exception.ValorInvalidoException;
 
 public class TelaBB {
 
@@ -59,9 +62,13 @@ public class TelaBB {
 	}
 
 	private void exibirSaldo() {
-		Conta c = recuperarConta();
-		if (c != null) {
+		try {
+			Conta c = recuperarConta();
 			JOptionPane.showMessageDialog(null, c.recuperarSaldo());			
+		} catch (ContaNaoCadastradaException e) {
+			JOptionPane.showMessageDialog(null, "Conta não cadastrada");
+		} catch (SaldoNaoDisponivelException e) {
+			JOptionPane.showConfirmDialog(null, "SaldoNaoDisponivelException");
 		}
 	}
 
@@ -153,9 +160,8 @@ public class TelaBB {
 	}
 
 	private void depositar() {
-		Conta conta;
 		try {
-			conta = recuperarConta();
+			Conta conta = recuperarConta();
 			Double valor = Double.parseDouble(JOptionPane.showInputDialog("Valor"));
 			controle.depositar(conta, valor );
 		} catch (ContaNaoCadastradaException e) {
@@ -164,9 +170,8 @@ public class TelaBB {
 	}
 			
 	private void sacar() {
-		Conta conta;
 		try {
-			conta = recuperarConta();
+			Conta conta = recuperarConta();
 			sacar(conta);
 		} catch (ContaNaoCadastradaException e) {
 			JOptionPane.showMessageDialog(null, "Conta nao cadastrada");
