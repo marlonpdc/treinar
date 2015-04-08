@@ -1,6 +1,7 @@
 package br.com.treinar.bb.visao;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -11,6 +12,7 @@ import br.com.treinar.bb.modelo.Cliente;
 import br.com.treinar.bb.modelo.ContaCorrente;
 import br.com.treinar.bb.modelo.ContaInvestimento;
 import br.com.treinar.bb.modelo.ContaPoupanca;
+import br.com.treinar.bb.modelo.StatusConta;
 import br.com.treinar.bb.modelo.banco.Conta;
 import br.com.treinar.bb.modelo.exception.ContaNaoCadastradaException;
 import br.com.treinar.bb.modelo.exception.NenhumaContaCadastradaException;
@@ -32,7 +34,7 @@ public class TelaBB {
 	public void iniciar() {
 		String menu = "Digite\n1 - Criar Conta\n2 - Definir Taxa Rendimento\n"
 				+ "3 - Exibir Saldo\n4 - Captalizar Contas\n5 - Cobrar Tarifa\n"
-				+ "6 - Depositar\n7 - Sacar\n8 - Excluir Conta";
+				+ "6 - Depositar\n7 - Sacar\n8 - Excluir Conta\n9 - Listar Contas";
 		String opcao = null;
 		do {
 			opcao = JOptionPane.showInputDialog(menu);
@@ -61,6 +63,9 @@ public class TelaBB {
 			case "8":
 				excluirConta();
 				break;
+			case "9":
+				listarContas();
+				break;
 			case "0":
 				try {
 					controle.manterContas();
@@ -88,19 +93,19 @@ public class TelaBB {
 		}
 	}
 
-	private String exibirContas() throws NenhumaContaCadastradaException {
-		List<Conta> contas = controle.recuperarContas();
+	private String exibirContas(List<StatusConta> status) throws NenhumaContaCadastradaException {
+		List<Conta> contas = controle.recuperarContas(status);
 		String contasStr = "";
 		for (Conta conta : contas) {
 			if (conta != null) {
-				contasStr = conta.toString();				
+				contasStr += conta.toString() + " " + conta.getStatusConta().getDescricao() + "\n";				
 			}
 		}
 		return contasStr;
 	}
 
 	private Conta recuperarConta() throws ContaNaoCadastradaException, NenhumaContaCadastradaException {
-		return controle.recuperarConta(Long.parseLong(JOptionPane.showInputDialog("ID da conta\n\n" + exibirContas())));
+		return controle.recuperarConta(Long.parseLong(JOptionPane.showInputDialog("ID da conta\n\n" + exibirContas(Arrays.asList(StatusConta.ATIVA)))));
 	}
 
 	private void criarConta() {
@@ -233,7 +238,16 @@ public class TelaBB {
 		}
 	}
 
-
+	private void listarContas() {
+		try {
+			List<StatusConta> listStatus = Arrays.asList(StatusConta.values());
+			
+			JOptionPane.showMessageDialog(null, exibirContas(listStatus));
+			
+		} catch (NenhumaContaCadastradaException e) {
+			e.printStackTrace();
+		}
+	}
 }
 
 
