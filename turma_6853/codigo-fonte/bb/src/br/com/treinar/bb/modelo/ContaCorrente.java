@@ -4,6 +4,7 @@ import br.com.treinar.bb.modelo.banco.Conta;
 import br.com.treinar.bb.modelo.banco.IPagavel;
 import br.com.treinar.bb.modelo.exception.SaldoInsuficienteException;
 import br.com.treinar.bb.modelo.exception.SaldoNaoDisponivelException;
+import br.com.treinar.bb.modelo.exception.ValorInvalidoException;
 
 public class ContaCorrente extends Conta implements IPagavel {
 
@@ -11,9 +12,9 @@ public class ContaCorrente extends Conta implements IPagavel {
 	private Double taxaManutencao;
 
 	@Override
-	public void sacar(Double valor) throws SaldoInsuficienteException {
+	public void sacar(Double valor) throws SaldoInsuficienteException, ValorInvalidoException {
 		Double novoSaldo = 0d;
-
+		validarValorSaque(valor);
 		if (valor <= getSaldo()) {
 			novoSaldo = getSaldo();
 			novoSaldo -= valor;
@@ -26,6 +27,12 @@ public class ContaCorrente extends Conta implements IPagavel {
 			SaldoInsuficienteException exception = new SaldoInsuficienteException();
 			exception.setSaldoDisponivel(getSaldo() + limiteCredito); 
 			throw exception;			
+		}
+	}
+
+	private void validarValorSaque(Double valor) throws ValorInvalidoException {
+		if (valor < 0) {
+			throw new ValorInvalidoException();
 		}
 	}
 
@@ -59,6 +66,8 @@ public class ContaCorrente extends Conta implements IPagavel {
 			sacar(taxaManutencao);
 		} catch (SaldoInsuficienteException e) {
 			this.setStatusConta(StatusConta.BLOQUEADA);
+		} catch (ValorInvalidoException e) {
+			//notifica gerente;
 		}
 	}
 

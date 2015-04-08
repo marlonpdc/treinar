@@ -13,6 +13,7 @@ import br.com.treinar.bb.modelo.ContaPoupanca;
 import br.com.treinar.bb.modelo.banco.Conta;
 import br.com.treinar.bb.modelo.exception.SaldoInsuficienteException;
 import br.com.treinar.bb.modelo.exception.SaldoNaoDisponivelException;
+import br.com.treinar.bb.modelo.exception.ValorInvalidoException;
 
 public class TelaBB {
 
@@ -166,6 +167,10 @@ public class TelaBB {
 			
 	private void sacar() {
 		Conta conta = recuperarConta();
+		sacar(conta);
+	}
+	
+	private void sacar(Conta conta) {
 		Double valor = Double.parseDouble(JOptionPane.showInputDialog("Valor"));
 		try {
 			controle.sacar(conta, valor );
@@ -173,9 +178,10 @@ public class TelaBB {
 		} catch (SaldoInsuficienteException e) {
 			e.printStackTrace();
 			JOptionPane.showMessageDialog(null, "Saldo insuficiente. Disponível: " + e.getSaldoDisponivel());
+		} catch (ValorInvalidoException e) {
+			JOptionPane.showMessageDialog(null, "Você digitou um valor inválido!");
+			sacar(conta);
 		}
-		
 	}
-	
 	
 }
