@@ -38,7 +38,8 @@ public class ContaCorrente extends Conta implements IPagavel {
 	}
 
 	@Override
-	public Double recuperarSaldo() throws SaldoNaoDisponivelException{
+	public Double recuperarSaldo() throws SaldoNaoDisponivelException {
+		//de acordo com a regra subir o exception
 		return getSaldo() + limiteCredito;
 	}
 
