@@ -1,4 +1,4 @@
-package br.com.treinar.bb.modelo;
+package br.com.treinar.bb.util;
 
 import java.io.BufferedWriter;
 import java.io.FileOutputStream;
@@ -7,6 +7,10 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.text.SimpleDateFormat;
 
+import br.com.treinar.bb.modelo.ContaCorrente;
+import br.com.treinar.bb.modelo.ContaInvestimento;
+import br.com.treinar.bb.modelo.ContaPoupanca;
+import br.com.treinar.bb.modelo.StatusConta;
 import br.com.treinar.bb.modelo.banco.Conta;
 import br.com.treinar.bb.modelo.banco.ICaptalizavel;
 import br.com.treinar.bb.modelo.banco.IPagavel;

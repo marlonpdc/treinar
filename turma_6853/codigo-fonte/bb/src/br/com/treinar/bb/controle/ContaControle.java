@@ -3,7 +3,6 @@ package br.com.treinar.bb.controle;
 
 import java.io.IOException;
 
-import br.com.treinar.bb.modelo.BBUtil;
 import br.com.treinar.bb.modelo.ContaPoupanca;
 import br.com.treinar.bb.modelo.banco.Conta;
 import br.com.treinar.bb.modelo.exception.ContaNaoCadastradaException;
@@ -12,6 +11,7 @@ import br.com.treinar.bb.modelo.exception.SaldoInsuficienteException;
 import br.com.treinar.bb.modelo.exception.SaldoNaoDisponivelException;
 import br.com.treinar.bb.modelo.exception.SemDisponibilidadeException;
 import br.com.treinar.bb.modelo.exception.ValorInvalidoException;
+import br.com.treinar.bb.util.BBUtil;
 
 public class ContaControle {
 
