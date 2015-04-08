@@ -2,6 +2,7 @@ package br.com.treinar.bb.controle;
 
 
 import java.io.IOException;
+import java.util.List;
 
 import br.com.treinar.bb.modelo.ContaPoupanca;
 import br.com.treinar.bb.modelo.banco.Conta;
@@ -41,7 +42,7 @@ public class ContaControle {
 		util.cobrarTarifa();
 	}
 
-	public Conta[] recuperarContas() throws NenhumaContaCadastradaException {
+	public List<Conta> recuperarContas() throws NenhumaContaCadastradaException {
 		return util.recuperarContas();
 	}
 
@@ -55,6 +56,10 @@ public class ContaControle {
 	
 	public void manterContas() throws IOException {
 		util.manterContas();
+	}
+
+	public void excluirConta(Conta c) {
+		util.excuirConta(c);
 	}
 
 }

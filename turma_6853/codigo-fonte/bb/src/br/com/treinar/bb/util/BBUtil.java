@@ -1,11 +1,17 @@
 package br.com.treinar.bb.util;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 import br.com.treinar.bb.modelo.ContaCorrente;
 import br.com.treinar.bb.modelo.ContaInvestimento;
@@ -22,14 +28,11 @@ import br.com.treinar.bb.modelo.exception.SemDisponibilidadeException;
 public class BBUtil {
 	
 	
-	private Conta[] contas;
-	private Integer index;
-
+	private List<Conta> contas;
 	private static BBUtil instance;
 	
 	private BBUtil() {
-		index = 0;
-		contas = new Conta[10];
+		contas = new ArrayList<Conta>();
 	}
 	
 	static {
@@ -40,22 +43,18 @@ public class BBUtil {
 		return instance;
 	}
 
-	public Conta[] getContas() {
+	public List<Conta> getContas() {
 		return contas;
 	}
 
-	public void setContas(Conta[] contas) {
+	public void setContas(List<Conta> contas) {
 		this.contas = contas;
 	}
 	
 	
 	public void adicionarConta(Conta c) throws SemDisponibilidadeException {
-		if (index < contas.length) {
-			c.setStatusConta(StatusConta.ATIVA);
-			this.contas[index++] = c;			
-		} else {
-			throw new SemDisponibilidadeException();
-		}
+		c.setStatusConta(StatusConta.ATIVA);
+		this.contas.add(c);
 	}
 	
 
@@ -97,22 +96,22 @@ public class BBUtil {
 		pagavel.pagar();
 	}
 	
-	public Conta[] recuperarContas() throws NenhumaContaCadastradaException {
-		Boolean possuiConta = Boolean.FALSE;
-		for (Conta conta : contas) {
-			if (conta != null) {
-				possuiConta = Boolean.TRUE;
-			}
-		}
-		if (!possuiConta) {
+	public List<Conta> recuperarContas() throws NenhumaContaCadastradaException {
+		List<Conta> contasTemp = new ArrayList<>();
+		if (contas.isEmpty()) {
 			throw new NenhumaContaCadastradaException();
 		}
-		return contas;
+		for (Conta conta : contasTemp) {
+			if (conta.getStatusConta().equals(StatusConta.ATIVA)) {
+				contasTemp.add(conta);
+			}
+		}
+		return contasTemp;
 	}
 	
 	public void manterContas() throws IOException {
 		
-		OutputStream os = new FileOutputStream("saida.txt", Boolean.TRUE);
+		OutputStream os = new FileOutputStream("saida.txt");
 		OutputStreamWriter osw = new OutputStreamWriter(os);
 		BufferedWriter bw = new BufferedWriter(osw);
 		
@@ -170,6 +169,25 @@ public class BBUtil {
 		bw.write(";");		
 		bw.write(conta.getTaxaRendimento().toString());
 		bw.write(";");		
+	}
+
+	public void carregarContas() throws IOException {
+		InputStream is = new FileInputStream("saida.txt");
+		InputStreamReader isr = new InputStreamReader(is);
+		BufferedReader br = new BufferedReader(isr);
+
+		String s = br.readLine(); // primeira linha
+
+		while (s != null) {
+			System.out.println(s);
+			s = br.readLine();
+		}
+
+		br.close();
+	}
+	
+	public void excuirConta(Conta c) {
+		c.setStatusConta(StatusConta.CANCELADA);
 	}
 
 }

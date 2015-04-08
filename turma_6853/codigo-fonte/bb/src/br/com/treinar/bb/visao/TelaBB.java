@@ -2,6 +2,7 @@ package br.com.treinar.bb.visao;
 
 import java.io.IOException;
 import java.util.Date;
+import java.util.List;
 
 import javax.swing.JOptionPane;
 
@@ -31,7 +32,7 @@ public class TelaBB {
 	public void iniciar() {
 		String menu = "Digite\n1 - Criar Conta\n2 - Definir Taxa Rendimento\n"
 				+ "3 - Exibir Saldo\n4 - Captalizar Contas\n5 - Cobrar Tarifa\n"
-				+ "6 - Depositar\n7 - Sacar";
+				+ "6 - Depositar\n7 - Sacar\n8 - Excluir Conta";
 		String opcao = null;
 		do {
 			opcao = JOptionPane.showInputDialog(menu);
@@ -56,6 +57,9 @@ public class TelaBB {
 				break;
 			case "7":
 				sacar();
+				break;
+			case "8":
+				excluirConta();
 				break;
 			case "0":
 				try {
@@ -85,7 +89,7 @@ public class TelaBB {
 	}
 
 	private String exibirContas() throws NenhumaContaCadastradaException {
-		Conta[] contas = controle.recuperarContas();
+		List<Conta> contas = controle.recuperarContas();
 		String contasStr = "";
 		for (Conta conta : contas) {
 			if (conta != null) {
@@ -215,6 +219,17 @@ public class TelaBB {
 			sacar(conta);
 		} catch (SaldoNaoDisponivelException e) {
 			JOptionPane.showMessageDialog(null, "SaldoNaoDisponivelException!");
+		}
+	}
+	
+	private void excluirConta() {
+		try {
+			Conta c = recuperarConta();
+			controle.excluirConta(c);
+		} catch (ContaNaoCadastradaException e) {
+			JOptionPane.showMessageDialog(null, "Conta Nao Cadastrada");
+		} catch (NenhumaContaCadastradaException e) {
+			JOptionPane.showMessageDialog(null, "Nenhuma Conta Cadastrada");			
 		}
 	}
 
