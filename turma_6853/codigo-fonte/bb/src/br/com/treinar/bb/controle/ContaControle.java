@@ -4,6 +4,7 @@ package br.com.treinar.bb.controle;
 import br.com.treinar.bb.modelo.BBUtil;
 import br.com.treinar.bb.modelo.ContaPoupanca;
 import br.com.treinar.bb.modelo.banco.Conta;
+import br.com.treinar.bb.modelo.exception.ContaNaoCadastradaException;
 import br.com.treinar.bb.modelo.exception.SaldoInsuficienteException;
 import br.com.treinar.bb.modelo.exception.ValorInvalidoException;
 import br.com.treinar.bb.modelo.exception.SaldoNaoDisponivelException;
@@ -24,7 +25,7 @@ public class ContaControle {
 		ContaPoupanca.setTaxaRendimento(novaTaxa);
 	}
 	
-	public Conta recuperarConta(Long id) {
+	public Conta recuperarConta(Long id) throws ContaNaoCadastradaException {
 		return BBUtil.getInstance().recuperarConta(id);
 	}
 
