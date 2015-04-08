@@ -8,6 +8,7 @@ public enum StatusConta {
 	BLOQUEADA("Bloqueada"),
 	CANCELADA("Cancelada");
 	
+	
 	private String descricao;
 	
 	private StatusConta(String descricao) {
