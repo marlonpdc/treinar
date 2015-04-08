@@ -36,7 +36,7 @@ public abstract class Conta {
 		saldo += valor;
 	}
 	
-	public abstract void sacar(Double valor) throws SaldoInsuficienteException, ValorInvalidoException;
+	public abstract void sacar(Double valor) throws SaldoInsuficienteException, ValorInvalidoException, SaldoNaoDisponivelException;
 	
 	public abstract Double recuperarSaldo() throws SaldoNaoDisponivelException;
 

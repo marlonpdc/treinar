@@ -5,6 +5,7 @@ import br.com.treinar.bb.modelo.BBUtil;
 import br.com.treinar.bb.modelo.ContaPoupanca;
 import br.com.treinar.bb.modelo.banco.Conta;
 import br.com.treinar.bb.modelo.exception.ContaNaoCadastradaException;
+import br.com.treinar.bb.modelo.exception.NenhumaContaCadastradaException;
 import br.com.treinar.bb.modelo.exception.SaldoInsuficienteException;
 import br.com.treinar.bb.modelo.exception.ValorInvalidoException;
 import br.com.treinar.bb.modelo.exception.SaldoNaoDisponivelException;
@@ -37,15 +38,15 @@ public class ContaControle {
 		util.cobrarTarifa();
 	}
 
-	public Conta[] recuperarContas() {
+	public Conta[] recuperarContas() throws NenhumaContaCadastradaException {
 		return util.recuperarContas();
 	}
 
-	public void depositar(Conta conta, Double valor) {
+	public void depositar(Conta conta, Double valor) throws ValorInvalidoException {
 		conta.depositar(valor);
 	}
 
-	public void sacar(Conta conta, Double valor) throws SaldoInsuficienteException, ValorInvalidoException {
+	public void sacar(Conta conta, Double valor) throws SaldoInsuficienteException, ValorInvalidoException, SaldoNaoDisponivelException {
 		conta.sacar(valor);
 	}
 
