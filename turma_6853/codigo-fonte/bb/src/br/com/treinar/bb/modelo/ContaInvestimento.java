@@ -4,6 +4,7 @@ import br.com.treinar.bb.modelo.banco.Conta;
 import br.com.treinar.bb.modelo.banco.ICaptalizavel;
 import br.com.treinar.bb.modelo.banco.IPagavel;
 import br.com.treinar.bb.modelo.exception.SaldoNaoDisponivelException;
+import br.com.treinar.bb.modelo.exception.ValorInvalidoException;
 
 public class ContaInvestimento extends Conta implements IPagavel, ICaptalizavel {
 
@@ -40,7 +41,11 @@ public class ContaInvestimento extends Conta implements IPagavel, ICaptalizavel 
 
 	@Override
 	public void captalizar() {
-		depositar(getSaldo() * taxaRendimento);
+		try {
+			depositar(getSaldo() * taxaRendimento);
+		} catch (ValorInvalidoException e) {
+			//erro ao captalizar
+		}
 	}
 
 	@Override

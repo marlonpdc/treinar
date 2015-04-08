@@ -12,6 +12,7 @@ import br.com.treinar.bb.modelo.ContaInvestimento;
 import br.com.treinar.bb.modelo.ContaPoupanca;
 import br.com.treinar.bb.modelo.banco.Conta;
 import br.com.treinar.bb.modelo.exception.ContaNaoCadastradaException;
+import br.com.treinar.bb.modelo.exception.NenhumaContaCadastradaException;
 import br.com.treinar.bb.modelo.exception.SaldoInsuficienteException;
 import br.com.treinar.bb.modelo.exception.SaldoNaoDisponivelException;
 import br.com.treinar.bb.modelo.exception.ValorInvalidoException;
@@ -20,15 +21,15 @@ public class TelaBB {
 
 	private ContaControle controle;
 	//teste
-	
+
 	public TelaBB() {
 		controle = new ContaControle();
 	}
-	
+
 	public void iniciar() {
 		String menu = "Digite\n1 - Criar Conta\n2 - Definir Taxa Rendimento\n"
-					+ "3 - Exibir Saldo\n4 - Captalizar Contas\n5 - Cobrar Tarifa\n"
-					+ "6 - Depositar\n7 - Sacar";
+				+ "3 - Exibir Saldo\n4 - Captalizar Contas\n5 - Cobrar Tarifa\n"
+				+ "6 - Depositar\n7 - Sacar";
 		String opcao = null;
 		do {
 			opcao = JOptionPane.showInputDialog(menu);
@@ -69,10 +70,12 @@ public class TelaBB {
 			JOptionPane.showMessageDialog(null, "Conta não cadastrada");
 		} catch (SaldoNaoDisponivelException e) {
 			JOptionPane.showConfirmDialog(null, "SaldoNaoDisponivelException");
+		} catch (NenhumaContaCadastradaException e) {
+			JOptionPane.showMessageDialog(null, "Nenhuma conata cadastrada");
 		}
 	}
 
-	private String exibirContas() {
+	private String exibirContas() throws NenhumaContaCadastradaException {
 		Conta[] contas = controle.recuperarContas();
 		String contasStr = "";
 		for (Conta conta : contas) {
@@ -82,16 +85,16 @@ public class TelaBB {
 		}
 		return contasStr;
 	}
-	
-	private Conta recuperarConta() throws ContaNaoCadastradaException {
+
+	private Conta recuperarConta() throws ContaNaoCadastradaException, NenhumaContaCadastradaException {
 		return controle.recuperarConta(Long.parseLong(JOptionPane.showInputDialog("ID da conta\n\n" + exibirContas())));
 	}
 
 	private void criarConta() {
-		
+
 		Integer tipoConta = Integer.parseInt(JOptionPane.showInputDialog("1 - Corrente\n"
-																	   + "2 - Poupança\n"
-																	   + "3 - Investimento\n"));
+				+ "2 - Poupança\n"
+				+ "3 - Investimento\n"));
 		Conta c = null;
 		switch (tipoConta) {
 		case 1:
@@ -103,13 +106,13 @@ public class TelaBB {
 			c = new ContaPoupanca();
 			criarContaPadrao(c);
 			concluirCriacaoContaPoupanca((ContaPoupanca)c);
-			
+
 			break;
 		case 3:
 			c = new ContaInvestimento();
 			criarContaPadrao(c);
 			concluirCriacaoContaInvestimento((ContaInvestimento)c);
-			
+
 			break;
 
 		default:
@@ -150,11 +153,11 @@ public class TelaBB {
 		Double novaTaxa = Double.parseDouble(JOptionPane.showInputDialog("Nova taxa de rendimento"));
 		controle.editarTaxaRendimento(novaTaxa);
 	}
-	
+
 	private void captalizar() {
 		controle.captalizarContas();		
 	}
-	
+
 	private void cobrarTarifa() {
 		controle.cobrarTarifa();		
 	}
@@ -166,18 +169,24 @@ public class TelaBB {
 			controle.depositar(conta, valor );
 		} catch (ContaNaoCadastradaException e) {
 			JOptionPane.showMessageDialog(null, "Conta nao cadastrada");
+		} catch (NenhumaContaCadastradaException e) {
+			JOptionPane.showMessageDialog(null, "Nenhuma conata cadastrada");
+		} catch (ValorInvalidoException e) {
+			JOptionPane.showMessageDialog(null, "Valor Invalido");
 		}
 	}
-			
+
 	private void sacar() {
 		try {
 			Conta conta = recuperarConta();
 			sacar(conta);
 		} catch (ContaNaoCadastradaException e) {
 			JOptionPane.showMessageDialog(null, "Conta nao cadastrada");
+		} catch (NenhumaContaCadastradaException e) {
+			JOptionPane.showMessageDialog(null, "Nenhuma conta cadastrada");;
 		}
 	}
-	
+
 	private void sacar(Conta conta) {
 		Double valor = Double.parseDouble(JOptionPane.showInputDialog("Valor"));
 		try {
@@ -189,10 +198,12 @@ public class TelaBB {
 		} catch (ValorInvalidoException e) {
 			JOptionPane.showMessageDialog(null, "Você digitou um valor inválido!");
 			sacar(conta);
+		} catch (SaldoNaoDisponivelException e) {
+			JOptionPane.showMessageDialog(null, "SaldoNaoDisponivelException!");
 		}
 	}
-	
-	
+
+
 }
 
 

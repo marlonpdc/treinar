@@ -82,6 +82,15 @@ public class BBUtil {
 	}
 	
 	public Conta[] recuperarContas() throws NenhumaContaCadastradaException {
+		Boolean possuiConta = Boolean.FALSE;
+		for (Conta conta : contas) {
+			if (conta != null) {
+				possuiConta = Boolean.TRUE;
+			}
+		}
+		if (!possuiConta) {
+			throw new NenhumaContaCadastradaException();
+		}
 		return contas;
 	}
 

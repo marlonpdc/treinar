@@ -3,6 +3,7 @@ package br.com.treinar.bb.modelo;
 import br.com.treinar.bb.modelo.banco.Conta;
 import br.com.treinar.bb.modelo.banco.ICaptalizavel;
 import br.com.treinar.bb.modelo.exception.SaldoNaoDisponivelException;
+import br.com.treinar.bb.modelo.exception.ValorInvalidoException;
 
 public class ContaPoupanca extends Conta implements ICaptalizavel {
 
@@ -39,6 +40,10 @@ public class ContaPoupanca extends Conta implements ICaptalizavel {
 
 	@Override
 	public void captalizar() {
-		depositar(getSaldo() * taxaRendimento);
+		try {
+			depositar(getSaldo() * taxaRendimento);
+		} catch (ValorInvalidoException e) {
+			//tratamento de excecao;
+		}
 	}
 }
