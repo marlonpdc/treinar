@@ -1,5 +1,12 @@
 package br.com.treinar.bb.modelo;
 
+import java.io.BufferedWriter;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.text.SimpleDateFormat;
+
 import br.com.treinar.bb.modelo.banco.Conta;
 import br.com.treinar.bb.modelo.banco.ICaptalizavel;
 import br.com.treinar.bb.modelo.banco.IPagavel;
@@ -97,6 +104,68 @@ public class BBUtil {
 			throw new NenhumaContaCadastradaException();
 		}
 		return contas;
+	}
+	
+	public void manterContas() throws IOException {
+		
+		OutputStream os = new FileOutputStream("saida.txt", Boolean.TRUE);
+		OutputStreamWriter osw = new OutputStreamWriter(os);
+		BufferedWriter bw = new BufferedWriter(osw);
+		
+		for (Conta conta : contas) {
+			if (conta != null) {
+				gravarConta(conta, bw);
+				if (conta instanceof ContaCorrente) {
+					gravarConta((ContaCorrente)conta, bw);
+				} else if (conta instanceof ContaPoupanca) {
+					gravarConta((ContaPoupanca)conta, bw);				
+				} else if (conta instanceof ContaInvestimento) {
+					gravarConta((ContaInvestimento)conta, bw);								
+				}
+				bw.newLine();
+			}
+		}
+
+		bw.close();
+		
+	}
+
+	private void gravarConta(Conta conta, BufferedWriter bw) throws IOException {
+		bw.write(conta.getClass().getSimpleName());
+		bw.write(";");
+		bw.write(conta.getId().toString());
+		bw.write(";");
+		bw.write(new SimpleDateFormat("dd/MM/yyyy").format(conta.getDataAbertura()));
+		bw.write(";");
+		bw.write(Integer.valueOf(conta.getStatusConta().ordinal()).toString());
+		bw.write(";");
+		bw.write(conta.getCliente().getId().toString());
+		bw.write(";");
+		bw.write(conta.getCliente().getNome());
+		bw.write(";");
+		bw.write(conta.getCliente().getCpf().toString());
+		bw.write(";");
+	}
+	
+	private void gravarConta(ContaCorrente conta, BufferedWriter bw) throws IOException {
+		bw.write(conta.getLimiteCredito().toString());
+		bw.write(";");
+		bw.write(conta.getTaxaManutencao().toString());
+		bw.write(";");
+	}
+	
+	private void gravarConta(ContaPoupanca conta, BufferedWriter bw) throws IOException {		
+		bw.write(conta.getDiaBase());
+		bw.write(";");
+		bw.write(ContaPoupanca.getTaxaRendimento().toString());
+		bw.write(";");
+	}
+	
+	private void gravarConta(ContaInvestimento conta, BufferedWriter bw) throws IOException {
+		bw.write(conta.getTaxaManutencao().toString());
+		bw.write(";");		
+		bw.write(conta.getTaxaRendimento().toString());
+		bw.write(";");		
 	}
 
 }

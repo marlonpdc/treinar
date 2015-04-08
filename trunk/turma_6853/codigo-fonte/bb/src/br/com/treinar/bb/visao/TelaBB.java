@@ -1,5 +1,6 @@
 package br.com.treinar.bb.visao;
 
+import java.io.IOException;
 import java.util.Date;
 
 import javax.swing.JOptionPane;
@@ -55,6 +56,13 @@ public class TelaBB {
 				break;
 			case "7":
 				sacar();
+				break;
+			case "0":
+				try {
+					controle.manterContas();
+				} catch (IOException e) {
+					JOptionPane.showMessageDialog(null, "Erro ao manter contas");
+				};
 				break;
 
 			default:

@@ -1,6 +1,8 @@
 package br.com.treinar.bb.controle;
 
 
+import java.io.IOException;
+
 import br.com.treinar.bb.modelo.BBUtil;
 import br.com.treinar.bb.modelo.ContaPoupanca;
 import br.com.treinar.bb.modelo.banco.Conta;
@@ -49,6 +51,10 @@ public class ContaControle {
 
 	public void sacar(Conta conta, Double valor) throws SaldoInsuficienteException, ValorInvalidoException, SaldoNaoDisponivelException {
 		conta.sacar(valor);
+	}
+	
+	public void manterContas() throws IOException {
+		util.manterContas();
 	}
 
 }

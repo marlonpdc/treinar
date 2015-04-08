@@ -10,6 +10,10 @@ public class ContaPoupanca extends Conta implements ICaptalizavel {
 	private static Double taxaRendimento;
 	private Integer diaBase;
 
+	static {
+		taxaRendimento = 0d;
+	}
+	
 	public static Double getTaxaRendimento() {
 		return taxaRendimento;
 	}
