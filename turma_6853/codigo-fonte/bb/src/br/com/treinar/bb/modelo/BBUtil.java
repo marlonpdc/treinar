@@ -5,6 +5,8 @@ import br.com.treinar.bb.modelo.banco.ICaptalizavel;
 import br.com.treinar.bb.modelo.banco.IPagavel;
 import br.com.treinar.bb.modelo.exception.ContaNaoCadastradaException;
 import br.com.treinar.bb.modelo.exception.NenhumaContaCadastradaException;
+import br.com.treinar.bb.modelo.exception.SemDisponibilidadeException;
+
 
 public class BBUtil {
 	
@@ -40,8 +42,11 @@ public class BBUtil {
 		if (index < contas.length) {
 			c.setStatusConta(StatusConta.ATIVA);
 			this.contas[index++] = c;			
+		} else{
+			throw new SemDisponibilidadeException();
 		}
 	}
+	
 
 	public Conta recuperarConta(Long id) throws ContaNaoCadastradaException {
 		Conta c = null;
