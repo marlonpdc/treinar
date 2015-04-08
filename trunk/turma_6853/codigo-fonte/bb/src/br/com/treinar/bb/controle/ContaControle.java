@@ -1,12 +1,15 @@
 package br.com.treinar.bb.controle;
 
 
+import javax.swing.JOptionPane;
+
 import br.com.treinar.bb.modelo.BBUtil;
 import br.com.treinar.bb.modelo.ContaPoupanca;
 import br.com.treinar.bb.modelo.banco.Conta;
 import br.com.treinar.bb.modelo.exception.ContaNaoCadastradaException;
 import br.com.treinar.bb.modelo.exception.NenhumaContaCadastradaException;
 import br.com.treinar.bb.modelo.exception.SaldoInsuficienteException;
+import br.com.treinar.bb.modelo.exception.SemDisponibilidadeException;
 import br.com.treinar.bb.modelo.exception.ValorInvalidoException;
 import br.com.treinar.bb.modelo.exception.SaldoNaoDisponivelException;
 
@@ -18,8 +21,8 @@ public class ContaControle {
 		util = BBUtil.getInstance();
 	}
 	
-	public void adicionarConta(Conta conta) {
-		util.adicionarConta(conta);
+	public void adicionarConta(Conta conta) throws SemDisponibilidadeException {
+			util.adicionarConta(conta);
 	}
 
 	public void editarTaxaRendimento(Double novaTaxa) {

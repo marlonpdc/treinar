@@ -1,6 +1,5 @@
 package br.com.treinar.bb.visao;
 
-import java.awt.HeadlessException;
 import java.util.Date;
 
 import javax.swing.JOptionPane;
@@ -15,7 +14,9 @@ import br.com.treinar.bb.modelo.exception.ContaNaoCadastradaException;
 import br.com.treinar.bb.modelo.exception.NenhumaContaCadastradaException;
 import br.com.treinar.bb.modelo.exception.SaldoInsuficienteException;
 import br.com.treinar.bb.modelo.exception.SaldoNaoDisponivelException;
+import br.com.treinar.bb.modelo.exception.SemDisponibilidadeException;
 import br.com.treinar.bb.modelo.exception.ValorInvalidoException;
+
 
 public class TelaBB {
 
@@ -119,8 +120,14 @@ public class TelaBB {
 			break;
 		}
 		if (c != null) {
-			controle.adicionarConta(c);
+			try {
+				controle.adicionarConta(c);
+			} catch (SemDisponibilidadeException e) {
+				e.printStackTrace();
+				JOptionPane.showMessageDialog(null,"Sem disponibilidade de criação de conta");
+			}
 		}
+		
 	}
 
 	private void concluirCriacaoContaInvestimento(ContaInvestimento c) {
