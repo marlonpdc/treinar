@@ -19,4 +19,12 @@ public enum StatusConta {
 		return descricao;
 	}
 	
+	public static StatusConta recuperarPorOrdinal(Integer ordinal) {
+		try {
+			return StatusConta.values()[ordinal];
+		} catch (ArrayIndexOutOfBoundsException e) {
+			throw new IllegalArgumentException();
+		}
+	}
+	
 }

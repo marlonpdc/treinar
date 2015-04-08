@@ -9,10 +9,12 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.treinar.bb.modelo.Cliente;
 import br.com.treinar.bb.modelo.ContaCorrente;
 import br.com.treinar.bb.modelo.ContaInvestimento;
 import br.com.treinar.bb.modelo.ContaPoupanca;
@@ -96,13 +98,13 @@ public class BBUtil {
 		pagavel.pagar();
 	}
 	
-	public List<Conta> recuperarContas() throws NenhumaContaCadastradaException {
+	public List<Conta> recuperarContas(List<StatusConta> status) throws NenhumaContaCadastradaException {
 		List<Conta> contasTemp = new ArrayList<>();
 		if (contas.isEmpty()) {
 			throw new NenhumaContaCadastradaException();
 		}
-		for (Conta conta : contasTemp) {
-			if (conta.getStatusConta().equals(StatusConta.ATIVA)) {
+		for (Conta conta : contas) {
+			if (status.contains(conta.getStatusConta())) {
 				contasTemp.add(conta);
 			}
 		}
@@ -171,19 +173,71 @@ public class BBUtil {
 		bw.write(";");		
 	}
 
-	public void carregarContas() throws IOException {
+	public void carregarContas() throws IOException, ParseException {
 		InputStream is = new FileInputStream("saida.txt");
 		InputStreamReader isr = new InputStreamReader(is);
 		BufferedReader br = new BufferedReader(isr);
 
-		String s = br.readLine(); // primeira linha
-
+		String s = br.readLine(); // primeira conta
 		while (s != null) {
-			System.out.println(s);
+			incluirConta(s);
 			s = br.readLine();
 		}
 
 		br.close();
+	}
+	
+	private void incluirConta(String contaStr) throws ParseException {
+		
+		String[] campos = contaStr.split(";");
+		
+		Conta c = null;
+		
+		switch (campos[0]) {
+		case "ContaCorrente":
+			c = new ContaCorrente();
+			preencherItensConta((ContaCorrente)c, campos);
+			break;
+		case "ContaPoupanca":
+			c = new ContaPoupanca();
+			preencherItensConta((ContaPoupanca)c, campos);
+			break;
+		case "ContaInvestimento":
+			c = new ContaInvestimento();
+			preencherItensConta((ContaInvestimento)c, campos);
+			break;
+
+		default:
+			break;
+		}
+		preencherItensConta(c, campos);
+		contas.add(c);
+		
+	}
+	
+	private void preencherItensConta(Conta c, String[] campos) throws ParseException {
+		c.setId(Long.parseLong(campos[1]));
+		c.setDataAbertura(new SimpleDateFormat("dd/MM/yyyy").parse(campos[2]));
+		c.setStatusConta(StatusConta.recuperarPorOrdinal(Integer.parseInt(campos[3])));
+		c.setCliente(new Cliente());
+		c.getCliente().setId(Long.parseLong(campos[4]));
+		c.getCliente().setNome(campos[5]);
+		c.getCliente().setCpf(Long.parseLong(campos[6]));
+	}
+
+	private void preencherItensConta(ContaCorrente c, String[] campos) {
+		c.setLimiteCredito(Double.parseDouble(campos[7]));
+		c.setTaxaManutencao(Double.parseDouble(campos[8]));
+	}
+	
+	private void preencherItensConta(ContaPoupanca c, String[] campos) {
+		c.setDiaBase(Integer.parseInt(campos[7]));
+		ContaPoupanca.setTaxaRendimento(Double.parseDouble(campos[8]));
+	}
+	
+	private void preencherItensConta(ContaInvestimento c, String[] campos) {
+		c.setTaxaManutencao(Double.parseDouble(campos[7]));
+		c.setTaxaRendimento(Double.parseDouble(campos[8]));
 	}
 	
 	public void excuirConta(Conta c) {

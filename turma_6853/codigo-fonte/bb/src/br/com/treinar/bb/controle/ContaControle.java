@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.List;
 
 import br.com.treinar.bb.modelo.ContaPoupanca;
+import br.com.treinar.bb.modelo.StatusConta;
 import br.com.treinar.bb.modelo.banco.Conta;
 import br.com.treinar.bb.modelo.exception.ContaNaoCadastradaException;
 import br.com.treinar.bb.modelo.exception.NenhumaContaCadastradaException;
@@ -42,8 +43,8 @@ public class ContaControle {
 		util.cobrarTarifa();
 	}
 
-	public List<Conta> recuperarContas() throws NenhumaContaCadastradaException {
-		return util.recuperarContas();
+	public List<Conta> recuperarContas(List<StatusConta> status) throws NenhumaContaCadastradaException {
+		return util.recuperarContas(status);
 	}
 
 	public void depositar(Conta conta, Double valor) throws ValorInvalidoException {
