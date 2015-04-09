@@ -10,9 +10,9 @@ public class LerBufferedReader {
 
 	public static void main(String[] args) throws IOException {
 		
-		InputStream is = new FileInputStream("arquivo.txt");
-		InputStreamReader isr = new InputStreamReader(is);
-		BufferedReader br = new BufferedReader(isr);
+		InputStream is = new FileInputStream("arquivo.txt"); // ler arquivo em forma de bits
+		InputStreamReader isr = new InputStreamReader(is);// transforma os bits em char
+		BufferedReader br = new BufferedReader(isr);// transforma os char em linha, ou seja, quebra as linhas.
 
 		String s = br.readLine(); // primeira linha
 
