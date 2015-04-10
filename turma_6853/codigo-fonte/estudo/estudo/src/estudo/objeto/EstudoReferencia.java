@@ -21,6 +21,14 @@ public class EstudoReferencia {
 		p3.setNome("Maria Sophia");
 		
 		System.out.println(p1.getNome());
+		
+		try {
+			Pessoa p = (Pessoa) Class.forName("estudo.objeto.Pessoa").newInstance();
+			System.out.println(p);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 
 	}
 	
