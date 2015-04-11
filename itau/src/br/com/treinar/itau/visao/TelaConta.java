@@ -4,7 +4,10 @@ import java.util.Date;
 
 import javax.swing.JOptionPane;
 
+import br.com.treinar.itau.controle.ControleFactory;
+import br.com.treinar.itau.controle.IControle;
 import br.com.treinar.itau.controle.ItauControleArray;
+import br.com.treinar.itau.controle.ItauControleJDBC;
 import br.com.treinar.itau.exception.ContaNaoCadastradaException;
 import br.com.treinar.itau.exception.SaldoInsuficienteException;
 import br.com.treinar.itau.modelo.ContaCorrente;
@@ -12,13 +15,19 @@ import br.com.treinar.itau.modelo.ContaPoupanca;
 import br.com.treinar.itau.modelo.ContaSalario;
 import br.com.treinar.itau.modelo.principal.Conta;
 import br.com.treinar.itau.modelo.principal.Pessoa;
+import br.com.treinar.itau.util.ItauConstante;
 
 public class TelaConta {
 
-	private ItauControleArray controle;
+	private IControle controle;
 
 	public TelaConta() {
-		controle = new ItauControleArray();
+		try {
+			controle = ControleFactory.getControle(ItauConstante.ESTRATEGIA_PERSISTENCIA_ARRAY);
+		} catch (ClassNotFoundException e) {
+			//estratégia de persistência default
+			controle = new ItauControleArray();
+		}
 	}
 
 	public void menuBanco() {
