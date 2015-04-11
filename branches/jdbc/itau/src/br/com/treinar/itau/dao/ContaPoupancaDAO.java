@@ -1,11 +1,16 @@
 package br.com.treinar.itau.dao;
 
+import java.sql.Connection;
 import java.util.List;
 
 import br.com.treinar.itau.modelo.ContaPoupanca;
 
 public class ContaPoupancaDAO extends GenericDAO<ContaPoupanca, Long> {
 
+	public ContaPoupancaDAO(Connection connection) {
+		super(connection);
+	}
+	
 	@Override
 	public ContaPoupanca recuperar(Long id) {
 		// TODO Auto-generated method stub

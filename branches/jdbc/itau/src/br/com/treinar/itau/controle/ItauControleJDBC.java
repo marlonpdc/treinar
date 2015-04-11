@@ -4,11 +4,11 @@ import br.com.treinar.itau.exception.ContaNaoCadastradaException;
 import br.com.treinar.itau.modelo.principal.Conta;
 import br.com.treinar.itau.util.ItauUtil;
 
-public class ItauControle {
+public class ItauControleJDBC {
 
 	private ItauUtil dataBase = ItauUtil.getInstance();
 
-	public ItauControle() {
+	public ItauControleJDBC() {
 		dataBase.carregarContas();
 	}
 	

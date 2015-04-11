@@ -23,7 +23,7 @@ import br.com.treinar.itau.modelo.ContaSalario;
 import br.com.treinar.itau.modelo.principal.Conta;
 import br.com.treinar.itau.modelo.principal.Pessoa;
 
-public class ItauUtil extends Object {
+public class ItauUtil {
 
 	private static ItauUtil instance;
 	private DateFormat formatadorData;
@@ -155,9 +155,9 @@ public class ItauUtil extends Object {
 	}
 
 	private void preencherDadosConta(ContaCorrente c, BufferedWriter bw) throws IOException {
-		bw.write(c.tarifa.toString());
+		bw.write(c.getTarifa().toString());
 		bw.write(";");
-		bw.write(c.limiteCredito.toString());
+		bw.write(c.getLimiteCredito().toString());
 		bw.write(";");
 	}
 	
@@ -231,8 +231,8 @@ public class ItauUtil extends Object {
 	
 	private void criarConta(ContaCorrente c, String[] campos) {
 		criarConta((Conta)c, campos);
-		c.tarifa = Double.valueOf(campos[3]);
-		c.limiteCredito = Double.parseDouble(campos[4]);
+		c.setTarifa(Double.valueOf(campos[3]));
+		c.setLimiteCredito(Double.parseDouble(campos[4]));
 	}
 	private void criarConta(ContaPoupanca c, String[] campos) {
 		criarConta((Conta)c, campos);

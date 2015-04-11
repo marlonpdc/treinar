@@ -1,11 +1,16 @@
 package br.com.treinar.itau.dao;
 
+import java.sql.Connection;
 import java.util.List;
 
 import br.com.treinar.itau.modelo.ContaSalario;
 
 public class ContaSalarioDAO extends GenericDAO<ContaSalario, Long> {
 
+	public ContaSalarioDAO(Connection connection) {
+		super(connection);
+	}
+	
 	@Override
 	public ContaSalario recuperar(Long id) {
 		// TODO Auto-generated method stub
