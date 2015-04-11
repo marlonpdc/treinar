@@ -15,7 +15,7 @@ public class ContaCorrente extends Conta implements ITributavel {
 	
 	@Override
 	public Double recuperarSaldo() {
-		return saldo + limiteCredito;
+		return getSaldo() + limiteCredito;
 	}
 
 	@Override
@@ -23,7 +23,7 @@ public class ContaCorrente extends Conta implements ITributavel {
 		try {
 			sacar(tarifa, Boolean.TRUE);
 		} catch (SaldoInsuficienteException e) {
-			System.out.println("Enviar boleto para: " + this.pessoa.nome);
+			System.out.println("Enviar boleto para: " + this.getPessoa().getClass());
 		}
 	}
 

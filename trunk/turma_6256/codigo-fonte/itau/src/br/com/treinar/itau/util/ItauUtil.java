@@ -60,7 +60,7 @@ public class ItauUtil extends Object {
 	public Conta recuperar(Integer numeroConta) throws ContaNaoCadastradaException {
 		Conta conta = null;
 		for (int i = 0; i < contas.length; i++) {
-			if (contas[i] != null && contas[i].numeroConta.equals(numeroConta)) {
+			if (contas[i] != null && contas[i].getNumeroConta().equals(numeroConta)) {
 				conta = contas[i];
 				break;
 			}
@@ -148,9 +148,9 @@ public class ItauUtil extends Object {
 	private void preencherDadosConta(Conta c, BufferedWriter bw) throws IOException {
 		bw.write(c.getClass().getSimpleName());
 		bw.write(";");
-		bw.write(c.numeroConta.toString());
+		bw.write(c.getNumeroConta().toString());
 		bw.write(";");
-		bw.write(c.pessoa.nome);
+		bw.write(c.getPessoa().getNome());
 		bw.write(";");
 	}
 
@@ -225,8 +225,8 @@ public class ItauUtil extends Object {
 	}
 
 	private void criarConta(Conta c, String[] campos) {
-		c.pessoa = new Pessoa();
-		c.pessoa.nome = campos[2];
+		c.setPessoa(new Pessoa());
+		c.getPessoa().setNome(campos[2]);
 	}
 	
 	private void criarConta(ContaCorrente c, String[] campos) {
