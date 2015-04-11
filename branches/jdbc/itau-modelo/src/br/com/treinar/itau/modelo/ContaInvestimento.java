@@ -8,6 +8,8 @@ import br.com.treinar.itau.modelo.principal.IInvestimento;
 
 public class ContaInvestimento extends Conta implements IInvestimento {
 
+	private static final long serialVersionUID = -6867238648684745467L;
+	
 	public Double tarifa;
 	public Integer fatorCaptalizacao;
 	private Date dataInicioInvestimento;

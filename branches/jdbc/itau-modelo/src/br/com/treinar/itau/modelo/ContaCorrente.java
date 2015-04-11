@@ -6,6 +6,8 @@ import br.com.treinar.itau.modelo.principal.ITributavel;
 
 public class ContaCorrente extends Conta implements ITributavel {
 	
+	private static final long serialVersionUID = -1290654324512497233L;
+
 	public ContaCorrente(Integer numeroConta) {
 		super(numeroConta);
 	}

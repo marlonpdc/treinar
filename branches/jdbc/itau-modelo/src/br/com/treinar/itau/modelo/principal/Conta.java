@@ -4,9 +4,10 @@ import java.util.Date;
 
 import br.com.treinar.itau.exception.SaldoInsuficienteException;
 
-public abstract class Conta {
+public abstract class Conta extends BaseEntity<Long> {
 
-	private Integer numeroConta;
+	private static final long serialVersionUID = -474929011052771298L;	private Integer numeroConta;
+
 	private Double saldo;
 	private Pessoa pessoa;
 

@@ -5,6 +5,8 @@ import br.com.treinar.itau.modelo.principal.ICaptalizavel;
 
 public class ContaPoupanca extends Conta implements ICaptalizavel {
 
+	private static final long serialVersionUID = -8088163426902591143L;
+	
 	public static Float taxaRendimento;
 	public Integer diaBaseDeposito;
 
