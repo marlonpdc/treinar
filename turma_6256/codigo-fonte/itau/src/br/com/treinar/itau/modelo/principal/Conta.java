@@ -9,18 +9,11 @@ public abstract class Conta {
 	private Integer numeroConta;
 	private Double saldo;
 	private Pessoa pessoa;
-	private static final Integer horaAbertura;
-	private static final Integer horaFechamento;
 
 	public Conta(Integer numeroConta) {
 		this();
 		this.pessoa = new Pessoa();
 		this.numeroConta = numeroConta;
-	}
-
-	static {
-		horaAbertura = 10;
-		horaFechamento = 16;
 	}
 
 	public Conta() {
@@ -101,14 +94,6 @@ public abstract class Conta {
 
 	public void setPessoa(Pessoa pessoa) {
 		this.pessoa = pessoa;
-	}
-
-	public static Integer getHoraabertura() {
-		return horaAbertura;
-	}
-
-	public static Integer getHorafechamento() {
-		return horaFechamento;
 	}
 
 	@Override
