@@ -26,12 +26,12 @@ public class ContaPoupanca extends Conta implements ICaptalizavel {
 	
 	@Override
 	public Double recuperarSaldo() {
-		return saldo;
+		return getSaldo();
 	}
 
 	@Override
 	public void captalizar() {
-		depositar(saldo * (taxaRendimento / 100));
+		depositar(getSaldo() * (taxaRendimento / 100));
 	}
 
 }

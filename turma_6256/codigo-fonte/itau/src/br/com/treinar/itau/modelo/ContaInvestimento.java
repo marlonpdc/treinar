@@ -18,7 +18,7 @@ public class ContaInvestimento extends Conta implements IInvestimento {
 
 	@Override
 	public Double recuperarSaldo() {
-		return saldo;
+		return getSaldo();
 	}
 
 	@Override
@@ -26,13 +26,13 @@ public class ContaInvestimento extends Conta implements IInvestimento {
 		try {
 			sacar(tarifa, Boolean.TRUE);
 		} catch (SaldoInsuficienteException e) {
-			System.out.println("Enviar boleto para: " + this.pessoa.nome);
+			System.out.println("Enviar boleto para: " + this.getPessoa().getNome());
 		}
 	}
 
 	@Override
 	public void captalizar() {
-		depositar(saldo * (fatorCaptalizacao / 100));
+		depositar(getSaldo() * (fatorCaptalizacao / 100));
 	}
 
 	@Override

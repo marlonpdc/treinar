@@ -74,7 +74,7 @@ public class TelaConta {
 		String contasStr = "";
 		for (Conta conta : contas) {
 			if (conta != null) {
-				contasStr += conta.numeroConta + " " + conta.pessoa.nome + " " + conta.recuperarSaldo() + "\n";
+				contasStr += conta.getNumeroConta() + " " + conta.getPessoa().getNome() + " " + conta.recuperarSaldo() + "\n";
 			}
 		}
 		JOptionPane.showMessageDialog(null, contasStr);
@@ -166,9 +166,9 @@ public class TelaConta {
 	}
 
 	private void cadastrarContaPadrao(Conta conta) {
-		conta.pessoa = new Pessoa();
-		conta.pessoa.nome = JOptionPane.showInputDialog("Nome do cliente");
-		conta.pessoa.cpf = Long.parseLong(JOptionPane.showInputDialog("CPF do cliente"));
+		conta.setPessoa(new Pessoa());
+		conta.getPessoa().setNome(JOptionPane.showInputDialog("Nome do cliente"));
+		conta.getPessoa().setCpf(Long.parseLong(JOptionPane.showInputDialog("CPF do cliente")));
 	}
 
 	private void concluirCadastroContaSalario(ContaSalario cs) {

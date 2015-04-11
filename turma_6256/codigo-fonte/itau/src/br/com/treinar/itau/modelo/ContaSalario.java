@@ -14,6 +14,6 @@ public class ContaSalario extends Conta {
 	
 	@Override
 	public Double recuperarSaldo() {
-		return saldo;
+		return getSaldo();
 	}
 }
