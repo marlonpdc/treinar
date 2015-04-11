@@ -1,1 +1,5 @@
-ContaCorrente;101;teste
+19.0;
+ContaCorrente;1;Conta Corrente;1.0;1.0;
+ContaPoupanca;2;Conta Poupanca;2;
+ContaSalario;3;Conta Salario;09/12/1988;
+ContaInvestimento;3;Conta Investimento;1.0;5;09/12/1988;
