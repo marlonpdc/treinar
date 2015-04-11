@@ -10,7 +10,7 @@ public class ConnectionFactory {
 
 	public static Connection getConnection() {
         try {
-            return DriverManager.getConnection(DatabaseMetainfo.urlConexao, DatabaseMetainfo.usuario, DatabaseMetainfo.senha);
+            return DriverManager.getConnection(DatabaseMetainfo.URL_CONEXAO, DatabaseMetainfo.USUARIO, DatabaseMetainfo.SENHA);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
