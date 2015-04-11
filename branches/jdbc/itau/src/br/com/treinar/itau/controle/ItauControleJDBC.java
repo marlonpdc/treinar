@@ -2,34 +2,38 @@ package br.com.treinar.itau.controle;
 
 import br.com.treinar.itau.exception.ContaNaoCadastradaException;
 import br.com.treinar.itau.modelo.principal.Conta;
-import br.com.treinar.itau.util.ItauUtil;
 
-public class ItauControleJDBC {
+public class ItauControleJDBC implements IControle {
 
-	private ItauUtil dataBase = ItauUtil.getInstance();
-
-	public ItauControleJDBC() {
-		dataBase.carregarContas();
-	}
-	
+	@Override
 	public void salvarConta(Conta conta) {
-		dataBase.adicionarConta(conta);
+		// TODO Auto-generated method stub
+		
 	}
 
-	public Conta recuperarConta(Integer numeroConta) throws ContaNaoCadastradaException {
-		return dataBase.recuperar(numeroConta);
+	@Override
+	public Conta recuperarConta(Integer numeroConta)
+			throws ContaNaoCadastradaException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
+	@Override
 	public void removerConta(Conta conta) {
-		dataBase.remover(conta);
+		// TODO Auto-generated method stub
+		
 	}
 
+	@Override
 	public Conta[] recuperarContas() {
-		return dataBase.recuperar();
+		// TODO Auto-generated method stub
+		return null;
 	}
 
+	@Override
 	public void persistir() {
-		dataBase.persistirContas();
+		// TODO Auto-generated method stub
+		
 	}
 
 
