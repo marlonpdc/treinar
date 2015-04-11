@@ -9,8 +9,7 @@ import java.io.OutputStreamWriter;
 public class GravarArquivo {
 
 	public static void main(String[] args) throws IOException {
-		OutputStream os = new FileOutputStream("saida.txt", Boolean.TRUE) {
-		};
+		OutputStream os = new FileOutputStream("saida.txt", Boolean.TRUE);
 		OutputStreamWriter osw = new OutputStreamWriter(os);
 		BufferedWriter bw = new BufferedWriter(osw);
 
