@@ -1,7 +1,9 @@
 package br.com.treinar.itau.modelo.principal;
 
-public class Pessoa {
+public class Pessoa extends BaseEntity<Long> {
 
+	private static final long serialVersionUID = -5028864192443665995L;
+	
 	private String nome;
 	private Long cpf;
 	
