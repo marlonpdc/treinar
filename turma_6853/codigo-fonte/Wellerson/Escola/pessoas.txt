@@ -1,2 +1,0 @@
-1;Gleidson;33;2;5;ALUNO;9;Turam 3º C;1;60.0;2;PROFESSOR;45;Matematica;02/05/2014;
-2;Maria Sophia;33;3;1;ALUNO;48;Turam 2º B;3;58.0;63.0;68.0;5;ALUNO;9;Turam 3º C;1;60.0;2;PROFESSOR;45;Matematica;02/04/2015;
