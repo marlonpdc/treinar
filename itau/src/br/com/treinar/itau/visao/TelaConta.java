@@ -4,7 +4,7 @@ import java.util.Date;
 
 import javax.swing.JOptionPane;
 
-import br.com.treinar.itau.controle.ItauControle;
+import br.com.treinar.itau.controle.ItauControleArray;
 import br.com.treinar.itau.exception.ContaNaoCadastradaException;
 import br.com.treinar.itau.exception.SaldoInsuficienteException;
 import br.com.treinar.itau.modelo.ContaCorrente;
@@ -15,10 +15,10 @@ import br.com.treinar.itau.modelo.principal.Pessoa;
 
 public class TelaConta {
 
-	private ItauControle controle;
+	private ItauControleArray controle;
 
 	public TelaConta() {
-		controle = new ItauControle();
+		controle = new ItauControleArray();
 	}
 
 	public void menuBanco() {
@@ -177,9 +177,9 @@ public class TelaConta {
 
 	private void concluirCadastroContaCorrente(ContaCorrente cc) {
 		String tarifaStr = JOptionPane.showInputDialog("Valor da tarifa");
-		cc.tarifa = Double.parseDouble(tarifaStr);
+		cc.setTarifa(Double.parseDouble(tarifaStr));
 		String limiteCreditoStr = JOptionPane.showInputDialog("Valor do limite de credito");
-		cc.limiteCredito = Double.parseDouble(limiteCreditoStr);
+		cc.setLimiteCredito(Double.parseDouble(limiteCreditoStr));
 	}
 
 	private void concluirCadastroContaPoupanca(ContaPoupanca cp) {

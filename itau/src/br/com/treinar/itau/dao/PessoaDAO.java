@@ -6,16 +6,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-import br.com.treinar.itau.exception.BBException;
+import br.com.treinar.itau.exception.ItauException;
 import br.com.treinar.itau.modelo.principal.Pessoa;
-import br.com.treinar.itau.util.ConnectionFactory;
 
 public class PessoaDAO extends GenericDAO<Pessoa, Long> {
 
-	Connection connexao;
-
-	public PessoaDAO() {
-		connexao = ConnectionFactory.getConnection();
+	public PessoaDAO(Connection connection) {
+		super(connection);
 	}
 
 	@Override
@@ -24,12 +21,12 @@ public class PessoaDAO extends GenericDAO<Pessoa, Long> {
 	}
 
 	@Override
-	public Pessoa gravar(Pessoa entity) throws BBException, Exception {
+	public Pessoa gravar(Pessoa entity) throws ItauException, Exception {
 		String sql = "insert into pessoa (nome, cpf) values (?, ?)";
 		PreparedStatement stmt = null;
 		try {
 			//connexao.setAutoCommit(Boolean.FALSE);;
-			stmt = connexao.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
+			stmt = getConnection().prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
 			stmt.setString(1, entity.getNome());
 			stmt.setLong(2, entity.getCpf());
 			stmt.execute();
@@ -41,7 +38,7 @@ public class PessoaDAO extends GenericDAO<Pessoa, Long> {
 			stmt.close();
 			return entity;
 		} catch (SQLException e) {
-			throw new BBException(e);
+			throw new ItauException(e);
 		}
 	}
 
