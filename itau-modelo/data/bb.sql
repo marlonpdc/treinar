@@ -2,10 +2,10 @@
 -- version 4.0.4.1
 -- http://www.phpmyadmin.net
 --
--- M√°quina: 127.0.0.1
--- Data de Cria√ß√£o: 11-Abr-2015 √†s 19:31
--- Vers√£o do servidor: 5.5.32
--- vers√£o do PHP: 5.4.19
+-- M·quina: 127.0.0.1
+-- Data de CriaÁ„o: 11-Abr-2015 ‡s 19:36
+-- Vers„o do servidor: 5.5.32
+-- vers„o do PHP: 5.4.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -45,6 +45,7 @@ CREATE TABLE IF NOT EXISTS `conta` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `saldo` double(9,2) DEFAULT NULL,
   `id_pessoa` bigint(10) NOT NULL,
+  `numeroConta` int(5) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
