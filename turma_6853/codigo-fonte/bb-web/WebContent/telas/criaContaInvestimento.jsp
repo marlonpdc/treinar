@@ -8,22 +8,24 @@
 </head>
 <body>
 
-	<form action="contaCorrente.bb">
+	<form action="contaInvestimento.bb">
 		<input type="hidden" value="br.com.treinar.bb.command.CriarContaCorrenteComando">
-	
 		<table>
+			<jsp:include page="/telas/contaPadrao.jsp" />
 			<tr>
 				<td>
-					Nome:
+					Taxa de Rendimento:
 				</td>
 				<td>
-					<input type="text" name="nome">
+					<input type="text" name="taxaRendimento">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Taxa de Manutenção:
 				</td>
 				<td>
-					CPF:
-				</td>
-				<td>
-					<input type="text" name="nome">
+					<input type="text" name="taxaManutencao">
 				</td>
 			</tr>
 		</table>

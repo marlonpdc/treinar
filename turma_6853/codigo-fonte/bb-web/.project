@@ -3,6 +3,7 @@
 	<name>bb-web</name>
 	<comment></comment>
 	<projects>
+		<project>bb-modelo</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
