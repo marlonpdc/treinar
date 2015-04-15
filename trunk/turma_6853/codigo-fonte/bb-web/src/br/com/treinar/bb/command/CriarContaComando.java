@@ -1,7 +1,11 @@
 package br.com.treinar.bb.command;
 
+import java.util.Arrays;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import br.com.treinar.bb.modelo.StatusConta;
 
 public class CriarContaComando implements IComando {
 
@@ -10,20 +14,28 @@ public class CriarContaComando implements IComando {
 		
 		String tipoConta = req.getParameter("tipoConta");
 		String retorno = null;
-		switch (tipoConta) {
+		if (tipoConta != null) {
+			
+			req.setAttribute("status", Arrays.asList(StatusConta.values()));
+			
+			switch (tipoConta) {
 			case "contaCorrente":
-				retorno = "criaContaCorrente.jsp";
+				retorno = "/telas/criaContaCorrente.jsp";
 				break;
 			case "contaPoupanca":
-				retorno = "criaContaPoupanca.jsp";
+				retorno = "/telas/criaContaPoupanca.jsp";
 				break;
 			case "contaInvestimento":
-				retorno = "criaContaInvestimento.jsp";
+				retorno = "/telas/criaContaInvestimento.jsp";
 				break;
 			default:
-				retorno = "criaConta.jsp";
+				retorno = "telas/criaConta.jsp";
 				break;
 			}
+		} else {
+			req.setAttribute("msg", "Selecione o tipo de conta a ser criada.");
+			retorno = "/telas/criaConta.jsp";			
+		}
 		return retorno;
 	}
 

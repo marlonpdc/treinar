@@ -27,7 +27,7 @@ public class BBControle extends HttpServlet {
 			String comandoStr = request.getParameter("comando");
 			IComando comando = (IComando) Class.forName(comandoStr).newInstance();
 			String retorno = comando.executar(request, response);
-			RequestDispatcher requestDispatcher = request.getRequestDispatcher(retorno );
+			RequestDispatcher requestDispatcher = request.getRequestDispatcher(retorno);
 			requestDispatcher.forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();

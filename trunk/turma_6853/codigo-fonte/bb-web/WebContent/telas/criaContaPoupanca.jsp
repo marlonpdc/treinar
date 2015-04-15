@@ -11,20 +11,16 @@
 
 	<form action="contaCorrente.bb">
 		<input type="hidden" value="br.com.treinar.bb.command.CriarContaCorrenteComando">
+		
 	
 		<table>
+			<jsp:include page="/telas/contaPadrao.jsp" />
 			<tr>
 				<td>
-					Nome:
+					Dia base rendimento:
 				</td>
 				<td>
-					<input type="text" name="nome">
-				</td>
-				<td>
-					CPF:
-				</td>
-				<td>
-					<input type="text" name="nome">
+					<input type="text" name="diaBase">
 				</td>
 			</tr>
 		</table>
