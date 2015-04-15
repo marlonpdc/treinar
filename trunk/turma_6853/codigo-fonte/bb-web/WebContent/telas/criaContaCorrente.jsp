@@ -10,7 +10,6 @@
 </head>
 <body>
 
-
 	<form action="contaCorrente.bb">
 		<input name="comando" type="hidden" value="br.com.treinar.bb.command.CriarContaCorrenteComando">
 		<table>
