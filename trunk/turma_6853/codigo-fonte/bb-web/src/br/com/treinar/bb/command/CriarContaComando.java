@@ -1,11 +1,7 @@
 package br.com.treinar.bb.command;
 
-import java.util.Arrays;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import br.com.treinar.bb.modelo.StatusConta;
 
 public class CriarContaComando implements IComando {
 
@@ -16,7 +12,8 @@ public class CriarContaComando implements IComando {
 		String retorno = null;
 		if (tipoConta != null) {
 			
-			req.setAttribute("status", Arrays.asList(StatusConta.values()));
+//colocado no escopo de aplicação
+//			req.setAttribute("status", Arrays.asList(StatusConta.values()));
 			
 			switch (tipoConta) {
 			case "contaCorrente":
