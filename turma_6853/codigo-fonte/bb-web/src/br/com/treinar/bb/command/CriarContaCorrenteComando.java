@@ -25,14 +25,14 @@ public class CriarContaCorrenteComando implements IComando {
 		cc.getCliente().setCpf(Long.parseLong(cpf));
 		cc.depositar(Double.valueOf(saldo));
 		cc.setStatusConta(StatusConta.valueOf(status));
-		cc.setLimiteCredito(Double.valueOf(limiteCredito));
-		cc.setTaxaManutencao(Double.valueOf(taxaManutencao));
+		cc.setLimiteCredito(Double.valueOf(limiteCredito.replace(",", ".")));
+		cc.setTaxaManutencao(Double.valueOf(taxaManutencao.replace(",", ".")));
 		
 		BBUtil.getInstance().adicionarConta(cc);
 		
 		req.setAttribute("msg", "Conta Cadastrada com sucesso!.");
 		
-		return "/telas/criaConta.jsp";
+		return "/telas/principal.jsp";
 	}
 
 }
