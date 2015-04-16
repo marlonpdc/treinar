@@ -3,7 +3,7 @@
   <display-name>bb-web</display-name>
   
   <welcome-file-list>
-  	<welcome-file>/telas/criaConta.jsp</welcome-file>
+  	<welcome-file>/telas/principal.jsp</welcome-file>
   </welcome-file-list>
   
   
