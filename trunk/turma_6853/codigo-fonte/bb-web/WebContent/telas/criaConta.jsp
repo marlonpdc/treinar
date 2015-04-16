@@ -8,6 +8,9 @@
 </head>
 <body>
 
+	<div>
+		<jsp:include page="/telas/menu.jsp"/>
+	</div>
 	<form action="criaConta.bb">
 <%-- 		<%= request.getAttribute("msg") != null ? request.getAttribute("msg") : "" %> --%>
 		
