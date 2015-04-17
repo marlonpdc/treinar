@@ -12,9 +12,7 @@
 		<jsp:include page="/telas/menu.jsp"/>
 	</div>
 	<form action="criaConta.bb">
-<%-- 		<%= request.getAttribute("msg") != null ? request.getAttribute("msg") : "" %> --%>
 		
-		<br />${msg}
 		<input name="comando" type="hidden" value="br.com.treinar.bb.command.CriarContaComando">
 		
 		<input type="radio" name="tipoConta" value="contaCorrente">Corrente

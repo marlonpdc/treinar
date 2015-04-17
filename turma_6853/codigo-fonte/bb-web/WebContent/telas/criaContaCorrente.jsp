@@ -9,10 +9,10 @@
 <title>Conta Corrente</title>
 </head>
 <body>
-
+	<br />
 	<jsp:include page="/telas/menu.jsp" />
 	
-	<form action="contaCorrente.bb">
+	<form action="contaCorrente.bb" method="post">
 		<input name="comando" type="hidden" value="br.com.treinar.bb.command.CriarContaCorrenteComando">
 		<table>
 			<jsp:include page="/telas/contaPadrao.jsp" />
@@ -21,7 +21,7 @@
 					Limite de Crédito:
 				</td>
 				<td>
-					<input type="text" name="limiteCredito">
+					<input type="text" name="limiteCredito" value="${conta.limiteCredito}">
 				</td>
 			</tr>
 			<tr>
@@ -29,7 +29,7 @@
 					Taxa de Manutenção:
 				</td>
 				<td>
-					<input type="text" name="taxaManutencao">
+					<input type="text" name="taxaManutencao" value="${taxaManutencao}">
 				</td>
 			</tr>
 		</table>

@@ -9,7 +9,7 @@
 		Nome:
 	</td>
 	<td>
-		<input type="text" name="nome">
+		<input type="text" name="nome" value="${nome}">
 	</td>
 </tr>
 <tr>
@@ -17,7 +17,7 @@
 		CPF:
 	</td>
 	<td>
-		<input type="text" name="cpf">
+		<input type="text" name="cpf" value="${cpf}">
 	</td>
 </tr>
 <tr>
@@ -25,7 +25,7 @@
 		Saldo:
 	</td>
 	<td>
-		<input type="text" name="saldo">
+		<input type="text" name="saldo" value="${saldo}">
 	</td>
 </tr>
 <tr>
