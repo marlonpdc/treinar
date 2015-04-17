@@ -3,10 +3,12 @@ package br.com.treinar.bb.command;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.treinar.bb.modelo.exception.BBException;
+
 public class CriarContaComando implements IComando {
 
 	@Override
-	public String executar(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+	public String executar(HttpServletRequest req, HttpServletResponse resp) throws BBException {
 		
 		String tipoConta = req.getParameter("tipoConta");
 		String retorno = null;
