@@ -22,6 +22,8 @@
 
 </head>
 <body>
+<%-- 		<%= request.getAttribute("msg") != null ? request.getAttribute("msg") : "" %> --%>
+${msg}
 <ul id="menu">
   <li><a href="/bb-web/telas/criaConta.jsp" />Criar Conta</a></li>
   <li><a href="lista.bb?comando=br.com.treinar.bb.command.ListarContaComando">Listar Contas</a></li>
