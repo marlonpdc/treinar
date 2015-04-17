@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.treinar.bb.command.IComando;
+import br.com.treinar.bb.modelo.exception.BBException;
 
 /**
  * Servlet implementation class BBControle
@@ -23,15 +24,19 @@ public class BBControle extends HttpServlet {
     }
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		RequestDispatcher requestDispatcher = null;
 		try {
 			String comandoStr = request.getParameter("comando");
 			IComando comando = (IComando) Class.forName(comandoStr).newInstance();
 			String retorno = comando.executar(request, response);
-			RequestDispatcher requestDispatcher = request.getRequestDispatcher(retorno);
-			requestDispatcher.forward(request, response);
+			requestDispatcher = request.getRequestDispatcher(retorno);
+		} catch (BBException e) {
+			requestDispatcher = request.getRequestDispatcher(e.getLocalRetorno());
+			request.setAttribute("msg", e.getMensagem());
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new ServletException(e);
 		}
+		requestDispatcher.forward(request, response);
 	}
 
 }

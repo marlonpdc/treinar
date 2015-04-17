@@ -1,7 +1,6 @@
 package br.com.treinar.bb;
 
 import java.io.IOException;
-import java.io.StringWriter;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
@@ -14,7 +13,6 @@ public class BBTaglib extends SimpleTagSupport {
 	private String id;
 	private String name;
 
-	StringWriter sw = new StringWriter();
 
 	public void doTag() throws JspException, IOException {
 		
