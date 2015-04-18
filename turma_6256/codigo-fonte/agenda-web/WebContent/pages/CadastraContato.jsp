@@ -11,6 +11,29 @@
 	<br />
 	<br />
 	<br />
-	<%=request.getAttribute("testeArquitetura") %>
+	<form action="cadastrar.cmd" method="post">
+		<input name="comando" type="hidden" value="br.com.treinar.agenda.negocio.CadastraContatoCommand">
+		<table>
+			<tr>
+				<td>Nome</td>
+				<td><input name="nome" type="text"></td>
+			</tr>
+			<tr>
+				<td>Data Nascimento</td>
+				<td><input name="dataNascimento" type="text"></td>
+			</tr>
+			<tr>
+				<td>Telefone</td>
+				<td><input name="telefone" type="text"></td>
+			</tr>
+			<tr>
+				<td>E-mail</td>
+				<td><input name="email" type="text"></td>
+			</tr>
+		</table>
+		<br />
+		<br />
+		<input type="submit" value="Gravar Contato">
+	</form>
 </body>
 </html>
