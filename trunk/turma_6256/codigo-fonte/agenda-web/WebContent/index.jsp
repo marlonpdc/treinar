@@ -10,8 +10,8 @@
 
 	<ul>
 		<li><a href="/agenda-web/listar.cmd?comando=br.com.treinar.agenda.negocio.ListaContatoCommand">Listar Contatos</a></li>
-		<li><a href="/agenda-web/listar.cmd?comando=br.com.treinar.agenda.negocio.ListaContatoCommand">Cadastrar Contatos</a></li>
-		<li><a href="/agenda-web/listar.cmd?comando=br.com.treinar.agenda.negocio.ListaContatoCommand">Excluir Contatos</a></li>
+		<li><a href="/agenda-web/listar.cmd?comando=br.com.treinar.agenda.negocio.EditaContatoCommand">Cadastrar Contatos</a></li>
+		<li><a href="/agenda-web/listar.cmd?comando=br.com.treinar.agenda.negocio.ExcluiContatoCommand">Excluir Contatos</a></li>
 	</ul>
 
 </body>
