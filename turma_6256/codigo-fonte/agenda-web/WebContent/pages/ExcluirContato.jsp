@@ -7,6 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<jsp:include page="/index.jsp"/>
+	<br />
+	<br />
+	<br />
 	<%=request.getAttribute("excluir") %>
 </body>
 </html>

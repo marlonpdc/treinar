@@ -7,6 +7,10 @@
 <title></title>
 </head>
 <body>
-<%=request.getAttribute("testeArquitetura") %>
+	<jsp:include page="/index.jsp"/>
+	<br />
+	<br />
+	<br />
+	<%=request.getAttribute("testeArquitetura") %>
 </body>
 </html>
