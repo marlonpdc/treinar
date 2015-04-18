@@ -1,8 +1,13 @@
-package br.com.agenda.modelo;
+package br.com.agenda.util;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import br.com.agenda.modelo.Contato;
+import br.com.agenda.modelo.Pessoa;
+import br.com.agenda.modelo.Telefone;
+import br.com.agenda.modelo.TipoTelefone;
 
 public class ContatoDatabase {
 
@@ -21,6 +26,7 @@ public class ContatoDatabase {
 	public static ContatoDatabase getInstance() {
 		return instance;
 	}
+	
 	private void moc() {
 		
 		Contato c1 = new Contato();
