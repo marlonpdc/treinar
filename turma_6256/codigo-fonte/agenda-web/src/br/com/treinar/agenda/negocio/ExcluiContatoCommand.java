@@ -3,7 +3,7 @@ package br.com.treinar.agenda.negocio;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class ExcluirContatoCommand implements ICommand {
+public class ExcluiContatoCommand implements ICommand {
 
 	@Override
 	public String execute(HttpServletRequest request,
