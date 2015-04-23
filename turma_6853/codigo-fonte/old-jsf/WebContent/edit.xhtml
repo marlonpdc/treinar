@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+	
+	<h:head><title>Editar Contato</title></h:head>
+	
+	<h:body>
+	
+		<h:form id="formPrincipal">
+
+			<h:panelGroup id="edit" rendered="#{testeController.acao == 'EDIT'}">
+				<h:panelGrid columns="2">
+					
+					<h:outputLabel value="#{msg['label.nome']}" />
+					<p:inputText id="nome" value="#{testeController.pessoa.nome}" title="Nome"
+								 required="true" label="#{msg['label.nome']}" 
+								 requiredMessage="#{msg['label.nomeObrigatorio']}" />
+					
+					<h:outputLabel value="Data Nascimento: " />
+					
+					<p:calendar id="effect" value="#{testeController.pessoa.dataNascimento}" effect="fold" />
+
+					<h:outputLabel value="Idade:&#160;" />
+					<p:inputText id="idade" value="#{testeController.pessoa.idade}" 
+								 required="true" label="Idade" title="Idade" />
+								 
+					<h:outputLabel value="Telefone:&#160;" />
+					<h:panelGroup>
+					
+						<p:inputMask mask="(99) 9999-9999" value="#{testeController.pessoa.telefone}">
+							<f:converter converterId="br.com.treinar.TelefoneConverter" />						
+						</p:inputMask>
+						<p:spacer width="10" />
+						<p:selectOneMenu value="#{testeController.pessoa.telefone.tipoTelefone}">
+							<f:selectItems value="#{applicationController.tiposTelefone}" var="tipo" itemLabel="#{tipo.descricao}" itemValue="#{tipo}"/>
+						</p:selectOneMenu>
+					</h:panelGroup>
+				
+				</h:panelGrid>
+				
+				<p:commandButton action="#{testeController.salvar()}" value="Enviar" title="Cadastrar" update="" />
+				
+				<p:commandButton action="#{testeController.navegar('LIST')}" value="Voltar" immediate="true" />
+			</h:panelGroup>
+			
+		</h:form>
+	
+	</h:body>
+	
+</html>
