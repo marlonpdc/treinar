@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib version="2.1" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd">
+	<tlib-version>1.0</tlib-version>
+	<short-name>agenda</short-name>
+	
+	<tag>
+		<name>tipo</name>
+		<tag-class>br.com.treinar.agenda.util.TipoTelefoneTLD</tag-class>
+		<body-content>scriptless</body-content>
+		<attribute>
+			<name>id</name>
+		</attribute>
+		<attribute>
+			<name>name</name>
+		</attribute>
+		<attribute>
+			<name>selecionado</name>
+		</attribute>
+	</tag>
+
+
+</taglib>

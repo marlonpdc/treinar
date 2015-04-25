@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.agenda.modelo.Contato;
 import br.com.agenda.modelo.Pessoa;
 import br.com.agenda.modelo.Telefone;
+import br.com.agenda.modelo.TipoTelefone;
 import br.com.agenda.util.ContatoDatabase;
 
 public class CadastraContatoCommand implements ICommand {
@@ -39,6 +40,7 @@ public class CadastraContatoCommand implements ICommand {
 		Integer numero = Integer.parseInt(telefone.substring(5));
 		c.getTelefone().setDdd(ddd);
 		c.getTelefone().setNumero(numero);
+		c.getTelefone().setTipo(TipoTelefone.valueOf(tipo));
 		
 		ContatoDatabase.getInstance().getContatos().add(c);
 		
