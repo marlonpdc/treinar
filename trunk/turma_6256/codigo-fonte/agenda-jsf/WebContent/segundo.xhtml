@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+<style>
+.order-table{   
+	border-collapse:collapse;
+}
+ 
+.order-table-header{
+	text-align:center;
+	background:none repeat scroll 0 0 #E5E5E5;
+	border-bottom:1px solid #BBBBBB;
+	padding:16px;
+}
+ 
+.order-table-odd-row{
+	text-align:center;
+	background:none repeat scroll 0 0 #FFFFFFF;
+	border-top:1px solid #BBBBBB;
+}
+ 
+.order-table-even-row{
+	text-align:center;
+	background:none repeat scroll 0 0 #F9F9F9;
+	border-top:1px solid #BBBBBB;
+}
+</style>
+</h:head>
+<h:body>
+	<ui:repeat var="contato" value="#{primeiro.contatos}">
+		
+		<h:outputText value="#{contato.pessoa.nome}" />
+	
+	</ui:repeat>
+	
+	<h:form>
+		<h:dataTable value="#{primeiro.contatos}" var="c"
+    			styleClass="order-table"
+    			headerClass="order-table-header"
+    			rowClasses="order-table-odd-row,order-table-even-row"
+    		>
+ 
+    			<h:column>
+    				<!-- column header -->
+    				<f:facet name="header">Nome</f:facet>
+    				<!-- row record -->
+    				<h:outputText value="#{c.pessoa.nome}" />
+    			</h:column>
+ 
+    			<h:column>
+    				<f:facet name="header">Data Nascimento</f:facet>
+    				<h:outputText value="#{c.pessoa.dataNascimento}">
+    					<f:convertDateTime pattern="dd/MM/yyyy"/>
+    				</h:outputText>
+    			</h:column>
+ 
+    			<h:column>
+    				<f:facet name="header">Telefone</f:facet>
+    				<h:outputText value="#{c.telefone}" />
+    			</h:column>
+ 
+    			<h:column>
+    				<f:facet name="header">Email</f:facet>
+    				<h:outputText value="#{c.email}" />
+    			</h:column>
+    			<h:column>
+    				<f:facet name="header">Editar</f:facet>
+    				<h:commandButton action="#{primeiro.editar(c)}" value="Editar" />
+    			</h:column>
+    			<h:column>
+    				<f:facet name="header">Excluir</f:facet>
+    				<h:commandButton action="#{primeiro.excluir(c)}" value="Excluir" />
+    			</h:column>
+ 
+    		</h:dataTable>
+	</h:form>
+	
+</h:body>	
+</html>
