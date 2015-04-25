@@ -23,5 +23,10 @@ public class Telefone {
 	public void setTipo(TipoTelefone tipo) {
 		this.tipo = tipo;
 	}
+	@Override
+	public String toString() {
+		return "( "+ ddd +") " + numero;
+	}
+	
 	
 }
