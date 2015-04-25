@@ -35,7 +35,14 @@
 			<tr>
 				<td>Tipo Telefone</td>
 				<td>
-					<a:tipo id="tipo" name="tipo"/>
+				<select>
+					<c:forEach items="${tipos}" var="tipo">
+						<option value="${tipo}">${tipo.descricao}</option>
+					</c:forEach>
+				</select>
+					
+					
+<%-- 					<a:tipo id="tipo" name="tipo"/> --%>
 				</td>
 			</tr>
 			<tr>
