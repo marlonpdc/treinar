@@ -7,12 +7,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.agenda.modelo.Contato;
 import br.com.agenda.util.ContatoDatabase;
+import br.com.treinar.agenda.AgendaException;
 
 public class ExcluiContatoCommand implements ICommand {
 
 	@Override
 	public String execute(HttpServletRequest request,
-			HttpServletResponse response) {
+			HttpServletResponse response) throws AgendaException {
 			List<Contato> contatos = ContatoDatabase.getInstance().getContatos();
 			Long id = Long.parseLong(request.getParameter("id"));
 			Contato c = new Contato();

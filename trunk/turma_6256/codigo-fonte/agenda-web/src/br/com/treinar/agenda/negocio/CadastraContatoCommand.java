@@ -12,14 +12,15 @@ import br.com.agenda.modelo.Pessoa;
 import br.com.agenda.modelo.Telefone;
 import br.com.agenda.modelo.TipoTelefone;
 import br.com.agenda.util.ContatoDatabase;
+import br.com.treinar.agenda.AgendaException;
 
 public class CadastraContatoCommand implements ICommand {
 
 	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse response) {
+	public String execute(HttpServletRequest request, HttpServletResponse response) throws AgendaException {
 		
+		validarCampos(request);
 		DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-		
 		String nome = request.getParameter("nome");
 		String datadNascimento = request.getParameter("dataNascimento");
 		String telefone	= request.getParameter("telefone");
@@ -49,5 +50,43 @@ public class CadastraContatoCommand implements ICommand {
 		
 		return "/pages/listaContato.jsp";
 	}
+	
+	private void validarCampos(HttpServletRequest request) throws AgendaException {
+		String nome = request.getParameter("nome");
+		String datadNascimento = request.getParameter("dataNascimento");
+		String telefone	= request.getParameter("telefone");
+		String tipo = request.getParameter("tipo");
+		String email = request.getParameter("email");
+		Boolean possuiErro = Boolean.FALSE;
+		StringBuilder msgErro = new StringBuilder("<ul>");
+		if (nome == null || nome.equals("")) {
+			possuiErro = Boolean.FALSE;
+			msgErro.append("<li>Nome é Obrigatório<li>");
+		}
+		if (datadNascimento == null || datadNascimento.equals("")) {
+			possuiErro = Boolean.FALSE;
+			msgErro.append("<li>Data Nascimento é Obrigatório</li>");
+		}
+		if (telefone == null || telefone.equals("")) {
+			possuiErro = Boolean.FALSE;
+			msgErro.append("<li>Telefone é Obrigatório</li>");
+		}
+		if (tipo == null || tipo.equals("")) {
+			possuiErro = Boolean.FALSE;
+			msgErro.append("<li>Tipo Telefone é Obrigatório</li>");
+		}
+		if (email == null || email.equals("")) {
+			possuiErro = Boolean.FALSE;
+			msgErro.append("<li>Email é Obrigatório</li>");
+		}
+		msgErro.append("</ul>");
+		if (!possuiErro) {
+			AgendaException agendaException = new AgendaException(msgErro.toString());
+			agendaException.setDestino("/pages/CadastraContato.jsp");
+			throw agendaException;
+		}
+	}
+	
+	
 
 }

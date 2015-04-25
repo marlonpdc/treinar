@@ -10,11 +10,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.agenda.modelo.Contato;
 import br.com.agenda.util.ContatoDatabase;
+import br.com.treinar.agenda.AgendaException;
 
 public class EditaContatoCommand implements ICommand {
 
 	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse response) {
+	public String execute(HttpServletRequest request, HttpServletResponse response) throws AgendaException {
 		
 		DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 		
