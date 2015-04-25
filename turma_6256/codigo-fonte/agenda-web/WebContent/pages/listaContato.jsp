@@ -19,13 +19,13 @@
 	
 	<table border="1">
 		<tr>
-			<td>Nome Contato</td>
-			<td>Data Nascimento</td>
-			<td>Telefone</td>
-			<td>Tipo Telefone</td>
-			<td>Email</td>
-			<td>Editar</td>
-			<td>Excluir</td>
+			<td><b>Nome Contato</b></td>
+			<td><b>Data Nascimento</b></td>
+			<td><b>Telefone</b></td>
+			<td><b>Tipo Telefone</b></td>
+			<td><b>Email</b></td>
+			<td><b>Editar</b></td>
+			<td><b>Excluir</b></td>
 		</tr>
 		<c:forEach items="${listaContatos}" var="contato">
 			<tr>
