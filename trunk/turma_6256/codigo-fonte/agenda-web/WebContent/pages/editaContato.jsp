@@ -1,3 +1,4 @@
+<%@page import="br.com.agenda.modelo.Contato"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -11,6 +12,31 @@
 	<br />
 	<br />
 	<br />
-	<%=request.getAttribute("edita") %>
+	<form action="editar.cmd" method="post">
+		<input name="comando" type="hidden" value="br.com.treinar.agenda.negocio.EditaContatoCommand">
+		<input name="id" type="hidden" value="${contato.id}">
+		
+		<table>
+			<tr>
+				<td>Nome</td>
+				<td><input name="nome" type="text" value="${contato.pessoa.nome}"></td>
+			</tr>
+			<tr>
+				<td>Data Nascimento</td>
+				<td><input name="dataNascimento" type="text" value="${contato.pessoa.dataNascimentoStr}"></td>
+			</tr>
+			<tr>
+				<td>Telefone</td>
+				<td><input name="telefone" type="text" value="${contato.telefone}"></td>
+			</tr>
+			<tr>
+				<td>E-mail</td>
+				<td><input name="email" type="text" value="${contato.email}"></td>
+			</tr>
+		</table>
+		<br />
+		<br />
+		<input type="submit" value="Editar Contato">
+	</form>
 </body>
 </html>

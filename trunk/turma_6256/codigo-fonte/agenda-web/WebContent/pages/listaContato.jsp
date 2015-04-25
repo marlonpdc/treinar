@@ -35,6 +35,9 @@
 				out.println("<b>Email</b>");
 				out.println("</td>");
 				out.println("<td>");
+				out.println("<b>Editar</b>");
+				out.println("</td>");	
+				out.println("<td>");
 				out.println("<b>Excluir</b>");
 				out.println("</td>");	
 				out.println("</tr>");
@@ -53,6 +56,9 @@
 					out.println("<td>");
 					out.println(contato.getEmail());
 					out.println("</td>");				
+					out.println("<td>");
+					out.println("<a href='/agenda-web/excluir.cmd?comando=br.com.treinar.agenda.negocio.SelecionaContatoCommand&id=" + contato.getId() + "'>Editar</a>");
+					out.println("</td>");	
 					out.println("<td>");
 					out.println("<a href='/agenda-web/excluir.cmd?comando=br.com.treinar.agenda.negocio.ExcluiContatoCommand&id=" + contato.getId() + "'>Excluir</a>");
 					out.println("</td>");	
