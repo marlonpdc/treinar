@@ -5,6 +5,17 @@ public class Contato {
 	private Pessoa pessoa;
 	private String email;
 	private Telefone telefone;
+	private static Long index;
+	private Long id;
+	
+	static {
+		index = 0l;
+	}
+	
+	public Contato() {
+		id = ++index;
+	}
+	
 	public Pessoa getPessoa() {
 		return pessoa;
 	}
@@ -22,5 +33,13 @@ public class Contato {
 	}
 	public void setTelefone(Telefone telefone) {
 		this.telefone = telefone;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 }
