@@ -29,7 +29,7 @@ public class TipoTelefoneTLD  extends SimpleTagSupport {
 		}
 		out.println(">");
 		out.print("<option value=\"-1\">Selecione</option>");
-		for (TipoTelefone tipo : TipoTelefone.values()) {
+		for (TipoTelefone tipo : TipoTelefone.valuesOrderByDescription()) {
 			out.print("<option value=\"");
 			out.print(tipo);
 			if (selecionado != null && selecionado.equals(tipo.getDescricao())) {
