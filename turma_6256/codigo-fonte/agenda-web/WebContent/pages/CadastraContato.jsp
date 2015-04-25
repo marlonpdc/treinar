@@ -27,6 +27,10 @@
 				<td><input name="telefone" type="text"></td>
 			</tr>
 			<tr>
+				<td>Tipo_Telefone</td>
+				<td><input name="tipo" type="text"></td>
+			</tr>
+			<tr>
 				<td>E-mail</td>
 				<td><input name="email" type="text"></td>
 			</tr>

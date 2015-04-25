@@ -22,6 +22,7 @@ public class CadastraContatoCommand implements ICommand {
 		String nome = request.getParameter("nome");
 		String datadNascimento = request.getParameter("dataNascimento");
 		String telefone	= request.getParameter("telefone");
+		String tipo = request.getParameter("tipo");
 		String email = request.getParameter("email");
 		
 		Contato c = new Contato();
