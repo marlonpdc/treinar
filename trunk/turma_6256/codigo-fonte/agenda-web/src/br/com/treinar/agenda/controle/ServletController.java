@@ -27,7 +27,7 @@ public class ServletController extends HttpServlet {
 			RequestDispatcher requestDispatcher = request.getRequestDispatcher(paginaJSP);
 			requestDispatcher.forward(request, response);
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new ServletException(e);
 		} 
 		
 		
