@@ -1,0 +1,71 @@
+<!-- 					<select name="tipo"> -->
+<%-- 					<% --%>
+<%--					List<TipoTelefone> tipos = TipoTelefone.valuesOrderByDescription();--%>
+<%-- 						for(TipoTelefone tipo : tipos) {--%>
+							
+<%--						out.println("<option value=\"" + tipo + "\">" + tipo.getDescricao() + "</option>");--%>
+							
+<%--						}--%>
+					
+<%-- 					%> --%>
+<!-- 					</select> -->
+
+
+
+<%
+			List<Contato> contatos = (List<Contato>) request.getAttribute("listaContatos");
+			DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+		
+			if (contatos != null)  {
+				out.println("<tr>");
+				out.println("<td>");
+				out.println("<b>Nome</b>");
+				out.println("</td>");				
+				out.println("<td>");
+				out.println("<b>Data Nascimento</b>");
+				out.println("</td>");				
+				out.println("<td>");
+				out.println("<b>Telefone</b>");
+				out.println("</td>");				
+				out.println("<td>");
+				out.println("<b>Tipo Telefone</b>");
+				out.println("</td>");				
+				out.println("<td>");
+				out.println("<b>Email</b>");
+				out.println("</td>");
+				out.println("<td>");
+				out.println("<b>Editar</b>");
+				out.println("</td>");	
+				out.println("<td>");
+				out.println("<b>Excluir</b>");
+				out.println("</td>");	
+				out.println("</tr>");
+				
+				for(Contato contato : contatos) {
+					out.println("<tr>");
+					out.println("<td>");
+					out.println(contato.getPessoa().getNome());
+					out.println("</td>");				
+					out.println("<td>");
+					out.println(df.format(contato.getPessoa().getDataNascimento()));
+					out.println("</td>");				
+					out.println("<td>");
+					out.println("(" +contato.getTelefone().getDdd() + ") " + contato.getTelefone().getNumero());
+					out.println("</td>");				
+					out.println("<td>");
+					out.println(contato.getTelefone().getTipo().getDescricao());
+					out.println("</td>");
+					out.println("<td>");
+					out.println(contato.getEmail());
+					out.println("</td>");				
+					out.println("<td>");
+					out.println("<a href='/agenda-web/excluir.cmd?comando=br.com.treinar.agenda.negocio.SelecionaContatoCommand&id=" + contato.getId() + "'>Editar</a>");
+					out.println("</td>");	
+					out.println("<td>");
+					out.println("<a href='/agenda-web/excluir.cmd?comando=br.com.treinar.agenda.negocio.ExcluiContatoCommand&id=" + contato.getId() + "'>Excluir</a>");
+					out.println("</td>");	
+					out.println("</tr>");
+				}
+			}
+					
+		%>

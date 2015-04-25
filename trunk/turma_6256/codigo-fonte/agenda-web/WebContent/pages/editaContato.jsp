@@ -1,6 +1,7 @@
-<%@page import="br.com.agenda.modelo.Contato"%>
+<%@ page import="br.com.agenda.modelo.Contato"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="a" uri="../WEB-INF/agenda.tld"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,6 +29,12 @@
 			<tr>
 				<td>Telefone</td>
 				<td><input name="telefone" type="text" value="${contato.telefone}"></td>
+			</tr>
+			<tr>
+				<td>Tipo Telefone</td>
+				<td>
+					<a:tipo id="tipo" name="tipo"/>
+				</td>
 			</tr>
 			<tr>
 				<td>E-mail</td>

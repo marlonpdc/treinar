@@ -1,5 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page import="java.util.Arrays"%>
+<%@ page import="br.com.agenda.modelo.TipoTelefone"%>
+<%@ page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="a" uri="../WEB-INF/agenda.tld"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,18 +25,22 @@
 			<tr>
 				<td>Data Nascimento</td>
 				<td><input name="dataNascimento" type="text"></td>
+				
+
 			</tr>
 			<tr>
 				<td>Telefone</td>
 				<td><input name="telefone" type="text"></td>
 			</tr>
 			<tr>
-				<td>Tipo_Telefone</td>
-				<td><input name="tipo" type="text"></td>
+				<td>Tipo Telefone</td>
+				<td>
+					<a:tipo id="tipo" name="tipo"/>
+				</td>
 			</tr>
 			<tr>
 				<td>E-mail</td>
-				<td><input name="email" type="text"></td>
+				<td><input id="email" name="email" type="text"></td>
 			</tr>
 		</table>
 		<br />

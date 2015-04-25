@@ -2,8 +2,9 @@
 <%@ page import="java.text.DateFormat"%>
 <%@ page import="br.com.agenda.modelo.Contato"%>
 <%@ page import="java.util.List"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,58 +16,28 @@
 	<br />
 	<br />
 	<br />
+	
 	<table border="1">
-		<%
-			List<Contato> contatos = (List<Contato>) request.getAttribute("listaContatos");
-			DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-		
-			if (contatos != null)  {
-				out.println("<tr>");
-				out.println("<td>");
-				out.println("<b>Nome</b>");
-				out.println("</td>");				
-				out.println("<td>");
-				out.println("<b>Data Nascimento</b>");
-				out.println("</td>");				
-				out.println("<td>");
-				out.println("<b>Telefone</b>");
-				out.println("</td>");				
-				out.println("<td>");
-				out.println("<b>Email</b>");
-				out.println("</td>");
-				out.println("<td>");
-				out.println("<b>Editar</b>");
-				out.println("</td>");	
-				out.println("<td>");
-				out.println("<b>Excluir</b>");
-				out.println("</td>");	
-				out.println("</tr>");
-				
-				for(Contato contato : contatos) {
-					out.println("<tr>");
-					out.println("<td>");
-					out.println(contato.getPessoa().getNome());
-					out.println("</td>");				
-					out.println("<td>");
-					out.println(df.format(contato.getPessoa().getDataNascimento()));
-					out.println("</td>");				
-					out.println("<td>");
-					out.println("(" +contato.getTelefone().getDdd() + ") " + contato.getTelefone().getNumero());
-					out.println("</td>");				
-					out.println("<td>");
-					out.println(contato.getEmail());
-					out.println("</td>");				
-					out.println("<td>");
-					out.println("<a href='/agenda-web/excluir.cmd?comando=br.com.treinar.agenda.negocio.SelecionaContatoCommand&id=" + contato.getId() + "'>Editar</a>");
-					out.println("</td>");	
-					out.println("<td>");
-					out.println("<a href='/agenda-web/excluir.cmd?comando=br.com.treinar.agenda.negocio.ExcluiContatoCommand&id=" + contato.getId() + "'>Excluir</a>");
-					out.println("</td>");	
-					out.println("</tr>");
-				}
-			}
-					
-		%>
+		<tr>
+			<td>Nome Contato</td>
+			<td>Data Nascimento</td>
+			<td>Telefone</td>
+			<td>Tipo Telefone</td>
+			<td>Email</td>
+			<td>Editar</td>
+			<td>Excluir</td>
+		</tr>
+		<c:forEach items="${listaContatos}" var="contato">
+			<tr>
+				<td>${contato.pessoa.nome}</td>
+				<td>${contato.pessoa.dataNascimentoStr}</td>
+				<td>${contato.telefone}</td>
+				<td>${contato.telefone.tipo.descricao}</td>
+				<td>${contato.email}</td>
+				<td><a href='/agenda-web/excluir.cmd?comando=br.com.treinar.agenda.negocio.SelecionaContatoCommand&id=${contato.id}'>Editar</a></td>
+				<td><a href='/agenda-web/excluir.cmd?comando=br.com.treinar.agenda.negocio.ExcluiContatoCommand&id=${contato.id}'>Excluir</a></td>
+			</tr>
+		</c:forEach>
 	</table>
 </body>
 </html>
