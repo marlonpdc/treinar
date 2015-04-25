@@ -2,8 +2,8 @@ package br.com.agenda.modelo;
 
 public enum TipoTelefone {
 
-	CELULAR("Celular"),
 	RESIDENCIAL("Residencial"),
+	CELULAR("Celular"),
 	COMERCIAL("Comercial");
 	
 	private TipoTelefone(String descricao) {
