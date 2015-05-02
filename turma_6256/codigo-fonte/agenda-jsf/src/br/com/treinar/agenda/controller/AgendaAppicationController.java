@@ -1,4 +1,4 @@
-package br.com.treinar.agenda.controller.lib;
+package br.com.treinar.agenda.controller;
 
 import java.util.Arrays;
 import java.util.List;
