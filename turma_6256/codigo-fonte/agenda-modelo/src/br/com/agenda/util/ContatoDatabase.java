@@ -59,8 +59,6 @@ public class ContatoDatabase {
 		t2.setTipo(TipoTelefone.RESIDENCIAL);
 		c2.setTelefone(t2);
 		contatos.add(c2);
-		
-	
 	}
 
 	public List<Contato> getContatos() {

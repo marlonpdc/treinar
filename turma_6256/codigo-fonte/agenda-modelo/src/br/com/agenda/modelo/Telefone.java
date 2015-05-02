@@ -25,7 +25,7 @@ public class Telefone {
 	}
 	@Override
 	public String toString() {
-		return "( "+ ddd +") " + numero;
+		return "("+ ddd +") " + numero;
 	}
 	
 	
