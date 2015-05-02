@@ -21,6 +21,7 @@
 	<h:panelGroup rendered="#{contatoController.acao == 'EDITAR' || contatoController.acao == 'CADASTRAR'}">
 		<ui:include src="/pages/contato/cadastracontato.xhtml" />
 	</h:panelGroup>
+	
 	<h:panelGroup rendered="#{contatoController.acao == 'LISTAR' and not empty contatoController.contatos}">
 	
 	</h:panelGroup>	
