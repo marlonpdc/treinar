@@ -4,6 +4,7 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets">
 
+<f:view contentType="text/html; charset=UTF-8" encoding="UTF-8" locale="#{localeController.locale}">
 <h:head>
 <style>
 	.order-table{   
@@ -52,7 +53,13 @@
  
     			<h:column>
     				<f:facet name="header">Telefone</f:facet>
-    				<h:outputText value="#{c.telefone}" />
+    				<h:outputText value="#{c.telefone}">
+    					<f:converter converterId="br.com.treinar.agenda.TelefoneConverter"/>
+    				</h:outputText>
+    			</h:column>
+    			<h:column>
+    				<f:facet name="header">Tipo Telefone</f:facet>
+    				<h:outputText value="#{c.telefone.tipo.descricao}" />
     			</h:column>
     			<h:column>
     				<f:facet name="header">Email</f:facet>
@@ -70,5 +77,6 @@
     		</h:dataTable>
 	</h:form>
 	
-</h:body>	
+</h:body>
+</f:view>
 </html>
