@@ -33,7 +33,7 @@ public class PrimeiroController {
 		criarNovoContato();
 		FacesMessage message = new FacesMessage("Contato salvo com sucesso!");
 		FacesContext.getCurrentInstance().addMessage(null, message);
-		return "/cadastracontato.xhtml";
+		return "/listaContato.xhtml";
 	
 	}
 	
