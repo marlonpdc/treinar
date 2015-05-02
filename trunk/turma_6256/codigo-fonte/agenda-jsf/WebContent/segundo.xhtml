@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
@@ -33,71 +33,72 @@
 <h:body>
 
 	<h:form>
-		
-		<h:panelGrid columns="2">
-		
-			<h:outputLabel value="Nome" for="nome" />
-			<h:inputText id="nome" value="#{primeiro.contato.pessoa.nome}" />
-			<h:outputLabel value="Data Nascimento" for="dataNascimento" />
-			<h:inputText id="dataNascimento" value="#{primeiro.contato.pessoa.dataNascimento}">
-				<f:convertDateTime pattern="dd/MM/yyyy" />
-			</h:inputText>
-			<h:outputLabel value="E-mail" for="email" />
-			<h:inputText id="email" value="#{primeiro.contato.email}" />
-			<h:outputLabel value="Telefone" for="telefone" />
-			<h:panelGroup>
-				<h:inputText id="dddTelefone" size="5" value="#{primeiro.contato.telefone.ddd}" />
-				<h:inputText id="numeroTelefone" value="#{primeiro.contato.telefone.numero}" />
-				<h:selectOneMenu value="#{primeiro.contato.telefone.tipo}">
-				<f:selectItems value="#{applicationController.tipos}" var="tipo" 
-							   itemLabel="#{tipo.descricao}" itemValue="#{tipo}" />
-				</h:selectOneMenu>
-			</h:panelGroup>
-			<h:commandButton action="#{primeiro.salvar()}" value="Salvar" />
-		
-		</h:panelGrid>
-		<br />
-		<br />
-		<br />
-		<h:dataTable value="#{primeiro.contatos}" var="c"
-    			styleClass="order-table"
-    			headerClass="order-table-header"
-    			rowClasses="order-table-odd-row,order-table-even-row"
-    		>
- 
-    			<h:column>
-    				<!-- column header -->
-    				<f:facet name="header">Nome</f:facet>
-    				<!-- row record -->
-    				<h:outputText value="#{c.pessoa.nome}" />
-    			</h:column>
- 
-    			<h:column>
-    				<f:facet name="header">Data Nascimento</f:facet>
-    				<h:outputText value="#{c.pessoa.dataNascimento}">
-    					<f:convertDateTime pattern="dd/MM/yyyy"/>
-    				</h:outputText>
-    			</h:column>
- 
-    			<h:column>
-    				<f:facet name="header">Telefone</f:facet>
-    				<h:outputText value="#{c.telefone}" />
-    			</h:column>
- 
-    			<h:column>
-    				<f:facet name="header">Email</f:facet>
-    				<h:outputText value="#{c.email}" />
-    			</h:column>
-    			<h:column>
-    				<f:facet name="header">Editar</f:facet>
-    				<h:commandButton action="#{primeiro.editar(c)}" value="Editar" />
-    			</h:column>
-    			<h:column>
-    				<f:facet name="header">Excluir</f:facet>
-    				<h:commandButton action="#{primeiro.excluir(c)}" value="Excluir" />
-    			</h:column>
- 
-    		</h:dataTable>
+		<h:panelGroup rendered="#{primeiro.acao == 'EDITAR' || primeiro.acao == 'CADASTRAR'}">
+			<h:panelGrid columns="2">
+			
+				<h:outputLabel value="Nome" for="nome" />
+				<h:inputText id="nome" value="#{primeiro.contato.pessoa.nome}" />
+				<h:outputLabel value="Data Nascimento" for="dataNascimento" />
+				<h:inputText id="dataNascimento" value="#{primeiro.contato.pessoa.dataNascimento}">
+					<f:convertDateTime pattern="dd/MM/yyyy" />
+				</h:inputText>
+				<h:outputLabel value="E-mail" for="email" />
+				<h:inputText id="email" value="#{primeiro.contato.email}" />
+				<h:outputLabel value="Telefone" for="telefone" />
+				<h:panelGroup>
+					<h:inputText id="dddTelefone" size="5" value="#{primeiro.contato.telefone.ddd}" />
+					<h:inputText id="numeroTelefone" value="#{primeiro.contato.telefone.numero}" />
+					<h:selectOneMenu value="#{primeiro.contato.telefone.tipo}">
+					<f:selectItems value="#{applicationController.tipos}" var="tipo" 
+								   itemLabel="#{tipo.descricao}" itemValue="#{tipo}" />
+					</h:selectOneMenu>
+				</h:panelGroup>
+				<h:commandButton action="#{primeiro.salvar()}" value="Salvar" />
+			
+			</h:panelGrid>
+		</h:panelGroup>
+		<h:commandButton action="#{primeiro.novo()}" value="Novo Contato" />
+		<h:panelGroup rendered="#{primeiro.acao == 'LISTAR' and not empty primeiro.contatos}">
+			<h:dataTable value="#{primeiro.contatos}" var="c"
+	    			styleClass="order-table"
+	    			headerClass="order-table-header"
+	    			rowClasses="order-table-odd-row,order-table-even-row"
+	    		>
+	 
+	    			<h:column>
+	    				<!-- column header -->
+	    				<f:facet name="header">Nome</f:facet>
+	    				<!-- row record -->
+	    				<h:outputText value="#{c.pessoa.nome}" />
+	    			</h:column>
+	 
+	    			<h:column>
+	    				<f:facet name="header">Data Nascimento</f:facet>
+	    				<h:outputText value="#{c.pessoa.dataNascimento}">
+	    					<f:convertDateTime pattern="dd/MM/yyyy"/>
+	    				</h:outputText>
+	    			</h:column>
+	 
+	    			<h:column>
+	    				<f:facet name="header">Telefone</f:facet>
+	    				<h:outputText value="#{c.telefone}" />
+	    			</h:column>
+	 
+	    			<h:column>
+	    				<f:facet name="header">Email</f:facet>
+	    				<h:outputText value="#{c.email}" />
+	    			</h:column>
+	    			<h:column>
+	    				<f:facet name="header">Editar</f:facet>
+	    				<h:commandButton action="#{primeiro.editar(c)}" value="Editar" />
+	    			</h:column>
+	    			<h:column>
+	    				<f:facet name="header">Excluir</f:facet>
+	    				<h:commandButton action="#{primeiro.excluir(c)}" value="Excluir" />
+	    			</h:column>
+	 
+	    		</h:dataTable>
+	    	</h:panelGroup>
 	</h:form>
 	
 </h:body>	
