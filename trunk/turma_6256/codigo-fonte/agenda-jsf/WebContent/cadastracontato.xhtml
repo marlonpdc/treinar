@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<title>Agenda JSF</title>
+</h:head>
+<h:body>
+	<h:form>
+		
+		<h:messages />
+	
+		<h:panelGrid columns="2">
+		
+			<h:outputLabel value="Nome" for="nome" />
+			<h:inputText id="nome" value="#{contatoController.contato.pessoa.nome}" />
+			<h:outputLabel value="Data Nascimento" for="dataNascimento" />
+			<h:inputText id="dataNascimento" value="#{contatoController.contato.pessoa.dataNascimento}">
+				<f:convertDateTime pattern="dd/MM/yyyy" />
+			</h:inputText>
+			<h:outputLabel value="E-mail" for="email" />
+			<h:inputText id="email" value="#{contatoController.contato.email}" />
+			<h:outputLabel value="Telefone" for="telefone" />
+			<h:panelGroup>
+				<h:inputText id="dddTelefone" size="5" value="#{contatoController.contato.telefone.ddd}" />
+				<h:inputText id="numeroTelefone" value="#{contatoController.contato.telefone.numero}" />
+				<h:selectOneMenu value="#{contatoController.contato.telefone.tipo}">
+				<f:selectItems value="#{applicationController.tipos}" var="tipo" 
+							   itemLabel="#{tipo.descricao}" itemValue="#{tipo}" />
+				</h:selectOneMenu>
+			</h:panelGroup>
+			<h:commandButton action="#{contatoController.salvar()}" value="Salvar" />
+		
+		</h:panelGrid>
+	</h:form>
+</h:body>	
+
+
+</html>

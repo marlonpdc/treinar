@@ -31,13 +31,34 @@
 </style>
 </h:head>
 <h:body>
-	<ui:repeat var="contato" value="#{primeiro.contatos}">
-		
-		<h:outputText value="#{contato.pessoa.nome}" />
-	
-	</ui:repeat>
-	
+
 	<h:form>
+		
+		<h:panelGrid columns="2">
+		
+			<h:outputLabel value="Nome" for="nome" />
+			<h:inputText id="nome" value="#{primeiro.contato.pessoa.nome}" />
+			<h:outputLabel value="Data Nascimento" for="dataNascimento" />
+			<h:inputText id="dataNascimento" value="#{primeiro.contato.pessoa.dataNascimento}">
+				<f:convertDateTime pattern="dd/MM/yyyy" />
+			</h:inputText>
+			<h:outputLabel value="E-mail" for="email" />
+			<h:inputText id="email" value="#{primeiro.contato.email}" />
+			<h:outputLabel value="Telefone" for="telefone" />
+			<h:panelGroup>
+				<h:inputText id="dddTelefone" size="5" value="#{primeiro.contato.telefone.ddd}" />
+				<h:inputText id="numeroTelefone" value="#{primeiro.contato.telefone.numero}" />
+				<h:selectOneMenu value="#{primeiro.contato.telefone.tipo}">
+				<f:selectItems value="#{applicationController.tipos}" var="tipo" 
+							   itemLabel="#{tipo.descricao}" itemValue="#{tipo}" />
+				</h:selectOneMenu>
+			</h:panelGroup>
+			<h:commandButton action="#{primeiro.salvar()}" value="Salvar" />
+		
+		</h:panelGrid>
+		<br />
+		<br />
+		<br />
 		<h:dataTable value="#{primeiro.contatos}" var="c"
     			styleClass="order-table"
     			headerClass="order-table-header"
