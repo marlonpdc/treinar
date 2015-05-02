@@ -15,7 +15,9 @@
 <h:body>
 
 	<h:panelGroup layout="block" styleClass="div-novo">
-		<h:commandButton action="#{contatoController.novo()}" value="Novo Contato" />
+		<h:form>
+			<h:commandButton action="#{contatoController.novo()}" value="Novo Contato" />
+		</h:form>
 	</h:panelGroup>
 
 	<h:panelGroup rendered="#{contatoController.acao == 'EDITAR' || contatoController.acao == 'CADASTRAR'}">
