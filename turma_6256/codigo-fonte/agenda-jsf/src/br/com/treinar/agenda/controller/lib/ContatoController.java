@@ -1,4 +1,4 @@
-package br.com.treinar.agenda;
+package br.com.treinar.agenda.controller.lib;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,11 +30,12 @@ public class ContatoController {
 		contato.setTelefone(new Telefone());
 	}
 	
-	public void salvar() {
+	public String salvar() {
 		contatos.add(contato);
 		criarNovoContato();
 		FacesMessage message = new FacesMessage("Contato salvo com sucesso!");
 		FacesContext.getCurrentInstance().addMessage(null, message);
+		return "listacontato.xhtml";
 	}
 	
 	public void editar(Contato contato) {

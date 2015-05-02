@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+<title>Manter Contato</title>
+<style>
+	.div-novo {   
+		width: 50px;
+	}
+</style>
+</h:head>
+<h:body>
+
+	<h:panelGroup layout="block" styleClass="div-novo">
+		<h:commandButton action="#{contatoController.novo()}" value="Novo Contato" />
+	</h:panelGroup>
+
+	<h:panelGroup rendered="#{contatoController.acao == 'EDITAR' || contatoController.acao == 'CADASTRAR'}">
+		<ui:include src="/pages/contato/cadastracontato.xhtml" />
+	</h:panelGroup>
+	<h:panelGroup rendered="#{contatoController.acao == 'LISTAR' and not empty contatoController.contatos}">
+	
+	</h:panelGroup>	
+	
+	
+	
+</h:body>	
+</html>
