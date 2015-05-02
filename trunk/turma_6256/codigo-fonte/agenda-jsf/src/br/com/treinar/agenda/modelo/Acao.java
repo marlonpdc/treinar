@@ -6,5 +6,5 @@ public enum Acao {
 	CADASTRAR,
 	EXCLUIR,
 	EDITAR;
-
+	
 }

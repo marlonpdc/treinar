@@ -23,7 +23,7 @@
 	</h:panelGroup>
 	
 	<h:panelGroup rendered="#{contatoController.acao == 'LISTAR' and not empty contatoController.contatos}">
-	
+	<ui:include src="/pages/contato/listacontato.xhtml" />
 	</h:panelGroup>	
 	
 	
