@@ -1,7 +1,16 @@
 package br.com.agenda.modelo;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+
+
+@Entity
 public class Telefone {
 
+	@Id
+	private Long id;
+	
 	private Integer ddd;
 	private Integer numero;
 	private TipoTelefone tipo;
@@ -23,10 +32,5 @@ public class Telefone {
 	public void setTipo(TipoTelefone tipo) {
 		this.tipo = tipo;
 	}
-	@Override
-	public String toString() {
-		return "("+ ddd +") " + numero;
-	}
-	
 	
 }
