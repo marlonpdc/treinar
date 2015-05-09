@@ -1,20 +1,34 @@
 package br.com.agenda.modelo;
 
-public class Contato {
+import java.util.List;
 
-	private Pessoa pessoa;
-	private String email;
-	private Telefone telefone;
-	private static Long index;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+@Entity
+public class Contato {
+	
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
+
+	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	private Pessoa pessoa;
 	
-	static {
-		index = 0l;
-	}
+	@OneToMany(mappedBy="contato")
+	private List<Telefone> recados;
 	
-	public Contato() {
-		id = ++index;
-	}
+	private String email;
+	
+	@ManyToOne(cascade=CascadeType.ALL)
+	private Telefone telefone;
 	
 	public Pessoa getPessoa() {
 		return pessoa;
