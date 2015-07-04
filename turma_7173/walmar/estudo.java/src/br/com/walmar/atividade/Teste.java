@@ -1,21 +1,20 @@
-package br.com.walmar;
+package br.com.walmar.atividade;
 
-public class Carro {
-
+public class Teste {
+	
+		
 	String cor;
 	int velocidade;
 	String modelo;
 	
 	Motor motor;
 	
-	void acelerar() {
+	void acelerar(){
 		velocidade++;
-
 	}
-
-	void desacelerar() {
+	void desacelerar(){
 		velocidade--;
-
 	}
-
 }
+
+
