@@ -11,6 +11,7 @@ public class TesteCarro {
 		System.out.println(c.velocidade);
 		c.acelerar();
 		System.out.println(c.velocidade);
+	
 	}
 }
 
