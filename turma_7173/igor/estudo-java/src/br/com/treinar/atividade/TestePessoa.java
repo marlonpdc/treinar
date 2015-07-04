@@ -22,6 +22,8 @@ public class TestePessoa {
 
 		System.out.println("Altura: " + p.altura);
 
+		p = null;
+
 		nova.idade = 25;
 		nova.nome = "O Jeferson é muito chato";
 
@@ -31,7 +33,7 @@ public class TestePessoa {
 
 		nova.falar();
 		
-		p.endereco = new Endereco();
+		nova.endereco = new Endereco();
 		
 		nova.endereco.bairro = "Castelo";
 		nova.endereco.nomeRua = "Castelo de Guimarães";
