@@ -6,6 +6,8 @@ public class Carro {
 	int velocidade;
 	String modelo;
 
+	Motor motor;
+	
 	void acelerar() {
 		velocidade++;
 	}
