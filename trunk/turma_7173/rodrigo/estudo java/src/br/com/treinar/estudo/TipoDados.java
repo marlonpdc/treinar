@@ -5,7 +5,7 @@ public class TipoDados {
 		short s = 100;
 		System.out.println(s);
 		
-		int i= 350000000000;
+		int i= 350000000;
 		System.out.println(i);
 		
 		float f = (float)10.5;
@@ -20,7 +20,7 @@ public class TipoDados {
 		
 		boolean bFalse = false;
 		boolean btrue = false;
-		System.out.println(bfalse);
+		System.out.println(bFalse);
 		System.out.println("valor defaut:" + btrue);
 		
 		byte by = 100;
