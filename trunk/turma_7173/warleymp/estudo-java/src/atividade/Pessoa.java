@@ -13,6 +13,7 @@ public class Pessoa {
 	String email;
 	int idade;
 	float salario;
+	Cargo cargo;
 
 	void calcIdade() {
 		idade++;
