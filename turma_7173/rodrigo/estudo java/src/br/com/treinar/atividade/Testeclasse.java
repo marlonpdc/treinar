@@ -8,7 +8,11 @@ public class Testeclasse {
 		carro.modelo = "Crossfox";
 		carro.velocidade = 100;
 		carro.motor = new Motor();
-		carro.motor.fabricante = "f";
+		carro.motor.fabricante = "fiat";
+		carro.motor.numMarchar = 5;
+		carro.motor. potencia = 2;
+		
+		System.out.println(carro.motor.numMarchar);
 	}
 
 }
