@@ -24,9 +24,10 @@ public class CalcSalario {
 		p.email = "joao@email.com.br";
 		p.idade = 23;
 		p.salario = 1111;
+		p.cargo.bonus();
 		perc = p.cargo.percentual;
 		p.calcSalario(perc);        
-		System.out.println("percentual bonus " + perc);
+
 		System.out.println("nome " + p.nome);
         System.out.println("endereco " + p.endereco);
         System.out.println("numero " + p.numero);
