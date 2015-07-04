@@ -6,7 +6,11 @@ public class TesteLivro {
 		l.autor = "Jhon Green";
 		l.titulo = "A culpa é das estrelas *** ";
 		l.paginas = 800;
-		System.out.println(l.titulo);
-		System.out.println(l.autor);
+		
+		Livro novo = l;
+		
+		novo.titulo = "O teorema de Katarine";
+		System.out.println(novo.titulo);
+		System.out.println(novo.autor);
 	}
 }
