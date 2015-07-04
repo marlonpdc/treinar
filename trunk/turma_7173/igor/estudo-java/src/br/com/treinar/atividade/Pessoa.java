@@ -6,6 +6,8 @@ public class Pessoa {
 	String nome;
 	double altura;
 	
+	Endereco endereco;
+	
 	void falar(){
 		System.out.println("Ola...");
 	}	
