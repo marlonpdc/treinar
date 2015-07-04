@@ -2,7 +2,7 @@ package br.com.treinar.atividade;
 
 public class Motor {
 
-	int mumMarchar;
+	int numMarchar;
 	int potencia;
 	String fabricante;
 	
