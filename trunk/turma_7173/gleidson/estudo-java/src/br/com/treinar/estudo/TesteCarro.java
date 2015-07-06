@@ -27,14 +27,6 @@ public class TesteCarro {
 		
 		novo = null;
 		c = null;
-		
-		
-		
-		
-		
-		
-		
-		
 	
 	}
 	
