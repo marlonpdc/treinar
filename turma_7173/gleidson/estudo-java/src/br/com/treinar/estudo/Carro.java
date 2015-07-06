@@ -5,6 +5,7 @@ public class Carro {
 	String cor;
 	int velocidade;
 	String modelo;
+	boolean status;
 
 	Motor motor;
 	
@@ -15,5 +16,15 @@ public class Carro {
 	void desacelerar() {
 		velocidade--;
 	}
-
+	
+	int recuperarVelocidade() {
+		//de alguma maneira calcula a velocidade
+		return velocidade;
+	}
+	
+	void ligar() {
+		//rotina...
+		status = true;
+	}
+	
 }
