@@ -2,22 +2,26 @@ package br.com.treinar.estudo;
 
 public class Carro {
 
-	String cor;
-	int velocidade;
-	String modelo;
+	public String cor;
+	public int velocidade;
+	public String modelo;
 	boolean status;
 
 	Motor motor;
 	
-	void acelerar() {
+	public void acelerar() {
 		velocidade++;
 	}
+	
+	public void acelerar(int qtdKm) {
+		velocidade += qtdKm;
+	}
 
-	void desacelerar() {
+	public void desacelerar() {
 		velocidade--;
 	}
 	
-	int recuperarVelocidade() {
+	public int recuperarVelocidade() {
 		//de alguma maneira calcula a velocidade
 		return velocidade;
 	}
