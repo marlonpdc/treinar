@@ -5,6 +5,7 @@ public class Carro {
 	String cor;
 	int velocidade;
 	String modelo;
+	boolean status;
 
 	void acelerar() {
 		velocidade++;
@@ -13,5 +14,12 @@ public class Carro {
 	void desacelerar() {
 		velocidade--;
 	}
+	
+	void ligar(){
+		//rotina...
+		status = true;
+	}
+	
+	
 
 }
