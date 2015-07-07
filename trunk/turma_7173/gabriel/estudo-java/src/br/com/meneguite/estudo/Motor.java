@@ -2,7 +2,10 @@ package br.com.meneguite.estudo;
 
 public class Motor {
 
-	//int 
-	//String fabricante;
+	public int numMarchar;
+	public int potencia;
+	public String fabricante;
+	
+	
 	
 }
