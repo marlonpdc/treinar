@@ -2,7 +2,7 @@ package br.com.treinar.bb.modelo;
 
 public class Conta {
 
-	public double saldo;
+	private double saldo;
 	public Cliente cliente;
 
 	public boolean sacar(double valor) {
