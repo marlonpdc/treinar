@@ -1,4 +1,4 @@
-package estudo;
+package br.com.treinar.estudo;
 
 public class TerceiraClasse {
 	public static void main(String[] args) { //main
