@@ -48,13 +48,13 @@ public class OperadorBB {
 
 	private void cadastrarConta() {
 		conta = new Conta();
-		conta.cliente = new Cliente();
 		System.out.print("Informe o nome do cliente: ");
-		conta.cliente.nome = leitor.nextLine();
+		String nome = leitor.nextLine();
 		System.out.print("Informe o codigo do cliente: ");
 		conta.cliente.codigo = leitor.nextLong();
 		System.out.print("Informe o CPF do cliente: ");
-		conta.cliente.cpf = leitor.nextLong();
+		long cpf = leitor.nextLong();
+		conta.cliente = new Cliente(nome, cpf);
 		System.out.print("Saldo inicial: ");
 		conta.saldo = leitor.nextDouble();
 	}
