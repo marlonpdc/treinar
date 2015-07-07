@@ -30,9 +30,7 @@ public class OperadorBB {
 				exibirDadosConta();
 				break;
 			case 3:
-				System.out.println("Deposito de: ");
-				double valor = leitor.nextDouble();
-				conta.depositar(valor);
+				efetuarDeposito();
 				break;
 
 			default:
@@ -40,6 +38,21 @@ public class OperadorBB {
 			}
 		} while (opcao != 0);
 		
+	}
+
+	private void efetuarDeposito() {
+		System.out.println("Deposito de: ");
+		double valor = leitor.nextDouble();
+		boolean rolou = conta.depositar(valor);
+		if (rolou) {
+			System.out.println("Depósito efetuado com sucesso!");
+		} else {
+			System.out.println("Não rolou brother!!!");
+		}
+		
+		//System.out.println(rolou ? "Depósito efetuado com sucesso!" : 
+		//						   "Não rolou brother!!!");
+
 	}
 
 	private void exibirDadosConta() {

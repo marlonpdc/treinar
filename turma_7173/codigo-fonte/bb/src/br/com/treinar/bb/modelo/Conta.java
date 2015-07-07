@@ -15,8 +15,12 @@ public class Conta {
 	}
 	
 	public boolean depositar(double valor) {
-		saldo += valor;
-		return true;
+		boolean depositoEfetuado = false;
+		if (valor > 0) {
+			saldo += valor;
+			depositoEfetuado = true;
+		}
+		return depositoEfetuado;
 	}
 
 }
