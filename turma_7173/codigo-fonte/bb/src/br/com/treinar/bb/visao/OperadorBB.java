@@ -76,7 +76,7 @@ public class OperadorBB {
 		System.out.println("Codigo Cliente: " + conta.cliente.codigo);
 		System.out.println("Nome Cliente: " + conta.cliente.nome);
 		System.out.println("CPF Cliente: " + conta.cliente.cpf);
-		System.out.println("Saldo: " + conta.saldo);
+		System.out.println("Saldo: " + conta.recuperarSaldo());
 	}
 
 	private void cadastrarConta() {
