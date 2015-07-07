@@ -1,6 +1,6 @@
-package br.com.treinar.estudo;
+package br.com.gauzzi.estudo;
 
-import br.com.treinar.estudo.Motor;
+
 
 public class Carro {
 
