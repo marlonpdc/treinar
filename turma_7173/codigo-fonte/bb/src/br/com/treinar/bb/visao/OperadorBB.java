@@ -48,6 +48,7 @@ public class OperadorBB {
 		System.out.print("Valor de saque : ");
 		double valor = leitor.nextDouble(); 
 		boolean rolou = conta.sacar(valor);
+		
 		if (rolou) {
 			System.out.println("Saque efetuado com sucesso!");
 		} else {
@@ -88,7 +89,7 @@ public class OperadorBB {
 		System.out.print("Informe o codigo do cliente: ");
 		conta.cliente.codigo = leitor.nextLong();
 		System.out.print("Saldo inicial: ");
-		conta.saldo = leitor.nextDouble();
+		conta.depositar(leitor.nextDouble());
 	}
 
 }
