@@ -5,6 +5,16 @@ public class Monitor {
 	String marca;
 	String cor;
 	
+	public Monitor() {
+		System.out.println("Executando...");
+	}
+	
+	public Monitor(int tamanho, String marca, String cor) {
+		this.tamanho = tamanho;
+		this.marca = marca;
+		this.cor = cor;
+	}
+	
 	void ligar(){
 		System.out.println("Monitor ligado");
 	}
@@ -16,4 +26,6 @@ public class Monitor {
 	void detalhes(){
 		System.out.println("Tamanho: " + tamanho + "\nMarca: "+marca+ "\nCor: "+cor);
 	}
+
+	
 }
