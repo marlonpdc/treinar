@@ -1,6 +1,7 @@
 package br.com.treinar.atividade;
 
 import br.com.treinar.estudo.Carro;
+import br.com.treinar.estudo.Motor;
 
 public class AtividadeMetodo {
 
@@ -17,6 +18,12 @@ public class AtividadeMetodo {
 			carro.desacelerar();
 		}
 		System.out.println(carro.recuperarVelocidade());
+		
+		Motor motor = carro.recuperarMotor();
+		System.out.println(motor.fabricante);
+		
+		carro.recuperarMotor();
+		System.out.println();
 		
 	}
 	
