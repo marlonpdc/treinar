@@ -45,7 +45,7 @@ public class OperadorBB {
 
 	private void realizarSaque() {
 
-		System.out.println("Valor de saque : ");
+		System.out.print("Valor de saque : ");
 		double valor = leitor.nextDouble(); 
 		boolean rolou = conta.sacar(valor);
 		if (rolou) {
@@ -57,7 +57,7 @@ public class OperadorBB {
 	}
 
 	private void efetuarDeposito() {
-		System.out.println("Deposito de: ");
+		System.out.print("Deposito de: ");
 		double valor = leitor.nextDouble();
 		boolean rolou = conta.depositar(valor);
 		if (rolou) {
@@ -82,11 +82,11 @@ public class OperadorBB {
 		conta = new Conta();
 		System.out.print("Informe o nome do cliente: ");
 		String nome = leitor.nextLine();
-		System.out.print("Informe o codigo do cliente: ");
-		conta.cliente.codigo = leitor.nextLong();
 		System.out.print("Informe o CPF do cliente: ");
 		long cpf = leitor.nextLong();
 		conta.cliente = new Cliente(nome, cpf);
+		System.out.print("Informe o codigo do cliente: ");
+		conta.cliente.codigo = leitor.nextLong();
 		System.out.print("Saldo inicial: ");
 		conta.saldo = leitor.nextDouble();
 	}
