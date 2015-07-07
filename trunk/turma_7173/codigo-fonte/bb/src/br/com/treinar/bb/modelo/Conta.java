@@ -22,5 +22,9 @@ public class Conta {
 		}
 		return depositoEfetuado;
 	}
+	
+	public double recuperarSaldo(){
+		return saldo;
+	}
 
 }
