@@ -9,18 +9,18 @@ public class OperadorBB {
 
 	private Conta conta;
 	Scanner leitor = new Scanner(System.in);
-	
+
 	public void init() {
 		int opcao = 0;
 		do {
-			System.out.print("0 - Sair\n"
-					+ "1 - Cadastrar Conta\n"
+			System.out.print("0 - Sair\n" + "1 - Cadastrar Conta\n"
 					+ "2 - Exibir dados da Conta\n"
-					+ "3 - Depositar na Conta\n"
+					+ "3 - Depositar na Conta\n" 
+					+ "4 - Realizar Saque\n"
 					+ "Opção: ");
 			opcao = leitor.nextInt();
-			//importante para remover a quebra de linha]
-			//deixada pela leitura de um numero inteiro
+			// importante para remover a quebra de linha]
+			// deixada pela leitura de um numero inteiro
 			leitor.nextLine();
 			switch (opcao) {
 			case 1:
@@ -32,12 +32,28 @@ public class OperadorBB {
 			case 3:
 				efetuarDeposito();
 				break;
+			case 4:
+				realizarSaque();
+				break;
 
 			default:
 				break;
 			}
 		} while (opcao != 0);
-		
+
+	}
+
+	private void realizarSaque() {
+
+		System.out.println("Valor de saque : ");
+		double valor = leitor.nextDouble(); 
+		boolean rolou = conta.sacar(valor);
+		if (rolou) {
+			System.out.println("Saque efetuado com sucesso!");
+		} else {
+			System.out.println("Saque nao realizado !");
+		}
+
 	}
 
 	private void efetuarDeposito() {
@@ -49,9 +65,9 @@ public class OperadorBB {
 		} else {
 			System.out.println("Não rolou brother!!!");
 		}
-		
-		//System.out.println(rolou ? "Depósito efetuado com sucesso!" : 
-		//						   "Não rolou brother!!!");
+
+		// System.out.println(rolou ? "Depósito efetuado com sucesso!" :
+		// "Não rolou brother!!!");
 
 	}
 
@@ -74,5 +90,5 @@ public class OperadorBB {
 		System.out.print("Saldo inicial: ");
 		conta.saldo = leitor.nextDouble();
 	}
-	
+
 }
