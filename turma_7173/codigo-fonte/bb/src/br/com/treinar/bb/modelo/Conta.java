@@ -2,18 +2,21 @@ package br.com.treinar.bb.modelo;
 
 public class Conta {
 
-	double saldo;
-	Cliente cliente;
+	public double saldo;
+	public Cliente cliente;
 
 	public boolean sacar(double valor) {
+		boolean saqueEfetuado = false;
 		if (saldo >= valor) {
 			saldo -= valor;
-			return true;
-		} else {
-			return false;
-
+			saqueEfetuado = true;
 		}
-
+		return saqueEfetuado;
+	}
+	
+	public boolean depositar(double valor) {
+		saldo += valor;
+		return true;
 	}
 
 }
