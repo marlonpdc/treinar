@@ -1,4 +1,4 @@
-package estudo;
+package br.com.gauzzi.estudo;
 
 public class Operador {
 	public static void main(String[] args) {

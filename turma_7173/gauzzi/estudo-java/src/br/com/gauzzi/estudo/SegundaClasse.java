@@ -1,4 +1,4 @@
-package estudo;
+package br.com.gauzzi.estudo;
 
 public class SegundaClasse {
 	public static void main(String[] args) {
