@@ -10,5 +10,15 @@ public class Pessoa {
 	void envelhecer(){
 		idade ++;
 	}
-
+	
+	/*Construtor*/
+	
+	public Pessoa() {
+		
+	}
+	
+	public Pessoa(String nome,int idade) {
+		this.nome = nome;
+		this.idade =idade;
+	}
 }
