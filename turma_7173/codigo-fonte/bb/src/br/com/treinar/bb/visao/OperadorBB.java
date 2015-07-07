@@ -16,6 +16,7 @@ public class OperadorBB {
 			System.out.print("0 - Sair\n"
 					+ "1 - Cadastrar Conta\n"
 					+ "2 - Exibir dados da Conta\n"
+					+ "3 - Depositar na Conta\n"
 					+ "Opção: ");
 			opcao = leitor.nextInt();
 			//importante para remover a quebra de linha]
@@ -29,7 +30,9 @@ public class OperadorBB {
 				exibirDadosConta();
 				break;
 			case 3:
-				
+				System.out.println("Deposito de: ");
+				double valor = leitor.nextDouble();
+				conta.depositar(valor);
 				break;
 
 			default:
