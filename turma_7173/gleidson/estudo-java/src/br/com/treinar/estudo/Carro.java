@@ -17,6 +17,20 @@ public class Carro {
 		velocidade += qtdKm;
 	}
 
+	public Motor recuperarMotor() {
+		Motor m = new Motor();
+		m.fabricante = "GM";
+		m.numMarchar = 5;
+		m.potencia = 2;
+		return m;
+	}
+	
+	public void acelerar(int qtdKm, int tempo) {
+		velocidade += qtdKm;
+	}
+	
+	
+	
 	public void desacelerar() {
 		velocidade--;
 	}
