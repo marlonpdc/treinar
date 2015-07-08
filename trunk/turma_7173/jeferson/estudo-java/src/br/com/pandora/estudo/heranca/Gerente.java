@@ -12,8 +12,10 @@ public class Gerente extends Pessoa {
 		this.bonificacao = bonificacao;
 	}
 
-	public Gerente() {
-		
+	public Gerente(String nome, String sobrenome) {
+		super(nome, sobrenome);
 	}
+
+	
 
 }
