@@ -6,6 +6,11 @@ public class Funcionario {
 	private String sobrenome;
 	private String apelido;
 	private int idade;
+	
+	public Funcionario(String nome, int idade) {
+		this.nome = nome;
+		this.idade = idade;
+	}
 
 	public String getNome() {
 		return nome;
@@ -37,5 +42,13 @@ public class Funcionario {
 
 	public void setIdade(int idade) {
 		this.idade = idade;
+	}
+	
+	public int calcularDiasFerias(){
+		return 0;
+	}
+	
+	public double calcularBonificacao(){
+		return 20;
 	}
 }
