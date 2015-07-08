@@ -5,6 +5,7 @@ import java.util.Scanner;
 import br.com.treinar.bb.modelo.Cliente;
 import br.com.treinar.bb.modelo.ContaCorrente;
 import br.com.treinar.bb.modelo.ContaInvestimento;
+import br.com.treinar.bb.modelo.ContaPoupanca;
 import br.com.treinar.bb.modelo.banco.Conta;
 
 public class OperadorBB {
@@ -44,9 +45,9 @@ public class OperadorBB {
 	private void realizarSaque() {
 
 		System.out.print("Valor de saque : ");
-		double valor = leitor.nextDouble(); 
+		double valor = leitor.nextDouble();
 		boolean rolou = conta.sacar(valor);
-		
+
 		if (rolou) {
 			System.out.println("Saque efetuado com sucesso!");
 		} else {
@@ -79,7 +80,7 @@ public class OperadorBB {
 
 	private void cadastrarConta() {
 		System.out.println(menuCadastrarConta());
-		
+
 		int opcao = leitor.nextInt();
 		switch (opcao) {
 		case 1:
@@ -88,22 +89,29 @@ public class OperadorBB {
 			break;
 		case 2:
 			conta = new ContaInvestimento();
-			cadastrarContaInvestimento((ContaInvestimento) conta);			
+			cadastrarContaInvestimento((ContaInvestimento) conta);
 			break;
 		case 3:
-			
+			conta = new ContaPoupanca();
+			cadastrarContaPoupanca((ContaPoupanca) conta);
 			break;
 		case 4:
-			
+
 			break;
 
 		default:
 			System.out.println("\nTipo de conta Inválido...\n");
 			break;
 		}
-		
+
 	}
-	
+
+	private void cadastrarContaPoupanca(ContaPoupanca conta) {
+		cadastrarContaPai(conta);
+		System.out.print("Informe taxa de Rentabilidade: ");
+		conta.setTaxaRendimento(leitor.nextInt());
+	}
+
 	private void cadastrarContaInvestimento(ContaInvestimento conta2) {
 		cadastrarContaPai(conta);
 		System.out.print("Informe taxa de Rentabilidade: ");
@@ -134,20 +142,15 @@ public class OperadorBB {
 	}
 
 	private String menuPrincipal() {
-		return "0 - Sair\n" 
-				+ "1 - Cadastrar Conta\n"
-				+ "2 - Exibir dados da Conta\n"
-				+ "3 - Depositar na Conta\n" 
-				+ "4 - Realizar Saque\n"
-				+ "Opção: ";
+		return "0 - Sair\n" + "1 - Cadastrar Conta\n"
+				+ "2 - Exibir dados da Conta\n" + "3 - Depositar na Conta\n"
+				+ "4 - Realizar Saque\n" + "Opção: ";
 	}
-	
+
 	private String menuCadastrarConta() {
-		return "\t1 - Conta Corrente\n\t"
-						 + "2 - Conta Investimento\n\t"
-						 + "3 - Conta Poupança\n\t"
-						 + "4 - Conta Salário\n"
-						 + "Informe: ";
+		return "\t1 - Conta Corrente\n\t" + "2 - Conta Investimento\n\t"
+				+ "3 - Conta Poupança\n\t" + "4 - Conta Salário\n"
+				+ "Informe: ";
 	}
-	
+
 }
