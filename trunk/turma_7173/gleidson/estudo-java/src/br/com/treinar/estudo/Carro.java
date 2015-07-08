@@ -2,7 +2,7 @@ package br.com.treinar.estudo;
 
 public class Carro {
 
-	public String cor;
+	String cor;
 	public int velocidade;
 	public String modelo;
 	boolean status;
