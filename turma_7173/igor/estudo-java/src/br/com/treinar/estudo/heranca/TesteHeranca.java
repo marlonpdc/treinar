@@ -10,9 +10,7 @@ public class TesteHeranca {
 		g.setBonificacao(10);
 		
 		Funcionario p = new Funcionario();
-		p.setNome("Igor Yuri");
-		
-		Funcionario gerente = new Gerente();		
+		p.setNome("Igor Yuri");	
 	}
 	
 }
