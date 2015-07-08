@@ -1,12 +1,23 @@
-package br.com.treinar.estudo.encapsulamento;
+package br.com.treinar.estudo.heranca;
 
-public class Pessoa {
+public abstract class Funcionario {
 
+	public Funcionario(String nome) {
+		this.nome = nome;
+	}
+	
 	private String nome;
 	private String sobrenome;
 	private String apelido;
 	private int idade;
+	private double salario;
 
+	public abstract double calcularBonificacao();
+	
+	public int calcularDiasFerias() {
+		return 10;
+	}
+	
 	public String getNome() {
 		return nome;
 	}
@@ -39,6 +50,14 @@ public class Pessoa {
 
 	public void setIdade(int idade) {
 		this.idade = idade;
+	}
+
+	public double getSalario() {
+		return salario;
+	}
+
+	public void setSalario(double salario) {
+		this.salario = salario;
 	}
 
 }
