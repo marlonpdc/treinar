@@ -1,6 +1,6 @@
 package br.com.treinar.estudo.encapsulamento;
 
-public class Pessoa {
+public class Funcionario {
 
 	private String nome;
 	private String sobrenome;
