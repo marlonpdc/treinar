@@ -12,7 +12,6 @@ public class TesteHeranca {
 		Funcionario p = new Funcionario("Igor Yuri", 18);
 		System.out.println(p.getNome());
 		System.out.println(p.getIdade());
-		p.
 		
 		
 	}
