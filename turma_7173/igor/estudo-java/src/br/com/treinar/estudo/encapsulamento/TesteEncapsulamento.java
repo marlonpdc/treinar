@@ -4,7 +4,7 @@ public class TesteEncapsulamento {
 
 	public static void main(String[] args) {
 
-		Funcionario p = new Funcionario();
+		Funcionario p = new Funcionario("Igor Yuri", 18);
 
 		p.setNome("Igor");
 		p.setSobrenome("Yuri");

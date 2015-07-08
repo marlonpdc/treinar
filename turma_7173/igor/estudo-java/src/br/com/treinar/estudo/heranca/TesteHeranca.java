@@ -6,11 +6,15 @@ public class TesteHeranca {
 	
 	public static void main(String[] args) {
 		
-		Gerente g = new Gerente();
+		Gerente g = new Gerente("Igor Yuri", 18);
 		g.setBonificacao(10);
 		
-		Funcionario p = new Funcionario();
-		p.setNome("Igor Yuri");	
+		Funcionario p = new Funcionario("Igor Yuri", 18);
+		System.out.println(p.getNome());
+		System.out.println(p.getIdade());
+		p.
+		
+		
 	}
 	
 }
