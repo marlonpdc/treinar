@@ -1,9 +1,11 @@
-package br.com.treinar.bb.modelo;
+package br.com.treinar.bb.modelo.banco;
 
-public class Conta {
+import br.com.treinar.bb.modelo.Cliente;
+
+public abstract class Conta {
 
 	private double saldo;
-	public Cliente cliente;
+	private Cliente cliente;
 
 	public boolean sacar(double valor) {
 		boolean saqueEfetuado = false;
@@ -25,6 +27,22 @@ public class Conta {
 	
 	public double recuperarSaldo(){
 		return saldo;
+	}
+
+	public double getSaldo() {
+		return saldo;
+	}
+
+	public void setSaldo(double saldo) {
+		this.saldo = saldo;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 
 }
