@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import br.com.treinar.bb.modelo.Cliente;
 import br.com.treinar.bb.modelo.ContaCorrente;
+import br.com.treinar.bb.modelo.ContaInvestimento;
 import br.com.treinar.bb.modelo.banco.Conta;
 
 public class OperadorBB {
@@ -86,7 +87,8 @@ public class OperadorBB {
 			cadastrarContaCorrente((ContaCorrente) conta);
 			break;
 		case 2:
-			
+			conta = new ContaInvestimento();
+			cadastrarContaInvestimento((ContaInvestimento) conta);			
 			break;
 		case 3:
 			
@@ -102,6 +104,15 @@ public class OperadorBB {
 		
 	}
 	
+	private void cadastrarContaInvestimento(ContaInvestimento conta2) {
+		cadastrarContaPai(conta);
+		System.out.print("Informe taxa de Rentabilidade: ");
+		conta2.setRentabilidade(leitor.nextInt());
+		System.out.print("Informe a taxa de manunteção: ");
+		conta2.setTaxaManutencao(leitor.nextDouble());
+
+	}
+
 	private void cadastrarContaCorrente(ContaCorrente conta) {
 		cadastrarContaPai(conta);
 		System.out.print("Informe taxa de manutenção: ");
