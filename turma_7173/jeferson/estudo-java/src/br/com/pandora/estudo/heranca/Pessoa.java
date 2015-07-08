@@ -5,13 +5,17 @@ public class Pessoa {
 	private String nome;
 	private String sobrenome;
 	private double salario;
-	public String getNome() {
-		return nome;
+	
+	public Pessoa(String nome, String sobrenome) {
+		this.nome = nome;
+		this.sobrenome = sobrenome;
 	}
 	
-	public Pessoa() {
-		
-	}
+	
+	public String getNome() {
+		return nome;
+	}	
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
@@ -28,6 +32,4 @@ public class Pessoa {
 		this.salario = salario;
 	}
 	
-	
-
 }
