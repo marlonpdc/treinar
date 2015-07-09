@@ -23,4 +23,20 @@ public class ContaCorrente extends Conta {
 		this.limiteCredito = limiteCredito;
 	}
 
+	@Override
+	public boolean sacar(double valor) {
+		boolean saqueEfetuado = false;
+		double saldo = getSaldo();
+		if (saldo >= valor + 1) {
+			setSaldo(saldo - (valor + 1));
+			saqueEfetuado = true;
+		}
+		return saqueEfetuado;
+	}
+
+	@Override
+	public double recuperarSaldo() {
+		return getSaldo() + limiteCredito;
+	}
+
 }

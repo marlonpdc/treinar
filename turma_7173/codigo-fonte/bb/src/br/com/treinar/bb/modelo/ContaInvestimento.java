@@ -24,4 +24,20 @@ public class ContaInvestimento extends Conta {
 		this.taxaManutencao = taxaManutencao;
 	}
 
+	@Override
+	public boolean sacar(double valor) {
+		boolean saqueEfetuado = false;
+		double saldo = getSaldo();
+		if (saldo >= valor + 10) {
+			setSaldo(saldo - (valor + 10));
+			saqueEfetuado = true;
+		}
+		return saqueEfetuado;
+	}
+
+	@Override
+	public double recuperarSaldo() {
+		return getSaldo();
+	}
+
 }

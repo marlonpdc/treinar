@@ -14,4 +14,20 @@ public class ContaSalario extends Conta {
 		this.qtdSaque = qtdSaque;
 	}
 
+	@Override
+	public boolean sacar(double valor) {
+		boolean saqueEfetuado = false;
+		double saldo = getSaldo();
+		if (saldo >= valor) {
+			setSaldo(saldo - valor);
+			saqueEfetuado = true;
+		}
+		return saqueEfetuado;
+	}
+
+	@Override
+	public double recuperarSaldo() {
+		return getSaldo();
+	}
+
 }

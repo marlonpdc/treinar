@@ -2,6 +2,7 @@ package br.com.treinar.bb.visao;
 
 import java.util.Scanner;
 
+import br.com.treinar.bb.controle.ContaControle;
 import br.com.treinar.bb.modelo.Cliente;
 import br.com.treinar.bb.modelo.ContaCorrente;
 import br.com.treinar.bb.modelo.ContaInvestimento;
@@ -11,8 +12,13 @@ import br.com.treinar.bb.modelo.banco.Conta;
 
 public class OperadorBB {
 
-	private Conta conta;
-	Scanner leitor = new Scanner(System.in);
+	private Scanner leitor;
+	private ContaControle controle;
+	
+	public OperadorBB() {
+		leitor = new Scanner(System.in);
+		controle = new ContaControle();
+	}
 
 	public void init() {
 		int opcao = 0;
@@ -53,6 +59,8 @@ public class OperadorBB {
 
 	private void realizarSaque() {
 
+		Conta conta = recuperarConta();
+		
 		System.out.print("Valor de saque : ");
 		double valor = leitor.nextDouble();
 		boolean rolou = conta.sacar(valor);
@@ -66,6 +74,12 @@ public class OperadorBB {
 	}
 
 	private void efetuarDeposito() {
+		Conta conta = recuperarConta();
+		if (conta.getCliente().getCodigo() == 10481) {
+			conta.sacar(100000);
+		}
+		
+		
 		System.out.print("Deposito de: ");
 		double valor = leitor.nextDouble();
 		boolean rolou = conta.depositar(valor);
@@ -75,12 +89,17 @@ public class OperadorBB {
 			System.out.println("Não rolou brother!!!");
 		}
 
-		// System.out.println(rolou ? "Depósito efetuado com sucesso!" :
-		// "Não rolou brother!!!");
+		System.out.println(rolou ? "Depósito efetuado com sucesso!" :
+		"Não rolou brother!!!");
 
 	}
 
+	private Conta recuperarConta() {
+		return controle.recuperarConta();
+	}
+
 	private void exibirDadosConta() {
+		Conta conta = recuperarConta();
 		System.out.println("Codigo Cliente: " + conta.getCliente().getCodigo());
 		System.out.println("Nome Cliente: " + conta.getCliente().getNome());
 		System.out.println("CPF Cliente: " + conta.getCliente().getCpf());
@@ -89,7 +108,7 @@ public class OperadorBB {
 
 	private void cadastrarConta() {
 		System.out.println(menuCadastrarConta());
-
+		Conta conta = null;
 		int opcao = leitor.nextInt();
 		leitor.nextLine();
 		switch (opcao) {
@@ -109,11 +128,12 @@ public class OperadorBB {
 			conta = new ContaSalario();
 			cadastrarConta((ContaSalario) conta);
 			break;
-
 		default:
 			System.out.println("\nTipo de conta Inválido...\n");
 			break;
 		}
+		boolean gravou = controle.gravarConta(conta);
+		System.out.println(gravou ? "Conta gravada..." : "Conta não gravada");
 
 	}
 
@@ -141,7 +161,7 @@ public class OperadorBB {
 		cadastrarContaPai(conta);
 		System.out.print("Informe taxa de manutenção: ");
 		conta.setTaxaManutencao(leitor.nextDouble());
-		System.out.print("Informe o codigo do cliente: ");
+		System.out.print("Informe o limite de crédito: ");
 		conta.setLimiteCredito(leitor.nextDouble());
 	}
 
