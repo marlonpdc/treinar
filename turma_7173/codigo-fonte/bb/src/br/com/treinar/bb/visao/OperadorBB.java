@@ -35,12 +35,20 @@ public class OperadorBB {
 			case 4:
 				realizarSaque();
 				break;
+			case 5:
+				cadastrarTaxaRendimento();
+				break;
 
 			default:
 				break;
 			}
 		} while (opcao != 0);
 
+	}
+
+	private void cadastrarTaxaRendimento() {
+		System.out.print("Informe a taxa de Rentabilidade: ");
+		ContaPoupanca.setTaxaRendimento(leitor.nextInt());
 	}
 
 	private void realizarSaque() {
@@ -118,8 +126,6 @@ public class OperadorBB {
 
 	private void cadastrarConta(ContaPoupanca conta) {
 		cadastrarContaPai(conta);
-		System.out.print("Informe taxa de Rentabilidade: ");
-		conta.setTaxaRendimento(leitor.nextInt());
 	}
 
 	private void cadastrarConta(ContaInvestimento conta) {
@@ -156,7 +162,9 @@ public class OperadorBB {
 				+ "1 - Cadastrar Conta\n"
 				+ "2 - Exibir dados da Conta\n" 
 				+ "3 - Depositar na Conta\n"
-				+ "4 - Realizar Saque\n" + "Opção: ";
+				+ "4 - Realizar Saque\n" 
+				+ "5 - Cadastrar taxa de rendimento\n" 
+				+ "Opção: ";
 	}
 
 	private String menuCadastrarConta() {
