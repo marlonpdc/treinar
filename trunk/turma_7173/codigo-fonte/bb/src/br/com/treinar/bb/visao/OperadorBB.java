@@ -75,11 +75,7 @@ public class OperadorBB {
 
 	private void efetuarDeposito() {
 		Conta conta = recuperarConta();
-		if (conta.getCliente().getCodigo() == 10481) {
-			conta.sacar(100000);
-		}
-		
-		
+
 		System.out.print("Deposito de: ");
 		double valor = leitor.nextDouble();
 		boolean rolou = conta.depositar(valor);
