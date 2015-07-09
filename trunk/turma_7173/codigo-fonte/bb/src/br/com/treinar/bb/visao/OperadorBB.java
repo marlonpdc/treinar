@@ -6,6 +6,7 @@ import br.com.treinar.bb.modelo.Cliente;
 import br.com.treinar.bb.modelo.ContaCorrente;
 import br.com.treinar.bb.modelo.ContaInvestimento;
 import br.com.treinar.bb.modelo.ContaPoupanca;
+import br.com.treinar.bb.modelo.ContaSalario;
 import br.com.treinar.bb.modelo.banco.Conta;
 
 public class OperadorBB {
@@ -96,13 +97,21 @@ public class OperadorBB {
 			cadastrarContaPoupanca((ContaPoupanca) conta);
 			break;
 		case 4:
-
+			conta = new ContaSalario();
+			cadastrarContaSalario((ContaSalario) conta);
 			break;
 
 		default:
 			System.out.println("\nTipo de conta Inválido...\n");
 			break;
 		}
+
+	}
+
+	private void cadastrarContaSalario(ContaSalario conta3) {
+		cadastrarContaPai(conta);
+		System.out.print("Informe a quantidade máxima de saques: ");
+		conta3.setQtdSaque(leitor.nextInt());
 
 	}
 
