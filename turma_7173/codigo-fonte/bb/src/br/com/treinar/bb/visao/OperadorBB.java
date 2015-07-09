@@ -83,22 +83,23 @@ public class OperadorBB {
 		System.out.println(menuCadastrarConta());
 
 		int opcao = leitor.nextInt();
+		leitor.nextLine();
 		switch (opcao) {
 		case 1:
 			conta = new ContaCorrente();
-			cadastrarContaCorrente((ContaCorrente) conta);
+			cadastrarConta((ContaCorrente) conta);
 			break;
 		case 2:
 			conta = new ContaInvestimento();
-			cadastrarContaInvestimento((ContaInvestimento) conta);
+			cadastrarConta((ContaInvestimento) conta);
 			break;
 		case 3:
 			conta = new ContaPoupanca();
-			cadastrarContaPoupanca((ContaPoupanca) conta);
+			cadastrarConta((ContaPoupanca) conta);
 			break;
 		case 4:
 			conta = new ContaSalario();
-			cadastrarContaSalario((ContaSalario) conta);
+			cadastrarConta((ContaSalario) conta);
 			break;
 
 		default:
@@ -108,29 +109,29 @@ public class OperadorBB {
 
 	}
 
-	private void cadastrarContaSalario(ContaSalario conta3) {
+	private void cadastrarConta(ContaSalario conta) {
 		cadastrarContaPai(conta);
 		System.out.print("Informe a quantidade máxima de saques: ");
-		conta3.setQtdSaque(leitor.nextInt());
+		conta.setQtdSaque(leitor.nextInt());
 
 	}
 
-	private void cadastrarContaPoupanca(ContaPoupanca conta) {
+	private void cadastrarConta(ContaPoupanca conta) {
 		cadastrarContaPai(conta);
 		System.out.print("Informe taxa de Rentabilidade: ");
 		conta.setTaxaRendimento(leitor.nextInt());
 	}
 
-	private void cadastrarContaInvestimento(ContaInvestimento conta2) {
+	private void cadastrarConta(ContaInvestimento conta) {
 		cadastrarContaPai(conta);
 		System.out.print("Informe taxa de Rentabilidade: ");
-		conta2.setRentabilidade(leitor.nextInt());
+		conta.setRentabilidade(leitor.nextInt());
 		System.out.print("Informe a taxa de manunteção: ");
-		conta2.setTaxaManutencao(leitor.nextDouble());
+		conta.setTaxaManutencao(leitor.nextDouble());
 
 	}
 
-	private void cadastrarContaCorrente(ContaCorrente conta) {
+	private void cadastrarConta(ContaCorrente conta) {
 		cadastrarContaPai(conta);
 		System.out.print("Informe taxa de manutenção: ");
 		conta.setTaxaManutencao(leitor.nextDouble());
@@ -151,14 +152,16 @@ public class OperadorBB {
 	}
 
 	private String menuPrincipal() {
-		return "0 - Sair\n" + "1 - Cadastrar Conta\n"
-				+ "2 - Exibir dados da Conta\n" + "3 - Depositar na Conta\n"
+		return "0 - Sair\n" 
+				+ "1 - Cadastrar Conta\n"
+				+ "2 - Exibir dados da Conta\n" 
+				+ "3 - Depositar na Conta\n"
 				+ "4 - Realizar Saque\n" + "Opção: ";
 	}
 
 	private String menuCadastrarConta() {
 		return "\t1 - Conta Corrente\n\t" + "2 - Conta Investimento\n\t"
-				+ "3 - Conta Poupança\n\t" + "4 - Conta Salário\n"
+				+ "3 - Conta Poupança\n\t" + "4 - Conta Salário\n\t"
 				+ "Informe: ";
 	}
 
