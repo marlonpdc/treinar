@@ -7,14 +7,7 @@ public abstract class Conta {
 	private double saldo;
 	private Cliente cliente;
 
-	public boolean sacar(double valor) {
-		boolean saqueEfetuado = false;
-		if (saldo >= valor) {
-			saldo -= valor;
-			saqueEfetuado = true;
-		}
-		return saqueEfetuado;
-	}
+	public abstract boolean sacar(double valor);
 	
 	public boolean depositar(double valor) {
 		boolean depositoEfetuado = false;
@@ -25,15 +18,13 @@ public abstract class Conta {
 		return depositoEfetuado;
 	}
 	
-	public double recuperarSaldo(){
+	public abstract double recuperarSaldo();
+
+	protected double getSaldo() {
 		return saldo;
 	}
 
-	public double getSaldo() {
-		return saldo;
-	}
-
-	public void setSaldo(double saldo) {
+	protected void setSaldo(double saldo) {
 		this.saldo = saldo;
 	}
 

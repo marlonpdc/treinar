@@ -25,5 +25,21 @@ public class ContaPoupanca extends Conta {
 	public static void setTaxaRendimento(int taxaRendimento) {
 		ContaPoupanca.taxaRendimento = taxaRendimento;
 	}
+
+	@Override
+	public boolean sacar(double valor) {
+		boolean saqueEfetuado = false;
+		double saldo = getSaldo();
+		if (saldo >= valor) {
+			setSaldo(saldo - valor);
+			saqueEfetuado = true;
+		}
+		return saqueEfetuado;
+	}
+
+	@Override
+	public double recuperarSaldo() {
+		return getSaldo();
+	}
 	
 }
