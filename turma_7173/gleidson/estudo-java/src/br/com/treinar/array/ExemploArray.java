@@ -10,7 +10,7 @@ public class ExemploArray {
 
 		Pessoa[] pessoas = null;
 		System.out.println();
-		pessoas = new Pessoa[7];
+		pessoas = new Pessoa[3];
 
 		Scanner sc = new Scanner(System.in);
 		
