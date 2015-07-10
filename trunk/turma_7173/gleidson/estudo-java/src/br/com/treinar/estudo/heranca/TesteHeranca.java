@@ -12,7 +12,7 @@ public class TesteHeranca {
 		//p.setNome("Gleidosn");
 		
 		Funcionario gerente = new Gerente();
-		
+		System.out.println(gerente);
 		//nao eh possivel atribuir uma 
 		//instancia mais especifica em uma mais generica
 		//Gerente g1 = new Pessoa();

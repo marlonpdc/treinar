@@ -6,9 +6,9 @@ public class Pessoa {
 	public int idade;
 
 	public Pessoa() {
-		System.out.println("");
+		super();
 	}
-	
+
 	public Pessoa(String nome) {
 		this.nome = nome;
 	}
@@ -28,8 +28,43 @@ public class Pessoa {
 		return idade * 365;
 	}
 	
-	
+	public boolean compararIgualdade(Pessoa other) {
+		return other.idade == this.idade;
+	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + idade;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Pessoa other = (Pessoa) obj;
+		if (idade != other.idade)
+			return false;
+		return true;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
