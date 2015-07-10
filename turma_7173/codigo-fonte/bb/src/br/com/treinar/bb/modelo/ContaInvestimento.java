@@ -4,39 +4,39 @@ import br.com.treinar.bb.modelo.banco.Conta;
 
 public class ContaInvestimento extends Conta {
 
-	private int rentabilidade;
+	private Integer rentabilidade;
 
-	private double taxaManutencao;
+	private Double taxaManutencao;
 
-	public int getRentabilidade() {
+	public Integer getRentabilidade() {
 		return rentabilidade;
 	}
 
-	public void setRentabilidade(int rentabilidade) {
+	public void setRentabilidade(Integer rentabilidade) {
 		this.rentabilidade = rentabilidade;
 	}
 
-	public double getTaxaManutencao() {
+	public Double getTaxaManutencao() {
 		return taxaManutencao;
 	}
 
-	public void setTaxaManutencao(double taxaManutencao) {
+	public void setTaxaManutencao(Double taxaManutencao) {
 		this.taxaManutencao = taxaManutencao;
 	}
 
 	@Override
-	public boolean sacar(double valor) {
-		boolean saqueEfetuado = false;
-		double saldo = getSaldo();
+	public Boolean sacar(Double valor) {
+		Boolean saqueEfetuado = Boolean.FALSE;
+		Double saldo = getSaldo();
 		if (saldo >= valor + 10) {
 			setSaldo(saldo - (valor + 10));
-			saqueEfetuado = true;
+			saqueEfetuado = Boolean.TRUE;
 		}
 		return saqueEfetuado;
 	}
 
 	@Override
-	public double recuperarSaldo() {
+	public Double recuperarSaldo() {
 		return getSaldo();
 	}
 

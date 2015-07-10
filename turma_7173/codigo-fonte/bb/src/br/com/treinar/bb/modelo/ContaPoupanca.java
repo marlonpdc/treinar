@@ -27,18 +27,18 @@ public class ContaPoupanca extends Conta {
 	}
 
 	@Override
-	public boolean sacar(double valor) {
-		boolean saqueEfetuado = false;
-		double saldo = getSaldo();
+	public Boolean sacar(Double valor) {
+		Boolean saqueEfetuado = Boolean.FALSE;
+		Double saldo = getSaldo();
 		if (saldo >= valor) {
 			setSaldo(saldo - valor);
-			saqueEfetuado = true;
+			saqueEfetuado = Boolean.TRUE;
 		}
 		return saqueEfetuado;
 	}
 
 	@Override
-	public double recuperarSaldo() {
+	public Double recuperarSaldo() {
 		return getSaldo();
 	}
 	
