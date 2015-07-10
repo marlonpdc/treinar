@@ -23,6 +23,10 @@ public class ExemploArray {
 			sc.nextLine();
 		}
 		
+		for (int i = 0; i < pessoas.length; i++) {
+			System.out.println(pessoas[i]);
+		}
+		
 		sc.close();
 
 	}
