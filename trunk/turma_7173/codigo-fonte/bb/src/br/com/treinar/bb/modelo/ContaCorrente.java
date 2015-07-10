@@ -24,18 +24,18 @@ public class ContaCorrente extends Conta {
 	}
 
 	@Override
-	public boolean sacar(double valor) {
-		boolean saqueEfetuado = false;
+	public Boolean sacar(Double valor) {
+		boolean saqueEfetuado = Boolean.FALSE;
 		double saldo = getSaldo();
 		if (saldo >= valor + 1) {
 			setSaldo(saldo - (valor + 1));
-			saqueEfetuado = true;
+			saqueEfetuado = Boolean.TRUE;
 		}
 		return saqueEfetuado;
 	}
 
 	@Override
-	public double recuperarSaldo() {
+	public Double recuperarSaldo() {
 		return getSaldo() + limiteCredito;
 	}
 

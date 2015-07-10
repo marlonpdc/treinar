@@ -4,27 +4,27 @@ import br.com.treinar.bb.modelo.Cliente;
 
 public abstract class Conta {
 
-	private double saldo;
+	private Double saldo;
 	private Cliente cliente;
 
-	public abstract boolean sacar(double valor);
+	public abstract Boolean sacar(Double valor);
 	
-	public boolean depositar(double valor) {
-		boolean depositoEfetuado = false;
+	public Boolean depositar(Double valor) {
+		Boolean depositoEfetuado = Boolean.FALSE;
 		if (valor > 0) {
 			saldo += valor;
-			depositoEfetuado = true;
+			depositoEfetuado = Boolean.TRUE;
 		}
 		return depositoEfetuado;
 	}
 	
-	public abstract double recuperarSaldo();
+	public abstract Double recuperarSaldo();
 
 	protected double getSaldo() {
 		return saldo;
 	}
 
-	protected void setSaldo(double saldo) {
+	protected void setSaldo(Double saldo) {
 		this.saldo = saldo;
 	}
 
