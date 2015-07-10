@@ -5,12 +5,23 @@ public class Carro {
 	String cor;
 	int velocidade;
 	String modelo;
+	boolean status;
 	
-	void acelerar() {
+	Motor motor;
+	
+	public void acelerar() {
 		velocidade++;
 	}
 	
+	public void acelerar(int qtdKm) {
+		velocidade+=qtdKm;
+	}
+
 	void freiar() {
 		velocidade--;
+	}
+	
+	int recuperarVelocidade() {
+		return velocidade;
 	}
 }

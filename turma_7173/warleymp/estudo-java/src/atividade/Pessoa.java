@@ -14,6 +14,25 @@ public class Pessoa {
 	int idade;
 	float salario;
 	Cargo cargo;
+	
+//	public Pessoa() {
+//		System.out.println("");
+//	}
+
+	public Pessoa(String nome, int idade) {
+		this.nome = nome;
+		this.idade = idade;		
+	}
+
+	public Pessoa() {
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public String toString() {
+		return "Pessoa [nome=" + nome + ", endereco=" + endereco + ", cidade="
+				+ cidade + "]";
+	}
 
 	void calcIdade() {
 		idade++;
