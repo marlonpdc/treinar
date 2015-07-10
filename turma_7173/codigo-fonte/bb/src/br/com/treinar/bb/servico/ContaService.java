@@ -6,13 +6,13 @@ import br.com.treinar.bb.util.Database;
 public class ContaService {
 
 	
-	public boolean gravarConta(Conta conta) {
+	public Boolean gravarConta(Conta conta) {
 		Database instance = Database.getInstance();
 		Conta contaGravada = instance.getConta();
-		boolean gravado = false;
+		Boolean gravado = Boolean.FALSE;
 		if (contaGravada == null) {
 			instance.setConta(conta);
-			gravado = true;
+			gravado = Boolean.TRUE;
 			
 		}
 		return gravado;

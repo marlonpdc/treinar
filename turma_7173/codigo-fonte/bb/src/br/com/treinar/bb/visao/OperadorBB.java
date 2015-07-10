@@ -21,7 +21,7 @@ public class OperadorBB {
 	}
 
 	public void init() {
-		int opcao = 0;
+		Integer opcao = 0;
 		do {
 			System.out.print(menuPrincipal());
 			opcao = leitor.nextInt();
@@ -62,8 +62,8 @@ public class OperadorBB {
 		Conta conta = recuperarConta();
 		
 		System.out.print("Valor de saque : ");
-		double valor = leitor.nextDouble();
-		boolean rolou = conta.sacar(valor);
+		Double valor = leitor.nextDouble();
+		Boolean rolou = conta.sacar(valor);
 
 		if (rolou) {
 			System.out.println("Saque efetuado com sucesso!");
@@ -77,8 +77,8 @@ public class OperadorBB {
 		Conta conta = recuperarConta();
 
 		System.out.print("Deposito de: ");
-		double valor = leitor.nextDouble();
-		boolean rolou = conta.depositar(valor);
+		Double valor = leitor.nextDouble();
+		Boolean rolou = conta.depositar(valor);
 		if (rolou) {
 			System.out.println("Depósito efetuado com sucesso!");
 		} else {
@@ -105,7 +105,7 @@ public class OperadorBB {
 	private void cadastrarConta() {
 		System.out.println(menuCadastrarConta());
 		Conta conta = null;
-		int opcao = leitor.nextInt();
+		Integer opcao = leitor.nextInt();
 		leitor.nextLine();
 		switch (opcao) {
 		case 1:
@@ -128,7 +128,7 @@ public class OperadorBB {
 			System.out.println("\nTipo de conta Inválido...\n");
 			break;
 		}
-		boolean gravou = controle.gravarConta(conta);
+		Boolean gravou = controle.gravarConta(conta);
 		System.out.println(gravou ? "Conta gravada..." : "Conta não gravada");
 
 	}
