@@ -26,4 +26,11 @@ public class Pessoa {
 	int calcularIdadeEmDias(){
 		return idade * 365; 
 	}
+
+	@Override
+	public String toString() {
+		return "Pessoa nome = " + nome + ", idade = " + idade + "";
+	}
+	
+	
 }
