@@ -5,7 +5,7 @@ public class CalcSalario {
 	public static void main(String[] args) {
 		int perc;
 		perc = 0;
-		Pessoa p = new Pessoa();
+		Pessoa p = new Pessoa("warley",35);
 		p.nome = "João";
 		p.cargo = new Cargo();
 		//Cargo cargo = new Cargo();
