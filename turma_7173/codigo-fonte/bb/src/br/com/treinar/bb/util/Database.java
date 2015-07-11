@@ -62,7 +62,7 @@ public class Database {
 		c1.setCliente(new Cliente("Gleidson", 10));
 		c1.getCliente().setCodigo(23412L);
 		c1.setLimiteCredito(100d);
-		c1.setTaxaManutencao(20);
+		c1.setTaxaManutencao(20d);
 		Conta c2 = new ContaPoupanca();
 		c2.setCliente(new Cliente("Sophia", 10));
 		c2.getCliente().setCodigo(23412L);
