@@ -39,4 +39,10 @@ public class ContaCorrente extends Conta {
 		return getSaldo() + limiteCredito;
 	}
 
+	@Override
+	public String toString() {
+		return "ContaCorrente [taxaManutencao=" + taxaManutencao
+				+ ", limiteCredito=" + limiteCredito + super.toString() + "]";
+	}
+
 }

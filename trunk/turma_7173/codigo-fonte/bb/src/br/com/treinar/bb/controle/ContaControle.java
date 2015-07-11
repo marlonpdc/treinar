@@ -14,6 +14,10 @@ public class ContaControle {
 	public Conta recuperarConta(Long codigoConta) {
 		return service.recuperarConta(codigoConta);
 	}
+
+	public Conta[] recuperarContas() {
+		return service.recuperarContas();
+	}
 	
 //	public boolean editarConta(Conta conta) {
 //		ContaService service = new ContaService();

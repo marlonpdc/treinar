@@ -59,4 +59,12 @@ public abstract class Conta {
 		this.codigoConta = codigoConta;
 	}
 
+	@Override
+	public String toString() {
+		return "[codigoConta=" + codigoConta + ", saldo=" + saldo
+				+ ", " + cliente + "]";
+	}
+
+	
+	
 }

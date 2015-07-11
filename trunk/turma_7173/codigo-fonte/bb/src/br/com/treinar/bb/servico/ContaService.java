@@ -14,5 +14,9 @@ public class ContaService {
 	public Conta recuperarConta(Long codigoConta) {
 		return Database.getInstance().selecionar(codigoConta);
 	}
+
+	public Conta[] recuperarContas() {
+		return Database.getInstance().getContas();
+	}
 	
 }
