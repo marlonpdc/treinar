@@ -44,6 +44,12 @@ public class OperadorBB {
 			case 5:
 				cadastrarTaxaRendimento();
 				break;
+			case 6:
+				captalizar();
+				break;
+			case 7:
+				pagar();
+				break;
 
 			default:
 				break;
@@ -197,6 +203,8 @@ public class OperadorBB {
 				+ "3 - Depositar na Conta\n"
 				+ "4 - Realizar Saque\n" 
 				+ "5 - Cadastrar taxa de rendimento\n" 
+				+ "5 - Captalizar\n" 
+				+ "5 - Pagar\n" 
 				+ "Opção: ";
 	}
 
@@ -206,4 +214,12 @@ public class OperadorBB {
 				+ "Informe: ";
 	}
 
+	private void captalizar() {
+		controle.efetuarCaptalizacao();
+	}
+	
+	private void pagar() {
+		controle.efetuarPagamento();
+	}
+	
 }

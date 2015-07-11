@@ -1,17 +1,18 @@
 package br.com.treinar.bb.modelo;
 
 import br.com.treinar.bb.modelo.banco.Conta;
+import br.com.treinar.bb.modelo.banco.IPagavel;
 
-public class ContaCorrente extends Conta {
+public class ContaCorrente extends Conta implements IPagavel {
 
-	private double taxaManutencao;
-	private double limiteCredito;
+	private Double taxaManutencao;
+	private Double limiteCredito;
 
-	public double getTaxaManutencao() {
+	public Double getTaxaManutencao() {
 		return taxaManutencao;
 	}
 
-	public void setTaxaManutencao(double taxaManutencao) {
+	public void setTaxaManutencao(Double taxaManutencao) {
 		this.taxaManutencao = taxaManutencao;
 	}
 
@@ -45,4 +46,8 @@ public class ContaCorrente extends Conta {
 				+ ", limiteCredito=" + limiteCredito + super.toString() + "]";
 	}
 
+	@Override
+	public void pagar() {
+		sacar(taxaManutencao);
+	}
 }

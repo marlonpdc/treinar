@@ -1,8 +1,10 @@
 package br.com.treinar.bb.modelo;
 
 import br.com.treinar.bb.modelo.banco.Conta;
+import br.com.treinar.bb.modelo.banco.ICaptalizavel;
+import br.com.treinar.bb.modelo.banco.IPagavel;
 
-public class ContaInvestimento extends Conta {
+public class ContaInvestimento extends Conta implements ICaptalizavel, IPagavel {
 
 	private Integer rentabilidade;
 
@@ -45,5 +47,13 @@ public class ContaInvestimento extends Conta {
 		return "ContaInvestimento [rentabilidade=" + rentabilidade
 				+ ", taxaManutencao=" + taxaManutencao + super.toString() + "]";
 	}
+	@Override
+	public void captalizar() {
+		depositar(getSaldo() * ContaPoupanca.getTaxaRendimento() / 100);
+	}
 	
+	@Override
+	public void pagar() {
+		sacar(taxaManutencao);
+	}
 }

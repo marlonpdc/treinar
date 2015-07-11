@@ -18,6 +18,14 @@ public class ContaControle {
 	public Conta[] recuperarContas() {
 		return service.recuperarContas();
 	}
+
+	public void efetuarCaptalizacao() {
+		service.captalizar();
+	}
+
+	public void efetuarPagamento() {
+		service.pagar();
+	}
 	
 //	public boolean editarConta(Conta conta) {
 //		ContaService service = new ContaService();
