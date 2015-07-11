@@ -50,12 +50,19 @@ public class OperadorBB {
 			case 7:
 				pagar();
 				break;
+			case 8:
+				listarContas();
+				break;
 
 			default:
 				break;
 			}
 		} while (opcao != 0);
 
+	}
+
+	private void listarContas() {
+		System.out.println(exibirContas());
 	}
 
 	private void cadastrarTaxaRendimento() {
@@ -205,6 +212,7 @@ public class OperadorBB {
 				+ "5 - Cadastrar taxa de rendimento\n" 
 				+ "6 - Captalizar\n" 
 				+ "7 - Pagar\n" 
+				+ "8 - Listar Contas\n" 
 				+ "Opção: ";
 	}
 
