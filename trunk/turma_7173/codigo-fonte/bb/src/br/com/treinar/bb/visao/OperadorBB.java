@@ -203,8 +203,8 @@ public class OperadorBB {
 				+ "3 - Depositar na Conta\n"
 				+ "4 - Realizar Saque\n" 
 				+ "5 - Cadastrar taxa de rendimento\n" 
-				+ "5 - Captalizar\n" 
-				+ "5 - Pagar\n" 
+				+ "6 - Captalizar\n" 
+				+ "7 - Pagar\n" 
 				+ "Opção: ";
 	}
 
