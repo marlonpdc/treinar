@@ -35,4 +35,11 @@ public class Cliente {
 		this.cpf = cpf;
 	}
 
+	@Override
+	public String toString() {
+		return " Cliente [codigo=" + codigo + ", nome=" + nome + ", cpf=" + cpf
+				+ "]";
+	}
+	
+
 }

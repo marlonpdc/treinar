@@ -30,4 +30,9 @@ public class ContaSalario extends Conta {
 		return getSaldo();
 	}
 
+	@Override
+	public String toString() {
+		return "ContaSalario [qtdSaque=" + qtdSaque + super.toString() + "]";
+	}
+
 }

@@ -91,8 +91,20 @@ public class OperadorBB {
 	}
 
 	private Conta recuperarConta() {
+		System.out.println(exibirContas());
 		System.out.print("Informe o codigo da conta: ");
 		return controle.recuperarConta(leitor.nextLong());
+	}
+
+	private String exibirContas() {
+		Conta[] contas = controle.recuperarContas();
+		StringBuilder contasStr = new StringBuilder();
+		for (int i = 0; i < contas.length; i++) {
+			if (contas[i] != null) {
+				contasStr.append(contas[i]).append("\n");
+			}
+		}
+		return contasStr.toString();
 	}
 
 	private void exibirDadosConta() {

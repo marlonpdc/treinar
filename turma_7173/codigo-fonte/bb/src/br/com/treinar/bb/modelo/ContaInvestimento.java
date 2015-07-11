@@ -40,4 +40,10 @@ public class ContaInvestimento extends Conta {
 		return getSaldo();
 	}
 
+	@Override
+	public String toString() {
+		return "ContaInvestimento [rentabilidade=" + rentabilidade
+				+ ", taxaManutencao=" + taxaManutencao + super.toString() + "]";
+	}
+	
 }
