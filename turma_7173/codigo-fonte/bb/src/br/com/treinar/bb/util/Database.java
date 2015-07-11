@@ -1,5 +1,10 @@
 package br.com.treinar.bb.util;
 
+import br.com.treinar.bb.modelo.Cliente;
+import br.com.treinar.bb.modelo.ContaCorrente;
+import br.com.treinar.bb.modelo.ContaInvestimento;
+import br.com.treinar.bb.modelo.ContaPoupanca;
+import br.com.treinar.bb.modelo.ContaSalario;
 import br.com.treinar.bb.modelo.banco.Conta;
 
 public class Database {
@@ -12,6 +17,7 @@ public class Database {
 		super();
 		indice = 0;
 		contas = new Conta[10];
+		moc();
 	}
 
 	static {
@@ -50,5 +56,26 @@ public class Database {
 		return c;
 	}
 	
+	
+	private void moc() {
+		Conta c1 = new ContaCorrente();
+		c1.setCliente(new Cliente("Gleidson", 10));
+		c1.getCliente().setCodigo(23412L);
+		Conta c2 = new ContaPoupanca();
+		c2.setCliente(new Cliente("Sophia", 10));
+		c2.getCliente().setCodigo(23412L);
+		Conta c3 = new ContaInvestimento();
+		c3.setCliente(new Cliente("Davi", 10));
+		c3.getCliente().setCodigo(23412L);
+		Conta c4 = new ContaSalario();
+		c4.setCliente(new Cliente("Maria Clara", 10));
+		c4.getCliente().setCodigo(23412L);
+		contas[0] = c1;
+		contas[1] = c2;
+		contas[2] = c3;
+		contas[3] = c4;
+		indice = 4;
+	}
+
 
 }

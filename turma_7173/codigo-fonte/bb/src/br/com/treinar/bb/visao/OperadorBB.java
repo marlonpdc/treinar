@@ -97,10 +97,14 @@ public class OperadorBB {
 
 	private void exibirDadosConta() {
 		Conta conta = recuperarConta();
-		System.out.println("Codigo Cliente: " + conta.getCliente().getCodigo());
-		System.out.println("Nome Cliente: " + conta.getCliente().getNome());
-		System.out.println("CPF Cliente: " + conta.getCliente().getCpf());
-		System.out.println("Saldo: " + conta.recuperarSaldo());
+		if (conta != null) {
+			System.out.println("Codigo Cliente: " + conta.getCliente().getCodigo());
+			System.out.println("Nome Cliente: " + conta.getCliente().getNome());
+			System.out.println("CPF Cliente: " + conta.getCliente().getCpf());
+			System.out.println("Saldo: " + conta.recuperarSaldo());			
+		} else {
+			System.out.println("Conta não cadastrada");
+		}
 	}
 
 	private void cadastrarConta() {
