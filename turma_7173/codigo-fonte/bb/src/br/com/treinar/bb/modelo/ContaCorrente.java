@@ -34,7 +34,7 @@ public class ContaCorrente extends Conta implements IPagavel {
 		}
 		return saqueEfetuado;
 	}
-
+	
 	@Override
 	public Double recuperarSaldo() {
 		return getSaldo() + limiteCredito;
@@ -48,6 +48,6 @@ public class ContaCorrente extends Conta implements IPagavel {
 
 	@Override
 	public void pagar() {
-		sacar(taxaManutencao);
+		setSaldo(getSaldo() - taxaManutencao);
 	}
 }
