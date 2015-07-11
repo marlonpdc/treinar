@@ -8,18 +8,11 @@ public class ContaService {
 	
 	public Boolean gravarConta(Conta conta) {
 		Database instance = Database.getInstance();
-		Conta contaGravada = instance.getConta();
-		Boolean gravado = Boolean.FALSE;
-		if (contaGravada == null) {
-			instance.setConta(conta);
-			gravado = Boolean.TRUE;
-			
-		}
-		return gravado;
+		return instance.inserirConta(conta);
 	}
 	
-	public Conta recuperarConta() {
-		return Database.getInstance().getConta();
+	public Conta recuperarConta(Long codigoConta) {
+		return Database.getInstance().selecionar(codigoConta);
 	}
 	
 }

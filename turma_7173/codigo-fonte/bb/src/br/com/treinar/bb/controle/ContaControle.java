@@ -11,8 +11,8 @@ public class ContaControle {
 		return service.gravarConta(conta);
 	}
 	
-	public Conta recuperarConta() {
-		return service.recuperarConta();
+	public Conta recuperarConta(Long codigoConta) {
+		return service.recuperarConta(codigoConta);
 	}
 	
 //	public boolean editarConta(Conta conta) {

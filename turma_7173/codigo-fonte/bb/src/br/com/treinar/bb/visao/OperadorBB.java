@@ -91,7 +91,8 @@ public class OperadorBB {
 	}
 
 	private Conta recuperarConta() {
-		return controle.recuperarConta();
+		System.out.print("Informe o codigo da conta: ");
+		return controle.recuperarConta(leitor.nextLong());
 	}
 
 	private void exibirDadosConta() {
@@ -103,7 +104,7 @@ public class OperadorBB {
 	}
 
 	private void cadastrarConta() {
-		System.out.println(menuCadastrarConta());
+		System.out.print(menuCadastrarConta());
 		Conta conta = null;
 		Integer opcao = leitor.nextInt();
 		leitor.nextLine();
