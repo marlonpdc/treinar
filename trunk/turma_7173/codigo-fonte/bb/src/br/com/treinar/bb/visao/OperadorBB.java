@@ -8,6 +8,7 @@ import br.com.treinar.bb.modelo.ContaCorrente;
 import br.com.treinar.bb.modelo.ContaInvestimento;
 import br.com.treinar.bb.modelo.ContaPoupanca;
 import br.com.treinar.bb.modelo.ContaSalario;
+import br.com.treinar.bb.modelo.SituacaoConta;
 import br.com.treinar.bb.modelo.banco.Conta;
 
 public class OperadorBB {
@@ -52,6 +53,9 @@ public class OperadorBB {
 				break;
 			case 8:
 				listarContas();
+				break;
+			case 9:
+				statusContas();
 				break;
 
 			default:
@@ -202,6 +206,19 @@ public class OperadorBB {
 		System.out.print("Saldo inicial: ");
 		conta.depositar(leitor.nextDouble());
 	}
+	
+	private void statusContas() {
+		SituacaoConta[] situacoes = SituacaoConta.values();
+		System.out.println("Informe: ");
+		for (int i = 0; i < situacoes.length; i++) {
+			System.out.println(i + " - " + situacoes[i].getDescricao());
+		}
+		System.out.print("Opção: ");
+		Integer opcao = leitor.nextInt();
+		Conta conta = recuperarConta();
+		controle.atualizarSituacaoConta(conta, opcao);
+		
+	}
 
 	private String menuPrincipal() {
 		return "0 - Sair\n" 
@@ -212,7 +229,8 @@ public class OperadorBB {
 				+ "5 - Cadastrar taxa de rendimento\n" 
 				+ "6 - Captalizar\n" 
 				+ "7 - Pagar\n" 
-				+ "8 - Listar Contas\n" 
+				+ "8 - Listar Contas\n"
+				+ "9 - Gerenciar Status da Conta" 
 				+ "Opção: ";
 	}
 

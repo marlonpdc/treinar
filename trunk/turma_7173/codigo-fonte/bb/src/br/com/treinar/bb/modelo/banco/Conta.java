@@ -1,6 +1,7 @@
 package br.com.treinar.bb.modelo.banco;
 
 import br.com.treinar.bb.modelo.Cliente;
+import br.com.treinar.bb.modelo.SituacaoConta;
 
 /**
  * @author ADM
@@ -12,6 +13,7 @@ public abstract class Conta {
 	private static Long indexador;
 	private Double saldo;
 	private Cliente cliente;
+	private SituacaoConta situacao;
 
 	static {
 		indexador = Long.valueOf(0);
@@ -57,6 +59,14 @@ public abstract class Conta {
 
 	public void setCodigoConta(Long codigoConta) {
 		this.codigoConta = codigoConta;
+	}
+
+	public SituacaoConta getSituacao() {
+		return situacao;
+	}
+
+	public void setSituacao(SituacaoConta situacao) {
+		this.situacao = situacao;
 	}
 
 	@Override

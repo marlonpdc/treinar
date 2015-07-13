@@ -26,6 +26,10 @@ public class ContaControle {
 	public void efetuarPagamento() {
 		service.pagar();
 	}
+
+	public void atualizarSituacaoConta(Conta conta, Integer opcao) {
+		service.atualizarConta(conta, opcao);
+	}
 	
 //	public boolean editarConta(Conta conta) {
 //		ContaService service = new ContaService();

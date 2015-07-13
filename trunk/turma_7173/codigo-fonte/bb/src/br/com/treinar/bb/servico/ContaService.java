@@ -1,5 +1,6 @@
 package br.com.treinar.bb.servico;
 
+import br.com.treinar.bb.modelo.SituacaoConta;
 import br.com.treinar.bb.modelo.banco.Conta;
 import br.com.treinar.bb.modelo.banco.ICaptalizavel;
 import br.com.treinar.bb.modelo.banco.IPagavel;
@@ -49,6 +50,10 @@ public class ContaService {
 
 	private void pagar(IPagavel iPagavel) {
 		iPagavel.pagar();
+	}
+
+	public void atualizarConta(Conta conta, Integer opcao) {
+		conta.setSituacao(SituacaoConta.recuperarSituacaoPorOrdinal(opcao));
 	}
 	
 }
