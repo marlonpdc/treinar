@@ -21,6 +21,9 @@ public class TesteEnum {
 		for (DiaSemana diaSemana : dias) {
 			System.out.println(diaSemana);
 		}
+				
+		System.out.println("ordinal()");
+		System.out.println(diaX.ordinal());
 		
 		
 	}
