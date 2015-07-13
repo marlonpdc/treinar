@@ -47,6 +47,7 @@ public class Atividade {
 			System.out.println("OPCAO INVALIDA");
 			break;
 		}
+		sc.close();
 	}
 	
 	
