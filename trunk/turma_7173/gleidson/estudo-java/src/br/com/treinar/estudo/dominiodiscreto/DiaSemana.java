@@ -25,5 +25,12 @@ public enum DiaSemana {
 		return descricao;
 	}
 	
+	public static DiaSemana recuperarDiaPorOrdinal(Integer dia) {
+		
+		DiaSemana[] diasDaSemana = values();
+		
+		return diasDaSemana[dia];
+	}
+	
 	
 }
