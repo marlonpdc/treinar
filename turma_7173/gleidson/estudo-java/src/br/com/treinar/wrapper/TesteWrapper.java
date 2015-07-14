@@ -29,7 +29,7 @@ public class TesteWrapper {
 		
 		Character c = 'a';
 		
-		
+		System.out.println(c);
 		
 		
 		
