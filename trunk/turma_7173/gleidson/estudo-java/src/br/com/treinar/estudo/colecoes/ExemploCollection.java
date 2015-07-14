@@ -7,6 +7,7 @@ import br.com.treinar.estudo.Pessoa;
 
 public class ExemploCollection {
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static void main(String[] args) {
 		Collection colecao = new ArrayList();
 		
@@ -28,8 +29,6 @@ public class ExemploCollection {
 				System.out.println(((Pessoa)object).nome);
 			}
 		}
-		
-		
 	}
 	
 }
