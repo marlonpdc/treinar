@@ -1,9 +1,10 @@
 package br.com.treinar.estudo;
 
-public class Pessoa {
+public class Pessoa implements Comparable<Pessoa> {
 
 	public String nome;
-	public int idade;
+	public Integer idade;
+	public int pesoEmGramas;
 
 	public Pessoa() {
 		super();
@@ -22,7 +23,6 @@ public class Pessoa {
 		this.idade = idade;
 		System.out.println(this.calcularIdadeEmDias());
 	}
-	
 	
 	int calcularIdadeEmDias() {
 		return idade * 365;
@@ -56,19 +56,12 @@ public class Pessoa {
 	
 	@Override
 	public String toString() {
-		return this.nome + " " + this.idade;
+		return this.nome + " " + this.idade + " " + pesoEmGramas;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+	@Override
+	public int compareTo(Pessoa o) {
+		return idade.compareTo(o.idade);
+	}
+
 }
