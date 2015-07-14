@@ -6,6 +6,7 @@ public class TesteDefault {
 
 	public static void main(String[] args) {
 		Carro c = new Carro();
+		System.out.println(c);
 		//atributo default nao pode ser acessado fora
 		//do pacote em que a classe foi criada
 		//c.cor = "Erro";
