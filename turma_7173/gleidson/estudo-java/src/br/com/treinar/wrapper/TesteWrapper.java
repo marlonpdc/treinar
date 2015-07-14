@@ -1,6 +1,5 @@
 package br.com.treinar.wrapper;
 
-import java.io.PrintStream;
 
 public class TesteWrapper {
 
