@@ -2,6 +2,13 @@ package Encapsulamento;
 
 public class Pessoa {
 
+	public Pessoa(String nome) {
+		this.nome = nome;
+	}
+
+	public Pessoa() {
+	}
+
 	private String nome;
 	private String sobrenome;
 	private String apelido;
@@ -37,6 +44,11 @@ public class Pessoa {
 
 	public void setIdade(int idade) {
 		this.idade = idade;
+	}
+	
+	@Override
+	public String toString() {
+		return "Pessoa: Nome = " + nome + ", Idade = " + idade + "]";
 	}
 
 }
