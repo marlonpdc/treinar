@@ -31,8 +31,6 @@ public class TesteWrapper {
 		
 		System.out.println(c);
 		
-		
-		
 	}
 	
 }
