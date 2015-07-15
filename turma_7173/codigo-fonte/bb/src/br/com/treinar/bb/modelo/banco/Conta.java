@@ -71,8 +71,33 @@ public abstract class Conta {
 
 	@Override
 	public String toString() {
-		return "[codigoConta=" + codigoConta + ", saldo=" + saldo
-				+ ", " + cliente + "]";
+		return codigoConta.toString();
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((codigoConta == null) ? 0 : codigoConta.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Conta other = (Conta) obj;
+		if (codigoConta == null) {
+			if (other.codigoConta != null)
+				return false;
+		} else if (!codigoConta.equals(other.codigoConta))
+			return false;
+		return true;
 	}
 
 	
