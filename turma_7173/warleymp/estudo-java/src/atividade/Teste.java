@@ -11,7 +11,7 @@ public class Teste {
 			System.out.println(";) ");
 			condicao++;
 			
-		} while (true);
+		} while (condicao < 50000);
 		
 	}
 }

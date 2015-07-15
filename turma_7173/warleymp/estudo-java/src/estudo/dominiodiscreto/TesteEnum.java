@@ -1,4 +1,4 @@
-package br.com.treinar.estudo.dominiodiscreto;
+package estudo.dominiodiscreto;
 
 public class TesteEnum {
 

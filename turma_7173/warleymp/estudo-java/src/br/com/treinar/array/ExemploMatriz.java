@@ -4,7 +4,7 @@ public class ExemploMatriz {
 
 	public static void main(String[] args) {
 		Integer[][] matriz = new Integer[4][4];
-		int cont = 0; 
+		int cont = 0;
 		for (int i = 0; i < matriz.length; i++) {
 			for (int j = 0; j < matriz.length; j++) {
 				matriz[i][j] = ++cont;
@@ -16,8 +16,7 @@ public class ExemploMatriz {
 			}
 			System.out.println();
 		}
-		
-		
+
 	}
-	
+
 }
