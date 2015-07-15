@@ -24,6 +24,7 @@ public class ExemploPropagacao {
 		metodoTres();
 	}
 
+	@SuppressWarnings("null")
 	private static void metodoTres() throws ParseException {
 		System.out.println("executando metodo tres");
 		String a = null;
