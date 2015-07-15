@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
 public class AtividadeMAP {
 
@@ -31,7 +33,11 @@ public class AtividadeMAP {
 			}
 			mapNomes.get(primeiraLetra).add(nome);
 		}
-		System.out.println(mapNomes);
+		//System.out.println(mapNomes);
+		Set<Entry<Character, List<String>>> entrySet = mapNomes.entrySet();
+		for (Entry<Character, List<String>> entry : entrySet) {
+			System.out.println(entry.getKey() + " = " + entry.getValue());
+		}
 	}
 	
 }
