@@ -248,4 +248,11 @@ public class OperadorBB {
 		controle.efetuarPagamento();
 	}
 	
+	@Override
+	protected void finalize() throws Throwable {
+		leitor.close();
+		System.out.println("finalizou....");
+		super.finalize();
+	}
+	
 }
