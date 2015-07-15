@@ -31,7 +31,6 @@ public class AtividadeMAP {
 			}
 			mapNomes.get(primeiraLetra).add(nome);
 		}
-		
 		System.out.println(mapNomes);
 	}
 	
