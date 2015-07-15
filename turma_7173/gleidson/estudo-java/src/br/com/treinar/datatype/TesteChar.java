@@ -8,6 +8,16 @@ public class TesteChar {
 			c = (char) i;
 			System.out.println(i + " " + c + " ");
 		}
+		
+		System.out.println("Char...");
+		
+		for (char i = 'a'; i < 'z'; i++) {
+			System.out.println(i);
+		}
+		char num225 = 225;
+		System.out.println(num225);
+		
+		
 	}
 	
 }
