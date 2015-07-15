@@ -4,22 +4,29 @@ import br.com.treinar.bb.modelo.SituacaoConta;
 import br.com.treinar.bb.modelo.banco.Conta;
 import br.com.treinar.bb.modelo.banco.ICaptalizavel;
 import br.com.treinar.bb.modelo.banco.IPagavel;
-import br.com.treinar.bb.util.Database;
+import br.com.treinar.bb.util.DatabaseCollection;
+import br.com.treinar.bb.util.IDatabase;
 
 public class ContaService {
 
 	
+	private IDatabase instance;
+	
+	public ContaService() {
+		//instance = DatabaseArray.getInstance();
+		instance = DatabaseCollection.getInstance();
+	}
+	
 	public Boolean gravarConta(Conta conta) {
-		Database instance = Database.getInstance();
 		return instance.inserirConta(conta);
 	}
 	
 	public Conta recuperarConta(Long codigoConta) {
-		return Database.getInstance().selecionar(codigoConta);
+		return instance.selecionar(codigoConta);
 	}
 
 	public Conta[] recuperarContas() {
-		return Database.getInstance().getContas();
+		return instance.getContas();
 	}
 
 	public void captalizar() {

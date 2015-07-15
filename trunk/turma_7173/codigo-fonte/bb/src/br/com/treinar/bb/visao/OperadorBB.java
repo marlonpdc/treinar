@@ -118,7 +118,7 @@ public class OperadorBB {
 		StringBuilder contasStr = new StringBuilder();
 		for (int i = 0; i < contas.length; i++) {
 			if (contas[i] != null) {
-				contasStr.append(contas[i]).append("\n");
+				contasStr.append("Conta " + contas[i].getCodigoConta()).append("\n");
 			}
 		}
 		return contasStr.toString();

@@ -1,5 +1,8 @@
 package br.com.treinar.bb.util;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import br.com.treinar.bb.modelo.Cliente;
 import br.com.treinar.bb.modelo.ContaCorrente;
 import br.com.treinar.bb.modelo.ContaInvestimento;
@@ -7,56 +10,56 @@ import br.com.treinar.bb.modelo.ContaPoupanca;
 import br.com.treinar.bb.modelo.ContaSalario;
 import br.com.treinar.bb.modelo.banco.Conta;
 
-public class Database {
+public class DatabaseCollection implements IDatabase {
 
-	private static Database database;
-	private Conta[] contas;
-	private Integer indice;
+	private static DatabaseCollection database;
+	private List<Conta> contas;
 
-	private Database() {
+	private DatabaseCollection() {
 		super();
-		indice = 0;
-		contas = new Conta[10];
+		contas = new ArrayList<>();
 		moc();
 	}
 
 	static {
-		database = new Database();
+		database = new DatabaseCollection();
 	}
 
-	public static Database getInstance() {
+	public static DatabaseCollection getInstance() {
 		return database;
 	}
 
 	public Conta[] getContas() {
-		return contas;
+		Conta[] contasArray = new Conta[contas.size()];
+		for (int i = 0; i < contas.size(); i++) {
+			contasArray[i] = contas.get(i);
+		}
+		return contasArray;
 	}
 
-	public void setContas(Conta[] contas) {
+	public void setContas(List<Conta> contas) {
 		this.contas = contas;
 	}
-	
+
 	public Boolean inserirConta(Conta conta) {
 		Boolean adicionou = Boolean.FALSE;
-		if (indice < contas.length) {
-			contas[indice++] = conta;
-			adicionou = Boolean.TRUE;
-		}
+		contas.add(conta);
+		adicionou = Boolean.TRUE;
+
 		return adicionou;
 	}
 
 	public Conta selecionar(Long codigoConta) {
-		Conta c = null;
-		for (int i = 0; i < contas.length; i++) {
-			if (contas[i] != null && contas[i].getCodigoConta().equals(codigoConta)) {
-				c = contas[i];
-				break;
+		Conta conta = null;
+		for (Conta contaTemp : contas) {
+			if (contaTemp.getCodigoConta().equals(codigoConta)) {
+				conta = contaTemp;
 			}
 		}
-		return c;
+		return conta;
 	}
-	
-	
+
+
 	private void moc() {
 		ContaCorrente c1 = new ContaCorrente();
 		c1.setCliente(new Cliente("Gleidson", 10));
@@ -78,11 +81,10 @@ public class Database {
 		c4.setCliente(new Cliente("Maria Clara", 10));
 		c4.getCliente().setCodigo(23412L);
 		c4.depositar(100d);
-		contas[0] = c1;
-		contas[1] = c2;
-		contas[2] = c3;
-		contas[3] = c4;
-		indice = 4;
+		contas.add(c1);
+		contas.add(c2);
+		contas.add(c3);
+		contas.add(c4);
 	}
 
 
