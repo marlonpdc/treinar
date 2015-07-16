@@ -10,7 +10,6 @@ import br.com.treinar.bb.modelo.ContaPoupanca;
 import br.com.treinar.bb.modelo.ContaSalario;
 import br.com.treinar.bb.modelo.SituacaoConta;
 import br.com.treinar.bb.modelo.banco.BBException;
-import br.com.treinar.bb.modelo.banco.Constante;
 import br.com.treinar.bb.modelo.banco.Conta;
 import br.com.treinar.bb.modelo.banco.ContaBloqueadaException;
 import br.com.treinar.bb.modelo.banco.SaldoInsuficienteException;
@@ -178,6 +177,8 @@ public class OperadorBB {
 			System.out.println("Conta gravada...");
 		} catch (BBException e) {
 			System.out.println(e.getCodigoErroNegocio());
+		} catch (Exception e) {
+			//enviar email com erro e notificar o usuario
 		}
 
 	}
@@ -259,7 +260,7 @@ public class OperadorBB {
 				+ "2 - Exibir dados da Conta\n" + "3 - Depositar na Conta\n"
 				+ "4 - Realizar Saque\n" + "5 - Cadastrar taxa de rendimento\n"
 				+ "6 - Captalizar\n" + "7 - Pagar\n" + "8 - Listar Contas\n"
-				+ "9 - Gerenciar Status da Conta" + "Opção: ";
+				+ "9 - Gerenciar Status da Conta\n" + "Opção: ";
 	}
 
 	private String menuCadastrarConta() {
