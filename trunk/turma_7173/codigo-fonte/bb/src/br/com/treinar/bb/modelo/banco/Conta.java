@@ -24,7 +24,10 @@ public abstract class Conta {
 		codigoConta = ++indexador;
 	}
 	
-	public abstract Boolean sacar(Double valor);
+	public abstract void sacar(Double valor) 
+			throws SaldoInsuficienteException, 
+				   ContaBloqueadaException,
+				   BBException;
 	
 	public Boolean depositar(Double valor) {
 		Boolean depositoEfetuado = Boolean.FALSE;

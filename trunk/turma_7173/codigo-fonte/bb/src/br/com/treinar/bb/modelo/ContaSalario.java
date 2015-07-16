@@ -1,6 +1,7 @@
 package br.com.treinar.bb.modelo;
 
 import br.com.treinar.bb.modelo.banco.Conta;
+import br.com.treinar.bb.modelo.banco.SaldoInsuficienteException;
 
 public class ContaSalario extends Conta {
 
@@ -15,14 +16,13 @@ public class ContaSalario extends Conta {
 	}
 
 	@Override
-	public Boolean sacar(Double valor) {
-		Boolean saqueEfetuado = Boolean.FALSE;
+	public void sacar(Double valor) throws SaldoInsuficienteException {
 		Double saldo = getSaldo();
 		if (saldo >= valor) {
 			setSaldo(saldo - valor);
-			saqueEfetuado = Boolean.TRUE;
+		} else {
+			throw new SaldoInsuficienteException();
 		}
-		return saqueEfetuado;
 	}
 
 	@Override

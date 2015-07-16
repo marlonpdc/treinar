@@ -9,13 +9,16 @@ import br.com.treinar.bb.modelo.ContaInvestimento;
 import br.com.treinar.bb.modelo.ContaPoupanca;
 import br.com.treinar.bb.modelo.ContaSalario;
 import br.com.treinar.bb.modelo.SituacaoConta;
+import br.com.treinar.bb.modelo.banco.BBException;
 import br.com.treinar.bb.modelo.banco.Conta;
+import br.com.treinar.bb.modelo.banco.ContaBloqueadaException;
+import br.com.treinar.bb.modelo.banco.SaldoInsuficienteException;
 
 public class OperadorBB {
 
 	private Scanner leitor;
 	private ContaControle controle;
-	
+
 	public OperadorBB() {
 		leitor = new Scanner(System.in);
 		controle = new ContaControle();
@@ -77,15 +80,19 @@ public class OperadorBB {
 	private void realizarSaque() {
 
 		Conta conta = recuperarConta();
-		
+
 		System.out.print("Valor de saque : ");
 		Double valor = leitor.nextDouble();
-		Boolean rolou = conta.sacar(valor);
 
-		if (rolou) {
+		try {
+			controle.efetuarSaque(conta, valor);
 			System.out.println("Saque efetuado com sucesso!");
-		} else {
-			System.out.println("Saque nao realizado !");
+		} catch (SaldoInsuficienteException e) {
+			System.out.println("Saque nao realizado LIMITE!");
+		} catch (ContaBloqueadaException e) {
+			System.out.println("Saque nao realizado BLOQUEIO!");
+		} catch (BBException e) {
+			System.out.println(e.getCodigoErroNegocio());
 		}
 
 	}
@@ -102,8 +109,8 @@ public class OperadorBB {
 			System.out.println("Não rolou brother!!!");
 		}
 
-		System.out.println(rolou ? "Depósito efetuado com sucesso!" :
-		"Não rolou brother!!!");
+		System.out.println(rolou ? "Depósito efetuado com sucesso!"
+				: "Não rolou brother!!!");
 
 	}
 
@@ -118,7 +125,8 @@ public class OperadorBB {
 		StringBuilder contasStr = new StringBuilder();
 		for (int i = 0; i < contas.length; i++) {
 			if (contas[i] != null) {
-				contasStr.append("Conta " + contas[i].getCodigoConta()).append("\n");
+				contasStr.append("Conta " + contas[i].getCodigoConta()).append(
+						"\n");
 			}
 		}
 		return contasStr.toString();
@@ -127,10 +135,11 @@ public class OperadorBB {
 	private void exibirDadosConta() {
 		Conta conta = recuperarConta();
 		if (conta != null) {
-			System.out.println("Codigo Cliente: " + conta.getCliente().getCodigo());
+			System.out.println("Codigo Cliente: "
+					+ conta.getCliente().getCodigo());
 			System.out.println("Nome Cliente: " + conta.getCliente().getNome());
 			System.out.println("CPF Cliente: " + conta.getCliente().getCpf());
-			System.out.println("Saldo: " + conta.recuperarSaldo());			
+			System.out.println("Saldo: " + conta.recuperarSaldo());
 		} else {
 			System.out.println("Conta não cadastrada");
 		}
@@ -162,8 +171,12 @@ public class OperadorBB {
 			System.out.println("\nTipo de conta Inválido...\n");
 			break;
 		}
-		Boolean gravou = controle.gravarConta(conta);
-		System.out.println(gravou ? "Conta gravada..." : "Conta não gravada");
+		try {
+			controle.gravarConta(conta);
+			System.out.println("Conta gravada...");
+		} catch (BBException e) {
+			System.out.println(e.getCodigoErroNegocio());
+		}
 
 	}
 
@@ -206,7 +219,7 @@ public class OperadorBB {
 		System.out.print("Saldo inicial: ");
 		conta.depositar(leitor.nextDouble());
 	}
-	
+
 	private void statusContas() {
 		SituacaoConta[] situacoes = SituacaoConta.values();
 		System.out.println("Informe: ");
@@ -217,21 +230,15 @@ public class OperadorBB {
 		Integer opcao = leitor.nextInt();
 		Conta conta = recuperarConta();
 		controle.atualizarSituacaoConta(conta, opcao);
-		
+
 	}
 
 	private String menuPrincipal() {
-		return "0 - Sair\n" 
-				+ "1 - Cadastrar Conta\n"
-				+ "2 - Exibir dados da Conta\n" 
-				+ "3 - Depositar na Conta\n"
-				+ "4 - Realizar Saque\n" 
-				+ "5 - Cadastrar taxa de rendimento\n" 
-				+ "6 - Captalizar\n" 
-				+ "7 - Pagar\n" 
-				+ "8 - Listar Contas\n"
-				+ "9 - Gerenciar Status da Conta" 
-				+ "Opção: ";
+		return "0 - Sair\n" + "1 - Cadastrar Conta\n"
+				+ "2 - Exibir dados da Conta\n" + "3 - Depositar na Conta\n"
+				+ "4 - Realizar Saque\n" + "5 - Cadastrar taxa de rendimento\n"
+				+ "6 - Captalizar\n" + "7 - Pagar\n" + "8 - Listar Contas\n"
+				+ "9 - Gerenciar Status da Conta" + "Opção: ";
 	}
 
 	private String menuCadastrarConta() {
@@ -243,16 +250,16 @@ public class OperadorBB {
 	private void captalizar() {
 		controle.efetuarCaptalizacao();
 	}
-	
+
 	private void pagar() {
 		controle.efetuarPagamento();
 	}
-	
+
 	@Override
 	protected void finalize() throws Throwable {
 		leitor.close();
 		System.out.println("finalizou....");
 		super.finalize();
 	}
-	
+
 }
