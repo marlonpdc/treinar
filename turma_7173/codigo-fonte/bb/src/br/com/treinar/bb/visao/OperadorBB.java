@@ -10,6 +10,7 @@ import br.com.treinar.bb.modelo.ContaPoupanca;
 import br.com.treinar.bb.modelo.ContaSalario;
 import br.com.treinar.bb.modelo.SituacaoConta;
 import br.com.treinar.bb.modelo.banco.BBException;
+import br.com.treinar.bb.modelo.banco.Constante;
 import br.com.treinar.bb.modelo.banco.Conta;
 import br.com.treinar.bb.modelo.banco.ContaBloqueadaException;
 import br.com.treinar.bb.modelo.banco.SaldoInsuficienteException;
@@ -172,12 +173,32 @@ public class OperadorBB {
 			break;
 		}
 		try {
+			validarCamposObrigatorios(conta);
 			controle.gravarConta(conta);
 			System.out.println("Conta gravada...");
 		} catch (BBException e) {
 			System.out.println(e.getCodigoErroNegocio());
 		}
 
+	}
+
+	private void validarCamposObrigatorios(Conta conta) throws BBException {
+		Boolean valido = Boolean.TRUE;
+		StringBuilder campos = new StringBuilder();
+		if (conta.getCliente() == null) {
+			valido = Boolean.FALSE;
+			campos.append("Cliente, ");
+		}
+		if (conta.getCliente().getNome() == null || conta.getCliente().getNome().isEmpty()) {
+			valido = Boolean.FALSE;			
+			campos.append("Nome do Cliente, ");
+		}
+		if (!valido) {
+			BBException bbException = new BBException();
+			bbException.setCodigoErroNegocio(campos.toString() + "Obrigatorios");
+			throw bbException;
+		}
+		
 	}
 
 	private void cadastrarConta(ContaSalario conta) {
