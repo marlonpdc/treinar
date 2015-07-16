@@ -41,12 +41,8 @@ public class DatabaseCollection implements IDatabase {
 		this.contas = contas;
 	}
 
-	public Boolean inserirConta(Conta conta) {
-		Boolean adicionou = Boolean.FALSE;
+	public void inserirConta(Conta conta) {
 		contas.add(conta);
-		adicionou = Boolean.TRUE;
-
-		return adicionou;
 	}
 
 	public Conta selecionar(Long codigoConta) {

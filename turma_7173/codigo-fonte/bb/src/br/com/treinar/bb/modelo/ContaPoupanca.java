@@ -2,6 +2,7 @@ package br.com.treinar.bb.modelo;
 
 import br.com.treinar.bb.modelo.banco.Conta;
 import br.com.treinar.bb.modelo.banco.ICaptalizavel;
+import br.com.treinar.bb.modelo.banco.SaldoInsuficienteException;
 
 public class ContaPoupanca extends Conta implements ICaptalizavel {
 
@@ -28,14 +29,15 @@ public class ContaPoupanca extends Conta implements ICaptalizavel {
 	}
 
 	@Override
-	public Boolean sacar(Double valor) {
-		Boolean saqueEfetuado = Boolean.FALSE;
+	public void sacar(Double valor) throws SaldoInsuficienteException {
+		
 		Double saldo = getSaldo();
 		if (saldo >= valor) {
 			setSaldo(saldo - valor);
-			saqueEfetuado = Boolean.TRUE;
+		} else {
+			SaldoInsuficienteException excecao = new SaldoInsuficienteException();
+			throw excecao;
 		}
-		return saqueEfetuado;
 	}
 
 	@Override

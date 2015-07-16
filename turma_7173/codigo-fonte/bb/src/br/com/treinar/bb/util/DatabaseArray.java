@@ -5,6 +5,8 @@ import br.com.treinar.bb.modelo.ContaCorrente;
 import br.com.treinar.bb.modelo.ContaInvestimento;
 import br.com.treinar.bb.modelo.ContaPoupanca;
 import br.com.treinar.bb.modelo.ContaSalario;
+import br.com.treinar.bb.modelo.banco.BBException;
+import br.com.treinar.bb.modelo.banco.Constante;
 import br.com.treinar.bb.modelo.banco.Conta;
 
 public class DatabaseArray implements IDatabase {
@@ -36,13 +38,14 @@ public class DatabaseArray implements IDatabase {
 		this.contas = contas;
 	}
 	
-	public Boolean inserirConta(Conta conta) {
-		Boolean adicionou = Boolean.FALSE;
+	public void inserirConta(Conta conta) throws BBException {
 		if (indice < contas.length) {
 			contas[indice++] = conta;
-			adicionou = Boolean.TRUE;
+		} else {
+			BBException bbException = new BBException();
+			bbException.setCodigoErroNegocio(Constante.Mensagens.LIMITE_CONTA_EXCEDIDO);
+			throw bbException;
 		}
-		return adicionou;
 	}
 
 	public Conta selecionar(Long codigoConta) {

@@ -12,5 +12,4 @@ public class ExemploToString {
 		System.out.println(pessoa);
 		
 	}
-	
 }

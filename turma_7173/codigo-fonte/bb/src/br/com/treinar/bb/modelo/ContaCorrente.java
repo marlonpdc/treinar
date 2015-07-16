@@ -1,7 +1,10 @@
 package br.com.treinar.bb.modelo;
 
+import br.com.treinar.bb.modelo.banco.BBException;
 import br.com.treinar.bb.modelo.banco.Conta;
+import br.com.treinar.bb.modelo.banco.ContaBloqueadaException;
 import br.com.treinar.bb.modelo.banco.IPagavel;
+import br.com.treinar.bb.modelo.banco.SaldoInsuficienteException;
 
 public class ContaCorrente extends Conta implements IPagavel {
 
@@ -25,14 +28,17 @@ public class ContaCorrente extends Conta implements IPagavel {
 	}
 
 	@Override
-	public Boolean sacar(Double valor) {
-		boolean saqueEfetuado = Boolean.FALSE;
+	public void sacar(Double valor) 
+			throws SaldoInsuficienteException, 
+				   ContaBloqueadaException,
+				   BBException {
 		double saldo = getSaldo();
 		if (saldo >= valor + 1) {
 			setSaldo(saldo - (valor + 1));
-			saqueEfetuado = Boolean.TRUE;
+		} else {
+			SaldoInsuficienteException excecao = new SaldoInsuficienteException();
+			throw excecao;
 		}
-		return saqueEfetuado;
 	}
 	
 	@Override

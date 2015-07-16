@@ -3,6 +3,7 @@ package br.com.treinar.bb.modelo;
 import br.com.treinar.bb.modelo.banco.Conta;
 import br.com.treinar.bb.modelo.banco.ICaptalizavel;
 import br.com.treinar.bb.modelo.banco.IPagavel;
+import br.com.treinar.bb.modelo.banco.SaldoInsuficienteException;
 
 public class ContaInvestimento extends Conta implements ICaptalizavel, IPagavel {
 
@@ -27,14 +28,13 @@ public class ContaInvestimento extends Conta implements ICaptalizavel, IPagavel 
 	}
 
 	@Override
-	public Boolean sacar(Double valor) {
-		Boolean saqueEfetuado = Boolean.FALSE;
+	public void sacar(Double valor) throws SaldoInsuficienteException {
 		Double saldo = getSaldo();
 		if (saldo >= valor + 10) {
 			setSaldo(saldo - (valor + 10));
-			saqueEfetuado = Boolean.TRUE;
+		} else {
+			throw new SaldoInsuficienteException();
 		}
-		return saqueEfetuado;
 	}
 
 	@Override
@@ -53,7 +53,7 @@ public class ContaInvestimento extends Conta implements ICaptalizavel, IPagavel 
 	}
 	
 	@Override
-	public void pagar() {
+	public void pagar() throws SaldoInsuficienteException {
 		sacar(taxaManutencao);
 	}
 }

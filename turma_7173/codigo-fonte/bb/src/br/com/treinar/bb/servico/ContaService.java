@@ -1,9 +1,13 @@
 package br.com.treinar.bb.servico;
 
 import br.com.treinar.bb.modelo.SituacaoConta;
+import br.com.treinar.bb.modelo.banco.BBException;
+import br.com.treinar.bb.modelo.banco.Constante;
 import br.com.treinar.bb.modelo.banco.Conta;
+import br.com.treinar.bb.modelo.banco.ContaBloqueadaException;
 import br.com.treinar.bb.modelo.banco.ICaptalizavel;
 import br.com.treinar.bb.modelo.banco.IPagavel;
+import br.com.treinar.bb.modelo.banco.SaldoInsuficienteException;
 import br.com.treinar.bb.util.DatabaseCollection;
 import br.com.treinar.bb.util.IDatabase;
 
@@ -17,8 +21,8 @@ public class ContaService {
 		instance = DatabaseCollection.getInstance();
 	}
 	
-	public Boolean gravarConta(Conta conta) {
-		return instance.inserirConta(conta);
+	public void gravarConta(Conta conta) throws BBException {
+		instance.inserirConta(conta);
 	}
 	
 	public Conta recuperarConta(Long codigoConta) {
@@ -49,18 +53,40 @@ public class ContaService {
 		for (int i = 0; i < contas.length; i++) {
 			if (contas[i] != null) {
 				if (contas[i] instanceof IPagavel) {
-					pagar((IPagavel) contas[i]);
+					try {
+						pagar((IPagavel) contas[i]);
+					} catch (SaldoInsuficienteException e) {
+						System.out.println("comunica gestor da conta...");
+					}
 				}
 			}
 		}
 	}
 
-	private void pagar(IPagavel iPagavel) {
+	private void pagar(IPagavel iPagavel) throws SaldoInsuficienteException {
 		iPagavel.pagar();
 	}
 
 	public void atualizarConta(Conta conta, Integer opcao) {
 		conta.setSituacao(SituacaoConta.recuperarSituacaoPorOrdinal(opcao));
+	}
+
+	public void sacar(Conta conta, Double valor) throws SaldoInsuficienteException, ContaBloqueadaException, BBException {
+		switch (conta.getSituacao()) {
+			case ATIVA:			
+				conta.sacar(valor);
+				break;
+			case BLOQUEADA:
+				throw new ContaBloqueadaException();
+			case CANCELADA:
+			BBException bbException = new BBException();
+			bbException.setCodigoErroNegocio(Constante.Mensagens.ERRO_CONTA_BLOQUEADA);
+			
+			throw bbException;			
+			default:
+				break;
+		}
+		
 	}
 	
 }
