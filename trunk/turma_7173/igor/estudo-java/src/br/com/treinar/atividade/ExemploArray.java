@@ -2,7 +2,7 @@ package br.com.treinar.atividade;
 
 import java.util.Scanner;
 
-import br.com.treinar.estudo.Pessoa;
+import br.com.treinar.estudo.coisas.Pessoa;
 
 public class ExemploArray {
 

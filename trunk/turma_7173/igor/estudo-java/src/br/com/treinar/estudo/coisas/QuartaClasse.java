@@ -1,4 +1,4 @@
-package br.com.treinar.estudo;
+package br.com.treinar.estudo.coisas;
 
 public class QuartaClasse {
 	public static void main(String[] args) {
