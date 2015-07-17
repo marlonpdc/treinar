@@ -1,5 +1,7 @@
 package br.com.treinar.bb.modelo.banco;
 
+import java.io.Serializable;
+
 import br.com.treinar.bb.modelo.Cliente;
 import br.com.treinar.bb.modelo.SituacaoConta;
 
@@ -7,7 +9,9 @@ import br.com.treinar.bb.modelo.SituacaoConta;
  * @author ADM
  *
  */
-public abstract class Conta {
+public abstract class Conta implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	private Long codigoConta;
 	private static Long indexador;
