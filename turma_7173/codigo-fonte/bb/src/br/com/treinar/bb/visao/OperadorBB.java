@@ -60,6 +60,10 @@ public class OperadorBB {
 			case 9:
 				statusContas();
 				break;
+			case 0:
+				controle.finalizar();
+				leitor.close();
+				break;
 
 			default:
 				break;

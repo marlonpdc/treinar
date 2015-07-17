@@ -38,6 +38,10 @@ public class ContaControle {
 		service.sacar(conta, valor);
 	}
 	
+	public void finalizar() {
+		service.finalizarOperacoesBanco();
+	}
+	
 //	public boolean editarConta(Conta conta) {
 //		ContaService service = new ContaService();
 //		return service.gravarConta(conta);
