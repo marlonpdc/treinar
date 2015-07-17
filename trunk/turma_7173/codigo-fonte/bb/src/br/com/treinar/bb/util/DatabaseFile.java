@@ -12,6 +12,7 @@ import br.com.treinar.bb.modelo.ContaCorrente;
 import br.com.treinar.bb.modelo.ContaInvestimento;
 import br.com.treinar.bb.modelo.ContaPoupanca;
 import br.com.treinar.bb.modelo.ContaSalario;
+import br.com.treinar.bb.modelo.SituacaoConta;
 import br.com.treinar.bb.modelo.banco.Conta;
 
 public class DatabaseFile implements IDatabase {
@@ -62,19 +63,51 @@ public class DatabaseFile implements IDatabase {
 	public void gravarArquivo() {
 		OutputStream os;
 		try {
-			os = new FileOutputStream("saida.txt");
+			os = new FileOutputStream("contas.txt");
 			OutputStreamWriter osw = new OutputStreamWriter(os);
 			BufferedWriter bw = new BufferedWriter(osw);
-			
+
 			for (Conta conta : contas) {
-				bw.write(conta.getCodigoConta()+";"+conta.getCliente().getCodigo()+";"+conta.getCliente().getNome());				
+				if (conta instanceof ContaCorrente) {
+					bw.write(conta.getClass().getName() + ";" + recuperarInformacao((ContaCorrente)conta));
+				} else if (conta instanceof ContaPoupanca) {
+					bw.write(conta.getClass().getName() + ";" + recuperarInformacao((ContaPoupanca)conta));
+				} else if (conta instanceof ContaSalario) {
+					bw.write(conta.getClass().getName() + ";" + recuperarInformacao((ContaSalario)conta));
+				} else if (conta instanceof ContaInvestimento) {
+					bw.write(conta.getClass().getName() + ";" + recuperarInformacao((ContaInvestimento)conta));
+				}
 				bw.newLine();
 			}
-			
+
 			bw.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	private String recuperarInformacao(Conta c) {
+		return c.getCodigoConta() + ";" 
+				+ c.getSituacao().ordinal() + ";"
+				+ c.getCliente().getCodigo() + ";" 
+				+ c.getCliente().getNome()
+				+ ";" + c.getCliente().getCpf();
+	}
+
+	private String recuperarInformacao(ContaCorrente c) {
+		return recuperarInformacao((Conta) c) + ";" + c.getLimiteCredito();
+	}
+
+	private String recuperarInformacao(ContaPoupanca c) {
+		return recuperarInformacao((Conta) c) + ";" + ContaPoupanca.getTaxaRendimento();
+	}
+
+	private String recuperarInformacao(ContaSalario c) {
+		return recuperarInformacao((Conta) c) + ";" + c.getQtdSaque();
+	}
+
+	private String recuperarInformacao(ContaInvestimento c) {
+		return recuperarInformacao((Conta) c) + ";" + c.getRentabilidade();
 	}
 
 	private void moc() {
@@ -84,20 +117,24 @@ public class DatabaseFile implements IDatabase {
 		c1.setLimiteCredito(100d);
 		c1.setTaxaManutencao(20d);
 		c1.depositar(100d);
+		c1.setSituacao(SituacaoConta.ATIVA);
 		Conta c2 = new ContaPoupanca();
 		c2.setCliente(new Cliente("Sophia", 10));
 		c2.getCliente().setCodigo(23412L);
 		c2.depositar(100d);
+		c2.setSituacao(SituacaoConta.ATIVA);
 		ContaInvestimento c3 = new ContaInvestimento();
 		c3.setCliente(new Cliente("Davi", 10));
 		c3.getCliente().setCodigo(23412L);
 		c3.setRentabilidade(2);
 		c3.setTaxaManutencao(45d);
 		c3.depositar(100d);
+		c3.setSituacao(SituacaoConta.ATIVA);
 		Conta c4 = new ContaSalario();
 		c4.setCliente(new Cliente("Maria Clara", 10));
 		c4.getCliente().setCodigo(23412L);
 		c4.depositar(100d);
+		c4.setSituacao(SituacaoConta.ATIVA);
 		contas.add(c1);
 		contas.add(c2);
 		contas.add(c3);
