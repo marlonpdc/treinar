@@ -39,7 +39,7 @@ public class AtividadeIOSaida {
 
 
 
-		OutputStream os = new FileOutputStream("ordenado.txt");
+		OutputStream os = new FileOutputStream("ordenado.txt", true);
 		OutputStreamWriter osw = new OutputStreamWriter(os);
 		BufferedWriter bw = new BufferedWriter(osw);
 
