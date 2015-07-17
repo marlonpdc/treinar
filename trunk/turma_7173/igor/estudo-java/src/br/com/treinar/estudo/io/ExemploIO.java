@@ -9,11 +9,9 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
-import java.util.HashMap;
+//import java.util.HashMap;
 import java.util.Scanner;
-
-import com.sun.javafx.collections.MappingChange.Map;
-import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
+//import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
 
 public class ExemploIO {
 
