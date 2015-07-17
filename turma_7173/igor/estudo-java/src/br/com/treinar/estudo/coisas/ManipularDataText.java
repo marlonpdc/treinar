@@ -1,4 +1,4 @@
-package br.com.treinar.estudo;
+package br.com.treinar.estudo.coisas;
 
 import java.text.DateFormat;
 import java.text.ParseException;
