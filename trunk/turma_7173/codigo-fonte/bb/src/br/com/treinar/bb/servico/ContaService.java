@@ -9,6 +9,7 @@ import br.com.treinar.bb.modelo.banco.ICaptalizavel;
 import br.com.treinar.bb.modelo.banco.IPagavel;
 import br.com.treinar.bb.modelo.banco.SaldoInsuficienteException;
 import br.com.treinar.bb.util.DatabaseCollection;
+import br.com.treinar.bb.util.DatabaseFile;
 import br.com.treinar.bb.util.IDatabase;
 
 public class ContaService {
@@ -19,6 +20,7 @@ public class ContaService {
 	public ContaService() {
 		//instance = DatabaseArray.getInstance();
 		instance = DatabaseCollection.getInstance();
+		instance = DatabaseFile.getInstance();
 	}
 	
 	public void gravarConta(Conta conta) throws BBException {
@@ -87,6 +89,12 @@ public class ContaService {
 				break;
 		}
 		
+	}
+	
+	public void finalizarOperacoesBanco() {
+		if (instance instanceof DatabaseFile) {
+			((DatabaseFile)instance).gravarArquivo();
+		}
 	}
 	
 }
