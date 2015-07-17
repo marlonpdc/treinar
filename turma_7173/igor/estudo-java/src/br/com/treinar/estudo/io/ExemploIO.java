@@ -27,7 +27,7 @@ public class ExemploIO {
 		
 		int cont = 0;
 		
-		while (cont < 2) {
+		while (cont < 10) {
 			System.out.print("Digite seu nome: ");
 			bw.write(sc.nextLine());
 			bw.newLine();
