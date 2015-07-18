@@ -70,7 +70,7 @@ public class TelaPrincipalBB extends JFrame {
 		this.getContentPane().add(pBotoes, BorderLayout.SOUTH);
 		
 		this.setTitle("Cadastro");
-		this.setSize(400, 200);
+		this.setSize(800, 600);
 		this.setResizable(false);
 		this.setLocationRelativeTo(null);
 		this.setVisible(true);
