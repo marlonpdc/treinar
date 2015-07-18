@@ -1,22 +1,22 @@
 package br.com.treinar.jdbc.dao;
 
-import java.util.Calendar;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
 import br.com.treinar.jdbc.modelo.Contato;
 
 public class TesteContatoDAO {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ParseException {
 		Scanner sc = new Scanner(System.in);
 		Contato contato = new Contato();
 		ContatoDAO dao = new ContatoDAO();
-		Calendar c = Calendar.getInstance();
-		c.set(Calendar.DAY_OF_MONTH, 15);
-		c.set(Calendar.MONTH, 10);
-		c.set(Calendar.YEAR, 2012);
+		DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 		
-		contato.setDataNascimento(c.getTime());
+		System.out.print("Informe a data: ");
+		contato.setDataNascimento(df.parse(sc.nextLine()));
 		System.out.print("Informe o nome: ");
 		contato.setNome(sc.nextLine());
 		System.out.print("Informe o email: ");
