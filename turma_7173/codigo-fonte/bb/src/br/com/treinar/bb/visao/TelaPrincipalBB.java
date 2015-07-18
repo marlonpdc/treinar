@@ -1,6 +1,6 @@
 package br.com.treinar.bb.visao;
-import java.awt.Color;
-import java.awt.FlowLayout;
+
+import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -8,65 +8,77 @@ import java.awt.event.WindowEvent;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
-public class TelaPrincipalBB {
-   private JFrame mainFrame;
-   private JLabel headerLabel;
-   private JLabel statusLabel;
-   private JPanel controlPanel;
+public class TelaPrincipalBB extends JFrame {
 
-   public TelaPrincipalBB(){
-      prepareGUI();
-   }
+	private static final long serialVersionUID = 1914853461729328988L;
 
-   public static void main(String[] args){
-      TelaPrincipalBB swingLayoutDemo = new TelaPrincipalBB();  
-      swingLayoutDemo.showGridLayoutDemo();       
-   }
-      
-   private void prepareGUI(){
-      mainFrame = new JFrame("Java SWING Examples");
-      mainFrame.setSize(800, 600);
-      mainFrame.setLayout(new GridLayout(3, 1));
+	public JLabel lblNome, lblEndereco, lblTelefone;
+	public JTextField jtfNome, jtfEndereco, jtfTelefone;
 
-      headerLabel = new JLabel("",JLabel.CENTER );
-      statusLabel = new JLabel("",JLabel.CENTER);        
+	public JTextArea jtaCadastro;
 
-      statusLabel.setSize(350, 100);
-      mainFrame.addWindowListener(new WindowAdapter() {
-         public void windowClosing(WindowEvent windowEvent){
-            System.exit(0);
-         }        
-      });    
-      controlPanel = new JPanel();
-      controlPanel.setLayout(new FlowLayout());
+	public JButton btnBotaoOK, btnBotaoCancelar;
 
-      mainFrame.add(headerLabel);
-      mainFrame.add(controlPanel);
-      mainFrame.add(statusLabel);
-      mainFrame.setVisible(true);  
-   }
-   
-   private void showGridLayoutDemo(){
-      
-	  headerLabel.setText("Layout in action: GridLayout");      
+	public TelaPrincipalBB() {
 
-      JPanel panel = new JPanel();
-      //panel.setBackground(Color.GREEN);
-      panel.setSize(800, 600);
-      GridLayout layout = new GridLayout(0,2);
-      layout.setHgap(5);
-      layout.setVgap(5);
-      
-      panel.setLayout(layout);        
-      panel.add(new JButton("Button 1"));
-      panel.add(new JButton("Button 2")); 
-      panel.add(new JButton("Button 3")); 
-      panel.add(new JButton("Button 4")); 
-      panel.add(new JButton("Button 5")); 
-      controlPanel.add(panel);
-      mainFrame.setVisible(true);
-      
-   }
+		this.addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent windowEvent) {
+				JOptionPane.showMessageDialog(null, "OK");
+				System.exit(0);
+			}
+		});
+
+		// painel com os dados
+		lblNome = new JLabel(" Nome :");
+		jtfNome = new JTextField();
+		lblEndereco = new JLabel(" Endereço :");
+		jtfEndereco = new JTextField();
+		lblTelefone = new JLabel(" Telefone :");
+		jtfTelefone = new JTextField();
+
+		JPanel pGrid = new JPanel(new GridLayout(3, 2));
+		pGrid.add(lblNome);
+		pGrid.add(jtfNome);
+		pGrid.add(lblEndereco);
+		pGrid.add(jtfEndereco);
+		pGrid.add(lblTelefone);
+		pGrid.add(jtfTelefone);
+
+		// painel com o cadastro
+		jtaCadastro = new JTextArea();
+
+		JScrollPane pCadastro = new JScrollPane(jtaCadastro);
+
+		// painel com os comandos
+		btnBotaoOK = new JButton("OK");
+		btnBotaoCancelar = new JButton("Cancelar");
+
+		JPanel pBotoes = new JPanel(new GridLayout(0, 2));
+		pBotoes.add(btnBotaoOK);
+		pBotoes.add(btnBotaoCancelar);
+
+		// painel do JFrame
+		this.setLayout(new BorderLayout());
+		this.getContentPane().add(pGrid, BorderLayout.NORTH);
+		this.getContentPane().add(pCadastro, BorderLayout.CENTER);
+		this.getContentPane().add(pBotoes, BorderLayout.SOUTH);
+		
+		this.setTitle("Cadastro");
+		this.setSize(400, 200);
+		this.setResizable(false);
+		this.setLocationRelativeTo(null);
+		this.setVisible(true);
+	}
+
+	public static void main(String[] args) {
+		// JFrame.setDefaultLookAndFeelDecorated(true);
+		new TelaPrincipalBB();
+	}
+
 }
