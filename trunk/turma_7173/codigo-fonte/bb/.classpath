@@ -3,6 +3,7 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="java/resources"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/bbLib"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/bb-modelo"/>
+	<classpathentry kind="lib" path="lib/mysql-connector-java-5.1.5-bin.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

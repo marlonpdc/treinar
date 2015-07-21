@@ -1,5 +1,6 @@
 package br.com.treinar.bb.controle;
 
+import br.com.treinar.bb.modelo.ContaCorrente;
 import br.com.treinar.bb.modelo.banco.BBException;
 import br.com.treinar.bb.modelo.banco.Conta;
 import br.com.treinar.bb.modelo.banco.ContaBloqueadaException;
@@ -29,19 +30,19 @@ public class ContaControle {
 		service.gravarConta(conta);
 	}
 	
-	public Conta recuperarConta(Long codigoConta) {
+	public Conta recuperarConta(Long codigoConta) throws BBException {
 		return service.recuperarConta(codigoConta);
 	}
 
-	public Conta[] recuperarContas() {
+	public Conta[] recuperarContas() throws BBException {
 		return service.recuperarContas();
 	}
 
-	public void efetuarCaptalizacao() {
+	public void efetuarCaptalizacao() throws BBException {
 		service.captalizar();
 	}
 
-	public void efetuarPagamento() {
+	public void efetuarPagamento() throws BBException {
 		service.pagar();
 	}
 
@@ -55,6 +56,10 @@ public class ContaControle {
 	
 	public void finalizar() {
 		service.finalizarOperacoesBanco();
+	}
+
+	public void editar(ContaCorrente conta) throws BBException {
+		service.editarConta(conta);
 	}
 	
 //	public boolean editarConta(Conta conta) {

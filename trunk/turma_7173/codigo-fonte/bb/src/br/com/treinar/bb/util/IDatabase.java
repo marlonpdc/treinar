@@ -7,8 +7,10 @@ public interface IDatabase {
 
 	public void inserirConta(Conta conta) throws BBException;
 	
-	public Conta selecionar(Long codigoConta);
+	public Conta selecionar(Long codigoConta) throws BBException;
 	
-	public Conta[] getContas();
+	public Conta[] getContas() throws BBException;
+	
+	public void editarConta(Conta conta) throws BBException;
 	
 }
