@@ -1,5 +1,6 @@
 package br.com.treinar.bb.modelo;
 
+import br.com.treinar.bb.modelo.banco.BBException;
 import br.com.treinar.bb.modelo.banco.Conta;
 import br.com.treinar.bb.modelo.banco.ICaptalizavel;
 import br.com.treinar.bb.modelo.banco.SaldoInsuficienteException;
@@ -54,6 +55,10 @@ public class ContaPoupanca extends Conta implements ICaptalizavel {
 	
 	@Override
 	public void captalizar() {
-		depositar(getSaldo() * ContaPoupanca.getTaxaRendimento() / 100);
+		try {
+			depositar(getSaldo() * ContaPoupanca.getTaxaRendimento() / 100);
+		} catch (BBException e) {
+			System.err.println(e.getCodigoErroNegocio());
+		}
 	}
 }

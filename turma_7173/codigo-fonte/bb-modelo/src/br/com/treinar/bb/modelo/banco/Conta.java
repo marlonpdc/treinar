@@ -33,13 +33,15 @@ public abstract class Conta implements Serializable {
 				   ContaBloqueadaException,
 				   BBException;
 	
-	public Boolean depositar(Double valor) {
-		Boolean depositoEfetuado = Boolean.FALSE;
+	public void depositar(Double valor) throws BBException {
 		if (valor > 0) {
 			saldo += valor;
-			depositoEfetuado = Boolean.TRUE;
+		} else {
+			BBException bbException = new BBException();
+			bbException.setCodigoErroNegocio("valor invalido");
+			throw bbException;
 		}
-		return depositoEfetuado;
+
 	}
 	
 	public abstract Double recuperarSaldo();

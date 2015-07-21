@@ -1,5 +1,6 @@
 package br.com.treinar.bb.servico;
 
+import br.com.treinar.bb.modelo.ContaCorrente;
 import br.com.treinar.bb.modelo.SituacaoConta;
 import br.com.treinar.bb.modelo.banco.BBException;
 import br.com.treinar.bb.modelo.banco.Constante;
@@ -28,15 +29,15 @@ public class ContaService {
 		instance.inserirConta(conta);
 	}
 	
-	public Conta recuperarConta(Long codigoConta) {
+	public Conta recuperarConta(Long codigoConta) throws BBException {
 		return instance.selecionar(codigoConta);
 	}
 
-	public Conta[] recuperarContas() {
+	public Conta[] recuperarContas() throws BBException {
 		return instance.getContas();
 	}
 
-	public void captalizar() {
+	public void captalizar() throws BBException {
 		Conta[] contas = recuperarContas();
 		for (int i = 0; i < contas.length; i++) {
 			if (contas[i] != null) {
@@ -51,7 +52,7 @@ public class ContaService {
 		conta.captalizar();
 	}
 
-	public void pagar() {
+	public void pagar() throws BBException {
 		Conta[] contas = recuperarContas();
 		for (int i = 0; i < contas.length; i++) {
 			if (contas[i] != null) {
@@ -96,6 +97,10 @@ public class ContaService {
 		if (instance instanceof DatabaseFile) {
 			((DatabaseFile)instance).gravarArquivo();
 		}
+	}
+
+	public void editarConta(ContaCorrente conta) throws BBException {
+		instance.editarConta(conta);
 	}
 	
 }
