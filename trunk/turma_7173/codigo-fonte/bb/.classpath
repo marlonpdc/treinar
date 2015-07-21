@@ -4,6 +4,5 @@
 	<classpathentry kind="src" path="java/resources"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/bbLib"/>
-	<classpathentry kind="lib" path="lib/bb-modelo.jar" sourcepath="/bb-modelo"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

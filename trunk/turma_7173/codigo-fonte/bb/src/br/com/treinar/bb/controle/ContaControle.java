@@ -6,10 +6,25 @@ import br.com.treinar.bb.modelo.banco.ContaBloqueadaException;
 import br.com.treinar.bb.modelo.banco.SaldoInsuficienteException;
 import br.com.treinar.bb.servico.ContaService;
 
+/**
+ * 
+ * Esta classe atua na integracao entre as camadas de 
+ * visao e de modelo
+ * 
+ * @author ADM
+ * @since 20/07/2015
+ */
 public class ContaControle {
 
 	private ContaService service = new ContaService();
 	
+	/**
+	 * 
+	 * Metodo para gravar contas no banco
+	 * 
+	 * @param conta Conta a ser gravada
+	 * @throws BBException
+	 */
 	public void gravarConta(Conta conta) throws BBException {
 		service.gravarConta(conta);
 	}
