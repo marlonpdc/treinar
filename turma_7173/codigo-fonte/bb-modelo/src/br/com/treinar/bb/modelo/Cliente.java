@@ -2,20 +2,20 @@ package br.com.treinar.bb.modelo;
 
 public class Cliente {
 
-	private long codigo;
+	private Long codigo;
 	private String nome;
-	private long cpf;
+	private Long cpf;
 
 	public Cliente(String nome, long cpf) {
 		this.nome = nome;
 		this.cpf = cpf;
 	}
 
-	public long getCodigo() {
+	public Long getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(long codigo) {
+	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
 
@@ -27,11 +27,11 @@ public class Cliente {
 		this.nome = nome;
 	}
 
-	public long getCpf() {
+	public Long getCpf() {
 		return cpf;
 	}
 
-	public void setCpf(long cpf) {
+	public void setCpf(Long cpf) {
 		this.cpf = cpf;
 	}
 
