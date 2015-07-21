@@ -1,4 +1,0 @@
-ContaCorrente;1;08/04/2015;0;1;gleidson;555;0.0;110.0;
-ContaCorrente;2;08/04/2015;3;2;amanda;444;0.0;110.0;
-ContaCorrente;3;08/04/2015;0;3;sophia;333;0.0;110.0;
-ContaCorrente;4;08/04/2015;0;4;Marcelo;10;10.0;10.0;
