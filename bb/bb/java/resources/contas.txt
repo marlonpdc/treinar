@@ -1,0 +1,4 @@
+br.com.treinar.bb.modelo.ContaCorrente;5;0;23412;Gleidson;10;100.0
+br.com.treinar.bb.modelo.ContaPoupanca;6;0;23412;Sophia;10;0
+br.com.treinar.bb.modelo.ContaInvestimento;7;0;23412;Davi;10;2
+br.com.treinar.bb.modelo.ContaSalario;8;0;23412;Maria Clara;10;null
