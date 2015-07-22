@@ -1,6 +1,5 @@
 package br.com.treinar.bb.servico;
 
-import br.com.treinar.bb.modelo.ContaCorrente;
 import br.com.treinar.bb.modelo.SituacaoConta;
 import br.com.treinar.bb.modelo.banco.BBException;
 import br.com.treinar.bb.modelo.banco.Constante;
@@ -99,7 +98,7 @@ public class ContaService {
 		}
 	}
 
-	public void editarConta(ContaCorrente conta) throws BBException {
+	public void editarConta(Conta conta) throws BBException {
 		instance.editarConta(conta);
 	}
 	
