@@ -91,6 +91,8 @@ public class OperadorBB {
 		} catch (BBException e) {
 			System.out.println("Deposito não efetuado!!!");
 		}
+		conta = null;
+		System.gc();
 	}
 
 	private void editarConta(ContaInvestimento conta) {
