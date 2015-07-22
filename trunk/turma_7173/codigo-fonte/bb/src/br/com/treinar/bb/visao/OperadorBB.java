@@ -88,9 +88,6 @@ public class OperadorBB {
 			} else if (conta instanceof ContaInvestimento) {
 				editarConta((ContaInvestimento) conta);
 			}
-			
-			
-			
 		} catch (BBException e) {
 			System.out.println("Deposito não efetuado!!!");
 		}
