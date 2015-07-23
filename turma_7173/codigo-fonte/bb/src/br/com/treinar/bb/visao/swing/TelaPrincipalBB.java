@@ -13,13 +13,10 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
-import br.com.treinar.bb.controle.ContaControle;
-
 public class TelaPrincipalBB {
 	private JFrame mainFrame;
 	private JPanel controlPanelContaCorrente;
 	private JPanel controlPanelTaxaRendimento;
-	private ContaControle controle;
 	
 	public TelaPrincipalBB() {
 		prepareGUI();
