@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.treinar.agenda.Contato;
 import br.com.treinar.agenda.Pessoa;
 import br.com.treinar.agenda.Telefone;
+import br.com.treinar.agenda.TipoTelefone;
 import br.com.treinar.agenda.exceptions.AgendaException;
+import br.com.treinar.agenda.util.Database;
 
 public class ComandoCriaContato implements Comando {
 
@@ -26,13 +28,19 @@ public class ComandoCriaContato implements Comando {
 		contato.setDataCadastro(new Date());
 		contato.setPessoa(new Pessoa());
 		contato.getPessoa().setNome(nomePessoa);
-		Date parse = new SimpleDateFormat("dd/MM/yyyy").parse(dataNascimento);
+		Date parse = new SimpleDateFormat("yyyy-MM-dd").parse(dataNascimento);
 		contato.getPessoa().setDataNascimento(parse);
 		contato.setTelefones(new ArrayList<Telefone>());
 		Telefone t = new Telefone();
 		t.setDdd(Integer.parseInt(dddTelefone));
 		t.setNumero(Integer.parseInt(numeroTelefone));
+		String ordinalTipoTelefone = request.getParameter("tipoTelefone");
+		t.setTipoTelefone(TipoTelefone.values()[Integer.parseInt(ordinalTipoTelefone)]);
 		contato.getTelefones().add(t);
+		Database.getInstance().getContatos().add(contato);
+	
+		request.setAttribute("contato", contato);
+	
 	}
 
 }
