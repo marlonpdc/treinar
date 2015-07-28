@@ -1,4 +1,4 @@
-package br.com.treinar.agenda.servlets;
+package br.com.treinar.agenda.comando;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
