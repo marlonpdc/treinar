@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.treinar.agenda.comando.Comando;
+import br.com.treinar.agenda.comando.ComandoCriaContato;
 import br.com.treinar.agenda.exceptions.AgendaException;
 
 /**
@@ -20,9 +21,8 @@ import br.com.treinar.agenda.exceptions.AgendaException;
 public class Controlador extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Map<Integer, String> comandos;
-	
-	
-    public Controlador() {
+    
+	public Controlador() {
     }
     
     @Override
@@ -30,7 +30,6 @@ public class Controlador extends HttpServlet {
     	comandos = new HashMap<>();
     	comandos.put(1, "br.com.treinar.agenda.comando.ComandoCriaContato");
     	super.init();
-    	
     }
     
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -45,5 +44,4 @@ public class Controlador extends HttpServlet {
 			
 		}
 	}
-
 }
