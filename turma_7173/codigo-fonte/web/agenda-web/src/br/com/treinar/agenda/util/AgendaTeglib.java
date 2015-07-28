@@ -29,7 +29,8 @@ public class AgendaTeglib extends SimpleTagSupport  {
 		}
 		out.println(">");
 		for (TipoTelefone tipo : TipoTelefone.values()) {
-			out.print("<option>");
+			out.print("<option ");
+			out.print("value=\""+ tipo.ordinal() + "\">");
 			out.print(tipo.getDescricao());;
 			out.print("</option>");				
 		}

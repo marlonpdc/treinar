@@ -8,9 +8,9 @@ import br.com.treinar.agenda.exceptions.AgendaException;
 public class ComandoRemoveContato implements Comando {
 
 	@Override
-	public void executar(HttpServletRequest request,
+	public String executar(HttpServletRequest request,
 			HttpServletResponse response) throws AgendaException, Exception {
-
+		return "";
 	}
 
 }

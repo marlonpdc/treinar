@@ -7,6 +7,6 @@ import br.com.treinar.agenda.exceptions.AgendaException;
 
 public interface Comando {
 
-	void executar(HttpServletRequest request, HttpServletResponse response) throws AgendaException, Exception;
+	String executar(HttpServletRequest request, HttpServletResponse response) throws AgendaException, Exception;
 	
 }

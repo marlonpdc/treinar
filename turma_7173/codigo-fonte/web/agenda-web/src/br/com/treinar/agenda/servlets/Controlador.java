@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.treinar.agenda.comando.Comando;
 import br.com.treinar.agenda.exceptions.AgendaException;
+import br.com.treinar.agenda.util.Database;
 
 /**
  * Servlet implementation class Controlador
@@ -29,6 +30,7 @@ public class Controlador extends HttpServlet {
     public void init() throws ServletException {
     	comandos = new HashMap<>();
     	comandos.put(1, "br.com.treinar.agenda.comando.ComandoCriaContato");
+    	comandos.put(2, "br.com.treinar.agenda.comando.ComandoListaContato");
     	super.init();
     }
     
@@ -37,12 +39,13 @@ public class Controlador extends HttpServlet {
 		String classe = comandos.get(Integer.parseInt(comando));
 		try {
 			Comando c = (Comando) Class.forName(classe).newInstance();
-			c.executar(request, response);
-			
-			RequestDispatcher d = request.getRequestDispatcher("/paginas/novo-contato.jsp");
+			String pagina = c.executar(request, response);
+			RequestDispatcher d = request.getRequestDispatcher(pagina);
 			d.forward(request, response);
 		} catch (AgendaException e) {
-			e.printStackTrace();
+			request.setAttribute("erro", e.getChave());
+			RequestDispatcher d = request.getRequestDispatcher("/paginas/novo-contato.jsp");
+			d.forward(request, response);
 		} catch (Exception e) {
 			
 		}
