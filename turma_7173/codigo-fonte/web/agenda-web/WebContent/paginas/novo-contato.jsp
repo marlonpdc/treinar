@@ -1,6 +1,7 @@
-<%@page import="br.com.treinar.agenda.TipoTelefone"%>
+<%@ page import="br.com.treinar.agenda.TipoTelefone"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="ag" uri="../WEB-INF/agenda.tld"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,13 +42,17 @@
 			</div>
 			<div class="ui-field-contain">
 				<label for="select-1">Tipo Telefone:</label>
-				<select name="tipoTelefone" id="tipoTelefone">
+<!-- 				<select name="tipoTelefone" id="tipoTelefone"> -->
 					<%
-						for(TipoTelefone tipo : TipoTelefone.values()) {
-							out.println("<option value=\""+ tipo.ordinal() + "\">" + tipo.getDescricao() + "</option>");
-						}
+					
+						//TipoTelefone[] tipos = (TipoTelefone[]) getServletContext().getAttribute("tiposTelefone");
+						//for(TipoTelefone tipo : tipos) {
+						//	out.println("<option value=\""+ tipo.ordinal() + "\">" + tipo.getDescricao() + "</option>");
+						//}
 					%>
-				</select>
+<!-- 				</select> -->
+				<ag:tipoTelefone id="tipoTelefone" name="tipoTelefone" />
+
 			</div>
 			<div class="ui-field-contain">
 				<input name="voltar" id="voltar" data-clear-btn="true" size="10" value="Salvar"
