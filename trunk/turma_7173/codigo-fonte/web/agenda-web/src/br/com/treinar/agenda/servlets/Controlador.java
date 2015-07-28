@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.treinar.agenda.comando.Comando;
-import br.com.treinar.agenda.comando.ComandoCriaContato;
 import br.com.treinar.agenda.exceptions.AgendaException;
 
 /**
@@ -38,6 +38,9 @@ public class Controlador extends HttpServlet {
 		try {
 			Comando c = (Comando) Class.forName(classe).newInstance();
 			c.executar(request, response);
+			
+			RequestDispatcher d = request.getRequestDispatcher("/paginas/novo-contato.jsp");
+			d.forward(request, response);
 		} catch (AgendaException e) {
 			e.printStackTrace();
 		} catch (Exception e) {

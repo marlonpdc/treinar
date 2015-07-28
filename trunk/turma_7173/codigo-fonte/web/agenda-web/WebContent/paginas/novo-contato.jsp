@@ -1,3 +1,4 @@
+<%@page import="br.com.treinar.agenda.TipoTelefone"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -20,13 +21,13 @@
 			<input id="comando" name="comando" type="hidden" value="1">
 
 			<div class="ui-field-contain">
-				<label for="nome">Nome:</label> <input name="nome" id="nome"
-					data-clear-btn="true" value="" type="text" />
+				<label for="nome">Nome:</label>
+				<input name="nome" id="nome" data-clear-btn="true" value="${nomePessoa}" type="text" />
 			</div>
 			<div class="ui-field-contain">
-				<label for="dataNascimento">Data Nascimento:</label> <input
-					name="dataNascimento" id="dataNascimento" data-clear-btn="true"
-					value="" type="date" />
+				<label for="dataNascimento">Data Nascimento:</label>
+				<input name="dataNascimento" id="dataNascimento" data-clear-btn="true"
+					 value="${contato.pessoa.dataNascimento}"  type="date" />
 			</div>
 			<div class="ui-field-contain">
 				<label for="dddTelefone">DDD Telefone:</label> <input
@@ -41,9 +42,11 @@
 			<div class="ui-field-contain">
 				<label for="select-1">Tipo Telefone:</label>
 				<select name="tipoTelefone" id="tipoTelefone">
-					<option value="0">Residencial</option>
-					<option value="1">Celular</option>
-					<option value="2">Comercial</option>
+					<%
+						for(TipoTelefone tipo : TipoTelefone.values()) {
+							out.println("<option value=\""+ tipo.ordinal() + "\">" + tipo.getDescricao() + "</option>");
+						}
+					%>
 				</select>
 			</div>
 			<div class="ui-field-contain">
