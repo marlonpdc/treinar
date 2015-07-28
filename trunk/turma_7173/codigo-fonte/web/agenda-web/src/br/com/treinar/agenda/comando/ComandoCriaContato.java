@@ -3,6 +3,7 @@ package br.com.treinar.agenda.comando;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,9 +18,14 @@ import br.com.treinar.agenda.util.Database;
 public class ComandoCriaContato implements Comando {
 
 	@Override
-	public void executar(HttpServletRequest request,
+	public String executar(HttpServletRequest request,
 			HttpServletResponse response) throws AgendaException, Exception {
+		
+		
 		String nomePessoa = request.getParameter("nome");
+		
+		validarContatoRepetido(nomePessoa);
+
 		String dataNascimento = request.getParameter("dataNascimento");
 		String dddTelefone = request.getParameter("dddTelefone");
 		String numeroTelefone = request.getParameter("numeroTelefone");
@@ -40,7 +46,25 @@ public class ComandoCriaContato implements Comando {
 		Database.getInstance().getContatos().add(contato);
 	
 		request.setAttribute("contato", contato);
-	
+		return "/paginas/novo-contato.jsp";
+	}
+
+	private void validarContatoRepetido(String nomePessoa) throws AgendaException {
+		List<Contato> contatos = Database.getInstance().getContatos();
+		Boolean repetido = Boolean.FALSE;
+		AgendaException agendaException = null;
+		for (Contato contato : contatos) {
+			if (contato.getPessoa().getNome().equalsIgnoreCase(nomePessoa)) {
+				repetido = Boolean.TRUE;
+				agendaException = new AgendaException();
+				agendaException.setChave(nomePessoa + " Já cadastrado");
+				break;
+			}
+		}
+		if (repetido) {
+			throw agendaException;
+		}
+		
 	}
 
 }
