@@ -13,25 +13,16 @@ import br.com.treinar.agenda.TipoTelefone;
 @WebListener
 public class AgendaListener implements ServletContextListener {
 
-    /**
-     * Default constructor. 
-     */
     public AgendaListener() {
         
     }
 
-	/**
-     * @see ServletContextListener#contextDestroyed(ServletContextEvent)
-     */
     public void contextDestroyed(ServletContextEvent context)  { 
-        context.getServletContext().setAttribute("tiposTelefone", TipoTelefone.values());
+    	
     }
 
-	/**
-     * @see ServletContextListener#contextInitialized(ServletContextEvent)
-     */
-    public void contextInitialized(ServletContextEvent arg0)  { 
-         
+    public void contextInitialized(ServletContextEvent context)  { 
+    	context.getServletContext().setAttribute("tiposTelefone", TipoTelefone.values());         
     }
 	
 }
