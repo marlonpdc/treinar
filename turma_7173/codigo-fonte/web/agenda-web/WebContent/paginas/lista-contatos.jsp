@@ -47,7 +47,7 @@
 								${contato.telefones[0].numero}
 							</td>
 							<td>${contato.telefones[0].tipoTelefone.descricao}</td>
-							<td><a href="/agenda-web/remove.cmd?nomePessoa=${contato.pessoa.nome}">excluir</a></td>
+							<td><a href="/agenda-web/remove.cmd?nomePessoa=${contato.pessoa.nome}&comando=3">excluir</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
