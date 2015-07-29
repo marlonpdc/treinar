@@ -32,7 +32,8 @@
 						<th data-priority="2">Nome</th>
 						<th data-priority="3">Telefone</th>
 						<th data-priority="4">Tipo</th>
-						<th data-priority="4">Excluir</th>
+						<th data-priority="5">Excluir</th>
+						<th data-priority="6">Editar</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -48,6 +49,7 @@
 							</td>
 							<td>${contato.telefones[0].tipoTelefone.descricao}</td>
 							<td><a href="/agenda-web/remove.cmd?nomePessoa=${contato.pessoa.nome}&comando=3">excluir</a></td>
+							<td><a href="/agenda-web/edita.cmd?nomePessoa=${contato.pessoa.nome}&comando=4">editar</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>

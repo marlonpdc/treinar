@@ -12,6 +12,7 @@ public class AgendaTeglib extends SimpleTagSupport  {
 
 	private String id;
 	private String name;
+	private String tipoSelecionado;
 
 	public void doTag() throws JspException, IOException {
 		
@@ -26,11 +27,15 @@ public class AgendaTeglib extends SimpleTagSupport  {
 			out.print(" name='");
 			out.print(name);
 			out.print("'");
-		}
+		}		
 		out.println(">");
 		for (TipoTelefone tipo : TipoTelefone.values()) {
 			out.print("<option ");
-			out.print("value=\""+ tipo.ordinal() + "\">");
+			out.print("value=\"" + tipo.ordinal());
+			if (tipoSelecionado != null) {
+				out.print(" selected=\"selected\" ");
+			}
+			out.print("\">");
 			out.print(tipo.getDescricao());;
 			out.print("</option>");				
 		}
@@ -52,6 +57,14 @@ public class AgendaTeglib extends SimpleTagSupport  {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getTipoSelecionado() {
+		return tipoSelecionado;
+	}
+
+	public void setTipoSelecionado(String tipoSelecionado) {
+		this.tipoSelecionado = tipoSelecionado;
 	}
 	
 }
