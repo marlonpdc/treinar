@@ -14,5 +14,9 @@
 		<attribute>
 			<name>name</name>
 		</attribute>
+		<attribute>
+			<name>tipoSelecionado</name>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
 	</tag>
 </taglib>
