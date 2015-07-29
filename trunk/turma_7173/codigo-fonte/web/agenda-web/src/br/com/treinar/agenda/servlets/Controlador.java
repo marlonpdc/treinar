@@ -30,12 +30,14 @@ public class Controlador extends HttpServlet {
     	comandos = new HashMap<>();
     	comandos.put(1, "br.com.treinar.agenda.comando.ComandoCriaContato");
     	comandos.put(2, "br.com.treinar.agenda.comando.ComandoListaContato");
+    	comandos.put(3, "br.com.treinar.agenda.comando.ComandoRemoveContato");
     	super.init();
     }
     
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String comando = request.getParameter("comando");
 		String classe = comandos.get(Integer.parseInt(comando));
+
 		try {
 			Comando c = (Comando) Class.forName(classe).newInstance();
 			String pagina = c.executar(request, response);
