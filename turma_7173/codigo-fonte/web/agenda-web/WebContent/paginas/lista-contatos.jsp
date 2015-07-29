@@ -32,6 +32,7 @@
 						<th data-priority="2">Nome</th>
 						<th data-priority="3">Telefone</th>
 						<th data-priority="4">Tipo</th>
+						<th data-priority="4">Excluir</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -46,6 +47,7 @@
 								${contato.telefones[0].numero}
 							</td>
 							<td>${contato.telefones[0].tipoTelefone.descricao}</td>
+							<td><a href="/agenda-web/remove.cmd?nomePessoa=${contato.pessoa.nome}">excluir</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>

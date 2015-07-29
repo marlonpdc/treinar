@@ -46,7 +46,11 @@ public class ComandoCriaContato implements Comando {
 		Database.getInstance().getContatos().add(contato);
 	
 		request.setAttribute("contato", contato);
-		return "/paginas/novo-contato.jsp";
+		
+		ComandoListaContato list = new ComandoListaContato();
+		list.executar(request, response);
+		
+		return "/paginas/lista-contatos.jsp";
 	}
 
 	private void validarContatoRepetido(String nomePessoa) throws AgendaException {
@@ -58,6 +62,7 @@ public class ComandoCriaContato implements Comando {
 				repetido = Boolean.TRUE;
 				agendaException = new AgendaException();
 				agendaException.setChave(nomePessoa + " Já cadastrado");
+				agendaException.setPage("/paginas/novo-contato.jsp");
 				break;
 			}
 		}
