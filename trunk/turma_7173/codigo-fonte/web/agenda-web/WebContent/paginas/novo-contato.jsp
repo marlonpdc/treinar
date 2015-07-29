@@ -16,7 +16,7 @@
 </head>
 <body>
 
-	<form id="form-1" action="novo.cmd">
+	<form id="form-1" action="novo.cmd" method="post">
 		
 		<div style="width: 60%; margin: 0;">
 			<input id="comando" name="comando" type="hidden" value="1">

@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.treinar.agenda.comando.Comando;
 import br.com.treinar.agenda.exceptions.AgendaException;
-import br.com.treinar.agenda.util.Database;
 
 /**
  * Servlet implementation class Controlador
@@ -44,7 +43,7 @@ public class Controlador extends HttpServlet {
 			d.forward(request, response);
 		} catch (AgendaException e) {
 			request.setAttribute("erro", e.getChave());
-			RequestDispatcher d = request.getRequestDispatcher("/paginas/novo-contato.jsp");
+			RequestDispatcher d = request.getRequestDispatcher(e.getPage());
 			d.forward(request, response);
 		} catch (Exception e) {
 			
