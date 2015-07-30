@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
+	<h:messages id="mensagens"/>
+	<h:form id="form">
+		<h:panelGrid id="grid" columns="2">
+			<h:outputText id="nome" value="Nome:" />
+			<h:inputText id="inputNome" label="Nome" requiredMessage="O campo Nome é obrigatório!"
+							 value="#{contatoMB.nome}" required="true" />		
+
+			<h:outputText id="labelCheck" value="Checkbox:" rendered="false" />
+			
+			<h:selectBooleanCheckbox value="Remember Me" id="chkRememberMe" rendered="false" />
+
+		
+			<h:outputText id="dataNascimento" value="Data Nascimento:" />
+			<h:inputText id="inputDataNascimento" label="Data Nascimento"
+							 value="#{contatoMB.dataNascimento}" required="true">
+				<f:convertDateTime timeZone="America/Sao_Paulo" pattern="dd/MM/yyyy HH:mm:ss"/> 
+			</h:inputText>		
+		
+			<h:outputText value="Telefone" />
+			<h:panelGroup>
+				<h:inputText id="numeroTelefon" value="#{contatoMB.telefone}" >
+					<f:converter converterId="br.com.treinar.agenda.controle.TelfoneConverter"/>
+				</h:inputText>
+				<h:selectOneMenu label="Tipo Telefone" id="selectTipoTelefone" value="#{contatoMB.telefone.tipoTelefone}" required="true">
+					<f:selectItem itemLabel="Selecione" noSelectionOption="true"/>
+			   		<f:selectItems value="#{contatoMB.tiposTelefone}" var="tipo" itemLabel="#{tipo.descricao}" itemValue="#{tipo}" />		
+				</h:selectOneMenu>
+			</h:panelGroup>
+		</h:panelGrid>
+
+		<h:commandButton action="#{contatoMB.testarMB()}" value="Teste MB" />
+		
+	</h:form>
+	
+</html>
