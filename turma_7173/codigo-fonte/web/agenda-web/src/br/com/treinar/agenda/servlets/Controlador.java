@@ -31,7 +31,8 @@ public class Controlador extends HttpServlet {
     	comandos.put(1, "br.com.treinar.agenda.comando.ComandoCriaContato");
     	comandos.put(2, "br.com.treinar.agenda.comando.ComandoListaContato");
     	comandos.put(3, "br.com.treinar.agenda.comando.ComandoRemoveContato");
-    	comandos.put(4, "br.com.treinar.agenda.comando.ComandoEditaContato");
+    	comandos.put(4, "br.com.treinar.agenda.comando.ComandoSelecionaContato");
+    	comandos.put(5, "br.com.treinar.agenda.comando.ComandoEditaContato");
     	super.init();
     }
     

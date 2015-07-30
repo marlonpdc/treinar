@@ -42,7 +42,6 @@ public class ComandoEditaContato implements Comando {
 			String numeroTelefone = request.getParameter("numeroTelefone");
 
 			contato.setDataCadastro(new Date());
-			contato.setPessoa(new Pessoa());
 			Date parse = new SimpleDateFormat("yyyy-MM-dd").parse(dataNascimento);
 			contato.getPessoa().setDataNascimento(parse);
 			contato.setTelefones(new ArrayList<Telefone>());
