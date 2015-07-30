@@ -16,4 +16,8 @@ public enum TipoTelefone {
 		return descricao;
 	}
 	
+	public Integer getOrdinal() {
+		return ordinal();
+	}
+	
 }
