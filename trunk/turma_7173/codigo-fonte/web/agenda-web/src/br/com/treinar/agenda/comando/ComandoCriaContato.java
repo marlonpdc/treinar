@@ -48,9 +48,9 @@ public class ComandoCriaContato implements Comando {
 		request.setAttribute("contato", contato);
 		
 		ComandoListaContato list = new ComandoListaContato();
-		list.executar(request, response);
+		String retorno = list.executar(request, response);
 		
-		return "/paginas/lista-contatos.jsp";
+		return retorno;
 	}
 
 	private void validarContatoRepetido(String nomePessoa) throws AgendaException {
