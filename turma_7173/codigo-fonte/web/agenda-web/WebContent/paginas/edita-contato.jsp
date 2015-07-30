@@ -18,7 +18,7 @@
 	<form id="form-1" action="novo.cmd" method="post">
 		
 		<div style="width: 60%; margin: 0;">
-			<input id="comando" name="comando" type="hidden" value="1">
+			<input id="comando" name="comando" type="hidden" value="5">
 
 			<div class="ui-field-contain">
 				<label for="nome">Nome:</label>
