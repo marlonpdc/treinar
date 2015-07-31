@@ -25,7 +25,7 @@
 		
 			<h:outputText value="Telefone" />
 			<h:panelGroup>
-				<h:inputText id="numeroTelefon" value="#{contatoMB.telefone}" >
+				<h:inputText id="numeroTelefon" value="#{contatoMB.telefone}" required="true" >
 					<f:converter converterId="br.com.treinar.agenda.controle.TelfoneConverter"/>
 				</h:inputText>
 				<h:selectOneMenu label="Tipo Telefone" id="selectTipoTelefone" value="#{contatoMB.telefone.tipoTelefone}" required="true">
