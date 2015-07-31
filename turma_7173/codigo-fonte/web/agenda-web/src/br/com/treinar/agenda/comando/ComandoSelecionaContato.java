@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.treinar.agenda.Contato;
+import br.com.treinar.agenda.Database;
 import br.com.treinar.agenda.exceptions.AgendaException;
-import br.com.treinar.agenda.util.Database;
 
 public class ComandoSelecionaContato implements Comando {
 
