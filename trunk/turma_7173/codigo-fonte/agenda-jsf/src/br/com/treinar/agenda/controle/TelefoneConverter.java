@@ -8,7 +8,7 @@ import javax.faces.convert.FacesConverter;
 import br.com.treinar.agenda.Telefone;
 
 @FacesConverter("br.com.treinar.agenda.controle.TelfoneConverter")
-public class TelfoneConverter  implements Converter {
+public class TelefoneConverter  implements Converter {
 
 	@Override
 	public Object getAsObject(FacesContext context, UIComponent component, String value) {

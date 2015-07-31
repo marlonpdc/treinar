@@ -6,14 +6,18 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.view.ViewScoped;
 
 import br.com.treinar.agenda.Contato;
 import br.com.treinar.agenda.Telefone;
 import br.com.treinar.agenda.TipoTelefone;
 
 @ManagedBean
+@ViewScoped
 public class ContatoMB {
 
+	private Acao acao;
+	
 	private List<TipoTelefone> tiposTelefone;
 	
 	private TipoTelefone tipoTelefone;
@@ -36,6 +40,7 @@ public class ContatoMB {
 		tiposTelefone = Arrays.asList(TipoTelefone.values());		
 		dataNascimento = new Date();
 		telefone = new Telefone();
+		acao = Acao.LISTAR;
 	}
 	
 	public ContatoMB() {
@@ -46,6 +51,14 @@ public class ContatoMB {
 		return nome;
 	}
 
+	public String navegarPaginaDois() {
+		return "pagina-dois.xhtml";
+	}
+	
+	public String navegar(String pagina) {
+		return pagina;
+	}
+	
 	public void testarMB() {
 		nome = nome.toUpperCase() + " OK";
 	}
@@ -100,6 +113,14 @@ public class ContatoMB {
 
 	public void setTelefone(Telefone telefone) {
 		this.telefone = telefone;
+	}
+
+	public Acao getAcao() {
+		return acao;
+	}
+
+	public void setAcao(Acao acao) {
+		this.acao = acao;
 	}
 
 }

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
+	<h:body>
+		<h:form id="form">
+			<h:commandLink action="pagina-hum" value="GO TO page one" />
+			<br />
+			<h:commandButton action="#{contatoMB.navegarPaginaDois()}" value="PG 2" />
+			<br />
+			<h:commandButton action="#{contatoMB.navegar('pagina-dois.xhtml')}" value="PG 2" />
+		</h:form>
+	</h:body>
+	
+</html>
