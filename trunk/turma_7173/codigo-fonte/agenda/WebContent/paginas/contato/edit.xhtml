@@ -1,0 +1,46 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+	
+	<h:form id="form-edit">
+	
+		<h:panelGroup style="width: 60%; margin: 0;">
+			<h:panelGroup class="ui-field-contain">
+				<h:outputText value="Nome:" />
+				<h:inputText value="#{contatoMB.contato.pessoa.nome}" />
+			</h:panelGroup>
+			<h:panelGroup class="ui-field-contain">
+				<h:outputText value="Data Nascimento:" />
+				<h:inputText value="#{contatoMB.contato.pessoa.dataNascimento}">
+					<f:convertDateTime pattern="dd/MM/yyyy"/>
+				</h:inputText>				
+			</h:panelGroup>
+			<h:panelGroup class="ui-field-contain">
+				<h:commandLink action="#{contatoMB.adicionarTelefone()}" value="+" immediate="true" />
+				<h:outputText value="Telefones:" />
+				<h:dataTable value="#{contatoMB.contato.telefones}" var="telefone">
+					<h:column>
+						<h:inputText value="#{telefone}" converter="br.com.treinar.agenda.controle.TelefoneConverter" />
+					</h:column>
+					<h:column>
+						<h:selectOneMenu label="Tipo Telefone" id="selectTipoTelefone" value="#{telefone.tipoTelefone}" required="true">
+							<f:selectItem itemLabel="Selecione" noSelectionOption="true"/>
+					   		<f:selectItems value="#{agendaMB.tiposTelefone}" var="tipo" itemLabel="#{tipo.descricao}" itemValue="#{tipo}" />		
+						</h:selectOneMenu>
+					</h:column>
+					<h:column>
+						<h:commandLink action="#{contatoMB.excluirTelefone(telefone)}" value="X" immediate="true" />
+					</h:column>
+				</h:dataTable>
+			</h:panelGroup>
+			<h:panelGroup class="ui-field-contain">
+				<h:commandLink action="#{contatoMB.editar}" value="Editar" />			
+			</h:panelGroup>
+		</h:panelGroup>
+
+	</h:form>
+	
+</ui:composition>
+		

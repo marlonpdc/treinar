@@ -1,0 +1,34 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+	
+	<h:form id="form-list">
+	
+		<h:panelGroup layout="block" style="width: 60%; margin: 0;">
+
+			<h:dataTable value="#{contatoMB.contatos}" var="contato"
+				styleClass="contatoTable" headerClass="contatoTableHeader"
+				rowClasses="contatoTableOddRow,contatoTableEvenRow">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="#{msg['label.nome']}" />
+					</f:facet>    				
+      				<h:outputText value="#{contato.pessoa.nome}" />
+   				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="#{msg['label.editar']}" />
+					</f:facet>    				
+      				<h:commandLink action="#{contatoMB.selecionarParaEdicao(contato)}" value="#{msg['label.editar']}" />	
+   				</h:column>
+			</h:dataTable>
+
+		</h:panelGroup>
+
+	</h:form>
+	
+</ui:composition>
+
+

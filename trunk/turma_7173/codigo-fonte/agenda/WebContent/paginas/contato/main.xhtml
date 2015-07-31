@@ -1,0 +1,17 @@
+<ui:composition 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/template/layout.xhtml">
+	
+	<ui:define name="content">
+		<h:panelGroup rendered="#{contatoMB.acao == 'LISTAR'}">
+			<ui:include src="/paginas/contato/list.xhtml" />
+		</h:panelGroup>
+	
+		<h:panelGroup rendered="#{contatoMB.acao == 'EDITAR'}">
+			<ui:include src="/paginas/contato/edit.xhtml" />
+		</h:panelGroup>
+	</ui:define>
+	
+</ui:composition>
