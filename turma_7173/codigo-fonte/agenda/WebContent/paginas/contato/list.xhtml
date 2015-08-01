@@ -2,7 +2,8 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui">
 	
 	<h:form id="form-list">
 	
@@ -21,7 +22,8 @@
 					<f:facet name="header">
 						<h:outputText value="#{msg['label.editar']}" />
 					</f:facet>    				
-      				<h:commandLink action="#{contatoMB.selecionarParaEdicao(contato)}" value="#{msg['label.editar']}" />	
+      				<p:commandLink actionListener="#{contatoMB.selecionarParaEdicao(contato)}" 
+      							   value="#{msg['label.editar']}" update="contentDiv" />	
    				</h:column>
 			</h:dataTable>
 

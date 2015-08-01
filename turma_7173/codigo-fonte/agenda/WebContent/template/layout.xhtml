@@ -2,11 +2,12 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	  xmlns:h="http://java.sun.com/jsf/html"
-	  xmlns:ui="http://java.sun.com/jsf/facelets">
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:p="http://primefaces.org/ui">
 <h:head>
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
-<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+
 <style>
 	.contatoTable {   
 	   border-collapse:collapse;
@@ -32,23 +33,46 @@
 
 </h:head>
 <h:body>
-	<div id="page">
-		<div id="header">
-			<ui:insert name="header">
-				<ui:include src="/template/basicheader.xhtml" />
-			</ui:insert>
-		</div>
-		<div id="content">
-			<ui:insert name="content">
+
+<p:layout fullPage="true">
+ 
+    <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
+        <ui:insert name="header">
+			<ui:include src="/template/basicheader.xhtml" />
+		</ui:insert>
+    </p:layoutUnit>
+ 
+    <p:layoutUnit position="south" size="100" resizable="true" closable="true" collapsible="true">
+        <h:outputText value="South unit content." />
+    </p:layoutUnit>
+ 
+    <p:layoutUnit position="west" size="200" resizable="true" closable="true" collapsible="true">
+        <h:form>
+				<p:menu>
+				<p:submenu label="Agenda">
+					<p:menuitem value="Contato" action="#{menuMB.navegar('/paginas/contato/main.xhtml')}"
+						icon="ui-icon-disk" />
+					<p:menuitem value="Gleidson" action="#{menuMB.navegar('/paginas/atividade/gleidson.xhtml')}"
+						icon="ui-icon-arrowrefresh-1-w" />
+				</p:submenu>
+			</p:menu>
+			</h:form>
+    </p:layoutUnit>
+ 
+    <p:layoutUnit position="east" size="200" resizable="true" closable="true" collapsible="true" effect="drop">
+        <h:outputText value="Right unit content." />
+    </p:layoutUnit>
+ 
+    <p:layoutUnit position="center">
+		<h:panelGroup id="contentDiv" layout="block">
+	        <ui:insert name="content">
 				<ui:include src="/template/basiccontent.xhtml" />
 			</ui:insert>
-		</div>
-		<div id="footer">
-			<ui:insert name="footer">
-				<ui:include src="/template/basicfooter.xhtml" />
-			</ui:insert>
-		</div>
-	</div>
+		</h:panelGroup>
+    </p:layoutUnit>
+ 
+</p:layout>
+
 </h:body>
 </html>
 

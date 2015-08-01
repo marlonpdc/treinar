@@ -3,24 +3,27 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
       template="/template/layout.xhtml">
 
 	<ui:define name="content">
-		
-		<h:form>
-		<h3>
-			<h:outputText value="#{msg['app.mensagen.boasvindas.gleidson']}" />
-		</h3>
-		<h:panelGrid columns="2"> 
-         Language : 
-         <h:selectOneMenu value="#{menuMB.locale}" onchange="submit()"
-				valueChangeListener="#{menuMB.localeChanged}">
-				<f:selectItems value="#{agendaMB.countries}" />
-			</h:selectOneMenu>
-		</h:panelGrid>
-		
-	</h:form>
-		
+
+		<h:form id="form">
+			<h3>
+				<h:panelGroup id="panel" layout="block">
+					<h:outputText id="msg"
+						value="#{msg['app.mensagen.boasvindas.gleidson']}" />
+				</h:panelGroup>
+			</h3>
+			<h:panelGrid columns="2">
+				<p:selectOneMenu value="#{menuMB.locale}">
+					<p:ajax listener="#{menuMB.localeChanged()}" update="msg" />
+					<f:selectItems value="#{agendaMB.countries}" />
+				</p:selectOneMenu>
+			</h:panelGrid>
+
+		</h:form>
+
 	</ui:define>
 
 </ui:composition>
