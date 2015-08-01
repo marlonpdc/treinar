@@ -8,7 +8,6 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
-import javax.faces.event.ValueChangeEvent;
 
 @ManagedBean
 @SessionScoped
@@ -33,11 +32,10 @@ public class MenuMB implements Serializable {
 	}
 
 	// value change event listener
-	public void localeChanged(ValueChangeEvent e) {
-		String newLocaleValue = e.getNewValue().toString();
+	public void localeChanged() {
 		for (Map.Entry<String, Locale> entry : agendaMB.getCountries()
 				.entrySet()) {
-			if (entry.getValue().toString().equals(newLocaleValue)) {
+			if (entry.getValue().toString().equals(locale)) {
 				FacesContext.getCurrentInstance().getViewRoot()
 						.setLocale((Locale) entry.getValue());
 			}

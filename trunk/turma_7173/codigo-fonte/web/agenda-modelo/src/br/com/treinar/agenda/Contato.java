@@ -4,13 +4,14 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-public class Contato  implements Serializable {
+public class Contato implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	private Date dataCadastro;
 	private Pessoa pessoa;
 	private List<Telefone> telefones;
+	private String comentario;
 
 	public Date getDataCadastro() {
 		return dataCadastro;
@@ -34,6 +35,14 @@ public class Contato  implements Serializable {
 
 	public void setTelefones(List<Telefone> telefones) {
 		this.telefones = telefones;
+	}
+
+	public String getComentario() {
+		return comentario;
+	}
+
+	public void setComentario(String comentario) {
+		this.comentario = comentario;
 	}
 
 }
