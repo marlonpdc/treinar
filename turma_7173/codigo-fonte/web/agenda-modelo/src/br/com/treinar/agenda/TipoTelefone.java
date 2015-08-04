@@ -20,4 +20,12 @@ public enum TipoTelefone {
 		return ordinal();
 	}
 	
+	public static TipoTelefone getByOrdinal(Integer ordinal) {
+		try {
+			return values()[ordinal];			
+		} catch (ArrayIndexOutOfBoundsException e) {
+			throw new IllegalArgumentException(e);
+		}
+	}
+	
 }
