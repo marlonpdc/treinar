@@ -37,12 +37,12 @@ public class Database implements Serializable {
 		c.getPessoa().setNome("Gleidaon");
 		c.getPessoa().setDataNascimento(new Date());
 		c.setDataCadastro(new Date());
-		c.setTelefones(new ArrayList<Telefone>());
+		//c.setTelefones(new ArrayList<Telefone>());
 		Telefone telefone = new Telefone();
 		telefone.setDdd(31);
 		telefone.setNumero(87749131);
 		telefone.setTipoTelefone(TipoTelefone.CELULAR);
-		c.getTelefones().add(telefone);
+		//c.getTelefones().add(telefone);
 		contatos.add(c);
 	}
 }
